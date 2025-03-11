@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainpage));
             panel1 = new Panel();
+            nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            button1 = new Button();
             panel2 = new Panel();
+            button1 = new Button();
             panel3 = new Panel();
             button2 = new Button();
-            nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             panel4 = new Panel();
-            button3 = new Button();
+            userModule_Btn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -58,8 +58,31 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(898, 34);
+            panel1.Size = new Size(1109, 34);
             panel1.TabIndex = 0;
+            // 
+            // nightControlBox1
+            // 
+            nightControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nightControlBox1.BackColor = Color.Transparent;
+            nightControlBox1.CloseHoverColor = Color.FromArgb(199, 80, 80);
+            nightControlBox1.CloseHoverForeColor = Color.White;
+            nightControlBox1.DefaultLocation = true;
+            nightControlBox1.DisableMaximizeColor = Color.FromArgb(105, 105, 105);
+            nightControlBox1.DisableMinimizeColor = Color.FromArgb(105, 105, 105);
+            nightControlBox1.EnableCloseColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.EnableMaximizeButton = true;
+            nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.EnableMinimizeButton = true;
+            nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.Location = new Point(970, 0);
+            nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
+            nightControlBox1.MaximizeHoverForeColor = Color.White;
+            nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
+            nightControlBox1.MinimizeHoverForeColor = Color.White;
+            nightControlBox1.Name = "nightControlBox1";
+            nightControlBox1.Size = new Size(139, 31);
+            nightControlBox1.TabIndex = 3;
             // 
             // label1
             // 
@@ -97,8 +120,16 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 34);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(154, 392);
+            flowLayoutPanel1.Size = new Size(154, 616);
             flowLayoutPanel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(button1);
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(148, 44);
+            panel2.TabIndex = 3;
             // 
             // button1
             // 
@@ -113,16 +144,6 @@
             button1.TabIndex = 2;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(button1);
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(148, 44);
-            panel2.TabIndex = 3;
-            panel2.Paint += panel2_Paint;
             // 
             // panel3
             // 
@@ -145,64 +166,42 @@
             button2.TabIndex = 2;
             button2.Text = "Product list";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // nightControlBox1
-            // 
-            nightControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            nightControlBox1.BackColor = Color.Transparent;
-            nightControlBox1.CloseHoverColor = Color.FromArgb(199, 80, 80);
-            nightControlBox1.CloseHoverForeColor = Color.White;
-            nightControlBox1.DefaultLocation = true;
-            nightControlBox1.DisableMaximizeColor = Color.FromArgb(105, 105, 105);
-            nightControlBox1.DisableMinimizeColor = Color.FromArgb(105, 105, 105);
-            nightControlBox1.EnableCloseColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.EnableMaximizeButton = true;
-            nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.EnableMinimizeButton = true;
-            nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(759, 0);
-            nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
-            nightControlBox1.MaximizeHoverForeColor = Color.White;
-            nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
-            nightControlBox1.MinimizeHoverForeColor = Color.White;
-            nightControlBox1.Name = "nightControlBox1";
-            nightControlBox1.Size = new Size(139, 31);
-            nightControlBox1.TabIndex = 3;
             // 
             // panel4
             // 
-            panel4.Controls.Add(button3);
+            panel4.Controls.Add(userModule_Btn);
             panel4.Location = new Point(3, 103);
             panel4.Name = "panel4";
             panel4.Size = new Size(148, 44);
             panel4.TabIndex = 5;
             // 
-            // button3
+            // userModule_Btn
             // 
-            button3.BackColor = Color.Gray;
-            button3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(-4, -12);
-            button3.Name = "button3";
-            button3.Size = new Size(162, 65);
-            button3.TabIndex = 2;
-            button3.Text = "User";
-            button3.UseVisualStyleBackColor = false;
+            userModule_Btn.BackColor = Color.Gray;
+            userModule_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            userModule_Btn.ForeColor = Color.White;
+            userModule_Btn.Image = (Image)resources.GetObject("userModule_Btn.Image");
+            userModule_Btn.ImageAlign = ContentAlignment.MiddleLeft;
+            userModule_Btn.Location = new Point(-4, -12);
+            userModule_Btn.Name = "userModule_Btn";
+            userModule_Btn.Size = new Size(162, 65);
+            userModule_Btn.TabIndex = 2;
+            userModule_Btn.Text = "User";
+            userModule_Btn.UseVisualStyleBackColor = false;
+            userModule_Btn.Click += userModule_Btn_Click;
             // 
             // mainpage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(898, 426);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1109, 650);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "mainpage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "mainpage";
-            Load += mainpage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -226,6 +225,6 @@
         private Button button2;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private Panel panel4;
-        private Button button3;
+        private Button userModule_Btn;
     }
 }
