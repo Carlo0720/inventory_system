@@ -125,12 +125,6 @@
         wJN0MJaqpdGlaml0qVoaXQoAAAAu5/zToD3fd3an2wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="mySqlCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="mySqlCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="Dashbrd_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAOtJREFUSEu9
@@ -139,6 +133,16 @@
         rAkX9WOsCRf1Y6wJF/VjrAkX9WOsCRf1Y6wJF/VjnIOtPqqM8XnAYLZhLaDVJliobnyX0Gjjw9z0qRtf
         PivU3dGVnkw+J1hFHuOIMFdbeLcRrkm3ta9B786+QPvNl1z9/TW7d4Z/V5+dTNMbdFzZB5qrDF8AAAAA
         SUVORK5CYII=
+</value>
+  </data>
+  <data name="userModule_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAP1JREFUSEu9
+        lgsNwkAQRCsBCUhAAhJwAFJwAhJwAA7AATgABzAvocmlnTZ7n3SSlxBubpfuXXfpMnQQJ3H9w+e9aKaV
+        IPB3AtbwVOsmXIIUklVpJ1xgB6Ut1lm4oA68xYqUrQdvsR7CBXV8RLEWe6LFzijn1uEtFi8itXeBU/BU
+        v7RH4YKn4GmiudvHWjNRFpcEmvS5VC8xTNL0adBWDJP0bES1aJR34RKk4CmaTSR4Chd0DvaEEnKwc0Mu
+        yuwwZCFSpihvYZNdhNtQAzFHcsYWjBTpabnYGRXpablM9kCutesAuRAj9GdlLTDyizhQpmcP5YD0O8DL
+        HtMpuu4HFOA//EmGtSkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="Productlst_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -153,7 +157,7 @@
         J/jzLmqidSTcuItp+gERihv+GFbOQAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Orders_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Orders_btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAPBJREFUWEft
         llENwkAQRE8CEpCABCQgAQk4AAlIwQFIwAFIwAHMfFxy2ZkmhN72h3vJ++lOs9dte7kyGATO8AHfRl7f
@@ -161,16 +165,6 @@
         xXALOEDCjcfV5yi40BqSO3T1OQoxcIOEi4i1HgoxsIeEryHWeijEwAqSjPFToS3y1yNZ46dCW6zj//aQ
         8otCW6zj5z7QXu+pUAt1/Nz92ht6K9Qj2RLjtzssG3IRS4zfHkhIPetljZ8PNdl88I+U8gH/4wp2PHQ5
         TwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="userModule_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAP1JREFUSEu9
-        lgsNwkAQRCsBCUhAAhJwAFJwAhJwAA7AATgABzAvocmlnTZ7n3SSlxBubpfuXXfpMnQQJ3H9w+e9aKaV
-        IPB3AtbwVOsmXIIUklVpJ1xgB6Ut1lm4oA68xYqUrQdvsR7CBXV8RLEWe6LFzijn1uEtFi8itXeBU/BU
-        v7RH4YKn4GmiudvHWjNRFpcEmvS5VC8xTNL0adBWDJP0bES1aJR34RKk4CmaTSR4Chd0DvaEEnKwc0Mu
-        yuwwZCFSpihvYZNdhNtQAzFHcsYWjBTpabnYGRXpablM9kCutesAuRAj9GdlLTDyizhQpmcP5YD0O8DL
-        HtMpuu4HFOA//EmGtSkAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

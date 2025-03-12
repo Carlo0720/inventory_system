@@ -30,34 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainpage));
             panel1 = new Panel();
+            Order_pnl = new Panel();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            panel2 = new Panel();
             Dashbrd_Btn = new Button();
-            panel3 = new Panel();
-            Productlst_Btn = new Button();
-            panel5 = new Panel();
-            Orders_Btn = new Button();
-            panel4 = new Panel();
             userModule_Btn = new Button();
+            Productlst_Btn = new Button();
+            Orders_btn = new Button();
             contentPanel = new Panel();
-            Order_pnl = new Panel();
+            Orders_pnl = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
-            contentPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(Orders_pnl);
+            panel1.Controls.Add(Order_pnl);
             panel1.Controls.Add(nightControlBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
@@ -66,6 +59,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1109, 34);
             panel1.TabIndex = 0;
+            // 
+            // Order_pnl
+            // 
+            Order_pnl.Location = new Point(154, 34);
+            Order_pnl.Name = "Order_pnl";
+            Order_pnl.Size = new Size(955, 616);
+            Order_pnl.TabIndex = 0;
             // 
             // nightControlBox1
             // 
@@ -110,33 +110,18 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // mySqlCommand1
-            // 
-            mySqlCommand1.CacheAge = 0;
-            mySqlCommand1.Connection = null;
-            mySqlCommand1.EnableCaching = false;
-            mySqlCommand1.Transaction = null;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = Color.Gray;
-            flowLayoutPanel1.Controls.Add(panel2);
-            flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(panel5);
-            flowLayoutPanel1.Controls.Add(panel4);
+            flowLayoutPanel1.Controls.Add(Dashbrd_Btn);
+            flowLayoutPanel1.Controls.Add(userModule_Btn);
+            flowLayoutPanel1.Controls.Add(Productlst_Btn);
+            flowLayoutPanel1.Controls.Add(Orders_btn);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 34);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(154, 616);
             flowLayoutPanel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(Dashbrd_Btn);
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(148, 44);
-            panel2.TabIndex = 3;
             // 
             // Dashbrd_Btn
             // 
@@ -145,70 +130,14 @@
             Dashbrd_Btn.ForeColor = Color.White;
             Dashbrd_Btn.Image = (Image)resources.GetObject("Dashbrd_Btn.Image");
             Dashbrd_Btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Dashbrd_Btn.Location = new Point(-4, -12);
+            Dashbrd_Btn.Location = new Point(3, 3);
             Dashbrd_Btn.Name = "Dashbrd_Btn";
-            Dashbrd_Btn.Size = new Size(162, 65);
+            Dashbrd_Btn.Size = new Size(148, 45);
             Dashbrd_Btn.TabIndex = 2;
             Dashbrd_Btn.Text = "Dashboard";
             Dashbrd_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             Dashbrd_Btn.UseVisualStyleBackColor = false;
             Dashbrd_Btn.Click += Dashbrd_Btn_Click;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(Productlst_Btn);
-            panel3.Location = new Point(3, 53);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(148, 44);
-            panel3.TabIndex = 4;
-            // 
-            // Productlst_Btn
-            // 
-            Productlst_Btn.BackColor = Color.Gray;
-            Productlst_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Productlst_Btn.ForeColor = Color.White;
-            Productlst_Btn.Image = (Image)resources.GetObject("Productlst_Btn.Image");
-            Productlst_Btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Productlst_Btn.Location = new Point(-4, -12);
-            Productlst_Btn.Name = "Productlst_Btn";
-            Productlst_Btn.Size = new Size(162, 65);
-            Productlst_Btn.TabIndex = 2;
-            Productlst_Btn.Text = "Product list";
-            Productlst_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Productlst_Btn.UseVisualStyleBackColor = false;
-            Productlst_Btn.Click += Productlst_Btn_Click;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(Orders_Btn);
-            panel5.Location = new Point(3, 103);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(148, 44);
-            panel5.TabIndex = 6;
-            // 
-            // Orders_Btn
-            // 
-            Orders_Btn.BackColor = Color.Gray;
-            Orders_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Orders_Btn.ForeColor = Color.White;
-            Orders_Btn.Image = (Image)resources.GetObject("Orders_Btn.Image");
-            Orders_Btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_Btn.Location = new Point(-4, -12);
-            Orders_Btn.Name = "Orders_Btn";
-            Orders_Btn.Size = new Size(162, 65);
-            Orders_Btn.TabIndex = 2;
-            Orders_Btn.Text = "Orders";
-            Orders_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Orders_Btn.UseVisualStyleBackColor = false;
-            Orders_Btn.Click += Orders_Btn_Click;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(userModule_Btn);
-            panel4.Location = new Point(3, 153);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(148, 44);
-            panel4.TabIndex = 5;
             // 
             // userModule_Btn
             // 
@@ -217,30 +146,60 @@
             userModule_Btn.ForeColor = Color.White;
             userModule_Btn.Image = (Image)resources.GetObject("userModule_Btn.Image");
             userModule_Btn.ImageAlign = ContentAlignment.MiddleLeft;
-            userModule_Btn.Location = new Point(-4, -12);
+            userModule_Btn.Location = new Point(3, 54);
             userModule_Btn.Name = "userModule_Btn";
-            userModule_Btn.Size = new Size(162, 65);
+            userModule_Btn.Size = new Size(148, 45);
             userModule_Btn.TabIndex = 2;
             userModule_Btn.Text = "User";
             userModule_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             userModule_Btn.UseVisualStyleBackColor = false;
             userModule_Btn.Click += userModule_Btn_Click;
             // 
+            // Productlst_Btn
+            // 
+            Productlst_Btn.BackColor = Color.Gray;
+            Productlst_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Productlst_Btn.ForeColor = Color.White;
+            Productlst_Btn.Image = (Image)resources.GetObject("Productlst_Btn.Image");
+            Productlst_Btn.ImageAlign = ContentAlignment.MiddleLeft;
+            Productlst_Btn.Location = new Point(3, 105);
+            Productlst_Btn.Name = "Productlst_Btn";
+            Productlst_Btn.Size = new Size(148, 45);
+            Productlst_Btn.TabIndex = 2;
+            Productlst_Btn.Text = "Product list";
+            Productlst_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Productlst_Btn.UseVisualStyleBackColor = false;
+            Productlst_Btn.Click += Productlst_Btn_Click;
+            // 
+            // Orders_btn
+            // 
+            Orders_btn.BackColor = Color.Gray;
+            Orders_btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Orders_btn.ForeColor = Color.White;
+            Orders_btn.Image = (Image)resources.GetObject("Orders_btn.Image");
+            Orders_btn.ImageAlign = ContentAlignment.MiddleLeft;
+            Orders_btn.Location = new Point(3, 156);
+            Orders_btn.Name = "Orders_btn";
+            Orders_btn.Size = new Size(148, 45);
+            Orders_btn.TabIndex = 3;
+            Orders_btn.Text = "Orders";
+            Orders_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Orders_btn.UseVisualStyleBackColor = false;
+            Orders_btn.Click += Orders_btn_Click;
+            // 
             // contentPanel
             // 
-            contentPanel.Controls.Add(Order_pnl);
-            contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(154, 34);
             contentPanel.Name = "contentPanel";
             contentPanel.Size = new Size(955, 616);
             contentPanel.TabIndex = 2;
             // 
-            // Order_pnl
+            // Orders_pnl
             // 
-            Order_pnl.Location = new Point(3, 3);
-            Order_pnl.Name = "Order_pnl";
-            Order_pnl.Size = new Size(955, 616);
-            Order_pnl.TabIndex = 0;
+            Orders_pnl.Location = new Point(154, 32);
+            Orders_pnl.Name = "Orders_pnl";
+            Orders_pnl.Size = new Size(955, 618);
+            Orders_pnl.TabIndex = 0;
             // 
             // mainpage
             // 
@@ -255,15 +214,11 @@
             Name = "mainpage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mainpage";
+            Load += mainpage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            contentPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -272,18 +227,14 @@
         private Panel panel1;
         private Label label1;
         private PictureBox pictureBox1;
-        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button Dashbrd_Btn;
-        private Panel panel2;
-        private Panel panel3;
         private Button Productlst_Btn;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-        private Panel panel4;
         private Button userModule_Btn;
         private Panel contentPanel;
-        private Panel panel5;
-        private Button Orders_Btn;
         private Panel Order_pnl;
+        private Button Orders_btn;
+        private Panel Orders_pnl;
     }
 }

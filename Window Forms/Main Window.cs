@@ -18,9 +18,17 @@ namespace inventory_system
             InitializeComponent();
         }
 
+        private void mainpage_Load(object sender, EventArgs e)
+        {
+
+
+
+
+        }
+
         private void HighlightSideButton(Button clickedButton)
         {
-            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn };
+            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn, Orders_btn };
             Function.HighlightButton(clickedButton, sideButtons);
         }
 
@@ -38,7 +46,9 @@ namespace inventory_system
             userForm.Dock = DockStyle.Fill; // Make it fill the panel
             contentPanel.Controls.Add(userForm);
             contentPanel.Visible = true;
-            Order_pnl.Visible = false;
+
+            Orders_pnl.Visible = false;
+
 
 
         }
@@ -46,30 +56,34 @@ namespace inventory_system
         private void Dashbrd_Btn_Click(object sender, EventArgs e)
         {
             HighlightSideButton((Button)sender);
+            contentPanel.Controls.Clear();
         }
 
         private void Productlst_Btn_Click(object sender, EventArgs e)
         {
             HighlightSideButton((Button)sender);
+            contentPanel.Controls.Clear();
         }
 
-        private void Orders_Btn_Click(object sender, EventArgs e)
+        private void Orders_btn_Click(object sender, EventArgs e)
         {
-            Order_pnl.Controls.Clear();
+            HighlightSideButton((Button)sender);
+            Orders_pnl.Controls.Clear();
 
-            Orders_Form Oform = new Orders_Form();
-            Oform.Dock = DockStyle.Fill;
-            Order_pnl.Visible = true;
-            Order_pnl.Controls.Add(Oform);
+            Orders_Form ordersForm = new Orders_Form();
+            ordersForm.Dock = DockStyle.Fill;
+            Orders_pnl.Controls.Add(ordersForm);
+
+            Orders_pnl.Parent = this; // ✅ Ensure it's a child of the form
+            Orders_pnl.Visible = true;
+            Orders_pnl.BringToFront();
+
             contentPanel.Visible = false;
+
            
 
-        }
 
-        private void mainpage_Load(object sender, EventArgs e)
-        {
-            contentPanel.Visible = false;
-            Order_pnl.Visible = false;
+
 
         }
     }

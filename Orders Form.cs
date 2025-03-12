@@ -15,6 +15,7 @@ namespace inventory_system
         public Orders_Form()
         {
             InitializeComponent();
+            this.BackColor = Color.Red;
         }
     }
 }
