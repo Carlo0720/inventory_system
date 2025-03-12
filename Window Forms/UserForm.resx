@@ -135,4 +135,23 @@
   <metadata name="temp_password.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Create_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAQpJREFUSEvd
+        lmENwkAMhScBCUhAAhJwABKQgAQcgAOQgANwAg7gfQtNmuXGekvvDy95Wdbs+t31bt26RC3lk3yR1wRa
+        aCU/5bfzTk7V4uuH7EGpMBKxElbUDEbil0yyKdjsPdvIJCV5BHaVq0UpGHzv72Kws1wlg2Bf+18w4hz9
+        sEoQrqxsrIzmsMYgFrsRkIYwJhDWFITEftYGs2dDqoEQtzI2W4mPc/TDmguxZ0P6Hwi1HQ5MhyDeBQbu
+        +7tGEI6jJURNIMjK5rssrT0VguiupQSpEMTMSVLqsuxZCoRZ+0TAtjJ/MzTGFAg6ypasZE5jVVsZkx1r
+        M2Vkz+xznaaDzJeQq21+srruA/JEt+dGJVp0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="Refresh_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKZJREFUSEvt
+        ldENgzAMRDNCR2EkRugGZZN2I7oBbAAbwJ3ESaRxElx+86QnRbEdKwhMaNzlCbeLTvAFi/SHZz7QOjDn
+        AE06qCSuvaieN0l4wAWqAdfc86L6hC9UUI7Qi2ojSs/4DT2oLks1oUJrUKU1MCm95oxFKODF+lC5l6Cg
+        F46VFaqea3PUKOnOsCvWc9Qq6Yq/o8Qa9wlsMkPrQEv+lBr/EsIOcmB/nU1hLZ8AAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

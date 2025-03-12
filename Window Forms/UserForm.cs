@@ -46,7 +46,7 @@ namespace inventory_system
 
                             userDataGd.AutoGenerateColumns = false;
 
-                            
+
 
                             // Ensure columns exist and set DataPropertyName correctly
                             userDataGd.Columns["ID"].DataPropertyName = "id";
@@ -79,8 +79,23 @@ namespace inventory_system
 
         private void UserForm_Resize(object sender, EventArgs e)
         {
-            userDataGd.Width = this.ClientSize.Width - 20; 
-            userDataGd.Height = this.ClientSize.Height - 50; 
+            userDataGd.Width = this.ClientSize.Width - 20;
+            userDataGd.Height = this.ClientSize.Height - 50;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Create_Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userDataGd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
