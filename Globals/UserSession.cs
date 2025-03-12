@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace inventory_system.Globals
 {
-
-    
-
-    class Variables
+    public static class UserSession
     {
-        public const string connString = "server=localhost;user=root;database=inventory_system;port=3306;password=pass";
+        public static int UserId { get; set; }
+        public static string Username { get; set; }
     }
-    
 }

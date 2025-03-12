@@ -39,18 +39,18 @@
             Dashbrd_Btn = new Button();
             panel3 = new Panel();
             Productlst_Btn = new Button();
+            panel5 = new Panel();
+            button1 = new Button();
             panel4 = new Panel();
             userModule_Btn = new Button();
             contentPanel = new Panel();
-            panel5 = new Panel();
-            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            panel4.SuspendLayout();
             panel5.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -176,6 +176,29 @@
             Productlst_Btn.UseVisualStyleBackColor = false;
             Productlst_Btn.Click += Productlst_Btn_Click;
             // 
+            // panel5
+            // 
+            panel5.Controls.Add(button1);
+            panel5.Location = new Point(3, 103);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(148, 44);
+            panel5.TabIndex = 6;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Gray;
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(-4, -12);
+            button1.Name = "button1";
+            button1.Size = new Size(162, 65);
+            button1.TabIndex = 2;
+            button1.Text = "Orders";
+            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button1.UseVisualStyleBackColor = false;
+            // 
             // panel4
             // 
             panel4.Controls.Add(userModule_Btn);
@@ -208,29 +231,6 @@
             contentPanel.Size = new Size(955, 616);
             contentPanel.TabIndex = 2;
             // 
-            // panel5
-            // 
-            panel5.Controls.Add(button1);
-            panel5.Location = new Point(3, 103);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(148, 44);
-            panel5.TabIndex = 6;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Gray;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(-4, -12);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 65);
-            button1.TabIndex = 2;
-            button1.Text = "Orders";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
-            // 
             // mainpage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -250,8 +250,8 @@
             flowLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
         }
 

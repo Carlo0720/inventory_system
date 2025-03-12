@@ -8,6 +8,7 @@ using System.Drawing;
 
 namespace inventory_system.Globals
 {
+  
     class Function
     {
          private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
@@ -16,17 +17,35 @@ namespace inventory_system.Globals
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
             conn.Open();
             {
-                string query = "SELECT COUNT(*) FROM users WHERE user_name = @user_name AND password = @password;";
+                string query = "SELECT id, user_name FROM users WHERE user_name = @user_name AND password = @password;";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@user_name", user_name);
                     cmd.Parameters.AddWithValue("@password", password);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
+                    using (MySqlDataReader reader = cmd.ExecuteReader()) 
+                    {
+                        if (reader.Read()) 
+                        {
+                            int id = reader.GetInt32(reader.GetOrdinal("id"));
+                            string username = reader.GetString(reader.GetOrdinal("user_name")).Trim();
+
+                            UserSession.UserId = id;
+                            UserSession.Username = username;
+
+                            
+
+                            return true;
+                        }
+
+                       
+                    }
                 }
+                return false;
             }
         }
+
+        
 
 
         public static void HighlightButton(Button clickedButton, List<Button> buttons)

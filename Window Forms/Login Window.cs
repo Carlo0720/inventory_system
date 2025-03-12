@@ -39,6 +39,10 @@ namespace inventory_system
             using MySqlConnection con = new MySqlConnection(connString);
             string user_name = Usertxtbox.Text;
             string password = Passwordtxtbox.Text;
+            
+            
+
+
 
             if (Function.ValidateLogin(user_name, password))
             {
@@ -49,7 +53,7 @@ namespace inventory_system
 
             if (string.IsNullOrWhiteSpace(Usertxtbox.Text) && string.IsNullOrWhiteSpace(Passwordtxtbox.Text)) 
             {
-                MessageBox.Show("Please enter your username and password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter your username and password" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
