@@ -131,17 +131,7 @@
   <metadata name="mySqlCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAOtJREFUSEu9
-        losNwjAMRDsCIzAKI7EBbAQbwGbgi/ApHGlQc22fdFJcN+d8UM1UcQo9Qq9B3ULw6HINtSaPCF5NsIp8
-        6Rw6hpaCOfVimzt7hrKISxa7l0jIVRxK5IGdpd8Ps4lB1I8ntXUhjMud7VGo3NkehUqsCRf1Y6wJF/Vj
-        rAkX9WOsCRf1Y6wJF/VjrAkX9WOsCRf1Y6wJF/VjnIOtPqqM8XnAYLZhLaDVJliobnyX0Gjjw9z0qRtf
-        PivU3dGVnkw+J1hFHuOIMFdbeLcRrkm3ta9B786+QPvNl1z9/TW7d4Z/V5+dTNMbdFzZB5qrDF8AAAAA
-        SUVORK5CYII=
-</value>
-  </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Productlst_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAX1JREFUSEut
         lgFRAzEQRU8CEpCABByAA3AADsABOCgOwAE4AAfgABzAfzdN89m7JJfAn3nTbS/9u9nbSzt16Ehcief9
@@ -151,6 +141,16 @@
         pLIuTnEOOoWhGwGf8WzF+wM5GJAbtcjBgNyoRQ4G5EYtcjAgN2qRgwG5UYtDwCmwdmDW5EYt5ocrvWEs
         exK6UQ2OtFmczCMJ3awE595CvQndMMLpsfjxi9qa0I0djqmu+11KmA5VNwd2wXeGFRNC/GfUvYua0g+d
         J/jzLmqidSTcuItp+gERihv+GFbOQAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="Dashbrd_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAOtJREFUSEu9
+        losNwjAMRDsCIzAKI7EBbAQbwGbgi/ApHGlQc22fdFJcN+d8UM1UcQo9Qq9B3ULw6HINtSaPCF5NsIp8
+        6Rw6hpaCOfVimzt7hrKISxa7l0jIVRxK5IGdpd8Ps4lB1I8ntXUhjMud7VGo3NkehUqsCRf1Y6wJF/Vj
+        rAkX9WOsCRf1Y6wJF/VjrAkX9WOsCRf1Y6wJF/VjnIOtPqqM8XnAYLZhLaDVJliobnyX0Gjjw9z0qRtf
+        PivU3dGVnkw+J1hFHuOIMFdbeLcRrkm3ta9B786+QPvNl1z9/TW7d4Z/V5+dTNMbdFzZB5qrDF8AAAAA
+        SUVORK5CYII=
 </value>
   </data>
   <data name="userModule_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -36,9 +36,9 @@
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
-            button1 = new Button();
+            Dashbrd_Btn = new Button();
             panel3 = new Panel();
-            button2 = new Button();
+            Productlst_Btn = new Button();
             panel4 = new Panel();
             userModule_Btn = new Button();
             panel1.SuspendLayout();
@@ -125,47 +125,49 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(Dashbrd_Btn);
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(148, 44);
             panel2.TabIndex = 3;
             // 
-            // button1
+            // Dashbrd_Btn
             // 
-            button1.BackColor = Color.Gray;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(-4, -12);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 65);
-            button1.TabIndex = 2;
-            button1.Text = "Dashboard";
-            button1.UseVisualStyleBackColor = false;
+            Dashbrd_Btn.BackColor = Color.Gray;
+            Dashbrd_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Dashbrd_Btn.ForeColor = Color.White;
+            Dashbrd_Btn.Image = (Image)resources.GetObject("Dashbrd_Btn.Image");
+            Dashbrd_Btn.ImageAlign = ContentAlignment.MiddleLeft;
+            Dashbrd_Btn.Location = new Point(-4, -12);
+            Dashbrd_Btn.Name = "Dashbrd_Btn";
+            Dashbrd_Btn.Size = new Size(162, 65);
+            Dashbrd_Btn.TabIndex = 2;
+            Dashbrd_Btn.Text = "Dashboard";
+            Dashbrd_Btn.UseVisualStyleBackColor = false;
+            Dashbrd_Btn.Click += Dashbrd_Btn_Click;
             // 
             // panel3
             // 
-            panel3.Controls.Add(button2);
+            panel3.Controls.Add(Productlst_Btn);
             panel3.Location = new Point(3, 53);
             panel3.Name = "panel3";
             panel3.Size = new Size(148, 44);
             panel3.TabIndex = 4;
             // 
-            // button2
+            // Productlst_Btn
             // 
-            button2.BackColor = Color.Gray;
-            button2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(-4, -12);
-            button2.Name = "button2";
-            button2.Size = new Size(162, 65);
-            button2.TabIndex = 2;
-            button2.Text = "Product list";
-            button2.UseVisualStyleBackColor = false;
+            Productlst_Btn.BackColor = Color.Gray;
+            Productlst_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Productlst_Btn.ForeColor = Color.White;
+            Productlst_Btn.Image = (Image)resources.GetObject("Productlst_Btn.Image");
+            Productlst_Btn.ImageAlign = ContentAlignment.MiddleLeft;
+            Productlst_Btn.Location = new Point(-4, -12);
+            Productlst_Btn.Name = "Productlst_Btn";
+            Productlst_Btn.Size = new Size(162, 65);
+            Productlst_Btn.TabIndex = 2;
+            Productlst_Btn.Text = "Product list";
+            Productlst_Btn.UseVisualStyleBackColor = false;
+            Productlst_Btn.Click += Productlst_Btn_Click;
             // 
             // panel4
             // 
@@ -219,10 +221,10 @@
         private PictureBox pictureBox1;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
+        private Button Dashbrd_Btn;
         private Panel panel2;
         private Panel panel3;
-        private Button button2;
+        private Button Productlst_Btn;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private Panel panel4;
         private Button userModule_Btn;

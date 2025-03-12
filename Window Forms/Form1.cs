@@ -3,6 +3,7 @@ using inventory_system.Globals;
 
 
 
+
 namespace inventory_system
 {
     public partial class Form1 : Form
@@ -13,6 +14,9 @@ namespace inventory_system
             Passwordtxtbox.Text = "";
             Passwordtxtbox.PasswordChar = '*';
             Passwordtxtbox.MaxLength = 12;
+
+            Usertxtbox.Cursor = Cursors.IBeam;
+            Passwordtxtbox.Cursor = Cursors.IBeam;
         }
 
         private void Passwordtxtbox_KeyDown(object sender, KeyEventArgs e)
@@ -24,10 +28,12 @@ namespace inventory_system
             }
         }
 
+        private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
+
         //login
         private void Login_Click(object sender, EventArgs e)
         {
-
+            Function.HighlightButtonTemporary((Button)sender, 1500);
 
             string connString = Variables.connString;
             using MySqlConnection con = new MySqlConnection(connString);

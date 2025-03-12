@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
+using System.Drawing;
 
 namespace inventory_system.Globals
 {
     class Function
     {
+         private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
         public static bool ValidateLogin(string user_name, string password)
         {
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
@@ -25,6 +26,36 @@ namespace inventory_system.Globals
                     return count > 0;
                 }
             }
+        }
+
+
+        public static void HighlightButton(Button clickedButton, List<Button> buttons)
+        {
+            foreach (Button btn in buttons)
+            {
+                btn.BackColor = Color.LightGray; // Default color
+                btn.ForeColor = Color.Black;
+            }
+
+            clickedButton.BackColor = Color.DarkBlue; // Highlight color
+            clickedButton.ForeColor = Color.White;
+        }
+
+        public static void HighlightButtonTemporary(Button clickedButton, int duration)
+        {
+            clickedButton.BackColor = Color.Green;
+            clickedButton.ForeColor = Color.White;
+
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer(); 
+            timer.Interval = duration;
+            timer.Tick += (s, e) =>
+            {
+                clickedButton.BackColor = Color.LightGray; // Reset color
+                clickedButton.ForeColor = Color.Black;
+                timer.Stop();
+                timer.Dispose();
+            };
+            timer.Start();
         }
     }
 }
