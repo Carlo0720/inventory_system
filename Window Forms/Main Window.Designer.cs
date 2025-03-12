@@ -42,12 +42,15 @@
             panel4 = new Panel();
             userModule_Btn = new Button();
             contentPanel = new Panel();
+            panel5 = new Panel();
+            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -117,6 +120,7 @@
             flowLayoutPanel1.BackColor = Color.Gray;
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
+            flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 34);
@@ -144,6 +148,7 @@
             Dashbrd_Btn.Size = new Size(162, 65);
             Dashbrd_Btn.TabIndex = 2;
             Dashbrd_Btn.Text = "Dashboard";
+            Dashbrd_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             Dashbrd_Btn.UseVisualStyleBackColor = false;
             Dashbrd_Btn.Click += Dashbrd_Btn_Click;
             // 
@@ -167,13 +172,14 @@
             Productlst_Btn.Size = new Size(162, 65);
             Productlst_Btn.TabIndex = 2;
             Productlst_Btn.Text = "Product list";
+            Productlst_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             Productlst_Btn.UseVisualStyleBackColor = false;
             Productlst_Btn.Click += Productlst_Btn_Click;
             // 
             // panel4
             // 
             panel4.Controls.Add(userModule_Btn);
-            panel4.Location = new Point(3, 103);
+            panel4.Location = new Point(3, 153);
             panel4.Name = "panel4";
             panel4.Size = new Size(148, 44);
             panel4.TabIndex = 5;
@@ -190,6 +196,7 @@
             userModule_Btn.Size = new Size(162, 65);
             userModule_Btn.TabIndex = 2;
             userModule_Btn.Text = "User";
+            userModule_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             userModule_Btn.UseVisualStyleBackColor = false;
             userModule_Btn.Click += userModule_Btn_Click;
             // 
@@ -200,6 +207,29 @@
             contentPanel.Name = "contentPanel";
             contentPanel.Size = new Size(955, 616);
             contentPanel.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(button1);
+            panel5.Location = new Point(3, 103);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(148, 44);
+            panel5.TabIndex = 6;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Gray;
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(-4, -12);
+            button1.Name = "button1";
+            button1.Size = new Size(162, 65);
+            button1.TabIndex = 2;
+            button1.Text = "Orders";
+            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button1.UseVisualStyleBackColor = false;
             // 
             // mainpage
             // 
@@ -221,6 +251,7 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -239,5 +270,7 @@
         private Panel panel4;
         private Button userModule_Btn;
         private Panel contentPanel;
+        private Panel panel5;
+        private Button button1;
     }
 }
