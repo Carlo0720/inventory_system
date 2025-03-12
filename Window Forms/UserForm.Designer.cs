@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             userDataGd = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             User_Type = new DataGridViewTextBoxColumn();
@@ -49,17 +49,18 @@
             userDataGd.BorderStyle = BorderStyle.None;
             userDataGd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userDataGd.Columns.AddRange(new DataGridViewColumn[] { ID, User_Type, First_Name, Last_Name, Username, temp_password });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            userDataGd.DefaultCellStyle = dataGridViewCellStyle2;
-            userDataGd.Location = new Point(0, 59);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            userDataGd.DefaultCellStyle = dataGridViewCellStyle1;
+            userDataGd.Location = new Point(0, 57);
             userDataGd.Name = "userDataGd";
-            userDataGd.Size = new Size(955, 557);
+            userDataGd.RowHeadersVisible = false;
+            userDataGd.Size = new Size(955, 556);
             userDataGd.TabIndex = 0;
             // 
             // ID
@@ -108,6 +109,7 @@
             Name = "UserForm";
             Size = new Size(955, 616);
             Load += UserForm_Load_1;
+            Resize += UserForm_Resize;
             ((System.ComponentModel.ISupportInitialize)userDataGd).EndInit();
             ResumeLayout(false);
         }

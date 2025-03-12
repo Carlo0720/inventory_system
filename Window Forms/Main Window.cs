@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using inventory_system.Globals;
 
+
 namespace inventory_system
 {
     public partial class mainpage : Form
@@ -21,7 +22,7 @@ namespace inventory_system
         private void mainpage_Load(object sender, EventArgs e)
         {
 
-
+            
 
 
         }
@@ -40,10 +41,13 @@ namespace inventory_system
 
 
 
+
+
+
             // Load the UserForm into the panel
             contentPanel.Controls.Clear();
             UserForm userForm = new UserForm();
-            userForm.Dock = DockStyle.Fill; // Make it fill the panel
+            userForm.Dock = DockStyle.Fill; 
             contentPanel.Controls.Add(userForm);
             contentPanel.Visible = true;
 
@@ -74,7 +78,7 @@ namespace inventory_system
             ordersForm.Dock = DockStyle.Fill;
             Orders_pnl.Controls.Add(ordersForm);
 
-            Orders_pnl.Parent = this; // ✅ Ensure it's a child of the form
+            Orders_pnl.Parent = this; // Order Forms child
             Orders_pnl.Visible = true;
             Orders_pnl.BringToFront();
 

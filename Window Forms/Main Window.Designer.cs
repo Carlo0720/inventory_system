@@ -30,27 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainpage));
             panel1 = new Panel();
-            Order_pnl = new Panel();
+            Orders_pnl = new Panel();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            Order_pnl = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             Dashbrd_Btn = new Button();
             userModule_Btn = new Button();
             Productlst_Btn = new Button();
             Orders_btn = new Button();
             contentPanel = new Panel();
-            Orders_pnl = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
+            contentPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(Orders_pnl);
-            panel1.Controls.Add(Order_pnl);
             panel1.Controls.Add(nightControlBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
@@ -60,12 +60,13 @@
             panel1.Size = new Size(1109, 34);
             panel1.TabIndex = 0;
             // 
-            // Order_pnl
+            // Orders_pnl
             // 
-            Order_pnl.Location = new Point(154, 34);
-            Order_pnl.Name = "Order_pnl";
-            Order_pnl.Size = new Size(955, 616);
-            Order_pnl.TabIndex = 0;
+            Orders_pnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Orders_pnl.Location = new Point(154, 32);
+            Orders_pnl.Name = "Orders_pnl";
+            Orders_pnl.Size = new Size(955, 618);
+            Orders_pnl.TabIndex = 0;
             // 
             // nightControlBox1
             // 
@@ -109,6 +110,14 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            // 
+            // Order_pnl
+            // 
+            Order_pnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Order_pnl.Location = new Point(0, -2);
+            Order_pnl.Name = "Order_pnl";
+            Order_pnl.Size = new Size(955, 621);
+            Order_pnl.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -189,17 +198,12 @@
             // 
             // contentPanel
             // 
+            contentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            contentPanel.Controls.Add(Order_pnl);
             contentPanel.Location = new Point(154, 34);
             contentPanel.Name = "contentPanel";
             contentPanel.Size = new Size(955, 616);
             contentPanel.TabIndex = 2;
-            // 
-            // Orders_pnl
-            // 
-            Orders_pnl.Location = new Point(154, 32);
-            Orders_pnl.Name = "Orders_pnl";
-            Orders_pnl.Size = new Size(955, 618);
-            Orders_pnl.TabIndex = 0;
             // 
             // mainpage
             // 
@@ -219,6 +223,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
+            contentPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
