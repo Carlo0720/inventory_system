@@ -30,12 +30,15 @@ namespace inventory_system
 
             HighlightSideButton((Button)sender);
 
-            
+
 
             // Load the UserForm into the panel
+            contentPanel.Controls.Clear();
             UserForm userForm = new UserForm();
             userForm.Dock = DockStyle.Fill; // Make it fill the panel
             contentPanel.Controls.Add(userForm);
+            contentPanel.Visible = true;
+            Order_pnl.Visible = false;
 
 
         }
@@ -48,6 +51,26 @@ namespace inventory_system
         private void Productlst_Btn_Click(object sender, EventArgs e)
         {
             HighlightSideButton((Button)sender);
+        }
+
+        private void Orders_Btn_Click(object sender, EventArgs e)
+        {
+            Order_pnl.Controls.Clear();
+
+            Orders_Form Oform = new Orders_Form();
+            Oform.Dock = DockStyle.Fill;
+            Order_pnl.Visible = true;
+            Order_pnl.Controls.Add(Oform);
+            contentPanel.Visible = false;
+           
+
+        }
+
+        private void mainpage_Load(object sender, EventArgs e)
+        {
+            contentPanel.Visible = false;
+            Order_pnl.Visible = false;
+
         }
     }
 }

@@ -40,10 +40,11 @@
             panel3 = new Panel();
             Productlst_Btn = new Button();
             panel5 = new Panel();
-            button1 = new Button();
+            Orders_Btn = new Button();
             panel4 = new Panel();
             userModule_Btn = new Button();
             contentPanel = new Panel();
+            Order_pnl = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -51,6 +52,7 @@
             panel3.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
+            contentPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -178,26 +180,27 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(button1);
+            panel5.Controls.Add(Orders_Btn);
             panel5.Location = new Point(3, 103);
             panel5.Name = "panel5";
             panel5.Size = new Size(148, 44);
             panel5.TabIndex = 6;
             // 
-            // button1
+            // Orders_Btn
             // 
-            button1.BackColor = Color.Gray;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(-4, -12);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 65);
-            button1.TabIndex = 2;
-            button1.Text = "Orders";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            Orders_Btn.BackColor = Color.Gray;
+            Orders_Btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Orders_Btn.ForeColor = Color.White;
+            Orders_Btn.Image = (Image)resources.GetObject("Orders_Btn.Image");
+            Orders_Btn.ImageAlign = ContentAlignment.MiddleLeft;
+            Orders_Btn.Location = new Point(-4, -12);
+            Orders_Btn.Name = "Orders_Btn";
+            Orders_Btn.Size = new Size(162, 65);
+            Orders_Btn.TabIndex = 2;
+            Orders_Btn.Text = "Orders";
+            Orders_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Orders_Btn.UseVisualStyleBackColor = false;
+            Orders_Btn.Click += Orders_Btn_Click;
             // 
             // panel4
             // 
@@ -225,11 +228,19 @@
             // 
             // contentPanel
             // 
+            contentPanel.Controls.Add(Order_pnl);
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(154, 34);
             contentPanel.Name = "contentPanel";
             contentPanel.Size = new Size(955, 616);
             contentPanel.TabIndex = 2;
+            // 
+            // Order_pnl
+            // 
+            Order_pnl.Location = new Point(3, 3);
+            Order_pnl.Name = "Order_pnl";
+            Order_pnl.Size = new Size(955, 616);
+            Order_pnl.TabIndex = 0;
             // 
             // mainpage
             // 
@@ -252,6 +263,7 @@
             panel3.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            contentPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -271,6 +283,7 @@
         private Button userModule_Btn;
         private Panel contentPanel;
         private Panel panel5;
-        private Button button1;
+        private Button Orders_Btn;
+        private Panel Order_pnl;
     }
 }
