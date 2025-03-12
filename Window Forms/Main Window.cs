@@ -29,6 +29,15 @@ namespace inventory_system
         {
 
             HighlightSideButton((Button)sender);
+
+            
+
+            // Load the UserForm into the panel
+            UserForm userForm = new UserForm();
+            userForm.Dock = DockStyle.Fill; // Make it fill the panel
+            contentPanel.Controls.Add(userForm);
+
+
         }
 
         private void Dashbrd_Btn_Click(object sender, EventArgs e)

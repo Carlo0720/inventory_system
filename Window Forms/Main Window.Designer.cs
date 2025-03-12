@@ -41,6 +41,7 @@
             Productlst_Btn = new Button();
             panel4 = new Panel();
             userModule_Btn = new Button();
+            contentPanel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -192,12 +193,21 @@
             userModule_Btn.UseVisualStyleBackColor = false;
             userModule_Btn.Click += userModule_Btn_Click;
             // 
+            // contentPanel
+            // 
+            contentPanel.Dock = DockStyle.Fill;
+            contentPanel.Location = new Point(154, 34);
+            contentPanel.Name = "contentPanel";
+            contentPanel.Size = new Size(955, 616);
+            contentPanel.TabIndex = 2;
+            // 
             // mainpage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1109, 650);
+            Controls.Add(contentPanel);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -228,5 +238,6 @@
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private Panel panel4;
         private Button userModule_Btn;
+        private Panel contentPanel;
     }
 }
