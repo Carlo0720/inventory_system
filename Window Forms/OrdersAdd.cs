@@ -31,5 +31,18 @@ namespace inventory_system.Window_Forms
         {
 
         }
+
+        
+        {
+private void Label_add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Exit_ordrs_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+}
 }

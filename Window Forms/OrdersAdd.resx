@@ -135,4 +135,42 @@
   <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Add_btn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAN1JREFUSEvt
+        lcsNwjAQBVMCJdARdAQl0AF0Ah1AJ9ABvDmstIqef0LkEDHSHJL9OHYcZ/rzazZyJ8/ymuSa+1/DAAf5
+        lO+KxMkjf5itvEvXuCT51HVDcmsWJanrGozpj85kLvXNZTxKVxxmXDykTxGeorVkGRcP6VNkL11RNuPi
+        WfpZLtIVZDMunj1Jy03Ok0eY19LPsr6BFntHi+06eElXFGZcPKRPlUVOBuB0eEhX3Cv1XXD6tpawJHXD
+        v4rRmZE/NEjAMrLWrdkRb76TXtiqfBd8hCHX1S28VqbpAwhuEpH201K8AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="Delete_order.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAL5JREFUSEvF
+        jtENwjAQQzsCozAiGzECbAAjMAIbwB1SJDD3iJNW4knvw26cdDHYhcfwAea3PLOac1g98O4pXE27bP9K
+        n2TXvg9xDdtwrZewpDq8hV9Uh7bw/1R/NWOXajRjl2o0YxcauFl7hAZu1h6hgZu1R2jgZu0RGrhZe4QG
+        btYeoYGbtUdo4GbtERq4WXuEBm7WHqGBm7VHaOBm7REdzNrlHlbDEW9hl0NYjUfMOyzyYP5Vdckvc1M8
+        sixPXhddSPuLCFkAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Edit_order.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANhJREFUSEvd
+        k9ENwjAMRDMCI7AJjMAGMAIjsAlswAiwQRmBDWADuJNykp1GJaT+QDzpqa1VnRXLSb/GAg5Zvoei8Fc2
+        tIkNv2XDmpTh/KYhTWw43UMxu4kNf+Yn3UFxgqpfWGjFhmssNoxN7Lc8wo/UwkUttHSyyVS4uMMytPQA
+        R7SEt5yAPqAjMlw6NpBFHj8inDo4MxZrs+sJpw6F2ItEesOp4wpZ5KhWcAvPudarw97UKB0tu/2tjiXk
+        etZ+7HUE1zOySRU2mbM5kiOfRPeiR4av4V+Q0hs/2xBHFSqWxQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="Exit_ordrs.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAORJREFUSEvd
+        k9ENwjAMRDMCozACm8EIbACjMAIbMAJsQH0SJx2J7brQH3jSU1vq3qG0aX/Hwby/3OOHgOrcG0fz2Xky
+        e85mZW7gYWJ4Z27lWh9mOO5hBrPlEi0AfQnUcKAFnAvBumII68oALYEajiNmeY+mJVwCr6QSTvFnQ6KS
+        aji8mSleCaiE05T+ayE413eSGeKF46jnlRKXKBzL0r+TuZIB7mQvnA8tKRngsG4074VqSb/R1AEtiMIp
+        SxYVcCev5cDGvJre8Ce6rFkSslZJyrcleHYWlFxMLyATXyM/9Z+ntQnWWBIyaW+VsgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
 </root>
