@@ -86,8 +86,8 @@
             // 
             crownTextBoxFrstNme.BackColor = Color.Silver;
             crownTextBoxFrstNme.BorderStyle = BorderStyle.FixedSingle;
-            crownTextBoxFrstNme.ForeColor = Color.FromArgb(220, 220, 220);
-            crownTextBoxFrstNme.Location = new Point(113, 76);
+            crownTextBoxFrstNme.ForeColor = Color.Black;
+            crownTextBoxFrstNme.Location = new Point(105, 82);
             crownTextBoxFrstNme.Multiline = true;
             crownTextBoxFrstNme.Name = "crownTextBoxFrstNme";
             crownTextBoxFrstNme.Size = new Size(169, 23);
@@ -97,8 +97,8 @@
             // 
             crownTextBoxLstNme.BackColor = Color.Silver;
             crownTextBoxLstNme.BorderStyle = BorderStyle.FixedSingle;
-            crownTextBoxLstNme.ForeColor = Color.FromArgb(220, 220, 220);
-            crownTextBoxLstNme.Location = new Point(113, 122);
+            crownTextBoxLstNme.ForeColor = Color.Black;
+            crownTextBoxLstNme.Location = new Point(105, 128);
             crownTextBoxLstNme.Multiline = true;
             crownTextBoxLstNme.Name = "crownTextBoxLstNme";
             crownTextBoxLstNme.Size = new Size(169, 23);
@@ -108,7 +108,7 @@
             // 
             pictureBoxCreate.BackColor = Color.Transparent;
             pictureBoxCreate.Image = (Image)resources.GetObject("pictureBoxCreate.Image");
-            pictureBoxCreate.Location = new Point(172, 3);
+            pictureBoxCreate.Location = new Point(172, 6);
             pictureBoxCreate.Name = "pictureBoxCreate";
             pictureBoxCreate.Size = new Size(52, 52);
             pictureBoxCreate.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -119,7 +119,7 @@
             // 
             Lable_FrstNme.AutoSize = true;
             Lable_FrstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Lable_FrstNme.Location = new Point(113, 58);
+            Lable_FrstNme.Location = new Point(105, 64);
             Lable_FrstNme.Name = "Lable_FrstNme";
             Lable_FrstNme.Size = new Size(74, 17);
             Lable_FrstNme.TabIndex = 7;
@@ -129,7 +129,7 @@
             // 
             Lable_LstNme.AutoSize = true;
             Lable_LstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Lable_LstNme.Location = new Point(113, 104);
+            Lable_LstNme.Location = new Point(105, 110);
             Lable_LstNme.Name = "Lable_LstNme";
             Lable_LstNme.Size = new Size(72, 17);
             Lable_LstNme.TabIndex = 8;
@@ -139,7 +139,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(113, 158);
+            label1.Location = new Point(105, 164);
             label1.Name = "label1";
             label1.Size = new Size(67, 17);
             label1.TabIndex = 9;
@@ -149,11 +149,11 @@
             // 
             crownComboBoxUserType.DrawMode = DrawMode.OwnerDrawVariable;
             crownComboBoxUserType.FormattingEnabled = true;
-            crownComboBoxUserType.Location = new Point(113, 178);
+            crownComboBoxUserType.Location = new Point(105, 184);
             crownComboBoxUserType.Name = "crownComboBoxUserType";
             crownComboBoxUserType.Size = new Size(169, 24);
             crownComboBoxUserType.TabIndex = 10;
-            crownComboBoxUserType.SelectedIndexChanged += this.crownComboBoxUserType_SelectedIndexChanged;
+            crownComboBoxUserType.SelectedIndexChanged += crownComboBoxUserType_SelectedIndexChanged;
             // 
             // userCreationForm
             // 

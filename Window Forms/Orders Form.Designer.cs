@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders_Form));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             Order_search = new Button();
-            textBox1 = new TextBox();
             Orders_refresh = new Button();
             Orders_add = new Button();
+            panel3 = new Panel();
+            textBox1 = new TextBox();
             dataGridView_Orders = new DataGridView();
             orders_id = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
@@ -45,6 +46,7 @@
             Total = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Orders).BeginInit();
             SuspendLayout();
             // 
@@ -52,9 +54,9 @@
             // 
             panel1.BackColor = Color.Silver;
             panel1.Controls.Add(Order_search);
-            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(Orders_refresh);
             panel1.Controls.Add(Orders_add);
+            panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -66,7 +68,7 @@
             Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Order_search.Image = (Image)resources.GetObject("Order_search.Image");
             Order_search.ImageAlign = ContentAlignment.MiddleLeft;
-            Order_search.Location = new Point(575, 11);
+            Order_search.Location = new Point(573, 11);
             Order_search.Name = "Order_search";
             Order_search.Size = new Size(79, 40);
             Order_search.TabIndex = 3;
@@ -74,17 +76,6 @@
             Order_search.TextImageRelation = TextImageRelation.ImageBeforeText;
             Order_search.UseVisualStyleBackColor = true;
             Order_search.Click += Order_search_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(337, 12);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.RightToLeft = RightToLeft.Yes;
-            textBox1.Size = new Size(241, 38);
-            textBox1.TabIndex = 2;
             // 
             // Orders_refresh
             // 
@@ -112,6 +103,25 @@
             Orders_add.TextImageRelation = TextImageRelation.ImageBeforeText;
             Orders_add.UseVisualStyleBackColor = true;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(textBox1);
+            panel3.Location = new Point(326, 13);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(326, 36);
+            panel3.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI", 9F);
+            textBox1.Location = new Point(3, 10);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(241, 16);
+            textBox1.TabIndex = 2;
+            // 
             // dataGridView_Orders
             // 
             dataGridView_Orders.AllowUserToAddRows = false;
@@ -122,14 +132,14 @@
             dataGridView_Orders.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView_Orders.BorderStyle = BorderStyle.None;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Gray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlDark;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Gray;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlDark;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_Orders.ColumnHeadersHeight = 30;
             dataGridView_Orders.Columns.AddRange(new DataGridViewColumn[] { orders_id, Date, Customername, Customerdetail, Po, Dr, Total });
             dataGridView_Orders.Dock = DockStyle.Fill;
@@ -191,9 +201,9 @@
             // 
             // panel2
             // 
-            panel2.Location = new Point(337, 118);
+            panel2.Location = new Point(81, 88);
             panel2.Name = "panel2";
-            panel2.Size = new Size(317, 411);
+            panel2.Size = new Size(800, 411);
             panel2.TabIndex = 4;
             // 
             // Orders_Form
@@ -207,7 +217,8 @@
             Size = new Size(955, 616);
             Load += Orders_Form_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Orders).EndInit();
             ResumeLayout(false);
         }
@@ -228,5 +239,6 @@
         private DataGridViewTextBoxColumn Dr;
         private DataGridViewTextBoxColumn Total;
         private Panel panel2;
+        private Panel panel3;
     }
 }
