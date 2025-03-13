@@ -34,7 +34,7 @@ namespace inventory_system
         private void Login_Click(object sender, EventArgs e)
         {
             mainpage();
-            // Function.HighlightButtonTemporary((Button)sender, 1500);
+            Function.HighlightButtonTemporary((Button)sender, 1500);
 
             // string connString = Variables.connString;
             //using MySqlConnection con = new MySqlConnection(connString);

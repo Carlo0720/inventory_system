@@ -22,9 +22,6 @@ namespace inventory_system
         private void mainpage_Load(object sender, EventArgs e)
         {
 
-            
-
-
         }
 
         private void HighlightSideButton(Button clickedButton)

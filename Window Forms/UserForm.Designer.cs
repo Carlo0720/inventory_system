@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             userDataGd = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
@@ -38,6 +39,7 @@
             temp_password = new DataGridViewTextBoxColumn();
             Create_Btn = new Button();
             Refresh_Btn = new Button();
+            userCreationPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)userDataGd).BeginInit();
             SuspendLayout();
             // 
@@ -48,15 +50,24 @@
             userDataGd.AllowUserToOrderColumns = true;
             userDataGd.AllowUserToResizeColumns = false;
             userDataGd.AllowUserToResizeRows = false;
+            userDataGd.BackgroundColor = Color.FromArgb(224, 224, 224);
             userDataGd.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Gray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            userDataGd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             userDataGd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userDataGd.Columns.AddRange(new DataGridViewColumn[] { ID, User_Type, First_Name, Last_Name, Username, temp_password });
+            userDataGd.GridColor = Color.LightGray;
             userDataGd.Location = new Point(0, 57);
             userDataGd.Name = "userDataGd";
             userDataGd.RowHeadersVisible = false;
             userDataGd.Size = new Size(955, 556);
             userDataGd.TabIndex = 0;
-            userDataGd.CellContentClick += userDataGd_CellContentClick;
             // 
             // ID
             // 
@@ -122,12 +133,21 @@
             Refresh_Btn.Text = "Refresh";
             Refresh_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             Refresh_Btn.UseVisualStyleBackColor = true;
-            Refresh_Btn.Click += button1_Click;
+            Refresh_Btn.Click += Refresh_button_Click;
+            // 
+            // userCreationPanel
+            // 
+            userCreationPanel.Anchor = AnchorStyles.None;
+            userCreationPanel.Location = new Point(268, 164);
+            userCreationPanel.Name = "userCreationPanel";
+            userCreationPanel.Size = new Size(385, 265);
+            userCreationPanel.TabIndex = 3;
             // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(userCreationPanel);
             Controls.Add(Refresh_Btn);
             Controls.Add(Create_Btn);
             Controls.Add(userDataGd);
@@ -151,5 +171,6 @@
         private DataGridViewTextBoxColumn temp_password;
         private Button Create_Btn;
         private Button Refresh_Btn;
+        private Panel userCreationPanel;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using inventory_system.Globals;
 using MySql.Data.MySqlClient;
+using inventory_system.Globals;
 
 namespace inventory_system
 {
@@ -19,15 +20,25 @@ namespace inventory_system
             InitializeComponent();
             this.Resize += UserForm_Resize;
         }
-
+        private void HighlightSideButton(Button clickedButton)
+        {
+            List<Button> sideButtons = new List<Button> { Create_Btn, Refresh_Btn };
+            Function.HighlightButton(clickedButton, sideButtons);
+        }
 
         private void UserForm_Load_1(object sender, EventArgs e)
         {
-
+            userCreationPanel.Visible = false;
 
             userDataGd.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            foreach(DataGridViewColumn column in userDataGd.Columns) 
+            {
+                column.HeaderCell.Style.BackColor = Color.Gray; 
+                column.HeaderCell.Style.ForeColor = Color.White;
+            }
 
-
+            userDataGd.EnableHeadersVisualStyles = false;
+            userDataGd.Refresh();
 
             try
             {
@@ -83,19 +94,23 @@ namespace inventory_system
             userDataGd.Height = this.ClientSize.Height - 50;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Refresh_button_Click(object sender, EventArgs e)
         {
-
+            Function.HighlightButtonTemporary((Button)sender, 1500);
         }
 
         private void Create_Btn_Click(object sender, EventArgs e)
         {
+            Function.HighlightButtonTemporary((Button)sender, 1500);
 
+            userCreationForm userCF = new userCreationForm();
+            userCF.Dock = DockStyle.Fill;
+            userCreationPanel.Controls.Add(userCF);
+            userCreationPanel.Parent = this;
+            userCreationPanel.Visible = true;
+            userCreationPanel.BringToFront();
         }
 
-        private void userDataGd_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+      
     }
 }
