@@ -36,6 +36,8 @@
             pictureBoxCreate = new PictureBox();
             Lable_FrstNme = new Label();
             Lable_LstNme = new Label();
+            label1 = new Label();
+            crownComboBoxUserType = new ReaLTaiizor.Controls.CrownComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCreate).BeginInit();
             SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             Create_btnUser.Image = null;
             Create_btnUser.ImageAlign = ContentAlignment.MiddleLeft;
             Create_btnUser.InactiveColor = Color.FromArgb(32, 34, 37);
-            Create_btnUser.Location = new Point(141, 210);
+            Create_btnUser.Location = new Point(141, 230);
             Create_btnUser.Name = "Create_btnUser";
             Create_btnUser.PressedBorderColor = Color.FromArgb(165, 37, 37);
             Create_btnUser.PressedColor = Color.FromArgb(165, 37, 37);
@@ -58,6 +60,7 @@
             Create_btnUser.TabIndex = 2;
             Create_btnUser.Text = "Create";
             Create_btnUser.TextAlignment = StringAlignment.Center;
+            Create_btnUser.Click += Create_btnUser_Click;
             // 
             // Close_btn
             // 
@@ -77,13 +80,14 @@
             Close_btn.TabIndex = 3;
             Close_btn.Text = "X";
             Close_btn.TextAlignment = StringAlignment.Center;
+            Close_btn.Click += Close_btn_Click_1;
             // 
             // crownTextBoxFrstNme
             // 
             crownTextBoxFrstNme.BackColor = Color.Silver;
             crownTextBoxFrstNme.BorderStyle = BorderStyle.FixedSingle;
             crownTextBoxFrstNme.ForeColor = Color.FromArgb(220, 220, 220);
-            crownTextBoxFrstNme.Location = new Point(108, 114);
+            crownTextBoxFrstNme.Location = new Point(113, 76);
             crownTextBoxFrstNme.Multiline = true;
             crownTextBoxFrstNme.Name = "crownTextBoxFrstNme";
             crownTextBoxFrstNme.Size = new Size(169, 23);
@@ -94,7 +98,7 @@
             crownTextBoxLstNme.BackColor = Color.Silver;
             crownTextBoxLstNme.BorderStyle = BorderStyle.FixedSingle;
             crownTextBoxLstNme.ForeColor = Color.FromArgb(220, 220, 220);
-            crownTextBoxLstNme.Location = new Point(108, 160);
+            crownTextBoxLstNme.Location = new Point(113, 122);
             crownTextBoxLstNme.Multiline = true;
             crownTextBoxLstNme.Name = "crownTextBoxLstNme";
             crownTextBoxLstNme.Size = new Size(169, 23);
@@ -104,7 +108,7 @@
             // 
             pictureBoxCreate.BackColor = Color.Transparent;
             pictureBoxCreate.Image = (Image)resources.GetObject("pictureBoxCreate.Image");
-            pictureBoxCreate.Location = new Point(167, 41);
+            pictureBoxCreate.Location = new Point(172, 3);
             pictureBoxCreate.Name = "pictureBoxCreate";
             pictureBoxCreate.Size = new Size(52, 52);
             pictureBoxCreate.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -115,29 +119,49 @@
             // 
             Lable_FrstNme.AutoSize = true;
             Lable_FrstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Lable_FrstNme.Location = new Point(108, 96);
+            Lable_FrstNme.Location = new Point(113, 58);
             Lable_FrstNme.Name = "Lable_FrstNme";
             Lable_FrstNme.Size = new Size(74, 17);
             Lable_FrstNme.TabIndex = 7;
             Lable_FrstNme.Text = "First Name";
-            Lable_FrstNme.Click += label1_Click;
             // 
             // Lable_LstNme
             // 
             Lable_LstNme.AutoSize = true;
             Lable_LstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Lable_LstNme.Location = new Point(108, 142);
+            Lable_LstNme.Location = new Point(113, 104);
             Lable_LstNme.Name = "Lable_LstNme";
             Lable_LstNme.Size = new Size(72, 17);
             Lable_LstNme.TabIndex = 8;
             Lable_LstNme.Text = "Last Name";
-            Lable_LstNme.Click += label2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(113, 158);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 17);
+            label1.TabIndex = 9;
+            label1.Text = "User Type";
+            // 
+            // crownComboBoxUserType
+            // 
+            crownComboBoxUserType.DrawMode = DrawMode.OwnerDrawVariable;
+            crownComboBoxUserType.FormattingEnabled = true;
+            crownComboBoxUserType.Location = new Point(113, 178);
+            crownComboBoxUserType.Name = "crownComboBoxUserType";
+            crownComboBoxUserType.Size = new Size(169, 24);
+            crownComboBoxUserType.TabIndex = 10;
+            crownComboBoxUserType.SelectedIndexChanged += this.crownComboBoxUserType_SelectedIndexChanged;
             // 
             // userCreationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(crownComboBoxUserType);
+            Controls.Add(label1);
             Controls.Add(Lable_LstNme);
             Controls.Add(Lable_FrstNme);
             Controls.Add(pictureBoxCreate);
@@ -146,7 +170,7 @@
             Controls.Add(Close_btn);
             Controls.Add(Create_btnUser);
             Name = "userCreationForm";
-            Size = new Size(385, 265);
+            Size = new Size(385, 305);
             ((System.ComponentModel.ISupportInitialize)pictureBoxCreate).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -161,5 +185,7 @@
         private PictureBox pictureBoxCreate;
         private Label Lable_FrstNme;
         private Label Lable_LstNme;
+        private Label label1;
+        private ReaLTaiizor.Controls.CrownComboBox crownComboBoxUserType;
     }
 }

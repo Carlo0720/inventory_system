@@ -43,7 +43,7 @@ namespace inventory_system
             try
             {
                 string connectionString = Variables.connString;
-                string query = "SELECT id, user_type_id, first_name, last_name, user_name, password FROM users";
+                string query = "SELECT id, user_type_id, first_name, last_name, user_name, temp_password FROM users";
 
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -65,7 +65,7 @@ namespace inventory_system
                             userDataGd.Columns["First_Name"].DataPropertyName = "first_name";
                             userDataGd.Columns["Last_Name"].DataPropertyName = "last_name";
                             userDataGd.Columns["Username"].DataPropertyName = "user_name";
-                            userDataGd.Columns["temp_password"].DataPropertyName = "password";
+                            userDataGd.Columns["temp_password"].DataPropertyName = "temp_password";
 
                             // Bind data only if rows exist
                             if (db_users_table.Rows.Count > 0)

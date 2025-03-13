@@ -14,7 +14,7 @@ namespace inventory_system.Globals
     {
          private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
 
-        public static string CreateUser(string fname, string lname, string user_name, int user_type_id) 
+        public static string CreateUser(string fname, string lname,  int user_type_id) 
         {
             MySqlConnection conn = new MySqlConnection(Variables.connString);
             string message ="";
@@ -24,7 +24,7 @@ namespace inventory_system.Globals
             {
                 string first_name = (fname == "" || fname == "First Name") ? null : fname;
                 string last_name = (lname == "" || lname == "Last Name") ? null : lname;
-                string username = (user_name == "" || user_name == "Username") ? null : user_name;
+               
                 
 
                 if (first_name == null && last_name == null) 
@@ -36,8 +36,8 @@ namespace inventory_system.Globals
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO users (user_type_id, first_name, last_name, user_name, password, temp_password, real_password)" +
-                        "VALUES (@user_type_id, @first_name, @last_name, @user_name, @password, @temp_password, @real_password)";
+                    string query = "INSERT INTO users (user_type_id, first_name, last_name, user_name, password, temp_password)" +
+                        "VALUES (@user_type_id, @first_name, @last_name, @user_name, @password, @temp_password)";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
@@ -64,7 +64,7 @@ namespace inventory_system.Globals
 
                     Random rnd = new Random();
 
-                    for (int i = 0; i <= 10; i++)
+                    for (int i = 1; i <= 10; i++)
                     {
                         if (i == 1)
                         {
