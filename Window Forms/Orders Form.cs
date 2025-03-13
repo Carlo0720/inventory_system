@@ -18,11 +18,16 @@ namespace inventory_system
             this.BackColor = Color.Red;
         }
 
-     
+
 
         private void Orders_Form_Load(object sender, EventArgs e)
         {
             dataGridView_Orders.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+        }
+
+        private void Order_search_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,106 +28,138 @@
         /// </summary>
         private void InitializeComponent()
         {
-            user_creation_create_Btn = new ReaLTaiizor.Controls.CyberButton();
-            close_btn = new ReaLTaiizor.Controls.CyberButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userCreationForm));
+            Create_btnUser = new ReaLTaiizor.Controls.Button();
+            Close_btn = new ReaLTaiizor.Controls.Button();
+            crownTextBoxFrstNme = new ReaLTaiizor.Controls.CrownTextBox();
+            crownTextBoxLstNme = new ReaLTaiizor.Controls.CrownTextBox();
+            pictureBoxCreate = new PictureBox();
+            Lable_FrstNme = new Label();
+            Lable_LstNme = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCreate).BeginInit();
             SuspendLayout();
             // 
-            // user_creation_create_Btn
+            // Create_btnUser
             // 
-            user_creation_create_Btn.Alpha = 20;
-            user_creation_create_Btn.BackColor = Color.Transparent;
-            user_creation_create_Btn.Background = true;
-            user_creation_create_Btn.Background_WidthPen = 4F;
-            user_creation_create_Btn.BackgroundPen = true;
-            user_creation_create_Btn.ColorBackground = Color.FromArgb(37, 52, 68);
-            user_creation_create_Btn.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            user_creation_create_Btn.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            user_creation_create_Btn.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            user_creation_create_Btn.ColorLighting = Color.FromArgb(29, 200, 238);
-            user_creation_create_Btn.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            user_creation_create_Btn.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            user_creation_create_Btn.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            user_creation_create_Btn.Effect_1 = true;
-            user_creation_create_Btn.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            user_creation_create_Btn.Effect_1_Transparency = 25;
-            user_creation_create_Btn.Effect_2 = true;
-            user_creation_create_Btn.Effect_2_ColorBackground = Color.White;
-            user_creation_create_Btn.Effect_2_Transparency = 20;
-            user_creation_create_Btn.Font = new Font("Arial", 11F);
-            user_creation_create_Btn.ForeColor = Color.FromArgb(245, 245, 245);
-            user_creation_create_Btn.Lighting = false;
-            user_creation_create_Btn.LinearGradient_Background = false;
-            user_creation_create_Btn.LinearGradientPen = false;
-            user_creation_create_Btn.Location = new Point(137, 214);
-            user_creation_create_Btn.Name = "user_creation_create_Btn";
-            user_creation_create_Btn.PenWidth = 15;
-            user_creation_create_Btn.Rounding = true;
-            user_creation_create_Btn.RoundingInt = 70;
-            user_creation_create_Btn.Size = new Size(108, 36);
-            user_creation_create_Btn.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            user_creation_create_Btn.TabIndex = 0;
-            user_creation_create_Btn.Tag = "Cyber";
-            user_creation_create_Btn.TextButton = "Create";
-            user_creation_create_Btn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            user_creation_create_Btn.Timer_Effect_1 = 5;
-            user_creation_create_Btn.Timer_RGB = 300;
-            user_creation_create_Btn.Click += user_creation_create_Btn_Click;
+            Create_btnUser.Anchor = AnchorStyles.None;
+            Create_btnUser.BackColor = Color.Transparent;
+            Create_btnUser.BorderColor = Color.FromArgb(32, 34, 37);
+            Create_btnUser.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            Create_btnUser.EnteredColor = Color.FromArgb(32, 34, 37);
+            Create_btnUser.Font = new Font("Microsoft Sans Serif", 12F);
+            Create_btnUser.Image = null;
+            Create_btnUser.ImageAlign = ContentAlignment.MiddleLeft;
+            Create_btnUser.InactiveColor = Color.FromArgb(32, 34, 37);
+            Create_btnUser.Location = new Point(141, 210);
+            Create_btnUser.Name = "Create_btnUser";
+            Create_btnUser.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            Create_btnUser.PressedColor = Color.FromArgb(165, 37, 37);
+            Create_btnUser.Size = new Size(101, 52);
+            Create_btnUser.TabIndex = 2;
+            Create_btnUser.Text = "Create";
+            Create_btnUser.TextAlignment = StringAlignment.Center;
             // 
-            // close_btn
+            // Close_btn
             // 
-            close_btn.Alpha = 20;
-            close_btn.BackColor = Color.Transparent;
-            close_btn.Background = true;
-            close_btn.Background_WidthPen = 4F;
-            close_btn.BackgroundPen = true;
-            close_btn.ColorBackground = Color.FromArgb(37, 52, 68);
-            close_btn.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            close_btn.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            close_btn.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            close_btn.ColorLighting = Color.FromArgb(29, 200, 238);
-            close_btn.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            close_btn.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            close_btn.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            close_btn.Effect_1 = true;
-            close_btn.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            close_btn.Effect_1_Transparency = 25;
-            close_btn.Effect_2 = true;
-            close_btn.Effect_2_ColorBackground = Color.White;
-            close_btn.Effect_2_Transparency = 20;
-            close_btn.Font = new Font("Arial", 11F);
-            close_btn.ForeColor = Color.FromArgb(245, 245, 245);
-            close_btn.Lighting = false;
-            close_btn.LinearGradient_Background = false;
-            close_btn.LinearGradientPen = false;
-            close_btn.Location = new Point(350, 3);
-            close_btn.Name = "close_btn";
-            close_btn.PenWidth = 15;
-            close_btn.Rounding = true;
-            close_btn.RoundingInt = 70;
-            close_btn.Size = new Size(32, 24);
-            close_btn.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            close_btn.TabIndex = 1;
-            close_btn.Tag = "Cyber";
-            close_btn.TextButton = "X";
-            close_btn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            close_btn.Timer_Effect_1 = 5;
-            close_btn.Timer_RGB = 300;
-            close_btn.Click += close_btn_Click;
+            Close_btn.BackColor = Color.Transparent;
+            Close_btn.BorderColor = Color.FromArgb(32, 34, 37);
+            Close_btn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            Close_btn.EnteredColor = Color.FromArgb(32, 34, 37);
+            Close_btn.Font = new Font("Microsoft Sans Serif", 12F);
+            Close_btn.Image = null;
+            Close_btn.ImageAlign = ContentAlignment.MiddleLeft;
+            Close_btn.InactiveColor = Color.FromArgb(32, 34, 37);
+            Close_btn.Location = new Point(361, 3);
+            Close_btn.Name = "Close_btn";
+            Close_btn.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            Close_btn.PressedColor = Color.FromArgb(165, 37, 37);
+            Close_btn.Size = new Size(21, 22);
+            Close_btn.TabIndex = 3;
+            Close_btn.Text = "X";
+            Close_btn.TextAlignment = StringAlignment.Center;
+            // 
+            // crownTextBoxFrstNme
+            // 
+            crownTextBoxFrstNme.BackColor = Color.Silver;
+            crownTextBoxFrstNme.BorderStyle = BorderStyle.FixedSingle;
+            crownTextBoxFrstNme.ForeColor = Color.FromArgb(220, 220, 220);
+            crownTextBoxFrstNme.Location = new Point(108, 114);
+            crownTextBoxFrstNme.Multiline = true;
+            crownTextBoxFrstNme.Name = "crownTextBoxFrstNme";
+            crownTextBoxFrstNme.Size = new Size(169, 23);
+            crownTextBoxFrstNme.TabIndex = 4;
+            // 
+            // crownTextBoxLstNme
+            // 
+            crownTextBoxLstNme.BackColor = Color.Silver;
+            crownTextBoxLstNme.BorderStyle = BorderStyle.FixedSingle;
+            crownTextBoxLstNme.ForeColor = Color.FromArgb(220, 220, 220);
+            crownTextBoxLstNme.Location = new Point(108, 160);
+            crownTextBoxLstNme.Multiline = true;
+            crownTextBoxLstNme.Name = "crownTextBoxLstNme";
+            crownTextBoxLstNme.Size = new Size(169, 23);
+            crownTextBoxLstNme.TabIndex = 5;
+            // 
+            // pictureBoxCreate
+            // 
+            pictureBoxCreate.BackColor = Color.Transparent;
+            pictureBoxCreate.Image = (Image)resources.GetObject("pictureBoxCreate.Image");
+            pictureBoxCreate.Location = new Point(167, 41);
+            pictureBoxCreate.Name = "pictureBoxCreate";
+            pictureBoxCreate.Size = new Size(52, 52);
+            pictureBoxCreate.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxCreate.TabIndex = 6;
+            pictureBoxCreate.TabStop = false;
+            // 
+            // Lable_FrstNme
+            // 
+            Lable_FrstNme.AutoSize = true;
+            Lable_FrstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lable_FrstNme.Location = new Point(108, 96);
+            Lable_FrstNme.Name = "Lable_FrstNme";
+            Lable_FrstNme.Size = new Size(74, 17);
+            Lable_FrstNme.TabIndex = 7;
+            Lable_FrstNme.Text = "First Name";
+            Lable_FrstNme.Click += label1_Click;
+            // 
+            // Lable_LstNme
+            // 
+            Lable_LstNme.AutoSize = true;
+            Lable_LstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lable_LstNme.Location = new Point(108, 142);
+            Lable_LstNme.Name = "Lable_LstNme";
+            Lable_LstNme.Size = new Size(72, 17);
+            Lable_LstNme.TabIndex = 8;
+            Lable_LstNme.Text = "Last Name";
+            Lable_LstNme.Click += label2_Click;
             // 
             // userCreationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(close_btn);
-            Controls.Add(user_creation_create_Btn);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(Lable_LstNme);
+            Controls.Add(Lable_FrstNme);
+            Controls.Add(pictureBoxCreate);
+            Controls.Add(crownTextBoxLstNme);
+            Controls.Add(crownTextBoxFrstNme);
+            Controls.Add(Close_btn);
+            Controls.Add(Create_btnUser);
             Name = "userCreationForm";
             Size = new Size(385, 265);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCreate).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private ReaLTaiizor.Controls.CyberButton user_creation_create_Btn;
-        private ReaLTaiizor.Controls.CyberButton close_btn;
+        private ReaLTaiizor.Controls.Button Create_btnUser;
+        private ReaLTaiizor.Controls.Button Close_btn;
+        private ReaLTaiizor.Controls.CrownTextBox crownTextBoxFrstNme;
+        private ReaLTaiizor.Controls.CrownTextBox crownTextBoxLstNme;
+        private PictureBox pictureBoxCreate;
+        private Label Lable_FrstNme;
+        private Label Lable_LstNme;
     }
 }

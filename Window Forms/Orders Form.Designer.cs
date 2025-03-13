@@ -43,6 +43,7 @@
             Po = new DataGridViewTextBoxColumn();
             Dr = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Orders).BeginInit();
             SuspendLayout();
@@ -65,19 +66,24 @@
             Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Order_search.Image = (Image)resources.GetObject("Order_search.Image");
             Order_search.ImageAlign = ContentAlignment.MiddleLeft;
-            Order_search.Location = new Point(173, 16);
+            Order_search.Location = new Point(575, 11);
             Order_search.Name = "Order_search";
             Order_search.Size = new Size(79, 40);
             Order_search.TabIndex = 3;
             Order_search.Text = "Search";
             Order_search.TextImageRelation = TextImageRelation.ImageBeforeText;
             Order_search.UseVisualStyleBackColor = true;
+            Order_search.Click += Order_search_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(258, 25);
+            textBox1.BackColor = Color.White;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Location = new Point(337, 12);
+            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(126, 23);
+            textBox1.RightToLeft = RightToLeft.Yes;
+            textBox1.Size = new Size(241, 38);
             textBox1.TabIndex = 2;
             // 
             // Orders_refresh
@@ -85,7 +91,7 @@
             Orders_refresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Orders_refresh.Image = (Image)resources.GetObject("Orders_refresh.Image");
             Orders_refresh.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_refresh.Location = new Point(88, 15);
+            Orders_refresh.Location = new Point(90, 10);
             Orders_refresh.Name = "Orders_refresh";
             Orders_refresh.Size = new Size(79, 40);
             Orders_refresh.TabIndex = 1;
@@ -98,7 +104,7 @@
             Orders_add.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Orders_add.Image = (Image)resources.GetObject("Orders_add.Image");
             Orders_add.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_add.Location = new Point(3, 15);
+            Orders_add.Location = new Point(5, 10);
             Orders_add.Name = "Orders_add";
             Orders_add.Size = new Size(79, 40);
             Orders_add.TabIndex = 0;
@@ -183,10 +189,18 @@
             Total.Name = "Total";
             Total.Width = 132;
             // 
+            // panel2
+            // 
+            panel2.Location = new Point(337, 118);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(317, 411);
+            panel2.TabIndex = 4;
+            // 
             // Orders_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panel2);
             Controls.Add(dataGridView_Orders);
             Controls.Add(panel1);
             Name = "Orders_Form";
@@ -213,5 +227,6 @@
         private DataGridViewTextBoxColumn Po;
         private DataGridViewTextBoxColumn Dr;
         private DataGridViewTextBoxColumn Total;
+        private Panel panel2;
     }
 }
