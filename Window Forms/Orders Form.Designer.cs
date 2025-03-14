@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders_Form));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             Order_search = new Button();
             Orders_refresh = new Button();
@@ -45,6 +45,7 @@
             Dr = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
+            Edit_order = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Orders).BeginInit();
@@ -53,6 +54,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Silver;
+            panel1.Controls.Add(Edit_order);
             panel1.Controls.Add(Order_search);
             panel1.Controls.Add(Orders_refresh);
             panel1.Controls.Add(Orders_add);
@@ -132,14 +134,14 @@
             dataGridView_Orders.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView_Orders.BorderStyle = BorderStyle.None;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Gray;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlDark;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Gray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlDark;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Orders.ColumnHeadersHeight = 30;
             dataGridView_Orders.Columns.AddRange(new DataGridViewColumn[] { orders_id, Date, Customername, Customerdetail, Po, Dr, Total });
             dataGridView_Orders.Dock = DockStyle.Fill;
@@ -206,6 +208,22 @@
             panel2.Size = new Size(800, 411);
             panel2.TabIndex = 4;
             // 
+            // Edit_order
+            // 
+            Edit_order.BackColor = Color.Gainsboro;
+            Edit_order.FlatAppearance.BorderColor = Color.Black;
+            Edit_order.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Edit_order.ForeColor = SystemColors.ActiveCaptionText;
+            Edit_order.Image = (Image)resources.GetObject("Edit_order.Image");
+            Edit_order.ImageAlign = ContentAlignment.MiddleLeft;
+            Edit_order.Location = new Point(175, 11);
+            Edit_order.Name = "Edit_order";
+            Edit_order.Size = new Size(81, 39);
+            Edit_order.TabIndex = 15;
+            Edit_order.Text = "Edit";
+            Edit_order.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Edit_order.UseVisualStyleBackColor = false;
+            // 
             // Orders_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,5 +258,6 @@
         private DataGridViewTextBoxColumn Total;
         private Panel panel2;
         private Panel panel3;
+        private Button Edit_order;
     }
 }
