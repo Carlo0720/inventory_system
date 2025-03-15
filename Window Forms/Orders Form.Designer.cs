@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders_Form));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            Edit_order = new Button();
             Order_search = new Button();
             Orders_refresh = new Button();
             Orders_add = new Button();
@@ -44,8 +45,7 @@
             Po = new DataGridViewTextBoxColumn();
             Dr = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
-            panel2 = new Panel();
-            Edit_order = new Button();
+            ordersAddPanel = new Panel();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Orders).BeginInit();
@@ -64,6 +64,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(955, 59);
             panel1.TabIndex = 0;
+            // 
+            // Edit_order
+            // 
+            Edit_order.BackColor = Color.Gainsboro;
+            Edit_order.FlatAppearance.BorderColor = Color.Black;
+            Edit_order.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Edit_order.ForeColor = SystemColors.ActiveCaptionText;
+            Edit_order.Image = (Image)resources.GetObject("Edit_order.Image");
+            Edit_order.ImageAlign = ContentAlignment.MiddleLeft;
+            Edit_order.Location = new Point(175, 11);
+            Edit_order.Name = "Edit_order";
+            Edit_order.Size = new Size(81, 39);
+            Edit_order.TabIndex = 15;
+            Edit_order.Text = "Edit";
+            Edit_order.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Edit_order.UseVisualStyleBackColor = false;
             // 
             // Order_search
             // 
@@ -104,6 +120,7 @@
             Orders_add.Text = "Add";
             Orders_add.TextImageRelation = TextImageRelation.ImageBeforeText;
             Orders_add.UseVisualStyleBackColor = true;
+            Orders_add.Click += Orders_add_Click;
             // 
             // panel3
             // 
@@ -134,14 +151,14 @@
             dataGridView_Orders.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView_Orders.BorderStyle = BorderStyle.None;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Gray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlDark;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Gray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlDark;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_Orders.ColumnHeadersHeight = 30;
             dataGridView_Orders.Columns.AddRange(new DataGridViewColumn[] { orders_id, Date, Customername, Customerdetail, Po, Dr, Total });
             dataGridView_Orders.Dock = DockStyle.Fill;
@@ -201,34 +218,18 @@
             Total.Name = "Total";
             Total.Width = 132;
             // 
-            // panel2
+            // ordersAddPanel
             // 
-            panel2.Location = new Point(81, 88);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(800, 411);
-            panel2.TabIndex = 4;
-            // 
-            // Edit_order
-            // 
-            Edit_order.BackColor = Color.Gainsboro;
-            Edit_order.FlatAppearance.BorderColor = Color.Black;
-            Edit_order.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Edit_order.ForeColor = SystemColors.ActiveCaptionText;
-            Edit_order.Image = (Image)resources.GetObject("Edit_order.Image");
-            Edit_order.ImageAlign = ContentAlignment.MiddleLeft;
-            Edit_order.Location = new Point(175, 11);
-            Edit_order.Name = "Edit_order";
-            Edit_order.Size = new Size(81, 39);
-            Edit_order.TabIndex = 15;
-            Edit_order.Text = "Edit";
-            Edit_order.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Edit_order.UseVisualStyleBackColor = false;
+            ordersAddPanel.Location = new Point(81, 88);
+            ordersAddPanel.Name = "ordersAddPanel";
+            ordersAddPanel.Size = new Size(800, 411);
+            ordersAddPanel.TabIndex = 4;
             // 
             // Orders_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel2);
+            Controls.Add(ordersAddPanel);
             Controls.Add(dataGridView_Orders);
             Controls.Add(panel1);
             Name = "Orders_Form";
@@ -256,7 +257,7 @@
         private DataGridViewTextBoxColumn Po;
         private DataGridViewTextBoxColumn Dr;
         private DataGridViewTextBoxColumn Total;
-        private Panel panel2;
+        private Panel ordersAddPanel;
         private Panel panel3;
         private Button Edit_order;
     }

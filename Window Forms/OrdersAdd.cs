@@ -17,32 +17,7 @@ namespace inventory_system.Window_Forms
             InitializeComponent();
         }
 
-        private void bigTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        
-        {
-private void Label_add_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Exit_ordrs_Click(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }
-}
+

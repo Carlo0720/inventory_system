@@ -1,6 +1,6 @@
 ﻿namespace inventory_system.Window_Forms
 {
-    partial class OrdersAdd
+    partial class OrdersAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersAddForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
@@ -39,7 +40,6 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersAdd));
             Label_add = new ReaLTaiizor.Controls.BigLabel();
             Customer_nme = new TextBox();
             label1 = new Label();
@@ -56,6 +56,7 @@
             panel2 = new Panel();
             label9 = new Label();
             textBox7 = new TextBox();
+            Add_btn1 = new Button();
             dataGridView_Order = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -74,7 +75,6 @@
             label6 = new Label();
             label7 = new Label();
             textBox5 = new TextBox();
-            Add_btn1 = new Button();
             Delete_order = new Button();
             Exit_ordrs = new Button();
             Add_order = new Button();
@@ -250,6 +250,22 @@
             textBox7.Size = new Size(127, 23);
             textBox7.TabIndex = 13;
             // 
+            // Add_btn1
+            // 
+            Add_btn1.BackColor = Color.Silver;
+            Add_btn1.FlatStyle = FlatStyle.Popup;
+            Add_btn1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Add_btn1.ForeColor = SystemColors.ActiveCaptionText;
+            Add_btn1.Image = (Image)resources.GetObject("Add_btn1.Image");
+            Add_btn1.ImageAlign = ContentAlignment.MiddleLeft;
+            Add_btn1.Location = new Point(26, 288);
+            Add_btn1.Name = "Add_btn1";
+            Add_btn1.Size = new Size(70, 36);
+            Add_btn1.TabIndex = 13;
+            Add_btn1.Text = "Add";
+            Add_btn1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Add_btn1.UseVisualStyleBackColor = false;
+            // 
             // dataGridView_Order
             // 
             dataGridView_Order.AccessibleRole = AccessibleRole.None;
@@ -373,9 +389,9 @@
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(3, 229);
             label8.Name = "label8";
-            label8.Size = new Size(33, 15);
+            label8.Size = new Size(72, 15);
             label8.TabIndex = 11;
-            label8.Text = "Price";
+            label8.Text = "Selling Price";
             // 
             // textBox6
             // 
@@ -440,9 +456,9 @@
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(3, 97);
             label6.Name = "label6";
-            label6.Size = new Size(72, 15);
+            label6.Size = new Size(65, 15);
             label6.TabIndex = 6;
-            label6.Text = "Item Length";
+            label6.Text = "Item Stock";
             // 
             // label7
             // 
@@ -450,9 +466,9 @@
             label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(3, 53);
             label7.Name = "label7";
-            label7.Size = new Size(93, 15);
+            label7.Size = new Size(96, 15);
             label7.TabIndex = 4;
-            label7.Text = "Item Discription";
+            label7.Text = "Item Description";
             // 
             // textBox5
             // 
@@ -460,22 +476,6 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(127, 23);
             textBox5.TabIndex = 5;
-            // 
-            // Add_btn1
-            // 
-            Add_btn1.BackColor = Color.Silver;
-            Add_btn1.FlatStyle = FlatStyle.Popup;
-            Add_btn1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Add_btn1.ForeColor = SystemColors.ActiveCaptionText;
-            Add_btn1.Image = (Image)resources.GetObject("Add_btn1.Image");
-            Add_btn1.ImageAlign = ContentAlignment.MiddleLeft;
-            Add_btn1.Location = new Point(26, 288);
-            Add_btn1.Name = "Add_btn1";
-            Add_btn1.Size = new Size(70, 36);
-            Add_btn1.TabIndex = 13;
-            Add_btn1.Text = "Add";
-            Add_btn1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Add_btn1.UseVisualStyleBackColor = false;
             // 
             // Delete_order
             // 
@@ -506,6 +506,7 @@
             Exit_ordrs.Size = new Size(27, 26);
             Exit_ordrs.TabIndex = 15;
             Exit_ordrs.UseVisualStyleBackColor = false;
+            Exit_ordrs.Click += Exit_ordrs_Click;
             // 
             // Add_order
             // 
@@ -523,20 +524,18 @@
             Add_order.TextImageRelation = TextImageRelation.ImageBeforeText;
             Add_order.UseVisualStyleBackColor = false;
             // 
-            // OrdersAdd
+            // OrdersAddForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 411);
             Controls.Add(Add_order);
             Controls.Add(Exit_ordrs);
             Controls.Add(Delete_order);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(Label_add);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "OrdersAdd";
-            Text = "OrdersAdd";
+            Name = "OrdersAddForm";
+            Size = new Size(800, 411);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

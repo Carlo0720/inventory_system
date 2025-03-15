@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inventory_system.Window_Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,7 @@ namespace inventory_system
         public Orders_Form()
         {
             InitializeComponent();
-            this.BackColor = Color.Red;
+            ordersAddPanel.Visible = false;
         }
 
 
@@ -28,6 +29,15 @@ namespace inventory_system
         private void Order_search_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Orders_add_Click(object sender, EventArgs e)
+        {
+            OrdersAddForm ordersAF = new OrdersAddForm();
+            ordersAF.Dock = DockStyle.Fill;
+            ordersAddPanel.Controls.Add(ordersAF);
+            ordersAddPanel.Visible = true;
+            
         }
     }
 }
