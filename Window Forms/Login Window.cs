@@ -36,31 +36,31 @@ namespace inventory_system
             mainpage();
             Function.HighlightButtonTemporary((Button)sender, 1500);
 
-            // string connString = Variables.connString;
-            //using MySqlConnection con = new MySqlConnection(connString);
-            //string user_name = Usertxtbox.Text;
-            // string password = Passwordtxtbox.Text;
+             string connString = Variables.connString;
+            using MySqlConnection con = new MySqlConnection(connString);
+            string user_name = Usertxtbox.Text;
+             string password = Passwordtxtbox.Text;
 
 
 
 
 
-            // if (Function.ValidateLogin(user_name, password))
-          //  {
-           //     MessageBox.Show("Login Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             if (Function.ValidateLogin(user_name, password))
+            {
+                MessageBox.Show("Login Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                
-           // }
+            }
 
-            //if (string.IsNullOrWhiteSpace(Usertxtbox.Text) && string.IsNullOrWhiteSpace(Passwordtxtbox.Text)) 
-         //   {
-           //     MessageBox.Show("Please enter your username and password" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-          //  }
+            if (string.IsNullOrWhiteSpace(Usertxtbox.Text) && string.IsNullOrWhiteSpace(Passwordtxtbox.Text)) 
+            {
+                MessageBox.Show("Please enter your username and password" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-           // else
-          //  {
-           //     MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-         //   }
+            else
+            {
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
