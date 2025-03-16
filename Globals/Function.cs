@@ -116,36 +116,36 @@ namespace inventory_system.Globals
         {
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
             conn.Open();
+
+            string query = "SELECT id, user_name, password FROM users WHERE user_name = @user_name;";
+
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
-                string query = "SELECT id, user_name FROM users WHERE user_name = @user_name AND password = @password;";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                cmd.Parameters.AddWithValue("@user_name", user_name);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    cmd.Parameters.AddWithValue("@user_name", user_name);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader()) 
+                    if (reader.Read())
                     {
-                        if (reader.Read()) 
-                        {
-                            int id = reader.GetInt32(reader.GetOrdinal("id"));
-                            string username = reader.GetString(reader.GetOrdinal("user_name")).Trim();
+                        int id = reader.GetInt32(reader.GetOrdinal("id"));
+                        string username = reader.GetString(reader.GetOrdinal("user_name")).Trim();
+                        string hashedPassword = reader.GetString(reader.GetOrdinal("password")).Trim();
 
+                        // Verify the hashed password
+                        if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
+                        {
                             UserSession.UserId = id;
                             UserSession.Username = username;
 
-                            
-
                             return true;
                         }
-
-                       
                     }
                 }
-                return false;
             }
+            return false;
         }
 
-        
+
 
 
         public static void HighlightButton(Button clickedButton, List<Button> buttons)

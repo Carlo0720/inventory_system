@@ -33,24 +33,24 @@ namespace inventory_system
         //login
         private void Login_Click(object sender, EventArgs e)
         {
-            mainpage();
+            
             Function.HighlightButtonTemporary((Button)sender, 1500);
 
-             string connString = Variables.connString;
+            string connString = Variables.connString;
             using MySqlConnection con = new MySqlConnection(connString);
             string user_name = Usertxtbox.Text;
-             string password = Passwordtxtbox.Text;
+            string password = Passwordtxtbox.Text;
 
 
 
 
 
              if (Function.ValidateLogin(user_name, password))
-            {
+             {
                 MessageBox.Show("Login Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-               
-            }
+                mainpage();
+             }
 
             if (string.IsNullOrWhiteSpace(Usertxtbox.Text) && string.IsNullOrWhiteSpace(Passwordtxtbox.Text)) 
             {
