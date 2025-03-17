@@ -33,16 +33,17 @@
             Orders_pnl = new Panel();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
             Order_pnl = new Panel();
+            productlist_pnl = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             Dashbrd_Btn = new Button();
             userModule_Btn = new Button();
             Productlst_Btn = new Button();
             Orders_btn = new Button();
+            customers_btn = new Button();
             contentPanel = new Panel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            Order_pnl.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             contentPanel.SuspendLayout();
             SuspendLayout();
@@ -53,7 +54,6 @@
             panel1.Controls.Add(Orders_pnl);
             panel1.Controls.Add(nightControlBox1);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -94,30 +94,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(41, 9);
+            label1.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(-2, 1);
             label1.Name = "label1";
-            label1.Size = new Size(162, 20);
+            label1.Size = new Size(329, 30);
             label1.TabIndex = 2;
-            label1.Text = "Inventory Management";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(32, 26);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            label1.Text = "Inventory Management System";
             // 
             // Order_pnl
             // 
             Order_pnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Order_pnl.Controls.Add(productlist_pnl);
             Order_pnl.Location = new Point(0, -2);
             Order_pnl.Name = "Order_pnl";
             Order_pnl.Size = new Size(955, 621);
             Order_pnl.TabIndex = 0;
+            // 
+            // productlist_pnl
+            // 
+            productlist_pnl.Dock = DockStyle.Fill;
+            productlist_pnl.Location = new Point(0, 0);
+            productlist_pnl.Name = "productlist_pnl";
+            productlist_pnl.Size = new Size(955, 621);
+            productlist_pnl.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -126,6 +125,7 @@
             flowLayoutPanel1.Controls.Add(userModule_Btn);
             flowLayoutPanel1.Controls.Add(Productlst_Btn);
             flowLayoutPanel1.Controls.Add(Orders_btn);
+            flowLayoutPanel1.Controls.Add(customers_btn);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 34);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -175,7 +175,7 @@
             Productlst_Btn.Name = "Productlst_Btn";
             Productlst_Btn.Size = new Size(148, 45);
             Productlst_Btn.TabIndex = 2;
-            Productlst_Btn.Text = "Product list";
+            Productlst_Btn.Text = "Accessories";
             Productlst_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             Productlst_Btn.UseVisualStyleBackColor = false;
             Productlst_Btn.Click += Productlst_Btn_Click;
@@ -195,6 +195,22 @@
             Orders_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             Orders_btn.UseVisualStyleBackColor = false;
             Orders_btn.Click += Orders_btn_Click;
+            // 
+            // customers_btn
+            // 
+            customers_btn.BackColor = Color.Gray;
+            customers_btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customers_btn.ForeColor = Color.White;
+            customers_btn.Image = (Image)resources.GetObject("customers_btn.Image");
+            customers_btn.ImageAlign = ContentAlignment.MiddleLeft;
+            customers_btn.Location = new Point(3, 207);
+            customers_btn.Name = "customers_btn";
+            customers_btn.Size = new Size(148, 45);
+            customers_btn.TabIndex = 4;
+            customers_btn.Text = "Customers";
+            customers_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            customers_btn.UseVisualStyleBackColor = false;
+            customers_btn.Click += customers_btn_Click;
             // 
             // contentPanel
             // 
@@ -221,7 +237,7 @@
             Load += mainpage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Order_pnl.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             contentPanel.ResumeLayout(false);
             ResumeLayout(false);
@@ -231,7 +247,6 @@
 
         private Panel panel1;
         private Label label1;
-        private PictureBox pictureBox1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button Dashbrd_Btn;
         private Button Productlst_Btn;
@@ -241,5 +256,7 @@
         private Panel Order_pnl;
         private Button Orders_btn;
         private Panel Orders_pnl;
+        private Panel productlist_pnl;
+        private Button customers_btn;
     }
 }

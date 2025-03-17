@@ -31,9 +31,9 @@ namespace inventory_system
             userCreationPanel.Visible = false;
 
             userDataGd.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
-            foreach(DataGridViewColumn column in userDataGd.Columns) 
+            foreach (DataGridViewColumn column in userDataGd.Columns)
             {
-                column.HeaderCell.Style.BackColor = Color.Gray; 
+                column.HeaderCell.Style.BackColor = Color.Gray;
                 column.HeaderCell.Style.ForeColor = Color.White;
             }
 

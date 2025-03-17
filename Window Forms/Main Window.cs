@@ -26,7 +26,7 @@ namespace inventory_system
 
         private void HighlightSideButton(Button clickedButton)
         {
-            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn, Orders_btn };
+            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn, Orders_btn, customers_btn };
             Function.HighlightButton(clickedButton, sideButtons);
         }
 
@@ -36,21 +36,15 @@ namespace inventory_system
 
             HighlightSideButton((Button)sender);
 
-
-
-
-
-
             // Load the UserForm into the panel
             contentPanel.Controls.Clear();
             UserForm userForm = new UserForm();
-            userForm.Dock = DockStyle.Fill; 
+            userForm.Dock = DockStyle.Fill;
             contentPanel.Controls.Add(userForm);
             contentPanel.Visible = true;
 
             Orders_pnl.Visible = false;
-
-
+            productlist_pnl.Visible = false;
 
         }
 
@@ -64,6 +58,16 @@ namespace inventory_system
         {
             HighlightSideButton((Button)sender);
             contentPanel.Controls.Clear();
+            Orders_pnl.Controls.Clear();
+
+
+            productListUserControl productlistUC = new productListUserControl();
+            productlistUC.Dock = DockStyle.Fill;
+            productlist_pnl.Controls.Add(productlistUC);
+
+            productlist_pnl.Parent = this;
+            productlist_pnl.Visible = true;
+            productlist_pnl.BringToFront();
         }
 
         private void Orders_btn_Click(object sender, EventArgs e)
@@ -81,11 +85,15 @@ namespace inventory_system
 
             contentPanel.Visible = false;
 
-           
+        }
 
+        private void customers_btn_Click(object sender, EventArgs e)
+        {
+            HighlightSideButton((Button)sender);
 
-
-
+            contentPanel.Visible = false;
+            Orders_pnl.Visible = false;
+            productlist_pnl.Visible = false;
         }
     }
 }

@@ -14,6 +14,49 @@ namespace inventory_system.Globals
     {
          private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
 
+        public static string CreateProduct(string item_name, string item_code, string item_description, string item_color, string item_category,
+                               string supplier, string unit, int stock, decimal price, DateTime created_at)
+        {
+           
+              
+
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO products (item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, created_at) " +
+                               "VALUES (@item_name, @item_code, @item_description, @item_color, @item_category, @supplier, @unit, @stock, @item_price, @created_at)";
+
+                using MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@item_name", item_name);
+                cmd.Parameters.AddWithValue("@item_code", item_code);
+                cmd.Parameters.AddWithValue("@item_description", item_description);
+                cmd.Parameters.AddWithValue("@item_color", item_color);
+                cmd.Parameters.AddWithValue("@item_category", item_category);
+                cmd.Parameters.AddWithValue("@supplier", supplier);
+                cmd.Parameters.AddWithValue("@unit", unit);
+                cmd.Parameters.AddWithValue("@stock", stock);
+                cmd.Parameters.AddWithValue("@item_price", price);
+                cmd.Parameters.AddWithValue("@created_at", created_at);
+
+                cmd.ExecuteNonQuery();
+
+                
+                return "Product has been created successfully.";
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "Error: " + ex.Message;
+            }
+        }
+
+
+
+
+     
         public static string CreateUser(string fname, string lname,  int user_type_id) 
         {
             MySqlConnection conn = new MySqlConnection(Variables.connString);
@@ -78,6 +121,8 @@ namespace inventory_system.Globals
                             password_temp.Append(alphanumerics[place_value].ToString());
                         }
                     }
+
+
 
                     cmd.Parameters.AddWithValue("@user_type_id", user_type_id);
                     cmd.Parameters.AddWithValue("@first_name", first_name);

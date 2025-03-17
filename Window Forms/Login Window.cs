@@ -33,9 +33,9 @@ namespace inventory_system
         //login
         private void Login_Click(object sender, EventArgs e)
         {
-            
-            Function.HighlightButtonTemporary((Button)sender, 1500);
 
+            Function.HighlightButtonTemporary((Button)sender, 1500);
+            mainpage();
             string connString = Variables.connString;
             using MySqlConnection con = new MySqlConnection(connString);
             string user_name = Usertxtbox.Text;
@@ -44,17 +44,15 @@ namespace inventory_system
 
 
 
-
-             if (Function.ValidateLogin(user_name, password))
-             {
-                MessageBox.Show("Login Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                mainpage();
-             }
-
-            if (string.IsNullOrWhiteSpace(Usertxtbox.Text) && string.IsNullOrWhiteSpace(Passwordtxtbox.Text)) 
+            if (Function.ValidateLogin(user_name, password))
             {
-                MessageBox.Show("Please enter your username and password" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Login Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
+            }
+
+            if (string.IsNullOrWhiteSpace(Usertxtbox.Text) && string.IsNullOrWhiteSpace(Passwordtxtbox.Text))
+            {
+                MessageBox.Show("Please enter your username and password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -73,6 +71,9 @@ namespace inventory_system
             this.Close();
         }
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
