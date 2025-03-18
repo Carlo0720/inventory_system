@@ -35,6 +35,7 @@
             label1 = new Label();
             Order_pnl = new Panel();
             productlist_pnl = new Panel();
+            customers_pnl = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             Dashbrd_Btn = new Button();
             userModule_Btn = new Button();
@@ -44,6 +45,7 @@
             contentPanel = new Panel();
             panel1.SuspendLayout();
             Order_pnl.SuspendLayout();
+            productlist_pnl.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             contentPanel.SuspendLayout();
             SuspendLayout();
@@ -105,18 +107,27 @@
             // 
             Order_pnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Order_pnl.Controls.Add(productlist_pnl);
-            Order_pnl.Location = new Point(0, -2);
+            Order_pnl.Location = new Point(0, -1);
             Order_pnl.Name = "Order_pnl";
-            Order_pnl.Size = new Size(955, 621);
+            Order_pnl.Size = new Size(955, 617);
             Order_pnl.TabIndex = 0;
             // 
             // productlist_pnl
             // 
+            productlist_pnl.Controls.Add(customers_pnl);
             productlist_pnl.Dock = DockStyle.Fill;
             productlist_pnl.Location = new Point(0, 0);
             productlist_pnl.Name = "productlist_pnl";
-            productlist_pnl.Size = new Size(955, 621);
+            productlist_pnl.Size = new Size(955, 617);
             productlist_pnl.TabIndex = 0;
+            // 
+            // customers_pnl
+            // 
+            customers_pnl.Dock = DockStyle.Fill;
+            customers_pnl.Location = new Point(0, 0);
+            customers_pnl.Name = "customers_pnl";
+            customers_pnl.Size = new Size(955, 617);
+            customers_pnl.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -238,6 +249,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             Order_pnl.ResumeLayout(false);
+            productlist_pnl.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             contentPanel.ResumeLayout(false);
             ResumeLayout(false);
@@ -258,5 +270,6 @@
         private Panel Orders_pnl;
         private Panel productlist_pnl;
         private Button customers_btn;
+        private Panel customers_pnl;
     }
 }

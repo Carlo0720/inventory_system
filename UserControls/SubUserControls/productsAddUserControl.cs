@@ -27,7 +27,7 @@ namespace inventory_system
             }
         }
 
-    
+
 
         private void add_product_btn_Click(object sender, EventArgs e)
         {
@@ -60,7 +60,7 @@ namespace inventory_system
             string item_description = itemdesc_txtbox.Text;
             string item_color = item_color_txtbox.Text;
             string item_category = item_category_txtbox.Text;
-            string supplier = supplier_txtbox1.Text  ;
+            string supplier = supplier_txtbox1.Text;
             string unit = unit_txtbox.Text;
             DateTime createdAt = DateTime.Now;
 
@@ -78,6 +78,11 @@ namespace inventory_system
 
             Function.CreateProduct(item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, price, createdAt);
             MessageBox.Show("Product created successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

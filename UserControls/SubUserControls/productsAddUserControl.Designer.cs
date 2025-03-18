@@ -172,7 +172,7 @@
             Label_add.BackColor = Color.Transparent;
             Label_add.Font = new Font("Segoe UI", 25F);
             Label_add.ForeColor = Color.FromArgb(80, 80, 80);
-            Label_add.Location = new Point(15, 0);
+            Label_add.Location = new Point(26, 3);
             Label_add.Name = "Label_add";
             Label_add.Size = new Size(209, 46);
             Label_add.TabIndex = 16;
@@ -220,6 +220,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(209, 451);
             panel2.TabIndex = 18;
+            panel2.Paint += panel2_Paint;
             // 
             // label3
             // 

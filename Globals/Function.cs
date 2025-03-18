@@ -14,6 +14,52 @@ namespace inventory_system.Globals
     {
          private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
 
+
+        public static void StyleDataGridView(DataGridView dgv)
+        {
+            dgv.RowHeadersVisible = false;
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+        }
+
+        public static string CreateCustomer(string first_name, string last_name, string company_name, string email, string phone_number, string addreses, DateTime created_at) 
+        {
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "INSERT INTO customers (first_name, last_name, company_name, email, phone_number, address, created_at) " +
+                                   "VALUES (@first_name, @last_name, @company_name, @email, @phone_number, @address, @created_at)";
+
+                    using MySqlCommand cmd = new MySqlCommand(query, conn);
+                    {
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@company_name", company_name);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@phone_number", phone_number);
+                        cmd.Parameters.AddWithValue("@address", addreses);
+                        cmd.Parameters.AddWithValue("@created_at", created_at);
+
+                        cmd.ExecuteNonQuery();
+
+                        return "Customer has been created successfully.";
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "Error: " + ex.Message;
+                }
+            }
+
+        }
+
+
         public static string CreateProduct(string item_name, string item_code, string item_description, string item_color, string item_category,
                                string supplier, string unit, int stock, decimal price, DateTime created_at)
         {

@@ -24,17 +24,8 @@ namespace inventory_system
 
         private void productListUserControl_Load(object sender, EventArgs e)
         {
-            
-            productlist_datagd.RowHeadersVisible = false;
-            productlist_datagd.EnableHeadersVisualStyles = false;
-            productlist_datagd.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            productlist_datagd.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
-            productlist_datagd.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
-            string columnInfo = ""; // Store column names
-
-     
-            
-
+            this.BringToFront();
+            Function.StyleDataGridView(productlist_datagd);
             try
             {
 
@@ -84,7 +75,7 @@ namespace inventory_system
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error: ", ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
 
             

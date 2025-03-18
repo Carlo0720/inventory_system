@@ -94,6 +94,18 @@ namespace inventory_system
             contentPanel.Visible = false;
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
+
+
+            Customers_Form customersForm = new Customers_Form();
+            customersForm.Dock = DockStyle.Fill;
+            customers_pnl.Controls.Add(customersForm);
+
+            customers_pnl.Parent = this;
+            customers_pnl.Visible = true;   
+            customers_pnl.BringToFront();
+
         }
+
+      
     }
 }
