@@ -1,4 +1,5 @@
 ﻿using inventory_system.UserControls.Order;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace inventory_system.Window_Forms
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
         {
-            if (this.Parent is Panel parentPanel)
+            if (this.Parent is System.Windows.Forms.Panel parentPanel)
             {
                 parentPanel.Visible = false;
             }
@@ -61,11 +62,45 @@ namespace inventory_system.Window_Forms
             // Use these values as needed
             MessageBox.Show($"Selected Customer: {firstName} {lastName}");
 
-            // Re-enable the parent form after modal interaction
-            this.Enabled = true;
-
-            Customer_nme.Text = firstName + " "  + lastName;
+            Customer_nme.Text = firstName + " " + lastName;
             customerDetailsTbox.Text = companyName;
+        }
+
+        private void Add_btn1_Click(object sender, EventArgs e)
+        {
+            // Create a new form for the popup window
+            Form popupForm = new Form();
+            popupForm.Text = "Select Item";  // Title of the popup window
+            popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
+            popupForm.Size = new Size(640, 540);  // Set the size of the popup window
+            // Add your OrdersAddForm to the popup window
+            OrderAddForm_Item orderAddForm_Item = new OrderAddForm_Item();
+            orderAddForm_Item.Dock = DockStyle.Fill;
+            popupForm.Controls.Add(orderAddForm_Item);
+
+            // Subscribe to the ProductSelected event to get the selected product
+            orderAddForm_Item.ProductSelected += ProductModal_ProductSelected;
+            // Optionally, make the popup modal (blocking interaction with the main form)
+            popupForm.ShowDialog();
+        }
+        private void ProductModal_ProductSelected(object sender, ProductSelectedEventArgs e)
+        {
+            // Handle the product selection here
+            MessageBox.Show($"Selected Product: {e.ItemName} ({e.ItemCode})");
+
+            // You can also assign the selected values to parent controls like textboxes
+            string productId = e.ProductId.ToString();
+            string itemName = e.ItemName;
+            string itemCode = e.ItemCode;
+            string itemDescription = e.ItemDescription;
+            string itemColor = e.ItemColor;
+            string itemCategory = e.ItemCategory;
+            string supplier = e.Supplier;
+            int stock = e.Stock;
+            string unit = e.Unit;
+            string itemPrice = e.ItemPrice.ToString("C");
+            string createdAt = e.CreatedAt.ToString("g");
+
         }
     }
 

@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersAddForm));
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             Label_add = new ReaLTaiizor.Controls.BigLabel();
             Customer_nme = new TextBox();
             label1 = new Label();
@@ -283,6 +283,7 @@
             Add_btn1.Text = "Add";
             Add_btn1.TextImageRelation = TextImageRelation.ImageBeforeText;
             Add_btn1.UseVisualStyleBackColor = false;
+            Add_btn1.Click += Add_btn1_Click;
             // 
             // dataGridView_Order
             // 
@@ -290,50 +291,50 @@
             dataGridView_Order.AllowUserToAddRows = false;
             dataGridView_Order.AllowUserToResizeColumns = false;
             dataGridView_Order.AllowUserToResizeRows = false;
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle12.SelectionForeColor = Color.White;
-            dataGridView_Order.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridView_Order.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Order.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView_Order.BackgroundColor = Color.Gray;
             dataGridView_Order.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle13.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dataGridView_Order.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_Order.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_Order.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Order.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = SystemColors.Window;
-            dataGridViewCellStyle20.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle20.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dataGridView_Order.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Window;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            dataGridView_Order.DefaultCellStyle = dataGridViewCellStyle9;
             dataGridView_Order.GridColor = SystemColors.Window;
             dataGridView_Order.Location = new Point(136, 29);
             dataGridView_Order.Name = "dataGridView_Order";
             dataGridView_Order.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = SystemColors.Window;
-            dataGridViewCellStyle21.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle21.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle21.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            dataGridView_Order.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dataGridView_Order.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView_Order.RowHeadersVisible = false;
             dataGridView_Order.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle22.BackColor = Color.Silver;
-            dataGridViewCellStyle22.ForeColor = Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle22.SelectionForeColor = Color.White;
-            dataGridView_Order.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle11.BackColor = Color.Silver;
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle11.SelectionForeColor = Color.White;
+            dataGridView_Order.RowsDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView_Order.RowTemplate.DefaultCellStyle.BackColor = Color.White;
             dataGridView_Order.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridView_Order.ShowEditingIcon = false;
@@ -343,10 +344,10 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle14.BackColor = Color.Silver;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle14.SelectionForeColor = Color.Black;
-            Column1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            Column1.DefaultCellStyle = dataGridViewCellStyle3;
             Column1.HeaderText = "Item Code";
             Column1.Name = "Column1";
             Column1.Width = 87;
@@ -354,19 +355,19 @@
             // Column2
             // 
             Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle15.BackColor = Color.Silver;
-            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle15.SelectionForeColor = Color.Black;
-            Column2.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.BackColor = Color.Silver;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            Column2.DefaultCellStyle = dataGridViewCellStyle4;
             Column2.HeaderText = "Discription";
             Column2.Name = "Column2";
             // 
             // Column3
             // 
             Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle16.SelectionForeColor = Color.Black;
-            Column3.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            Column3.DefaultCellStyle = dataGridViewCellStyle5;
             Column3.HeaderText = "Length";
             Column3.Name = "Column3";
             Column3.Width = 69;
@@ -374,9 +375,9 @@
             // Column4
             // 
             Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle17.SelectionForeColor = Color.Black;
-            Column4.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            Column4.DefaultCellStyle = dataGridViewCellStyle6;
             Column4.HeaderText = "Stock";
             Column4.Name = "Column4";
             Column4.Width = 61;
@@ -384,9 +385,9 @@
             // Column5
             // 
             Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle18.SelectionForeColor = Color.Black;
-            Column5.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            Column5.DefaultCellStyle = dataGridViewCellStyle7;
             Column5.HeaderText = "Color";
             Column5.Name = "Column5";
             Column5.Width = 61;
@@ -394,9 +395,9 @@
             // Column6
             // 
             Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle19.SelectionBackColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle19.SelectionForeColor = Color.Black;
-            Column6.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            Column6.DefaultCellStyle = dataGridViewCellStyle8;
             Column6.HeaderText = "Selling Price";
             Column6.Name = "Column6";
             Column6.Width = 96;
