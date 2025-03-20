@@ -35,7 +35,6 @@
             label4 = new Label();
             itemcategory_txtbox = new Label();
             itemname_txtbox = new TextBox();
-            item_category_txtbox = new TextBox();
             itemcode_txtbox = new TextBox();
             label6 = new Label();
             label7 = new Label();
@@ -52,6 +51,7 @@
             unit_txtbox = new TextBox();
             itemcolor_txtbox = new Label();
             item_color_txtbox = new TextBox();
+            itemcategory_combobox = new ComboBox();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -107,13 +107,6 @@
             itemname_txtbox.Name = "itemname_txtbox";
             itemname_txtbox.Size = new Size(201, 23);
             itemname_txtbox.TabIndex = 1;
-            // 
-            // item_category_txtbox
-            // 
-            item_category_txtbox.Location = new Point(3, 203);
-            item_category_txtbox.Name = "item_category_txtbox";
-            item_category_txtbox.Size = new Size(201, 23);
-            item_category_txtbox.TabIndex = 7;
             // 
             // itemcode_txtbox
             // 
@@ -197,6 +190,7 @@
             // 
             panel2.BackColor = Color.FromArgb(224, 224, 224);
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(itemcategory_combobox);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(item_price_txtbox);
             panel2.Controls.Add(label2);
@@ -211,7 +205,6 @@
             panel2.Controls.Add(label4);
             panel2.Controls.Add(itemcategory_txtbox);
             panel2.Controls.Add(itemname_txtbox);
-            panel2.Controls.Add(item_category_txtbox);
             panel2.Controls.Add(itemcode_txtbox);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label7);
@@ -290,6 +283,15 @@
             item_color_txtbox.Size = new Size(201, 23);
             item_color_txtbox.TabIndex = 13;
             // 
+            // itemcategory_combobox
+            // 
+            itemcategory_combobox.FormattingEnabled = true;
+            itemcategory_combobox.Items.AddRange(new object[] { "Brooch", "Crown", "Muslim Trimmings", "Neck Tie", "Ordinary Lace", "Patching", "Petticoat", "Scallop Lace", "Trimmings", "WedAcc", "Zipper" });
+            itemcategory_combobox.Location = new Point(3, 203);
+            itemcategory_combobox.Name = "itemcategory_combobox";
+            itemcategory_combobox.Size = new Size(201, 23);
+            itemcategory_combobox.TabIndex = 21;
+            // 
             // productsAddUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -314,7 +316,6 @@
         private Label label4;
         private Label itemcategory_txtbox;
         private TextBox itemname_txtbox;
-        private TextBox item_category_txtbox;
         private TextBox itemcode_txtbox;
         private Label label6;
         private Label label7;
@@ -331,5 +332,6 @@
         private TextBox stock_txtbox;
         private Label label3;
         private TextBox item_price_txtbox;
+        private ComboBox itemcategory_combobox;
     }
 }
