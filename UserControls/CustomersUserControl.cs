@@ -95,17 +95,17 @@ namespace inventory_system
             CustomersAddUserControl customersAddUC = new CustomersAddUserControl();
             customersAddUC.Dock = DockStyle.Fill;
 
-            // Subscribe to the event
+            
             customersAddUC.CustomerAdded += RefreshCustomerGrid;
 
             customers_add_pnl.Controls.Add(customersAddUC);
             customers_add_pnl.Visible = true;
         }
 
-        // Method to refresh the DataGridView
+        
         private void RefreshCustomerGrid()
         {
-            LoadCustomers(); // Reloads data from the database
+            LoadCustomers(); 
         }
 
 

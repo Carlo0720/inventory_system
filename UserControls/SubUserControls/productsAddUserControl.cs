@@ -18,13 +18,12 @@ namespace inventory_system
             InitializeComponent();
         }
 
+        public event Action AcessoryAdded;
 
         private void add_product_close_btn_Click(object sender, EventArgs e)
         {
-            if (this.Parent is Panel parentPanel)
-            {
-                parentPanel.Visible = false;
-            }
+            AcessoryAdded?.Invoke();
+            Function.HideParentPanel(this);
         }
 
 
