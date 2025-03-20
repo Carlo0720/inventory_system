@@ -1,4 +1,5 @@
-﻿using inventory_system.UserControls.Order;
+﻿using inventory_system.Globals;
+using inventory_system.UserControls.Order;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -108,7 +109,7 @@ namespace inventory_system.Window_Forms
 
         private void Add_order_Click(object sender, EventArgs e)
         {
-
+           // Function.CreateOrder();
         }
     }
 
