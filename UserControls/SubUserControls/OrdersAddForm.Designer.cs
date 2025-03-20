@@ -542,6 +542,7 @@
             Add_order.Text = "Add Order";
             Add_order.TextImageRelation = TextImageRelation.ImageBeforeText;
             Add_order.UseVisualStyleBackColor = false;
+            Add_order.Click += Add_order_Click;
             // 
             // OrdersAddForm
             // 

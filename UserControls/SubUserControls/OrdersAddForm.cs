@@ -101,6 +101,14 @@ namespace inventory_system.Window_Forms
             string itemPrice = e.ItemPrice.ToString("C");
             string createdAt = e.CreatedAt.ToString("g");
 
+            //newly added data goes to datagridview
+            dataGridView_Order.Rows.Add(itemCode, itemDescription, 1, 1, itemColor, itemPrice);
+
+        }
+
+        private void Add_order_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
