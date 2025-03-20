@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using BC = BCrypt.Net.BCrypt;
-using System.Data;
+using inventory_system.UserControls.Order;
+using System.Transactions;
+using System.Collections;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace inventory_system.Globals
 {
@@ -241,6 +244,116 @@ namespace inventory_system.Globals
             }
 
             return message;
+        }
+
+
+        public static string CreateOrder(int order_id,
+            int customer_id,
+            int po_number,
+            int dr_number,
+            double total_price,
+            List<OrderItems> orderItems)
+        {
+
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            MySqlTransaction transaction = null;  // Declare transaction outside try block
+            try
+            {
+                conn.Open();
+
+                // Start a transaction to ensure both queries succeed or fail together
+                transaction = conn.BeginTransaction();
+
+                string insertToOrdersQuery =
+                    "INSERT INTO orders (order_id, customers_id, po_number, dr_number, order_date, total_price, created_at) " +
+                    "VALUES (@order_id, @customer_id, @po_number, @dr_number, @order_date, @total_price, @created_at)";
+
+                using MySqlCommand cmd = new MySqlCommand(insertToOrdersQuery, conn);
+
+                // Add parameters to avoid SQL injection
+                cmd.Parameters.AddWithValue("@order_id", order_id);
+                cmd.Parameters.AddWithValue("@customer_id", customer_id);
+                cmd.Parameters.AddWithValue("@po_number", po_number);
+                cmd.Parameters.AddWithValue("@dr_number", dr_number);
+                cmd.Parameters.AddWithValue("@order_date", DateTime.Now);  // Ensure the date is correctly passed
+                cmd.Parameters.AddWithValue("@total_price", total_price);
+                cmd.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
+
+                cmd.ExecuteNonQuery();
+
+                foreach (OrderItems item in orderItems)
+                {
+                    string insertToOrderItemsQuery =
+                        "INSERT INTO order_items (order_id, product_id, quantity, price, created_at) " +
+                        "VALUES (@order_id, @product_id, @quantity, @price, @created_at)";
+
+                    using MySqlCommand cmd2 = new MySqlCommand(insertToOrderItemsQuery, conn);
+
+                    // Add parameters to avoid SQL injection
+                    cmd2.Parameters.AddWithValue("@order_id", order_id);
+                    cmd2.Parameters.AddWithValue("@product_id", item.ProductId);
+                    cmd2.Parameters.AddWithValue("@quantity", item.Quantity);
+                    cmd2.Parameters.AddWithValue("@price", item.Price);
+                    //cmd2.Parameters.AddWithValue("@subtotal", 1);
+                    cmd2.Parameters.AddWithValue("@created_at", DateTime.Now);
+
+                    cmd2.ExecuteNonQuery();
+                }
+                // Commit the transaction if both queries succeed
+                transaction.Commit();
+
+                return "Order has been created successfully.";
+            }
+            catch (Exception ex)
+            {
+                // Rollback the transaction if an error occurs
+                transaction?.Rollback();
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "Error: " + ex.Message;
+            }
+        }
+        public static int GetCustomerId(
+            string company_name)
+        {
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            MySqlTransaction transaction = null;  // Declare transaction outside try block
+            try
+            {
+                conn.Open();
+
+                //string insertToOrdersQuery =
+                //    "INSERT INTO orders (order_id, customers_id, po_number, dr_number, order_date, total_price, created_at) " +
+                //    "VALUES (@order_id, @customer_id, @po_number, @dr_number, @order_date, @total_price, @created_at)";
+                // Query to get the id based on firstname and companyname
+                string query = "SELECT customers_id FROM customers WHERE company_name = @company_name";
+
+                using MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                // Add parameters to prevent SQL injection
+                cmd.Parameters.AddWithValue("@company_name", company_name);
+
+                // Execute the query and get the result
+                var result = cmd.ExecuteScalar();  // Executes the query and returns the first column of the first row
+
+                if (result != null)
+                {
+                    // If result is not null, convert it to an integer (the id)
+                    int customerId = Convert.ToInt32(result);
+                    return customerId;
+                }
+                else
+                {
+                    Console.WriteLine("No customer found with the given firstname and companyname.");
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                // Rollback the transaction if an error occurs
+                transaction?.Rollback();
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1;
+            }
         }
         public static bool ValidateLogin(string user_name, string password)
         {

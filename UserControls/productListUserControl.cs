@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using inventory_system.Globals;
 using MySql.Data.MySqlClient;
+using inventory_system.UserControls.Order;
 using Microsoft.VisualBasic.ApplicationServices;
 
 namespace inventory_system

@@ -41,22 +41,23 @@
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             Label_add = new ReaLTaiizor.Controls.BigLabel();
-            Customer_nme = new TextBox();
+            customerNameTbox = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            customerDetailsTbox = new TextBox();
             label3 = new Label();
-            Purchase_ordr = new TextBox();
+            purchaseOrderTbox = new TextBox();
             DR_No = new Label();
-            Delivery_rcpt = new TextBox();
+            deliveryReceiptTbox = new TextBox();
             panel1 = new Panel();
+            selectCustomerBtn = new Button();
             label10 = new Label();
-            textBox8 = new TextBox();
+            totalAmountTbox = new TextBox();
             New_ctm = new Label();
             panel2 = new Panel();
             label9 = new Label();
-            textBox7 = new TextBox();
-            Add_btn1 = new Button();
+            itemLengthTbox = new TextBox();
+            addItemBtn = new Button();
             dataGridView_Order = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -65,19 +66,19 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             label8 = new Label();
-            textBox6 = new TextBox();
+            sellingPriceTbox = new TextBox();
             Order_dtle = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            itemCodeTbox = new TextBox();
+            itemColorTbox = new TextBox();
+            itemDescriptionTbox = new TextBox();
             label6 = new Label();
             label7 = new Label();
-            textBox5 = new TextBox();
-            Delete_order = new Button();
+            itemShockTbox = new TextBox();
+            deleteBtn = new Button();
             Exit_ordrs = new Button();
-            Add_order = new Button();
+            addOrderBtn = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Order).BeginInit();
@@ -95,12 +96,13 @@
             Label_add.TabIndex = 0;
             Label_add.Text = "Add Order";
             // 
-            // Customer_nme
+            // customerNameTbox
             // 
-            Customer_nme.Location = new Point(3, 53);
-            Customer_nme.Name = "Customer_nme";
-            Customer_nme.Size = new Size(179, 23);
-            Customer_nme.TabIndex = 1;
+            customerNameTbox.Location = new Point(3, 53);
+            customerNameTbox.Name = "customerNameTbox";
+            customerNameTbox.ReadOnly = true;
+            customerNameTbox.Size = new Size(179, 23);
+            customerNameTbox.TabIndex = 1;
             // 
             // label1
             // 
@@ -122,12 +124,13 @@
             label2.TabIndex = 4;
             label2.Text = "Customer Details";
             // 
-            // textBox2
+            // customerDetailsTbox
             // 
-            textBox2.Location = new Point(3, 97);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(179, 23);
-            textBox2.TabIndex = 3;
+            customerDetailsTbox.Location = new Point(3, 97);
+            customerDetailsTbox.Name = "customerDetailsTbox";
+            customerDetailsTbox.ReadOnly = true;
+            customerDetailsTbox.Size = new Size(179, 23);
+            customerDetailsTbox.TabIndex = 3;
             // 
             // label3
             // 
@@ -139,12 +142,12 @@
             label3.TabIndex = 6;
             label3.Text = "Purchase Order (PO.#)";
             // 
-            // Purchase_ordr
+            // purchaseOrderTbox
             // 
-            Purchase_ordr.Location = new Point(3, 141);
-            Purchase_ordr.Name = "Purchase_ordr";
-            Purchase_ordr.Size = new Size(179, 23);
-            Purchase_ordr.TabIndex = 5;
+            purchaseOrderTbox.Location = new Point(3, 141);
+            purchaseOrderTbox.Name = "purchaseOrderTbox";
+            purchaseOrderTbox.Size = new Size(179, 23);
+            purchaseOrderTbox.TabIndex = 5;
             // 
             // DR_No
             // 
@@ -156,32 +159,49 @@
             DR_No.TabIndex = 8;
             DR_No.Text = "Delivery Receip t(DR.#)";
             // 
-            // Delivery_rcpt
+            // deliveryReceiptTbox
             // 
-            Delivery_rcpt.Location = new Point(3, 185);
-            Delivery_rcpt.Name = "Delivery_rcpt";
-            Delivery_rcpt.Size = new Size(179, 23);
-            Delivery_rcpt.TabIndex = 7;
+            deliveryReceiptTbox.Location = new Point(3, 185);
+            deliveryReceiptTbox.Name = "deliveryReceiptTbox";
+            deliveryReceiptTbox.Size = new Size(179, 23);
+            deliveryReceiptTbox.TabIndex = 7;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.AppWorkspace;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(selectCustomerBtn);
             panel1.Controls.Add(label10);
-            panel1.Controls.Add(textBox8);
+            panel1.Controls.Add(totalAmountTbox);
             panel1.Controls.Add(New_ctm);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(DR_No);
-            panel1.Controls.Add(Customer_nme);
-            panel1.Controls.Add(Delivery_rcpt);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(customerNameTbox);
+            panel1.Controls.Add(deliveryReceiptTbox);
+            panel1.Controls.Add(customerDetailsTbox);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(Purchase_ordr);
+            panel1.Controls.Add(purchaseOrderTbox);
             panel1.Location = new Point(9, 65);
             panel1.Name = "panel1";
             panel1.Size = new Size(187, 334);
             panel1.TabIndex = 9;
+            // 
+            // selectCustomerBtn
+            // 
+            selectCustomerBtn.BackColor = Color.Silver;
+            selectCustomerBtn.FlatStyle = FlatStyle.Popup;
+            selectCustomerBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            selectCustomerBtn.ForeColor = SystemColors.ActiveCaptionText;
+            selectCustomerBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            selectCustomerBtn.Location = new Point(57, 288);
+            selectCustomerBtn.Name = "selectCustomerBtn";
+            selectCustomerBtn.Size = new Size(70, 36);
+            selectCustomerBtn.TabIndex = 15;
+            selectCustomerBtn.Text = "Select";
+            selectCustomerBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            selectCustomerBtn.UseVisualStyleBackColor = false;
+            selectCustomerBtn.Click += selectCustomerBtn_Click;
             // 
             // label10
             // 
@@ -193,12 +213,13 @@
             label10.TabIndex = 12;
             label10.Text = "Total Amount ₱";
             // 
-            // textBox8
+            // totalAmountTbox
             // 
-            textBox8.Location = new Point(3, 229);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(179, 23);
-            textBox8.TabIndex = 11;
+            totalAmountTbox.Location = new Point(3, 229);
+            totalAmountTbox.Name = "totalAmountTbox";
+            totalAmountTbox.ReadOnly = true;
+            totalAmountTbox.Size = new Size(179, 23);
+            totalAmountTbox.TabIndex = 11;
             // 
             // New_ctm
             // 
@@ -214,20 +235,20 @@
             panel2.BackColor = Color.FromArgb(224, 224, 224);
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label9);
-            panel2.Controls.Add(textBox7);
-            panel2.Controls.Add(Add_btn1);
+            panel2.Controls.Add(itemLengthTbox);
+            panel2.Controls.Add(addItemBtn);
             panel2.Controls.Add(dataGridView_Order);
             panel2.Controls.Add(label8);
-            panel2.Controls.Add(textBox6);
+            panel2.Controls.Add(sellingPriceTbox);
             panel2.Controls.Add(Order_dtle);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox4);
+            panel2.Controls.Add(itemCodeTbox);
+            panel2.Controls.Add(itemColorTbox);
+            panel2.Controls.Add(itemDescriptionTbox);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label7);
-            panel2.Controls.Add(textBox5);
+            panel2.Controls.Add(itemShockTbox);
             panel2.Location = new Point(202, 65);
             panel2.Name = "panel2";
             panel2.Size = new Size(589, 334);
@@ -243,28 +264,29 @@
             label9.TabIndex = 14;
             label9.Text = "Item Length";
             // 
-            // textBox7
+            // itemLengthTbox
             // 
-            textBox7.Location = new Point(3, 159);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(127, 23);
-            textBox7.TabIndex = 13;
+            itemLengthTbox.Location = new Point(3, 159);
+            itemLengthTbox.Name = "itemLengthTbox";
+            itemLengthTbox.Size = new Size(127, 23);
+            itemLengthTbox.TabIndex = 13;
             // 
-            // Add_btn1
+            // addItemBtn
             // 
-            Add_btn1.BackColor = Color.Silver;
-            Add_btn1.FlatStyle = FlatStyle.Popup;
-            Add_btn1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Add_btn1.ForeColor = SystemColors.ActiveCaptionText;
-            Add_btn1.Image = (Image)resources.GetObject("Add_btn1.Image");
-            Add_btn1.ImageAlign = ContentAlignment.MiddleLeft;
-            Add_btn1.Location = new Point(26, 288);
-            Add_btn1.Name = "Add_btn1";
-            Add_btn1.Size = new Size(70, 36);
-            Add_btn1.TabIndex = 13;
-            Add_btn1.Text = "Add";
-            Add_btn1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Add_btn1.UseVisualStyleBackColor = false;
+            addItemBtn.BackColor = Color.Silver;
+            addItemBtn.FlatStyle = FlatStyle.Popup;
+            addItemBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addItemBtn.ForeColor = SystemColors.ActiveCaptionText;
+            addItemBtn.Image = (Image)resources.GetObject("addItemBtn.Image");
+            addItemBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            addItemBtn.Location = new Point(26, 288);
+            addItemBtn.Name = "addItemBtn";
+            addItemBtn.Size = new Size(70, 36);
+            addItemBtn.TabIndex = 13;
+            addItemBtn.Text = "Add";
+            addItemBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            addItemBtn.UseVisualStyleBackColor = false;
+            addItemBtn.Click += Add_btn1_Click;
             // 
             // dataGridView_Order
             // 
@@ -299,7 +321,9 @@
             dataGridView_Order.DefaultCellStyle = dataGridViewCellStyle9;
             dataGridView_Order.GridColor = SystemColors.Window;
             dataGridView_Order.Location = new Point(136, 29);
+            dataGridView_Order.MultiSelect = false;
             dataGridView_Order.Name = "dataGridView_Order";
+            dataGridView_Order.ReadOnly = true;
             dataGridView_Order.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = SystemColors.Window;
@@ -318,6 +342,7 @@
             dataGridView_Order.RowsDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView_Order.RowTemplate.DefaultCellStyle.BackColor = Color.White;
             dataGridView_Order.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridView_Order.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Order.ShowEditingIcon = false;
             dataGridView_Order.ShowRowErrors = false;
             dataGridView_Order.Size = new Size(447, 295);
@@ -331,6 +356,7 @@
             Column1.DefaultCellStyle = dataGridViewCellStyle3;
             Column1.HeaderText = "Item Code";
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             Column1.Width = 87;
             // 
             // Column2
@@ -342,6 +368,7 @@
             Column2.DefaultCellStyle = dataGridViewCellStyle4;
             Column2.HeaderText = "Discription";
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -351,6 +378,7 @@
             Column3.DefaultCellStyle = dataGridViewCellStyle5;
             Column3.HeaderText = "Length";
             Column3.Name = "Column3";
+            Column3.ReadOnly = true;
             Column3.Width = 69;
             // 
             // Column4
@@ -361,6 +389,7 @@
             Column4.DefaultCellStyle = dataGridViewCellStyle6;
             Column4.HeaderText = "Stock";
             Column4.Name = "Column4";
+            Column4.ReadOnly = true;
             Column4.Width = 61;
             // 
             // Column5
@@ -371,6 +400,7 @@
             Column5.DefaultCellStyle = dataGridViewCellStyle7;
             Column5.HeaderText = "Color";
             Column5.Name = "Column5";
+            Column5.ReadOnly = true;
             Column5.Width = 61;
             // 
             // Column6
@@ -381,6 +411,7 @@
             Column6.DefaultCellStyle = dataGridViewCellStyle8;
             Column6.HeaderText = "Selling Price";
             Column6.Name = "Column6";
+            Column6.ReadOnly = true;
             Column6.Width = 96;
             // 
             // label8
@@ -393,12 +424,12 @@
             label8.TabIndex = 11;
             label8.Text = "Selling Price";
             // 
-            // textBox6
+            // sellingPriceTbox
             // 
-            textBox6.Location = new Point(2, 247);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(128, 23);
-            textBox6.TabIndex = 10;
+            sellingPriceTbox.Location = new Point(2, 247);
+            sellingPriceTbox.Name = "sellingPriceTbox";
+            sellingPriceTbox.Size = new Size(128, 23);
+            sellingPriceTbox.TabIndex = 10;
             // 
             // Order_dtle
             // 
@@ -429,26 +460,26 @@
             label5.TabIndex = 8;
             label5.Text = "Item Color";
             // 
-            // textBox1
+            // itemCodeTbox
             // 
-            textBox1.Location = new Point(3, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(127, 23);
-            textBox1.TabIndex = 1;
+            itemCodeTbox.Location = new Point(3, 27);
+            itemCodeTbox.Name = "itemCodeTbox";
+            itemCodeTbox.Size = new Size(127, 23);
+            itemCodeTbox.TabIndex = 1;
             // 
-            // textBox3
+            // itemColorTbox
             // 
-            textBox3.Location = new Point(3, 203);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(127, 23);
-            textBox3.TabIndex = 7;
+            itemColorTbox.Location = new Point(3, 203);
+            itemColorTbox.Name = "itemColorTbox";
+            itemColorTbox.Size = new Size(127, 23);
+            itemColorTbox.TabIndex = 7;
             // 
-            // textBox4
+            // itemDescriptionTbox
             // 
-            textBox4.Location = new Point(3, 71);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(127, 23);
-            textBox4.TabIndex = 3;
+            itemDescriptionTbox.Location = new Point(3, 71);
+            itemDescriptionTbox.Name = "itemDescriptionTbox";
+            itemDescriptionTbox.Size = new Size(127, 23);
+            itemDescriptionTbox.TabIndex = 3;
             // 
             // label6
             // 
@@ -470,28 +501,30 @@
             label7.TabIndex = 4;
             label7.Text = "Item Description";
             // 
-            // textBox5
+            // itemShockTbox
             // 
-            textBox5.Location = new Point(3, 115);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(127, 23);
-            textBox5.TabIndex = 5;
+            itemShockTbox.Location = new Point(3, 115);
+            itemShockTbox.Name = "itemShockTbox";
+            itemShockTbox.Size = new Size(127, 23);
+            itemShockTbox.TabIndex = 5;
+            itemShockTbox.TextChanged += itemShockTbox_TextChanged;
             // 
-            // Delete_order
+            // deleteBtn
             // 
-            Delete_order.BackColor = Color.Silver;
-            Delete_order.FlatStyle = FlatStyle.Popup;
-            Delete_order.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Delete_order.ForeColor = SystemColors.ActiveCaptionText;
-            Delete_order.Image = (Image)resources.GetObject("Delete_order.Image");
-            Delete_order.ImageAlign = ContentAlignment.MiddleLeft;
-            Delete_order.Location = new Point(317, 23);
-            Delete_order.Name = "Delete_order";
-            Delete_order.Size = new Size(86, 36);
-            Delete_order.TabIndex = 14;
-            Delete_order.Text = "Delete";
-            Delete_order.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Delete_order.UseVisualStyleBackColor = false;
+            deleteBtn.BackColor = Color.Silver;
+            deleteBtn.FlatStyle = FlatStyle.Popup;
+            deleteBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deleteBtn.ForeColor = SystemColors.ActiveCaptionText;
+            deleteBtn.Image = (Image)resources.GetObject("deleteBtn.Image");
+            deleteBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            deleteBtn.Location = new Point(317, 23);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(86, 36);
+            deleteBtn.TabIndex = 14;
+            deleteBtn.Text = "Delete";
+            deleteBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            deleteBtn.UseVisualStyleBackColor = false;
+            deleteBtn.Click += deleteBtn_Click;
             // 
             // Exit_ordrs
             // 
@@ -508,29 +541,30 @@
             Exit_ordrs.UseVisualStyleBackColor = false;
             Exit_ordrs.Click += Exit_ordrs_Click;
             // 
-            // Add_order
+            // addOrderBtn
             // 
-            Add_order.BackColor = Color.Silver;
-            Add_order.FlatStyle = FlatStyle.Popup;
-            Add_order.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Add_order.ForeColor = SystemColors.ActiveCaptionText;
-            Add_order.Image = (Image)resources.GetObject("Add_order.Image");
-            Add_order.ImageAlign = ContentAlignment.MiddleLeft;
-            Add_order.Location = new Point(202, 23);
-            Add_order.Name = "Add_order";
-            Add_order.Size = new Size(109, 36);
-            Add_order.TabIndex = 15;
-            Add_order.Text = "Add Order";
-            Add_order.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Add_order.UseVisualStyleBackColor = false;
+            addOrderBtn.BackColor = Color.Silver;
+            addOrderBtn.FlatStyle = FlatStyle.Popup;
+            addOrderBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addOrderBtn.ForeColor = SystemColors.ActiveCaptionText;
+            addOrderBtn.Image = (Image)resources.GetObject("addOrderBtn.Image");
+            addOrderBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            addOrderBtn.Location = new Point(202, 23);
+            addOrderBtn.Name = "addOrderBtn";
+            addOrderBtn.Size = new Size(109, 36);
+            addOrderBtn.TabIndex = 15;
+            addOrderBtn.Text = "Add Order";
+            addOrderBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            addOrderBtn.UseVisualStyleBackColor = false;
+            addOrderBtn.Click += Add_order_Click;
             // 
             // OrdersAddForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(Add_order);
+            Controls.Add(addOrderBtn);
             Controls.Add(Exit_ordrs);
-            Controls.Add(Delete_order);
+            Controls.Add(deleteBtn);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(Label_add);
@@ -548,35 +582,35 @@
         #endregion
 
         private ReaLTaiizor.Controls.BigLabel Label_add;
-        private TextBox Customer_nme;
+        private TextBox customerNameTbox;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox customerDetailsTbox;
         private Label label3;
-        private TextBox Purchase_ordr;
+        private TextBox purchaseOrderTbox;
         private Label DR_No;
-        private TextBox Delivery_rcpt;
+        private TextBox deliveryReceiptTbox;
         private Panel panel1;
         private Panel panel2;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox itemCodeTbox;
         private Label New_ctm;
         private Label Order_dtle;
         private Label label5;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox itemColorTbox;
+        private TextBox itemDescriptionTbox;
         private Label label6;
         private Label label7;
-        private TextBox textBox5;
+        private TextBox itemShockTbox;
         private Label label8;
-        private TextBox textBox6;
+        private TextBox sellingPriceTbox;
         private DataGridView dataGridView_Order;
         private Label label9;
-        private TextBox textBox7;
+        private TextBox itemLengthTbox;
         private Label label10;
-        private TextBox textBox8;
-        private Button Add_btn1;
-        private Button Delete_order;
+        private TextBox totalAmountTbox;
+        private Button addItemBtn;
+        private Button deleteBtn;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -584,6 +618,7 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private Button Exit_ordrs;
-        private Button Add_order;
+        private Button addOrderBtn;
+        private Button selectCustomerBtn;
     }
 }
