@@ -19,6 +19,7 @@ namespace inventory_system
         {
             InitializeComponent();
             this.Resize += UserForm_Resize;
+            
         }
         private void HighlightSideButton(Button clickedButton)
         {
@@ -28,6 +29,8 @@ namespace inventory_system
 
         private void UserForm_Load_1(object sender, EventArgs e)
         {
+            
+
             userCreationPanel.Visible = false;
 
             userDataGd.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);

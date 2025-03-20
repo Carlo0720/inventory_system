@@ -6,13 +6,52 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using BC = BCrypt.Net.BCrypt;
+using System.Data;
 
 namespace inventory_system.Globals
 {
   
     class Function
     {
-         private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
+        public static void HideParentPanel(UserControl control)
+        {
+            if (control?.Parent is Panel parentPanel)
+            {
+                parentPanel.Visible = false;
+            }
+        }
+
+        public static class DatabaseHelper
+        {
+            public static DataTable ExecuteQuery(string query)
+            {
+                using (MySqlConnection conn = new MySqlConnection(Variables.connString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                            {
+                                DataTable dt = new DataTable();
+                                sda.Fill(dt);
+                                return dt;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return null;
+                    }
+                }
+            }
+        }
+
+
+
+        private System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
 
 
         public static void StyleDataGridView(DataGridView dgv)
