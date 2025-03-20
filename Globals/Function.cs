@@ -287,7 +287,7 @@ namespace inventory_system.Globals
                 //    "INSERT INTO orders (order_id, customers_id, po_number, dr_number, order_date, total_price, created_at) " +
                 //    "VALUES (@order_id, @customer_id, @po_number, @dr_number, @order_date, @total_price, @created_at)";
                 // Query to get the id based on firstname and companyname
-                string query = "SELECT customers_id FROM customers WHERE company_name = @companyname";
+                string query = "SELECT customers_id FROM customers WHERE company_name = @company_name";
 
                 using MySqlCommand cmd = new MySqlCommand(query, conn);
 

@@ -16,7 +16,7 @@ namespace inventory_system.Window_Forms
 {
     public partial class OrdersAddForm : UserControl
     {
-        public List<Product> products = new List<Product>();
+        public BindingList<Product> products = new BindingList<Product>();
 
         // Create a DataTable to hold the products
         DataTable productTable = new DataTable();
@@ -93,13 +93,13 @@ namespace inventory_system.Window_Forms
 
             // You can also assign the selected values to parent controls like textboxes
 
-            if (dataGridView_Order.Rows.Count > 0)
-                // Assuming your DataGridView is bound to a DataTable
-                (dataGridView_Order.DataSource as DataTable).Clear();
+            //if (dataGridView_Order.Rows.Count > 0)
+            //    // Assuming your DataGridView is bound to a DataTable
+            //    (dataGridView_Order.DataSource as DataTable).Clear();
 
             products.Add(e.product);
             // Add or update the products in the DataTable
-            AddOrUpdateProducts(productTable, products);
+            //AddOrUpdateProducts(productTable, products);
 
             //int productId = e.ProductId;
             //string itemName = e.ItemName;
@@ -114,7 +114,7 @@ namespace inventory_system.Window_Forms
 
             //if (dataGridView_Order.Rows.Count > 0)
             //    dataGridView_Order.Rows.Clear();
-            dataGridView_Order.DataSource = productTable;
+            dataGridView_Order.DataSource = products;
             totalAmountTbox.Text = CalculateTotalAmount(products).ToString();
 
             //newly added data goes to datagridview
@@ -154,7 +154,7 @@ namespace inventory_system.Window_Forms
             }
         }
         // Method to add or update products from a List<Product> in the DataTable
-        public static double CalculateTotalAmount(List<Product> products)
+        public static double CalculateTotalAmount(BindingList<Product> products)
         {
             double totalPrice = 0;
 
@@ -170,7 +170,7 @@ namespace inventory_system.Window_Forms
         {
             #region Validation
             if (string.IsNullOrEmpty(customerNameTbox.Text) && string.IsNullOrEmpty(customerDetailsTbox.Text))
-            { 
+            {
 
                 MessageBox.Show($"Missing input fields: Customer Name and Customer Details");
                 return;
@@ -226,6 +226,57 @@ namespace inventory_system.Window_Forms
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            // Ensure that a row is selected
+            if (dataGridView_Order.SelectedRows.Count > 0)
+            {
+                // Get the selected row index
+                int selectedIndex = dataGridView_Order.SelectedRows[0].Index;
+
+                // Get the ProductId of the selected product (assuming ProductId is in the first column)
+                int productIdToDelete = Convert.ToInt32(dataGridView_Order.SelectedRows[0].Cells[0].Value);
+
+                // Find the product in the BindingList that matches the selected ProductId
+                Product productToDelete = products.FirstOrDefault(p => p.ProductId == productIdToDelete);
+
+                // If the product is found in the list
+                if (productToDelete != null)
+                {
+                    // Remove the product from the BindingList
+                    products.Remove(productToDelete);
+                    totalAmountTbox.Text = CalculateTotalAmount(products).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Product not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.");
+            }
+        }
+
+        private void itemShockTbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_Order_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the clicked row is valid
+            if (e.RowIndex >= 0)
+            {
+                // Get the selected row (using e.RowIndex)
+                DataGridViewRow selectedRow = dataGridView_Order.Rows[e.RowIndex];
+
+                // Get the data from the selected row and populate the TextBox controls
+                itemCodeTbox.Text = selectedRow.Cells["ProductId"].Value.ToString();
+                itemDescriptionTbox.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                itemShockTbox.Text = selectedRow.Cells["ItemCode"].Value.ToString();
+                itemLengthTbox.Text = selectedRow.Cells["ItemDescription"].Value.ToString();
+                itemColorTbox.Text = selectedRow.Cells["Color"].Value.ToString();
+                sellingPriceTbox.Text = selectedRow.Cells["Selling Price"].Value.ToString();
+            }
         }
     }
 
