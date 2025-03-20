@@ -90,17 +90,16 @@ namespace inventory_system.Window_Forms
             MessageBox.Show($"Selected Product: {e.ItemName} ({e.ItemCode})");
 
             // You can also assign the selected values to parent controls like textboxes
-            string productId = e.ProductId.ToString();
+            int productId = e.ProductId;
             string itemName = e.ItemName;
-            string itemCode = e.ItemCode;
+            int itemCode = e.ItemCode;
             string itemDescription = e.ItemDescription;
             string itemColor = e.ItemColor;
             string itemCategory = e.ItemCategory;
             string supplier = e.Supplier;
             int stock = e.Stock;
             string unit = e.Unit;
-            string itemPrice = e.ItemPrice.ToString("C");
-            string createdAt = e.CreatedAt.ToString("g");
+            double itemPrice = e.ItemPrice;
 
             //newly added data goes to datagridview
             dataGridView_Order.Rows.Add(itemCode, itemDescription, 1, 1, itemColor, itemPrice);
@@ -109,7 +108,35 @@ namespace inventory_system.Window_Forms
 
         private void Add_order_Click(object sender, EventArgs e)
         {
-           // Function.CreateOrder();
+            // Initialize the list to hold the order items
+            List<OrderItems> orderItemsList = new List<OrderItems>();
+
+            // Loop through each row in the DataGridView (assuming you have a DataGridView named 'dataGridView')
+            foreach (DataGridViewRow row in dataGridView_Order.Rows)
+            {
+                // Skip the row if it's a new row (usually the last row in the DataGridView for data entry)
+                if (!row.IsNewRow)
+                {
+                    // Create a new OrderItems object for each row
+                    OrderItems item = new OrderItems()
+                    {
+                        // Assuming columns are in order: ProductId, Quantity, Price (adjust column indices as needed)
+                        ProductId = Convert.ToInt32(row.Cells["ProductId"].Value),  // Replace with actual column name or index
+                        Quantity = Convert.ToInt32(row.Cells["Quantity"].Value),    // Replace with actual column name or index
+                        Price = (float)(row.Cells["Price"].Value)         // Replace with actual column name or index
+                    };
+
+                    // Add the new item to the list
+                    orderItemsList.Add(item);
+                }
+            }
+
+            int order_id = 1;
+            int customer_id = 1;
+            int po_number = Convert.ToInt32(Purchase_ordr.Text);
+            int dr_number = Convert.ToInt32(Delivery_rcpt.Text);
+            double total_price = Convert.ToDouble(textBox8.Text);
+            Function.CreateOrder(order_id, customer_id, po_number, dr_number, total_price, orderItemsList);
         }
     }
 

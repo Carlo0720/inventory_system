@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using BC = BCrypt.Net.BCrypt;
+using inventory_system.UserControls.Order;
+using System.Transactions;
 
 namespace inventory_system.Globals
 {
@@ -205,40 +207,67 @@ namespace inventory_system.Globals
         }
 
 
-        public static string CreateOrder(string item_name, string item_code, string item_description, string item_color, string item_category,
-                               string supplier, string unit, int stock, decimal price, DateTime created_at)
+        public static string CreateOrder(int order_id,
+            int customer_id, 
+            int po_number,
+            int dr_number, 
+            double total_price,
+            List<OrderItems> orderItems)
         {
 
-
-
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            MySqlTransaction transaction = null;  // Declare transaction outside try block
             try
             {
                 conn.Open();
-                string query = "INSERT INTO products (item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, created_at) " +
-                               "VALUES (@item_name, @item_code, @item_description, @item_color, @item_category, @supplier, @unit, @stock, @item_price, @created_at)";
 
-                using MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@item_name", item_name);
-                cmd.Parameters.AddWithValue("@item_code", item_code);
-                cmd.Parameters.AddWithValue("@item_description", item_description);
-                cmd.Parameters.AddWithValue("@item_color", item_color);
-                cmd.Parameters.AddWithValue("@item_category", item_category);
-                cmd.Parameters.AddWithValue("@supplier", supplier);
-                cmd.Parameters.AddWithValue("@unit", unit);
-                cmd.Parameters.AddWithValue("@stock", stock);
-                cmd.Parameters.AddWithValue("@item_price", price);
-                cmd.Parameters.AddWithValue("@created_at", created_at);
+                // Start a transaction to ensure both queries succeed or fail together
+                transaction = conn.BeginTransaction();
+
+                string insertToOrdersQuery =
+                    "INSERT INTO orders (order_id, customer_id, po_number, dr_number, order_date, total_price, created_at) " +
+                    "VALUES (@order_id, @customer_id, @po_number, @dr_number, @order_date, @total_price, @created_at)";
+
+                using MySqlCommand cmd = new MySqlCommand(insertToOrdersQuery, conn);
+
+                // Add parameters to avoid SQL injection
+                cmd.Parameters.AddWithValue("@order_id", order_id);
+                cmd.Parameters.AddWithValue("@customer_id", customer_id);
+                cmd.Parameters.AddWithValue("@po_number", po_number);
+                cmd.Parameters.AddWithValue("@dr_number", dr_number);
+                cmd.Parameters.AddWithValue("@order_date", DateTime.Now);  // Ensure the date is correctly passed
+                cmd.Parameters.AddWithValue("@total_price", total_price);
+                cmd.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
 
                 cmd.ExecuteNonQuery();
 
+                foreach (OrderItems item in orderItems)
+                {
+                    string insertToOrderItemsQuery =
+                        "INSERT INTO orders (order_id, product_id, quantity, price, subtotal, created_at) " +
+                        "VALUES (@order_id, @product_id, @quantity, @price, @subtotal, @created_at)";
 
-                return "Product has been created successfully.";
+                    using MySqlCommand cmd2 = new MySqlCommand(insertToOrderItemsQuery, conn);
 
+                    // Add parameters to avoid SQL injection
+                    cmd2.Parameters.AddWithValue("@order_id", order_id);
+                    cmd2.Parameters.AddWithValue("@product_id", item.ProductId);
+                    cmd2.Parameters.AddWithValue("@quantity", item.Quantity);
+                    cmd2.Parameters.AddWithValue("@price", item.Price);
+                    cmd2.Parameters.AddWithValue("@subtotal", item.Price * item.Quantity);
+                    cmd2.Parameters.AddWithValue("@created_at", DateTime.Now);
 
+                    cmd2.ExecuteNonQuery();
+                }
+                // Commit the transaction if both queries succeed
+                transaction.Commit();
+
+                return "Order has been created successfully.";
             }
             catch (Exception ex)
             {
+                // Rollback the transaction if an error occurs
+                transaction?.Rollback();
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "Error: " + ex.Message;
             }
