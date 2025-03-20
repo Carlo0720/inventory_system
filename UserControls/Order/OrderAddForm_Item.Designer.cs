@@ -47,9 +47,14 @@
             productlist_datagd = new DataGridView();
             panel1 = new Panel();
             quantityTbox = new TextBox();
+            panel2 = new Panel();
+            lengthTbox = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productlist_datagd).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // products_searchbtn
@@ -57,7 +62,7 @@
             products_searchbtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             products_searchbtn.Image = (Image)resources.GetObject("products_searchbtn.Image");
             products_searchbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            products_searchbtn.Location = new Point(548, 6);
+            products_searchbtn.Location = new Point(1279, 8);
             products_searchbtn.Name = "products_searchbtn";
             products_searchbtn.Size = new Size(79, 40);
             products_searchbtn.TabIndex = 10;
@@ -69,7 +74,7 @@
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(products_searchTxtbox);
-            panel3.Location = new Point(301, 8);
+            panel3.Location = new Point(1032, 10);
             panel3.Name = "panel3";
             panel3.Size = new Size(326, 36);
             panel3.TabIndex = 11;
@@ -189,8 +194,10 @@
             productlist_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             productlist_datagd.Columns.AddRange(new DataGridViewColumn[] { product_id, item_name, item_code, item_description, item_color, item_category, supplier, stock, unit, item_price, created_at });
             productlist_datagd.Location = new Point(3, 52);
+            productlist_datagd.MultiSelect = false;
             productlist_datagd.Name = "productlist_datagd";
             productlist_datagd.ReadOnly = true;
+            productlist_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             productlist_datagd.Size = new Size(1365, 564);
             productlist_datagd.TabIndex = 8;
             productlist_datagd.CellDoubleClick += productlist_datagd_CellDoubleClick_1;
@@ -199,9 +206,9 @@
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(quantityTbox);
-            panel1.Location = new Point(710, 10);
+            panel1.Location = new Point(222, 10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(326, 36);
+            panel1.Size = new Size(158, 36);
             panel1.TabIndex = 12;
             // 
             // quantityTbox
@@ -211,13 +218,54 @@
             quantityTbox.Font = new Font("Segoe UI", 9F);
             quantityTbox.Location = new Point(3, 9);
             quantityTbox.Name = "quantityTbox";
-            quantityTbox.Size = new Size(241, 16);
+            quantityTbox.Size = new Size(152, 16);
             quantityTbox.TabIndex = 2;
+            quantityTbox.Text = "1";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(lengthTbox);
+            panel2.Location = new Point(492, 10);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(158, 36);
+            panel2.TabIndex = 13;
+            // 
+            // lengthTbox
+            // 
+            lengthTbox.BackColor = Color.White;
+            lengthTbox.BorderStyle = BorderStyle.None;
+            lengthTbox.Font = new Font("Segoe UI", 9F);
+            lengthTbox.Location = new Point(3, 9);
+            lengthTbox.Name = "lengthTbox";
+            lengthTbox.Size = new Size(152, 16);
+            lengthTbox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(166, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(53, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Quantity";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(448, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Length";
             // 
             // OrderAddForm_Item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(products_searchbtn);
             Controls.Add(panel3);
@@ -231,7 +279,10 @@
             ((System.ComponentModel.ISupportInitialize)productlist_datagd).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -254,5 +305,9 @@
         private DataGridView productlist_datagd;
         private Panel panel1;
         private TextBox quantityTbox;
+        private Panel panel2;
+        private TextBox lengthTbox;
+        private Label label1;
+        private Label label2;
     }
 }

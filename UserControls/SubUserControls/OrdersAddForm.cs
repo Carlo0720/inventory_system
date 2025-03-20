@@ -1,5 +1,6 @@
 ﻿using inventory_system.Globals;
 using inventory_system.UserControls.Order;
+using inventory_system.UserControls.Order.Model;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,15 @@ namespace inventory_system.Window_Forms
 {
     public partial class OrdersAddForm : UserControl
     {
+        public List<Product> products = new List<Product>();
+
+        // Create a DataTable to hold the products
+        DataTable productTable = new DataTable();
         public OrdersAddForm()
         {
             InitializeComponent();
-        }
-
-        private void bigTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            dataGridView_Order.Columns.Clear();
+            productTable = CreateProductTable();
         }
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace inventory_system.Window_Forms
             // Use these values as needed
             MessageBox.Show($"Selected Customer: {firstName} {lastName}");
 
-            Customer_nme.Text = firstName + " " + lastName;
+            customerNameTbox.Text = firstName + " " + lastName;
             customerDetailsTbox.Text = companyName;
         }
 
@@ -73,7 +75,7 @@ namespace inventory_system.Window_Forms
             Form popupForm = new Form();
             popupForm.Text = "Select Item";  // Title of the popup window
             popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
-            popupForm.Size = new Size(640, 540);  // Set the size of the popup window
+            popupForm.Size = new Size(1371, 619);  // Set the size of the popup window
             // Add your OrdersAddForm to the popup window
             OrderAddForm_Item orderAddForm_Item = new OrderAddForm_Item();
             orderAddForm_Item.Dock = DockStyle.Fill;
@@ -87,56 +89,143 @@ namespace inventory_system.Window_Forms
         private void ProductModal_ProductSelected(object sender, ProductSelectedEventArgs e)
         {
             // Handle the product selection here
-            MessageBox.Show($"Selected Product: {e.ItemName} ({e.ItemCode})");
+            MessageBox.Show($"Selected Product: {e.product.ItemName} ({e.product.ItemCode})");
 
             // You can also assign the selected values to parent controls like textboxes
-            int productId = e.ProductId;
-            string itemName = e.ItemName;
-            int itemCode = e.ItemCode;
-            string itemDescription = e.ItemDescription;
-            string itemColor = e.ItemColor;
-            string itemCategory = e.ItemCategory;
-            string supplier = e.Supplier;
-            int stock = e.Stock;
-            string unit = e.Unit;
-            double itemPrice = e.ItemPrice;
+
+            if (dataGridView_Order.Rows.Count > 0)
+                // Assuming your DataGridView is bound to a DataTable
+                (dataGridView_Order.DataSource as DataTable).Clear();
+
+            products.Add(e.product);
+            // Add or update the products in the DataTable
+            AddOrUpdateProducts(productTable, products);
+
+            //int productId = e.ProductId;
+            //string itemName = e.ItemName;
+            //string itemCode = e.ItemCode;
+            //string itemDescription = e.ItemDescription;
+            //string itemColor = e.ItemColor;
+            //string itemCategory = e.ItemCategory;
+            //string supplier = e.Supplier;
+            //int quantity = e.Quantity;
+            //string unit = e.Unit;
+            //decimal itemPrice = e.ItemPrice;
+
+            //if (dataGridView_Order.Rows.Count > 0)
+            //    dataGridView_Order.Rows.Clear();
+            dataGridView_Order.DataSource = productTable;
+            totalAmountTbox.Text = CalculateTotalAmount(products).ToString();
 
             //newly added data goes to datagridview
-            dataGridView_Order.Rows.Add(itemCode, itemDescription, 1, 1, itemColor, itemPrice);
+            //dataGridView_Order.Rows.Add(itemCode, itemDescription, 1, 1, itemColor, itemPrice);
 
+        }
+
+        // Method to create a DataTable with the required columns for Product
+        public static DataTable CreateProductTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Item Code", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Length", typeof(string));
+            dt.Columns.Add("Quantity", typeof(int));
+            dt.Columns.Add("Color", typeof(string));
+            dt.Columns.Add("Selling Price", typeof(string));
+
+            //// Set the primary key
+            //dt.PrimaryKey = new DataColumn[] { dt.Columns["ProductID"] };
+
+            return dt;
+        }
+        // Method to add or update products from a List<Product> in the DataTable
+        public static void AddOrUpdateProducts(DataTable dt, List<Product> products)
+        {
+            foreach (var product in products)
+            {
+                DataRow newRow = dt.NewRow();
+                newRow["Item Code"] = product.ItemCode;
+                newRow["Description"] = product.ItemDescription;
+                newRow["Length"] = product.Length;
+                newRow["Quantity"] = product.Quantity;
+                newRow["Color"] = product.ItemColor;
+                newRow["Selling Price"] = product.ItemPrice;
+                dt.Rows.Add(newRow);
+            }
+        }
+        // Method to add or update products from a List<Product> in the DataTable
+        public static double CalculateTotalAmount(List<Product> products)
+        {
+            double totalPrice = 0;
+
+            // Process each unique product in the grouped list
+            foreach (var product in products)
+            {
+                totalPrice += Convert.ToDouble(product.Quantity * product.ItemPrice);
+            }
+            return totalPrice;
         }
 
         private void Add_order_Click(object sender, EventArgs e)
         {
+            #region Validation
+            if (string.IsNullOrEmpty(customerNameTbox.Text) && string.IsNullOrEmpty(customerDetailsTbox.Text))
+            { 
+
+                MessageBox.Show($"Missing input fields: Customer Name and Customer Details");
+                return;
+            }
+            if (string.IsNullOrEmpty(purchaseOrderTbox.Text))
+            {
+                MessageBox.Show($"Missing input fields: Purchase Order");
+                return;
+            }
+            if (string.IsNullOrEmpty(deliveryReceiptTbox.Text))
+            {
+                MessageBox.Show($"Missing input fields: Delivery Receipt");
+                return;
+            }
+            if (dataGridView_Order.Rows.Count == 0)
+            {
+                MessageBox.Show($"No items");
+                return;
+            }
+            #endregion
             // Initialize the list to hold the order items
             List<OrderItems> orderItemsList = new List<OrderItems>();
 
             // Loop through each row in the DataGridView (assuming you have a DataGridView named 'dataGridView')
-            foreach (DataGridViewRow row in dataGridView_Order.Rows)
+            foreach (Product product in products)
             {
-                // Skip the row if it's a new row (usually the last row in the DataGridView for data entry)
-                if (!row.IsNewRow)
+                // Create a new OrderItems object for each row
+                OrderItems item = new OrderItems()
                 {
-                    // Create a new OrderItems object for each row
-                    OrderItems item = new OrderItems()
-                    {
-                        // Assuming columns are in order: ProductId, Quantity, Price (adjust column indices as needed)
-                        ProductId = Convert.ToInt32(row.Cells["ProductId"].Value),  // Replace with actual column name or index
-                        Quantity = Convert.ToInt32(row.Cells["Quantity"].Value),    // Replace with actual column name or index
-                        Price = (float)(row.Cells["Price"].Value)         // Replace with actual column name or index
-                    };
+                    // Assuming columns are in order: ProductId, Quantity, Price (adjust column indices as needed)
+                    ProductId = product.ProductId,  // Replace with actual column name or index
+                    Quantity = product.Quantity,    // Replace with actual column name or index
+                    Price = (float)product.ItemPrice         // Replace with actual column name or index
+                };
 
-                    // Add the new item to the list
-                    orderItemsList.Add(item);
-                }
+                // Add the new item to the list
+                orderItemsList.Add(item);
             }
 
-            int order_id = 1;
-            int customer_id = 1;
-            int po_number = Convert.ToInt32(Purchase_ordr.Text);
-            int dr_number = Convert.ToInt32(Delivery_rcpt.Text);
-            double total_price = Convert.ToDouble(textBox8.Text);
+            int order_id = Convert.ToInt32(purchaseOrderTbox.Text);
+            int customer_id = Function.GetCustomerId(customerDetailsTbox.Text);
+            int po_number = Convert.ToInt32(purchaseOrderTbox.Text);
+            int dr_number = Convert.ToInt32(deliveryReceiptTbox.Text);
+            double total_price = Convert.ToDouble(totalAmountTbox.Text);
             Function.CreateOrder(order_id, customer_id, po_number, dr_number, total_price, orderItemsList);
+
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                parentForm.Close();
+            }
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
         }
     }
 

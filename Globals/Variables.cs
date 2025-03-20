@@ -11,7 +11,7 @@ namespace inventory_system.Globals
 
     class Variables
     {
-        public const string connString = "server=localhost;user=root;database=inventory_system;port=3306;password=pass";
+        public const string connString = "server=localhost;user=root;database=inventory_system;port=3306;password=mcD1pSh1T_2178";
     }
     
 }

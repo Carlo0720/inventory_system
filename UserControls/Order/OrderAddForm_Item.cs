@@ -105,24 +105,31 @@ namespace inventory_system.UserControls.Order
                 string itemCategory = selectedRow.Cells["item_category"].Value.ToString();
                 string supplier = selectedRow.Cells["supplier"].Value.ToString();
                 int stock = Convert.ToInt32(selectedRow.Cells["stock"].Value);
+                int quantity = Convert.ToInt32(quantityTbox.Text);
                 string unit = selectedRow.Cells["unit"].Value.ToString();
+                string length = string.IsNullOrEmpty(lengthTbox.Text) ? "1" : lengthTbox.Text;
                 decimal itemPrice = Convert.ToDecimal(selectedRow.Cells["item_price"].Value);
                 DateTime createdAt = Convert.ToDateTime(selectedRow.Cells["created_at"].Value);
 
                 // Create the EventArgs object with the product details
                 var eventArgs = new ProductSelectedEventArgs
                 {
-                    ProductId = productId,
-                    ItemName = itemName,
-                    ItemCode = itemCode,
-                    ItemDescription = itemDescription,
-                    ItemColor = itemColor,
-                    ItemCategory = itemCategory,
-                    Supplier = supplier,
-                    Stock = stock,
-                    Unit = unit,
-                    ItemPrice = itemPrice,
-                    CreatedAt = createdAt
+                    product = new()
+                    {
+                        ProductId = productId,
+                        ItemName = itemName,
+                        ItemCode = itemCode,
+                        ItemDescription = itemDescription,
+                        ItemColor = itemColor,
+                        ItemCategory = itemCategory,
+                        Supplier = supplier,
+                        Stock = stock,
+                        Quantity = quantity,
+                        Unit = unit,
+                        Length = length,
+                        ItemPrice = itemPrice,
+                        CreatedAt = createdAt
+                    }
                 };
 
                 // Trigger the ProductSelected event

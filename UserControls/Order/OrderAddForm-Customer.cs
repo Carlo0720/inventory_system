@@ -86,6 +86,7 @@ namespace inventory_system.UserControls.Order
                 // Create a custom EventArgs to store the selected values
                 var eventArgs = new CustomerSelectedEventArgs
                 {
+                    
                     FirstName = selectedRow.Cells["first_name"].Value.ToString(),
                     LastName = selectedRow.Cells["last_name"].Value.ToString(),
                     CompanyName = selectedRow.Cells["company_name"].Value.ToString(),
