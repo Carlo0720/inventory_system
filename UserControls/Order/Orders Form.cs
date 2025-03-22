@@ -101,7 +101,7 @@ namespace inventory_system
             Form popupForm = new Form();
             popupForm.Text = "Add Order";  // Title of the popup window
             popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
-            popupForm.Size = new Size(840, 480);  // Set the size of the popup window
+            popupForm.Size = new Size(732, 502);  // Set the size of the popup window
 
             // Add your OrdersAddForm to the popup window
             OrdersAddForm ordersAF = new OrdersAddForm();

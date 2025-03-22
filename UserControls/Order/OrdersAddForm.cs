@@ -26,7 +26,6 @@ namespace inventory_system.Window_Forms
             InitializeComponent();
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
-            DataGridViewStyler.ApplyStyles(poisonDataGridView1);
         }
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
@@ -117,7 +116,6 @@ namespace inventory_system.Window_Forms
             //if (dataGridView_Order.Rows.Count > 0)
             //    dataGridView_Order.Rows.Clear();
             dataGridView_Order.DataSource = products;
-            poisonDataGridView1.DataSource = products;
             totalAmountTbox.Text = CalculateTotalAmount(products).ToString();
 
             //newly added data goes to datagridview
@@ -272,13 +270,6 @@ namespace inventory_system.Window_Forms
                 // Get the selected row (using e.RowIndex)
                 DataGridViewRow selectedRow = dataGridView_Order.Rows[e.RowIndex];
 
-                // Get the data from the selected row and populate the TextBox controls
-                itemCodeTbox.Text = selectedRow.Cells["ProductId"].Value.ToString();
-                itemDescriptionTbox.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                itemShockTbox.Text = selectedRow.Cells["ItemCode"].Value.ToString();
-                itemLengthTbox.Text = selectedRow.Cells["ItemDescription"].Value.ToString();
-                itemColorTbox.Text = selectedRow.Cells["Color"].Value.ToString();
-                sellingPriceTbox.Text = selectedRow.Cells["Selling Price"].Value.ToString();
             }
         }
     }
