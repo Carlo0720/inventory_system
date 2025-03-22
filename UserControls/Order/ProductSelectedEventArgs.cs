@@ -1,4 +1,4 @@
-﻿using inventory_system.UserControls.Order.Model;
+﻿using inventory_system.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
