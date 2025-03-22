@@ -1,6 +1,7 @@
 ﻿using inventory_system.Globals;
+using inventory_system.Model;
+using inventory_system.style;
 using inventory_system.UserControls.Order;
-using inventory_system.UserControls.Order.Model;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace inventory_system.Window_Forms
             InitializeComponent();
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
+            DataGridViewStyler.ApplyStyles(poisonDataGridView1);
         }
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace inventory_system.Window_Forms
             //if (dataGridView_Order.Rows.Count > 0)
             //    // Assuming your DataGridView is bound to a DataTable
             //    (dataGridView_Order.DataSource as DataTable).Clear();
-
+            //if(products.Any(u => u.))
             products.Add(e.product);
             // Add or update the products in the DataTable
             //AddOrUpdateProducts(productTable, products);
@@ -115,6 +117,7 @@ namespace inventory_system.Window_Forms
             //if (dataGridView_Order.Rows.Count > 0)
             //    dataGridView_Order.Rows.Clear();
             dataGridView_Order.DataSource = products;
+            poisonDataGridView1.DataSource = products;
             totalAmountTbox.Text = CalculateTotalAmount(products).ToString();
 
             //newly added data goes to datagridview

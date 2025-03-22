@@ -1,6 +1,8 @@
 ﻿using inventory_system.Globals;
+using inventory_system.style;
 using inventory_system.Window_Forms;
 using MySql.Data.MySqlClient;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,7 @@ namespace inventory_system
         {
             InitializeComponent();
             ordersAddPanel.Visible = false;
+            DataGridViewStyler.ApplyStyles(dataGridView_Orders);
         }
 
 

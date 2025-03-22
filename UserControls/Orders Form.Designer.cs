@@ -55,7 +55,6 @@
             // 
             panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(Edit_order);
-            panel1.Controls.Add(Order_search);
             panel1.Controls.Add(Orders_refresh);
             panel1.Controls.Add(Orders_add);
             panel1.Controls.Add(panel3);
@@ -67,13 +66,14 @@
             // 
             // Edit_order
             // 
+            Edit_order.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Edit_order.BackColor = Color.Gainsboro;
             Edit_order.FlatAppearance.BorderColor = Color.Black;
             Edit_order.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Edit_order.ForeColor = SystemColors.ActiveCaptionText;
             Edit_order.Image = (Image)resources.GetObject("Edit_order.Image");
             Edit_order.ImageAlign = ContentAlignment.MiddleLeft;
-            Edit_order.Location = new Point(175, 11);
+            Edit_order.Location = new Point(630, 9);
             Edit_order.Name = "Edit_order";
             Edit_order.Size = new Size(81, 39);
             Edit_order.TabIndex = 15;
@@ -86,7 +86,7 @@
             Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Order_search.Image = (Image)resources.GetObject("Order_search.Image");
             Order_search.ImageAlign = ContentAlignment.MiddleLeft;
-            Order_search.Location = new Point(573, 11);
+            Order_search.Location = new Point(316, -4);
             Order_search.Name = "Order_search";
             Order_search.Size = new Size(79, 40);
             Order_search.TabIndex = 3;
@@ -97,10 +97,11 @@
             // 
             // Orders_refresh
             // 
+            Orders_refresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Orders_refresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Orders_refresh.Image = (Image)resources.GetObject("Orders_refresh.Image");
             Orders_refresh.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_refresh.Location = new Point(90, 10);
+            Orders_refresh.Location = new Point(717, 9);
             Orders_refresh.Name = "Orders_refresh";
             Orders_refresh.Size = new Size(79, 40);
             Orders_refresh.TabIndex = 1;
@@ -110,14 +111,15 @@
             // 
             // Orders_add
             // 
+            Orders_add.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Orders_add.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Orders_add.Image = (Image)resources.GetObject("Orders_add.Image");
             Orders_add.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_add.Location = new Point(5, 10);
+            Orders_add.Location = new Point(802, 9);
             Orders_add.Name = "Orders_add";
             Orders_add.Size = new Size(79, 40);
             Orders_add.TabIndex = 0;
-            Orders_add.Text = "Add";
+            Orders_add.Text = "Create";
             Orders_add.TextImageRelation = TextImageRelation.ImageBeforeText;
             Orders_add.UseVisualStyleBackColor = true;
             Orders_add.Click += Orders_add_Click;
@@ -126,9 +128,10 @@
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(textBox1);
-            panel3.Location = new Point(326, 13);
+            panel3.Controls.Add(Order_search);
+            panel3.Location = new Point(13, 13);
             panel3.Name = "panel3";
-            panel3.Size = new Size(326, 36);
+            panel3.Size = new Size(395, 36);
             panel3.TabIndex = 4;
             // 
             // textBox1
@@ -138,7 +141,7 @@
             textBox1.Font = new Font("Segoe UI", 9F);
             textBox1.Location = new Point(3, 10);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(241, 16);
+            textBox1.Size = new Size(307, 16);
             textBox1.TabIndex = 2;
             // 
             // dataGridView_Orders
@@ -148,6 +151,7 @@
             dataGridView_Orders.AllowUserToOrderColumns = true;
             dataGridView_Orders.AllowUserToResizeColumns = false;
             dataGridView_Orders.AllowUserToResizeRows = false;
+            dataGridView_Orders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView_Orders.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView_Orders.BorderStyle = BorderStyle.None;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -161,16 +165,15 @@
             dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Orders.ColumnHeadersHeight = 30;
             dataGridView_Orders.Columns.AddRange(new DataGridViewColumn[] { orders_id, Date, Customername, Customerdetail, Po, Dr, Total });
-            dataGridView_Orders.Dock = DockStyle.Fill;
             dataGridView_Orders.EnableHeadersVisualStyles = false;
             dataGridView_Orders.GridColor = Color.LightGray;
-            dataGridView_Orders.Location = new Point(0, 59);
+            dataGridView_Orders.Location = new Point(3, 59);
             dataGridView_Orders.Name = "dataGridView_Orders";
             dataGridView_Orders.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView_Orders.RowHeadersVisible = false;
             dataGridView_Orders.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridView_Orders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_Orders.Size = new Size(955, 557);
+            dataGridView_Orders.Size = new Size(949, 554);
             dataGridView_Orders.TabIndex = 1;
             // 
             // orders_id
