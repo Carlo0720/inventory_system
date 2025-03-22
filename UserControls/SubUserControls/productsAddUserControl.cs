@@ -18,13 +18,12 @@ namespace inventory_system
             InitializeComponent();
         }
 
+        public event Action AcessoryAdded;
 
         private void add_product_close_btn_Click(object sender, EventArgs e)
         {
-            if (this.Parent is Panel parentPanel)
-            {
-                parentPanel.Visible = false;
-            }
+            AcessoryAdded?.Invoke();
+            Function.HideParentPanel(this);
         }
 
 
@@ -39,7 +38,7 @@ namespace inventory_system
                 { "Item Code", itemcode_txtbox.Text },
                 { "Item Description", itemdesc_txtbox.Text },
                 { "Item Color", item_color_txtbox.Text },
-                { "Item Category", item_category_txtbox.Text },
+                { "Item Category", itemcategory_combobox.Text },
                 { "Supplier", supplier_txtbox1.Text },
                 { "Unit", unit_txtbox.Text }
             };
@@ -59,7 +58,7 @@ namespace inventory_system
             string item_code = itemcode_txtbox.Text;
             string item_description = itemdesc_txtbox.Text;
             string item_color = item_color_txtbox.Text;
-            string item_category = item_category_txtbox.Text;
+            string item_category = itemcategory_combobox.Text;
             string supplier = supplier_txtbox1.Text;
             string unit = unit_txtbox.Text;
             DateTime createdAt = DateTime.Now;

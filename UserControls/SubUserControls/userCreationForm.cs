@@ -51,23 +51,22 @@ namespace inventory_system
             crownComboBoxUserType.SelectedIndex = 0;
         }
 
+        public event Action UserAdded;
 
         private void Close_btn_Click_1(object sender, EventArgs e)
         {
-            if (this.Parent is Panel parentPanel)
-            {
-                parentPanel.Visible = false;
-            }
+            UserAdded?.Invoke();
+            Function.HideParentPanel(this);
+
         }
 
         private void crownComboBoxUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show($"Selected Item Type: {crownComboBoxUserType.SelectedItem?.GetType()}");
+            
 
             if (crownComboBoxUserType.SelectedItem is ComboBoxItem selectedItem)
             {
-                selectedUserTypeId = selectedItem.Value;
-                MessageBox.Show($"Updated Selected User Type ID: {selectedUserTypeId}");
+                selectedUserTypeId = selectedItem.Value;                
             }
         }
 
@@ -84,15 +83,15 @@ namespace inventory_system
                 MessageBox.Show("Please enter the last name name of the user.");
             }
 
-            MessageBox.Show($"Current stored User Type ID: {selectedUserTypeId}");
+            
 
-    if (selectedUserTypeId == -1)
-    {
-        MessageBox.Show("Please select a user type first.");
-        return;
-    }
+           if (selectedUserTypeId == -1)
+           {
+            MessageBox.Show("Please select a user type first.");
+            return;
+           }
 
-    Function.CreateUser(crownTextBoxFrstNme.Text, crownTextBoxLstNme.Text, selectedUserTypeId);
+           Function.CreateUser(crownTextBoxFrstNme.Text, crownTextBoxLstNme.Text, selectedUserTypeId);
         }
     }
 }

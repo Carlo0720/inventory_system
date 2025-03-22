@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
-            userDataGd = new DataGridView();
+            user_datagd = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             User_Type = new DataGridViewTextBoxColumn();
             First_Name = new DataGridViewTextBoxColumn();
@@ -40,34 +40,34 @@
             Create_Btn = new Button();
             Refresh_Btn = new Button();
             userCreationPanel = new Panel();
-            ((System.ComponentModel.ISupportInitialize)userDataGd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)user_datagd).BeginInit();
             SuspendLayout();
             // 
-            // userDataGd
+            // user_datagd
             // 
-            userDataGd.AllowUserToAddRows = false;
-            userDataGd.AllowUserToDeleteRows = false;
-            userDataGd.AllowUserToOrderColumns = true;
-            userDataGd.AllowUserToResizeColumns = false;
-            userDataGd.AllowUserToResizeRows = false;
-            userDataGd.BackgroundColor = Color.FromArgb(224, 224, 224);
-            userDataGd.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Gray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            userDataGd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            userDataGd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userDataGd.Columns.AddRange(new DataGridViewColumn[] { ID, User_Type, First_Name, Last_Name, Username, temp_password });
-            userDataGd.GridColor = Color.LightGray;
-            userDataGd.Location = new Point(0, 57);
-            userDataGd.Name = "userDataGd";
-            userDataGd.RowHeadersVisible = false;
-            userDataGd.Size = new Size(955, 556);
-            userDataGd.TabIndex = 0;
+            user_datagd.AllowUserToAddRows = false;
+            user_datagd.AllowUserToDeleteRows = false;
+            user_datagd.AllowUserToOrderColumns = true;
+            user_datagd.AllowUserToResizeColumns = false;
+            user_datagd.AllowUserToResizeRows = false;
+            user_datagd.BackgroundColor = Color.FromArgb(224, 224, 224);
+            user_datagd.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Gray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            user_datagd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            user_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            user_datagd.Columns.AddRange(new DataGridViewColumn[] { ID, User_Type, First_Name, Last_Name, Username, temp_password });
+            user_datagd.GridColor = Color.LightGray;
+            user_datagd.Location = new Point(0, 57);
+            user_datagd.Name = "user_datagd";
+            user_datagd.RowHeadersVisible = false;
+            user_datagd.Size = new Size(955, 556);
+            user_datagd.TabIndex = 0;
             // 
             // ID
             // 
@@ -150,19 +150,19 @@
             Controls.Add(userCreationPanel);
             Controls.Add(Refresh_Btn);
             Controls.Add(Create_Btn);
-            Controls.Add(userDataGd);
+            Controls.Add(user_datagd);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "UserForm";
             Size = new Size(955, 616);
             Load += UserForm_Load_1;
             Resize += UserForm_Resize;
-            ((System.ComponentModel.ISupportInitialize)userDataGd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)user_datagd).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView userDataGd;
+        private DataGridView user_datagd;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn User_Type;
         private DataGridViewTextBoxColumn First_Name;

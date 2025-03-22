@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersAddUserControl));
-            add_product_btn = new Button();
+            add_costumer_btn = new Button();
             Label_add = new ReaLTaiizor.Controls.BigLabel();
-            add_product_close_btn = new Button();
+            add_customers_close_btn = new Button();
             panel2 = new Panel();
             itemcolor_txtbox = new Label();
             supplier_txtbox = new Label();
@@ -55,23 +55,24 @@
             email_txtbox.Name = "email_txtbox";
             email_txtbox.Size = new Size(201, 23);
             email_txtbox.TabIndex = 13;
+            email_txtbox.Text = "";
             // 
-            // add_product_btn
+            // add_costumer_btn
             // 
-            add_product_btn.BackColor = Color.Silver;
-            add_product_btn.FlatStyle = FlatStyle.Popup;
-            add_product_btn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            add_product_btn.ForeColor = SystemColors.ActiveCaptionText;
-            add_product_btn.Image = (Image)resources.GetObject("add_product_btn.Image");
-            add_product_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            add_product_btn.Location = new Point(56, 378);
-            add_product_btn.Name = "add_product_btn";
-            add_product_btn.Size = new Size(134, 36);
-            add_product_btn.TabIndex = 24;
-            add_product_btn.Text = "Add Customer";
-            add_product_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            add_product_btn.UseVisualStyleBackColor = false;
-            add_product_btn.Click += add_product_btn_Click;
+            add_costumer_btn.BackColor = Color.Silver;
+            add_costumer_btn.FlatStyle = FlatStyle.Popup;
+            add_costumer_btn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            add_costumer_btn.ForeColor = SystemColors.ActiveCaptionText;
+            add_costumer_btn.Image = (Image)resources.GetObject("add_costumer_btn.Image");
+            add_costumer_btn.ImageAlign = ContentAlignment.MiddleLeft;
+            add_costumer_btn.Location = new Point(56, 378);
+            add_costumer_btn.Name = "add_costumer_btn";
+            add_costumer_btn.Size = new Size(134, 36);
+            add_costumer_btn.TabIndex = 24;
+            add_costumer_btn.Text = "Add Customer";
+            add_costumer_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            add_costumer_btn.UseVisualStyleBackColor = false;
+            add_costumer_btn.Click += add_product_btn_Click;
             // 
             // Label_add
             // 
@@ -86,20 +87,20 @@
             Label_add.TabIndex = 22;
             Label_add.Text = "Add Customers";
             // 
-            // add_product_close_btn
+            // add_customers_close_btn
             // 
-            add_product_close_btn.BackColor = SystemColors.ButtonFace;
-            add_product_close_btn.BackgroundImage = (Image)resources.GetObject("add_product_close_btn.BackgroundImage");
-            add_product_close_btn.BackgroundImageLayout = ImageLayout.Center;
-            add_product_close_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
-            add_product_close_btn.FlatAppearance.BorderSize = 2;
-            add_product_close_btn.FlatStyle = FlatStyle.Popup;
-            add_product_close_btn.Location = new Point(232, 14);
-            add_product_close_btn.Name = "add_product_close_btn";
-            add_product_close_btn.Size = new Size(20, 19);
-            add_product_close_btn.TabIndex = 25;
-            add_product_close_btn.UseVisualStyleBackColor = false;
-            add_product_close_btn.Click += add_product_close_btn_Click;
+            add_customers_close_btn.BackColor = SystemColors.ButtonFace;
+            add_customers_close_btn.BackgroundImage = (Image)resources.GetObject("add_customers_close_btn.BackgroundImage");
+            add_customers_close_btn.BackgroundImageLayout = ImageLayout.Center;
+            add_customers_close_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            add_customers_close_btn.FlatAppearance.BorderSize = 2;
+            add_customers_close_btn.FlatStyle = FlatStyle.Popup;
+            add_customers_close_btn.Location = new Point(232, 14);
+            add_customers_close_btn.Name = "add_customers_close_btn";
+            add_customers_close_btn.Size = new Size(20, 19);
+            add_customers_close_btn.TabIndex = 25;
+            add_customers_close_btn.UseVisualStyleBackColor = false;
+            add_customers_close_btn.Click += add_product_close_btn_Click;
             // 
             // panel2
             // 
@@ -232,12 +233,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(add_product_btn);
+            Controls.Add(add_costumer_btn);
             Controls.Add(Label_add);
-            Controls.Add(add_product_close_btn);
+            Controls.Add(add_customers_close_btn);
             Controls.Add(panel2);
             Name = "CustomersAddUserControl";
             Size = new Size(261, 439);
+            Load += CustomersAddUserControl_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -246,9 +248,9 @@
 
         #endregion
 
-        private Button add_product_btn;
+        private Button add_costumer_btn;
         private ReaLTaiizor.Controls.BigLabel Label_add;
-        private Button add_product_close_btn;
+        private Button add_customers_close_btn;
         private Panel panel2;
         private Label itemcolor_txtbox;
         private TextBox email_txtbox;

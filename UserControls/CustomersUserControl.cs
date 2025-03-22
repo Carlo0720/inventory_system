@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static inventory_system.Globals.Function;
 
 namespace inventory_system
 {
@@ -19,6 +20,21 @@ namespace inventory_system
             InitializeComponent();
 
         }
+
+        private void LoadCustomers()
+        {
+            string query = "SELECT first_name, last_name, company_name, email, phone_number, address FROM customers";
+            DataTable dt = Function.DatabaseHelper.ExecuteQuery(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                customers_datagd.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("No data found in the customers table.");
+            }
+        }
+
 
         private void Customers_Form_Load(object sender, EventArgs e)
         {
@@ -39,8 +55,6 @@ namespace inventory_system
                         {
                             DataTable db_customers_table = new DataTable();
                             sda.Fill(db_customers_table);
-
-
 
                             customers_datagd.Columns["first_name"].DataPropertyName = "first_name";
                             customers_datagd.Columns["last_name"].DataPropertyName = "last_name";
@@ -72,7 +86,7 @@ namespace inventory_system
 
             }
         }
-    
+
 
 
         private void customers_add_btn_Click(object sender, EventArgs e)
@@ -80,8 +94,22 @@ namespace inventory_system
             Function.HighlightButtonTemporary((Button)sender, 1500);
             CustomersAddUserControl customersAddUC = new CustomersAddUserControl();
             customersAddUC.Dock = DockStyle.Fill;
+
+            
+            customersAddUC.CustomerAdded += RefreshCustomerGrid;
+
             customers_add_pnl.Controls.Add(customersAddUC);
             customers_add_pnl.Visible = true;
         }
+
+        
+        private void RefreshCustomerGrid()
+        {
+            LoadCustomers(); 
+        }
+
+
+
+
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using inventory_system.Globals;
 using MySql.Data.MySqlClient;
 using inventory_system.UserControls.Order;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace inventory_system
 {
@@ -21,6 +22,22 @@ namespace inventory_system
             InitializeComponent();
             products_add_pnl.Visible = false;
 
+        }
+        
+
+        private void LoadAccessories()
+        {
+            string query = "SELECT product_id, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price FROM products " +
+                "WHERE deleted_at IS NULL";
+            DataTable dt = Function.DatabaseHelper.ExecuteQuery(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                productlist_datagd.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("No data found in the customers table.");
+            }
         }
 
         private void productListUserControl_Load(object sender, EventArgs e)
@@ -94,12 +111,18 @@ namespace inventory_system
             productsAddUserControl productsAddUC = new productsAddUserControl();
             productsAddUC.Dock = DockStyle.Fill;
             products_add_pnl.Controls.Add(productsAddUC);
+            productsAddUC.AcessoryAdded += RefreshCustomerGrid;
             products_add_pnl.Visible = true;
         }
 
         private void products_searchbtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefreshCustomerGrid()
+        {
+            LoadAccessories();
         }
     }
 }

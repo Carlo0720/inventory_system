@@ -19,6 +19,21 @@ namespace inventory_system
         {
             InitializeComponent();
             this.Resize += UserForm_Resize;
+            
+        }
+
+        private void LoadUsers()
+        {
+            string query = "SELECT id, user_type_id, first_name, last_name, user_name, temp_password FROM users";
+            DataTable dt = Function.DatabaseHelper.ExecuteQuery(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                user_datagd.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("No data found in the customers table.");
+            }
         }
         private void HighlightSideButton(Button clickedButton)
         {
@@ -28,17 +43,19 @@ namespace inventory_system
 
         private void UserForm_Load_1(object sender, EventArgs e)
         {
+            
+
             userCreationPanel.Visible = false;
 
-            userDataGd.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
-            foreach (DataGridViewColumn column in userDataGd.Columns)
+            user_datagd.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            foreach (DataGridViewColumn column in user_datagd.Columns)
             {
                 column.HeaderCell.Style.BackColor = Color.Gray;
                 column.HeaderCell.Style.ForeColor = Color.White;
             }
 
-            userDataGd.EnableHeadersVisualStyles = false;
-            userDataGd.Refresh();
+            user_datagd.EnableHeadersVisualStyles = false;
+            user_datagd.Refresh();
 
             try
             {
@@ -55,22 +72,22 @@ namespace inventory_system
                             DataTable db_users_table = new DataTable();
                             sda.Fill(db_users_table);
 
-                            userDataGd.AutoGenerateColumns = false;
+                            user_datagd.AutoGenerateColumns = false;
 
 
 
                             // Ensure columns exist and set DataPropertyName correctly
-                            userDataGd.Columns["ID"].DataPropertyName = "id";
-                            userDataGd.Columns["User_Type"].DataPropertyName = "user_type_id";
-                            userDataGd.Columns["First_Name"].DataPropertyName = "first_name";
-                            userDataGd.Columns["Last_Name"].DataPropertyName = "last_name";
-                            userDataGd.Columns["Username"].DataPropertyName = "user_name";
-                            userDataGd.Columns["temp_password"].DataPropertyName = "temp_password";
+                            user_datagd.Columns["ID"].DataPropertyName = "id";
+                            user_datagd.Columns["User_Type"].DataPropertyName = "user_type_id";
+                            user_datagd.Columns["First_Name"].DataPropertyName = "first_name";
+                            user_datagd.Columns["Last_Name"].DataPropertyName = "last_name";
+                            user_datagd.Columns["Username"].DataPropertyName = "user_name";
+                            user_datagd.Columns["temp_password"].DataPropertyName = "temp_password";
 
                             // Bind data only if rows exist
                             if (db_users_table.Rows.Count > 0)
                             {
-                                userDataGd.DataSource = db_users_table;
+                                user_datagd.DataSource = db_users_table;
                             }
                             else
                             {
@@ -90,8 +107,8 @@ namespace inventory_system
 
         private void UserForm_Resize(object sender, EventArgs e)
         {
-            userDataGd.Width = this.ClientSize.Width - 20;
-            userDataGd.Height = this.ClientSize.Height - 50;
+            user_datagd.Width = this.ClientSize.Width - 20;
+            user_datagd.Height = this.ClientSize.Height - 50;
         }
 
         private void Refresh_button_Click(object sender, EventArgs e)
@@ -106,11 +123,19 @@ namespace inventory_system
             userCreationForm userCF = new userCreationForm();
             userCF.Dock = DockStyle.Fill;
             userCreationPanel.Controls.Add(userCF);
+
+            userCF.UserAdded += RefreshCustomerGrid;
+
             userCreationPanel.Parent = this;
             userCreationPanel.Visible = true;
             userCreationPanel.BringToFront();
         }
 
-      
+        private void RefreshCustomerGrid()
+        {
+            LoadUsers();
+        }
+
+
     }
 }
