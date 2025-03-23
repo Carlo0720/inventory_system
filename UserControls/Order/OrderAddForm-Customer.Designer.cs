@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderAddForm_Customer));
-            flowLayoutPanel2 = new FlowLayoutPanel();
             customers_add_btn = new Button();
             cancelBtn = new Button();
-            panel1 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             customers_datagd = new DataGridView();
             first_name = new DataGridViewTextBoxColumn();
             last_name = new DataGridViewTextBoxColumn();
@@ -41,40 +38,34 @@
             email = new DataGridViewTextBoxColumn();
             phone_number = new DataGridViewTextBoxColumn();
             address = new DataGridViewTextBoxColumn();
-            flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            panel3 = new Panel();
+            textBox1 = new TextBox();
+            Order_search = new Button();
             ((System.ComponentModel.ISupportInitialize)customers_datagd).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(customers_add_btn);
-            flowLayoutPanel2.Controls.Add(cancelBtn);
-            flowLayoutPanel2.Location = new Point(10, 423);
-            flowLayoutPanel2.Margin = new Padding(10);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel2.Size = new Size(591, 50);
-            flowLayoutPanel2.TabIndex = 2;
             // 
             // customers_add_btn
             // 
+            customers_add_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             customers_add_btn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             customers_add_btn.Image = (Image)resources.GetObject("customers_add_btn.Image");
             customers_add_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            customers_add_btn.Location = new Point(509, 3);
+            customers_add_btn.Location = new Point(522, 427);
             customers_add_btn.Name = "customers_add_btn";
             customers_add_btn.Size = new Size(79, 40);
             customers_add_btn.TabIndex = 2;
             customers_add_btn.Text = "Add";
             customers_add_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             customers_add_btn.UseVisualStyleBackColor = true;
+            customers_add_btn.Click += customers_add_btn_Click;
             // 
             // cancelBtn
             // 
+            cancelBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cancelBtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cancelBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            cancelBtn.Location = new Point(424, 3);
+            cancelBtn.Location = new Point(437, 427);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(79, 40);
             cancelBtn.TabIndex = 3;
@@ -83,46 +74,25 @@
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
             // 
-            // panel1
-            // 
-            panel1.Location = new Point(10, 10);
-            panel1.Margin = new Padding(10);
-            panel1.Name = "panel1";
-            panel1.RightToLeft = RightToLeft.No;
-            panel1.Size = new Size(591, 52);
-            panel1.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(customers_datagd);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(611, 527);
-            flowLayoutPanel1.TabIndex = 0;
-            // 
             // customers_datagd
             // 
             customers_datagd.AllowUserToAddRows = false;
             customers_datagd.AllowUserToDeleteRows = false;
             customers_datagd.AllowUserToResizeColumns = false;
             customers_datagd.AllowUserToResizeRows = false;
+            customers_datagd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customers_datagd.BackgroundColor = Color.FromArgb(224, 224, 224);
             customers_datagd.BorderStyle = BorderStyle.None;
             customers_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             customers_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customers_datagd.Columns.AddRange(new DataGridViewColumn[] { first_name, last_name, company_name, email, phone_number, address });
-            customers_datagd.Location = new Point(10, 82);
+            customers_datagd.Location = new Point(10, 65);
             customers_datagd.Margin = new Padding(10);
             customers_datagd.MultiSelect = false;
             customers_datagd.Name = "customers_datagd";
             customers_datagd.ReadOnly = true;
             customers_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            customers_datagd.Size = new Size(591, 321);
+            customers_datagd.Size = new Size(591, 349);
             customers_datagd.TabIndex = 3;
             customers_datagd.CellDoubleClick += customers_datagd_CellDoubleClick;
             // 
@@ -169,27 +139,59 @@
             address.Name = "address";
             address.ReadOnly = true;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(Order_search);
+            panel3.Location = new Point(10, 16);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(395, 36);
+            panel3.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI", 9F);
+            textBox1.Location = new Point(3, 10);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(307, 16);
+            textBox1.TabIndex = 2;
+            // 
+            // Order_search
+            // 
+            Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Order_search.Image = (Image)resources.GetObject("Order_search.Image");
+            Order_search.ImageAlign = ContentAlignment.MiddleLeft;
+            Order_search.Location = new Point(316, -4);
+            Order_search.Name = "Order_search";
+            Order_search.Size = new Size(79, 40);
+            Order_search.TabIndex = 3;
+            Order_search.Text = "Search";
+            Order_search.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Order_search.UseVisualStyleBackColor = true;
+            // 
             // OrderAddForm_Customer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(panel3);
+            Controls.Add(customers_datagd);
+            Controls.Add(customers_add_btn);
+            Controls.Add(cancelBtn);
             Name = "OrderAddForm_Customer";
-            Size = new Size(611, 527);
+            Size = new Size(611, 480);
             Load += OrderAddForm_Customer_Load;
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)customers_datagd).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel2;
         private Button customers_add_btn;
         private Button cancelBtn;
-        private Panel panel1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private DataGridView customers_datagd;
         private DataGridViewTextBoxColumn first_name;
         private DataGridViewTextBoxColumn last_name;
@@ -197,5 +199,8 @@
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn phone_number;
         private DataGridViewTextBoxColumn address;
+        private Panel panel3;
+        private TextBox textBox1;
+        private Button Order_search;
     }
 }

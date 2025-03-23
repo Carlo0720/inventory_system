@@ -56,12 +56,12 @@ namespace inventory_system.Window_Forms
         private void ModalControl_CustomerSelected(object sender, CustomerSelectedEventArgs e)
         {
             // Use the selected customer data
-            string firstName = e.FirstName;
-            string lastName = e.LastName;
-            string companyName = e.CompanyName;
-            string email = e.Email;
-            string phoneNumber = e.PhoneNumber;
-            string address = e.Address;
+            string firstName = e.customer.FirstName;
+            string lastName = e.customer.LastName;
+            string companyName = e.customer.CompanyName;
+            string email = e.customer.Email;
+            string phoneNumber = e.customer.PhoneNumber;
+            string address = e.customer.Address;
 
             // Use these values as needed
             MessageBox.Show($"Selected Customer: {firstName} {lastName}");

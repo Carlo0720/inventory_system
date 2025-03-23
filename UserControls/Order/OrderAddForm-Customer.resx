@@ -145,4 +145,13 @@
   <metadata name="address.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="Order_search.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANZJREFUSEvt
+        lIsJwjAURTOCG+kIjuAIbqCb6Aa6gW5QN9EN9B7xQhHb5EWiIF44kL5v8tI2/awmYiU6cX3AGhu+t7QQ
+        Z+HCz+CbiypR3IX2YiYs1tjsDzfh6N45jYbkTRAbGtdaeOc5HQWx5BTrJEjqj2VIxBDLxReLBChVNL59
+        g5oRkVMsX/Lu/jSuqkvmlbsIEsdeU2+E2PBXzcdDsk8yFRZjOQj7l6JKNPFJXoGP4n7eiLA4OqPwxQNr
+        bB6L7dVNcur/t/5Nsvp4ky2GFqJJs+LfUEo3fTRknxBv3L8AAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

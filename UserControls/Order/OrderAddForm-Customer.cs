@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using inventory_system.Globals;
 using MySql.Data.MySqlClient;
+using inventory_system.Model;
 
 namespace inventory_system.UserControls.Order
 {
@@ -82,17 +83,21 @@ namespace inventory_system.UserControls.Order
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = customers_datagd.Rows[e.RowIndex];
-
-                // Create a custom EventArgs to store the selected values
-                var eventArgs = new CustomerSelectedEventArgs
+                Customer customer = new Customer()
                 {
-                    
+                    Id = e.RowIndex,
                     FirstName = selectedRow.Cells["first_name"].Value.ToString(),
                     LastName = selectedRow.Cells["last_name"].Value.ToString(),
                     CompanyName = selectedRow.Cells["company_name"].Value.ToString(),
                     Email = selectedRow.Cells["email"].Value.ToString(),
                     PhoneNumber = selectedRow.Cells["phone_number"].Value.ToString(),
                     Address = selectedRow.Cells["address"].Value.ToString()
+                };
+
+                // Create a custom EventArgs to store the selected values
+                var eventArgs = new CustomerSelectedEventArgs
+                {
+                    customer = customer
                 };
 
                 // Trigger the event
@@ -105,6 +110,11 @@ namespace inventory_system.UserControls.Order
                     parentForm.Close();
                 }
             }
+        }
+
+        private void customers_add_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
