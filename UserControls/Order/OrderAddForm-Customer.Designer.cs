@@ -32,12 +32,10 @@
             customers_add_btn = new Button();
             cancelBtn = new Button();
             customers_datagd = new DataGridView();
-            first_name = new DataGridViewTextBoxColumn();
-            last_name = new DataGridViewTextBoxColumn();
+            id = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
             company_name = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
-            phone_number = new DataGridViewTextBoxColumn();
-            address = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             textBox1 = new TextBox();
             Order_search = new Button();
@@ -85,7 +83,7 @@
             customers_datagd.BorderStyle = BorderStyle.None;
             customers_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             customers_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customers_datagd.Columns.AddRange(new DataGridViewColumn[] { first_name, last_name, company_name, email, phone_number, address });
+            customers_datagd.Columns.AddRange(new DataGridViewColumn[] { id, name, company_name, email });
             customers_datagd.Location = new Point(10, 65);
             customers_datagd.Margin = new Padding(10);
             customers_datagd.MultiSelect = false;
@@ -96,20 +94,20 @@
             customers_datagd.TabIndex = 3;
             customers_datagd.CellDoubleClick += customers_datagd_CellDoubleClick;
             // 
-            // first_name
+            // id
             // 
-            first_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            first_name.HeaderText = "First Name";
-            first_name.Name = "first_name";
-            first_name.ReadOnly = true;
-            first_name.Resizable = DataGridViewTriState.False;
+            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            id.HeaderText = "Id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Resizable = DataGridViewTriState.False;
             // 
-            // last_name
+            // name
             // 
-            last_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            last_name.HeaderText = "Last Name";
-            last_name.Name = "last_name";
-            last_name.ReadOnly = true;
+            name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            name.HeaderText = "Name";
+            name.Name = "name";
+            name.ReadOnly = true;
             // 
             // company_name
             // 
@@ -124,20 +122,6 @@
             email.HeaderText = "Email";
             email.Name = "email";
             email.ReadOnly = true;
-            // 
-            // phone_number
-            // 
-            phone_number.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            phone_number.HeaderText = "Phone Number";
-            phone_number.Name = "phone_number";
-            phone_number.ReadOnly = true;
-            // 
-            // address
-            // 
-            address.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            address.HeaderText = "Address ";
-            address.Name = "address";
-            address.ReadOnly = true;
             // 
             // panel3
             // 
@@ -193,14 +177,12 @@
         private Button customers_add_btn;
         private Button cancelBtn;
         private DataGridView customers_datagd;
-        private DataGridViewTextBoxColumn first_name;
-        private DataGridViewTextBoxColumn last_name;
-        private DataGridViewTextBoxColumn company_name;
-        private DataGridViewTextBoxColumn email;
-        private DataGridViewTextBoxColumn phone_number;
-        private DataGridViewTextBoxColumn address;
         private Panel panel3;
         private TextBox textBox1;
         private Button Order_search;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn company_name;
+        private DataGridViewTextBoxColumn email;
     }
 }

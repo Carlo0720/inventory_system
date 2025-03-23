@@ -9,9 +9,9 @@ namespace inventory_system.common.Interfaces
 {
     public interface IRepository
     {
-        public DataTable GetOrders(string query);
-        public void CreateOrder(string query);
-        public void UpdateOrder(string query);
-        public void DeleteOrder(string query);
+        public DataTable Get(string query);
+        public void Create(string query);
+        public void Update(string query);
+        public void Delete(string query);
     }
 }

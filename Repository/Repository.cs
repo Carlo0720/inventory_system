@@ -12,17 +12,17 @@ namespace inventory_system.Repository
     public class Repository : IRepository
     {
         private DatabaseManager databaseManager;
-        public void CreateOrder(string query)
+        public void Create(string query)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteOrder(string query)
+        public void Delete(string query)
         {
             throw new NotImplementedException();
         }
 
-        public DataTable GetOrders(string query)
+        public DataTable Get(string query)
         {
             databaseManager = new DatabaseManager();
             using (databaseManager)
@@ -31,7 +31,7 @@ namespace inventory_system.Repository
             }
         }
 
-        public void UpdateOrder(string query)
+        public void Update(string query)
         {
             throw new NotImplementedException();
         }

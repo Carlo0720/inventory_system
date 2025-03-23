@@ -43,7 +43,7 @@ namespace inventory_system
             dataGridView_Orders.Columns["Dr"].DataPropertyName = "dr_number";
             dataGridView_Orders.Columns["Total"].DataPropertyName = "total_price";
 
-            dataGridView_Orders.DataSource = orderRepository.GetOrders(SD.SelectAllOrders);
+            dataGridView_Orders.DataSource = orderRepository.Get(SD.SelectAllOrders);
 
             // Hide the "ID" column from the DataGridView
             dataGridView_Orders.Columns["orders_id"].Visible = false;

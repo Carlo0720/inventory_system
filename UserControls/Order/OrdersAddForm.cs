@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace inventory_system.Window_Forms
     public partial class OrdersAddForm : UserControl
     {
         public BindingList<Product> products = new BindingList<Product>();
+        private Customer customer;
 
         // Create a DataTable to hold the products
         DataTable productTable = new DataTable();
@@ -56,17 +58,20 @@ namespace inventory_system.Window_Forms
         private void ModalControl_CustomerSelected(object sender, CustomerSelectedEventArgs e)
         {
             // Use the selected customer data
-            string firstName = e.customer.FirstName;
-            string lastName = e.customer.LastName;
+            customer = new Customer()
+            {
+                Id = e.customer.Id,
+                Name = e.customer.Name,
+            };
+            int id = e.customer.Id;
+            string name = e.customer.Name;
             string companyName = e.customer.CompanyName;
             string email = e.customer.Email;
-            string phoneNumber = e.customer.PhoneNumber;
-            string address = e.customer.Address;
 
             // Use these values as needed
-            MessageBox.Show($"Selected Customer: {firstName} {lastName}");
+            MessageBox.Show($"Selected Customer: {name}");
 
-            customerNameTbox.Text = firstName + " " + lastName;
+            customerNameTbox.Text = name;
             customerDetailsTbox.Text = companyName;
         }
 
@@ -216,7 +221,7 @@ namespace inventory_system.Window_Forms
             int po_number = Convert.ToInt32(purchaseOrderTbox.Text);
             int dr_number = Convert.ToInt32(deliveryReceiptTbox.Text);
             double total_price = Convert.ToDouble(totalAmountTbox.Text);
-            Function.CreateOrder(order_id, customer_id, po_number, dr_number, total_price, orderItemsList);
+            Function.CreateOrder(order_id, customer.Id, po_number, dr_number, total_price, orderItemsList);
 
             Form parentForm = this.FindForm();
             if (parentForm != null)
