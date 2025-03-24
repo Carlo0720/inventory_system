@@ -33,17 +33,6 @@
             panel3 = new Panel();
             products_searchTxtbox = new TextBox();
             products_add = new Button();
-            created_at = new DataGridViewTextBoxColumn();
-            item_price = new DataGridViewTextBoxColumn();
-            unit = new DataGridViewTextBoxColumn();
-            stock = new DataGridViewTextBoxColumn();
-            item_category = new DataGridViewTextBoxColumn();
-            item_color = new DataGridViewTextBoxColumn();
-            item_description = new DataGridViewTextBoxColumn();
-            item_code = new DataGridViewTextBoxColumn();
-            item_name = new DataGridViewTextBoxColumn();
-            product_id = new DataGridViewTextBoxColumn();
-            supplier = new DataGridViewTextBoxColumn();
             productlist_datagd = new DataGridView();
             panel1 = new Panel();
             quantityTbox = new TextBox();
@@ -51,6 +40,16 @@
             lengthTbox = new TextBox();
             label1 = new Label();
             label2 = new Label();
+            product_id = new DataGridViewTextBoxColumn();
+            item_code = new DataGridViewTextBoxColumn();
+            item_name = new DataGridViewTextBoxColumn();
+            item_description = new DataGridViewTextBoxColumn();
+            item_color = new DataGridViewTextBoxColumn();
+            item_category = new DataGridViewTextBoxColumn();
+            supplier = new DataGridViewTextBoxColumn();
+            stock = new DataGridViewTextBoxColumn();
+            unit = new DataGridViewTextBoxColumn();
+            item_price = new DataGridViewTextBoxColumn();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productlist_datagd).BeginInit();
             panel1.SuspendLayout();
@@ -103,84 +102,6 @@
             products_add.UseVisualStyleBackColor = true;
             products_add.Click += products_add_Click;
             // 
-            // created_at
-            // 
-            created_at.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            created_at.HeaderText = "Creation Date";
-            created_at.Name = "created_at";
-            created_at.ReadOnly = true;
-            created_at.Width = 96;
-            // 
-            // item_price
-            // 
-            item_price.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_price.HeaderText = "Item Price";
-            item_price.Name = "item_price";
-            item_price.ReadOnly = true;
-            // 
-            // unit
-            // 
-            unit.HeaderText = "Unit";
-            unit.Name = "unit";
-            unit.ReadOnly = true;
-            // 
-            // stock
-            // 
-            stock.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            stock.HeaderText = "Stock";
-            stock.Name = "stock";
-            stock.ReadOnly = true;
-            // 
-            // item_category
-            // 
-            item_category.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_category.HeaderText = "Item Category";
-            item_category.Name = "item_category";
-            item_category.ReadOnly = true;
-            // 
-            // item_color
-            // 
-            item_color.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_color.HeaderText = "Item Color";
-            item_color.Name = "item_color";
-            item_color.ReadOnly = true;
-            // 
-            // item_description
-            // 
-            item_description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_description.HeaderText = "Item Description";
-            item_description.Name = "item_description";
-            item_description.ReadOnly = true;
-            // 
-            // item_code
-            // 
-            item_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_code.HeaderText = "Item Code";
-            item_code.Name = "item_code";
-            item_code.ReadOnly = true;
-            // 
-            // item_name
-            // 
-            item_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_name.HeaderText = "Item Name";
-            item_name.Name = "item_name";
-            item_name.ReadOnly = true;
-            // 
-            // product_id
-            // 
-            product_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            product_id.HeaderText = "Product ID";
-            product_id.Name = "product_id";
-            product_id.ReadOnly = true;
-            product_id.Width = 81;
-            // 
-            // supplier
-            // 
-            supplier.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            supplier.HeaderText = "Supplier";
-            supplier.Name = "supplier";
-            supplier.ReadOnly = true;
-            // 
             // productlist_datagd
             // 
             productlist_datagd.AllowDrop = true;
@@ -192,7 +113,7 @@
             productlist_datagd.BackgroundColor = Color.FromArgb(224, 224, 224);
             productlist_datagd.BorderStyle = BorderStyle.None;
             productlist_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productlist_datagd.Columns.AddRange(new DataGridViewColumn[] { product_id, item_name, item_code, item_description, item_color, item_category, supplier, stock, unit, item_price, created_at });
+            productlist_datagd.Columns.AddRange(new DataGridViewColumn[] { product_id, item_code, item_name, item_description, item_color, item_category, supplier, stock, unit, item_price });
             productlist_datagd.Location = new Point(3, 52);
             productlist_datagd.MultiSelect = false;
             productlist_datagd.Name = "productlist_datagd";
@@ -259,6 +180,76 @@
             label2.TabIndex = 15;
             label2.Text = "Length";
             // 
+            // product_id
+            // 
+            product_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            product_id.HeaderText = "Product ID";
+            product_id.Name = "product_id";
+            product_id.ReadOnly = true;
+            product_id.Width = 88;
+            // 
+            // item_code
+            // 
+            item_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_code.HeaderText = "Item Code";
+            item_code.Name = "item_code";
+            item_code.ReadOnly = true;
+            // 
+            // item_name
+            // 
+            item_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_name.HeaderText = "Item Name";
+            item_name.Name = "item_name";
+            item_name.ReadOnly = true;
+            // 
+            // item_description
+            // 
+            item_description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_description.HeaderText = "Item Description";
+            item_description.Name = "item_description";
+            item_description.ReadOnly = true;
+            // 
+            // item_color
+            // 
+            item_color.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_color.HeaderText = "Item Color";
+            item_color.Name = "item_color";
+            item_color.ReadOnly = true;
+            // 
+            // item_category
+            // 
+            item_category.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_category.HeaderText = "Item Category";
+            item_category.Name = "item_category";
+            item_category.ReadOnly = true;
+            // 
+            // supplier
+            // 
+            supplier.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            supplier.HeaderText = "Supplier";
+            supplier.Name = "supplier";
+            supplier.ReadOnly = true;
+            // 
+            // stock
+            // 
+            stock.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock.HeaderText = "Stock";
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            // 
+            // unit
+            // 
+            unit.HeaderText = "Unit";
+            unit.Name = "unit";
+            unit.ReadOnly = true;
+            // 
+            // item_price
+            // 
+            item_price.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_price.HeaderText = "Item Price";
+            item_price.Name = "item_price";
+            item_price.ReadOnly = true;
+            // 
             // OrderAddForm_Item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -291,17 +282,6 @@
         private Panel panel3;
         private TextBox products_searchTxtbox;
         private Button products_add;
-        private DataGridViewTextBoxColumn created_at;
-        private DataGridViewTextBoxColumn item_price;
-        private DataGridViewTextBoxColumn unit;
-        private DataGridViewTextBoxColumn stock;
-        private DataGridViewTextBoxColumn item_category;
-        private DataGridViewTextBoxColumn item_color;
-        private DataGridViewTextBoxColumn item_description;
-        private DataGridViewTextBoxColumn item_code;
-        private DataGridViewTextBoxColumn item_name;
-        private DataGridViewTextBoxColumn product_id;
-        private DataGridViewTextBoxColumn supplier;
         private DataGridView productlist_datagd;
         private Panel panel1;
         private TextBox quantityTbox;
@@ -309,5 +289,15 @@
         private TextBox lengthTbox;
         private Label label1;
         private Label label2;
+        private DataGridViewTextBoxColumn product_id;
+        private DataGridViewTextBoxColumn item_code;
+        private DataGridViewTextBoxColumn item_name;
+        private DataGridViewTextBoxColumn item_description;
+        private DataGridViewTextBoxColumn item_color;
+        private DataGridViewTextBoxColumn item_category;
+        private DataGridViewTextBoxColumn supplier;
+        private DataGridViewTextBoxColumn stock;
+        private DataGridViewTextBoxColumn unit;
+        private DataGridViewTextBoxColumn item_price;
     }
 }
