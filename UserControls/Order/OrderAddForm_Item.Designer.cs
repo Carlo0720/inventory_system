@@ -34,12 +34,6 @@
             products_searchTxtbox = new TextBox();
             products_add = new Button();
             productlist_datagd = new DataGridView();
-            panel1 = new Panel();
-            quantityTbox = new TextBox();
-            panel2 = new Panel();
-            lengthTbox = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
             product_id = new DataGridViewTextBoxColumn();
             item_code = new DataGridViewTextBoxColumn();
             item_name = new DataGridViewTextBoxColumn();
@@ -50,6 +44,12 @@
             stock = new DataGridViewTextBoxColumn();
             unit = new DataGridViewTextBoxColumn();
             item_price = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            quantityTbox = new TextBox();
+            panel2 = new Panel();
+            lengthTbox = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productlist_datagd).BeginInit();
             panel1.SuspendLayout();
@@ -61,7 +61,7 @@
             products_searchbtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             products_searchbtn.Image = (Image)resources.GetObject("products_searchbtn.Image");
             products_searchbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            products_searchbtn.Location = new Point(1279, 8);
+            products_searchbtn.Location = new Point(247, -2);
             products_searchbtn.Name = "products_searchbtn";
             products_searchbtn.Size = new Size(79, 40);
             products_searchbtn.TabIndex = 10;
@@ -73,7 +73,8 @@
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(products_searchTxtbox);
-            panel3.Location = new Point(1032, 10);
+            panel3.Controls.Add(products_searchbtn);
+            panel3.Location = new Point(3, 8);
             panel3.Name = "panel3";
             panel3.Size = new Size(326, 36);
             panel3.TabIndex = 11;
@@ -90,10 +91,11 @@
             // 
             // products_add
             // 
+            products_add.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             products_add.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             products_add.Image = (Image)resources.GetObject("products_add.Image");
             products_add.ImageAlign = ContentAlignment.MiddleLeft;
-            products_add.Location = new Point(27, 6);
+            products_add.Location = new Point(1289, 4);
             products_add.Name = "products_add";
             products_add.Size = new Size(79, 40);
             products_add.TabIndex = 9;
@@ -123,70 +125,13 @@
             productlist_datagd.TabIndex = 8;
             productlist_datagd.CellDoubleClick += productlist_datagd_CellDoubleClick_1;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(quantityTbox);
-            panel1.Location = new Point(222, 10);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(158, 36);
-            panel1.TabIndex = 12;
-            // 
-            // quantityTbox
-            // 
-            quantityTbox.BackColor = Color.White;
-            quantityTbox.BorderStyle = BorderStyle.None;
-            quantityTbox.Font = new Font("Segoe UI", 9F);
-            quantityTbox.Location = new Point(3, 9);
-            quantityTbox.Name = "quantityTbox";
-            quantityTbox.Size = new Size(152, 16);
-            quantityTbox.TabIndex = 2;
-            quantityTbox.Text = "1";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(lengthTbox);
-            panel2.Location = new Point(492, 10);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(158, 36);
-            panel2.TabIndex = 13;
-            // 
-            // lengthTbox
-            // 
-            lengthTbox.BackColor = Color.White;
-            lengthTbox.BorderStyle = BorderStyle.None;
-            lengthTbox.Font = new Font("Segoe UI", 9F);
-            lengthTbox.Location = new Point(3, 9);
-            lengthTbox.Name = "lengthTbox";
-            lengthTbox.Size = new Size(152, 16);
-            lengthTbox.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(166, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(53, 15);
-            label1.TabIndex = 14;
-            label1.Text = "Quantity";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(448, 21);
-            label2.Name = "label2";
-            label2.Size = new Size(44, 15);
-            label2.TabIndex = 15;
-            label2.Text = "Length";
-            // 
             // product_id
             // 
             product_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             product_id.HeaderText = "Product ID";
             product_id.Name = "product_id";
             product_id.ReadOnly = true;
-            product_id.Width = 88;
+            product_id.Width = 81;
             // 
             // item_code
             // 
@@ -250,6 +195,65 @@
             item_price.Name = "item_price";
             item_price.ReadOnly = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(quantityTbox);
+            panel1.Location = new Point(394, 6);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(158, 36);
+            panel1.TabIndex = 12;
+            // 
+            // quantityTbox
+            // 
+            quantityTbox.BackColor = Color.White;
+            quantityTbox.BorderStyle = BorderStyle.None;
+            quantityTbox.Font = new Font("Segoe UI", 9F);
+            quantityTbox.Location = new Point(3, 9);
+            quantityTbox.Name = "quantityTbox";
+            quantityTbox.Size = new Size(152, 16);
+            quantityTbox.TabIndex = 2;
+            quantityTbox.Text = "1";
+            quantityTbox.TextChanged += quantityTbox_TextChanged;
+            quantityTbox.Leave += quantityTbox_Leave;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(lengthTbox);
+            panel2.Location = new Point(640, 6);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(158, 36);
+            panel2.TabIndex = 13;
+            // 
+            // lengthTbox
+            // 
+            lengthTbox.BackColor = Color.White;
+            lengthTbox.BorderStyle = BorderStyle.None;
+            lengthTbox.Font = new Font("Segoe UI", 9F);
+            lengthTbox.Location = new Point(3, 9);
+            lengthTbox.Name = "lengthTbox";
+            lengthTbox.Size = new Size(152, 16);
+            lengthTbox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(335, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(53, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Quantity";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(590, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Length";
+            // 
             // OrderAddForm_Item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -258,7 +262,6 @@
             Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(products_searchbtn);
             Controls.Add(panel3);
             Controls.Add(products_add);
             Controls.Add(productlist_datagd);

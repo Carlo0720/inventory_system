@@ -97,13 +97,39 @@ namespace inventory_system.Window_Forms
             // Handle the product selection here
             MessageBox.Show($"Selected Product: {e.product.ItemName} ({e.product.ItemCode})");
 
+            var existingProduct = products.FirstOrDefault(u => u.ProductId == e.product.ProductId);
+
+            if(e.product.Quantity > e.product.Stock)
+            {
+                MessageBox.Show($"{e.product.ItemName} quantity exceed stock, set quantity to total stock: {e.product.Stock}");
+                e.product.Quantity = e.product.Stock;
+            }
+
+
+            if (existingProduct != null)
+            {
+                // If product exists, update the quantity
+                existingProduct.Quantity += e.product.Quantity;
+
+                if (existingProduct.Quantity > existingProduct.Stock)
+                {
+                    MessageBox.Show($"{existingProduct.ItemName} quantity exceed stock, set quantity to total stock: {existingProduct.Stock}");
+                    existingProduct.Quantity = existingProduct.Stock;
+                }
+            }
+            else
+            {
+                // If product doesn't exist, add the new product
+                products.Add(e.product);
+            }
+
             // You can also assign the selected values to parent controls like textboxes
 
             //if (dataGridView_Order.Rows.Count > 0)
             //    // Assuming your DataGridView is bound to a DataTable
             //    (dataGridView_Order.DataSource as DataTable).Clear();
             //if(products.Any(u => u.))
-            products.Add(e.product);
+            //products.Add(e.product);
             // Add or update the products in the DataTable
             //AddOrUpdateProducts(productTable, products);
 

@@ -17,9 +17,9 @@ namespace inventory_system.Model
         public string Supplier { get; set; }
         public int Stock { get; set; }
         public int Quantity { get; set; }
-        public string Length { get; set; }
-        public string Unit { get; set; }
+        public string? Length { get; set; }
+        public string? Unit { get; set; }
         public decimal ItemPrice { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
     }
 }

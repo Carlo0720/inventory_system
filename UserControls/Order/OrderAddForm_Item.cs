@@ -127,7 +127,7 @@ namespace inventory_system.UserControls.Order
                 int stock = Convert.ToInt32(selectedRow.Cells["stock"].Value);
                 int quantity = Convert.ToInt32(quantityTbox.Text);
                 string unit = selectedRow.Cells["unit"].Value.ToString();
-                string length = string.IsNullOrEmpty(lengthTbox.Text) ? "1" : lengthTbox.Text;
+                //string length = string.IsNullOrEmpty(lengthTbox.Text) ? "1" : lengthTbox.Text;
                 decimal itemPrice = Convert.ToDecimal(selectedRow.Cells["item_price"].Value);
                 DateTime createdAt = Convert.ToDateTime(selectedRow.Cells["created_at"].Value);
 
@@ -146,7 +146,7 @@ namespace inventory_system.UserControls.Order
                         Stock = stock,
                         Quantity = quantity,
                         Unit = unit,
-                        Length = length,
+                        //Length = length,
                         ItemPrice = itemPrice,
                         CreatedAt = createdAt
                     }
@@ -160,6 +160,46 @@ namespace inventory_system.UserControls.Order
                 if (parentForm != null)
                 {
                     parentForm.Close();
+                }
+            }
+        }
+
+        private void quantityTbox_Leave(object sender, EventArgs e)
+        {
+            // Get the value from the textbox
+            if (int.TryParse(quantityTbox.Text, out int value))
+            {
+                // If the value is less than 0, set it to 0
+                if (value <= 0)
+                {
+                    quantityTbox.Text = "1";
+                }
+                // If the value is greater than 50, set it to 50
+                else if (value > 50)
+                {
+                    quantityTbox.Text = "50";
+                }
+            }
+            else
+            {
+                // If the input is not a valid integer, set the value to 0
+                quantityTbox.Text = "1";
+            }
+        }
+
+        private void quantityTbox_TextChanged(object sender, EventArgs e)
+        {
+            // Ensure the value is a valid integer and not less than 0
+            if (int.TryParse(quantityTbox.Text, out int value))
+            {
+                if (value <= 0)
+                {
+                    quantityTbox.Text = "1";
+                }
+                // If the value is greater than 50, set it to 50
+                else if (value > 50)
+                {
+                    quantityTbox.Text = "50";
                 }
             }
         }
