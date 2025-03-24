@@ -36,7 +36,7 @@ namespace inventory_system.Repository
             int rowsAffected;
             using (databaseManager)
             {
-                rowsAffected = databaseManager.ExecuteQueryToDataTable(query);
+                //rowsAffected = databaseManager.ExecuteQueryToDataTable(query);
             }
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
             MySqlTransaction transaction = null;  // Declare transaction outside try block

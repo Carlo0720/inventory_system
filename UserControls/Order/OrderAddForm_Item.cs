@@ -16,13 +16,13 @@ namespace inventory_system.UserControls.Order
 {
     public partial class OrderAddForm_Item : UserControl
     {
-        private CustomerRepository customerRepository;
+        private ProductsRepository productsRepository;
         // Define an event to pass data back to the parent form
         public event EventHandler<ProductSelectedEventArgs> ProductSelected;
         public OrderAddForm_Item()
         {
             InitializeComponent();
-            customerRepository = new CustomerRepository();
+            productsRepository = new ProductsRepository();
         }
 
         private void products_add_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace inventory_system.UserControls.Order
             productlist_datagd.Columns["stock"].DataPropertyName = "stock";
             productlist_datagd.Columns["unit"].DataPropertyName = "unit";
             productlist_datagd.Columns["item_price"].DataPropertyName = "item_price";
-            productlist_datagd.DataSource = customerRepository.Get(SD.SelectProducts);
+            productlist_datagd.DataSource = productsRepository.Get(SD.SelectProducts);
 
 
             // Hide the "ID" column from the DataGridView
@@ -129,7 +129,6 @@ namespace inventory_system.UserControls.Order
                 string unit = selectedRow.Cells["unit"].Value.ToString();
                 //string length = string.IsNullOrEmpty(lengthTbox.Text) ? "1" : lengthTbox.Text;
                 decimal itemPrice = Convert.ToDecimal(selectedRow.Cells["item_price"].Value);
-                DateTime createdAt = Convert.ToDateTime(selectedRow.Cells["created_at"].Value);
 
                 // Create the EventArgs object with the product details
                 var eventArgs = new ProductSelectedEventArgs
@@ -147,8 +146,7 @@ namespace inventory_system.UserControls.Order
                         Quantity = quantity,
                         Unit = unit,
                         //Length = length,
-                        ItemPrice = itemPrice,
-                        CreatedAt = createdAt
+                        ItemPrice = itemPrice
                     }
                 };
 

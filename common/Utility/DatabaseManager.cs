@@ -27,7 +27,7 @@ namespace inventory_system.common.Utility
             }
         }
         //Used to get data from database and returns the data in a datatable format
-        public async Task<DataTable> ExecuteQueryToDataTable(string query)
+        public DataTable ExecuteQueryToDataTable(string query)
         {
             var databaseConnection = DatabaseConnection.Instance();
             DataTable dataTable = new DataTable();
@@ -53,7 +53,7 @@ namespace inventory_system.common.Utility
             return dataTable;
         }
         //Used to run an sql query like create, update, or delete
-        public async Task<int> ExecuteNonQuery(string query)
+        public int ExecuteNonQuery(string query)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
@@ -62,7 +62,7 @@ namespace inventory_system.common.Utility
             {
                 try
                 {
-                    rowsAffected = await command.ExecuteNonQueryAsync();
+                    rowsAffected = command.ExecuteNonQuery();
                 }
                 catch (MySqlException e)
                 {
@@ -76,7 +76,7 @@ namespace inventory_system.common.Utility
             return rowsAffected;
         }
         //Used to run an sql query like create, update, or delete
-        public async Task<int> ExecuteCreateOrders(string query, Order order)
+        public int ExecuteCreateOrders(string query, Model.Order order)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
@@ -93,7 +93,7 @@ namespace inventory_system.common.Utility
                     command.Parameters.AddWithValue("@total_price", order.TotalPrice);
                     command.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
 
-                    rowsAffected = await command.ExecuteNonQueryAsync();
+                    rowsAffected = command.ExecuteNonQuery();
                 }
                 catch (MySqlException e)
                 {
@@ -107,7 +107,7 @@ namespace inventory_system.common.Utility
             return rowsAffected;
         }
         //Used to run an sql query like create, update, or delete
-        public async Task<int> ExecuteCreateOrderItems(string query, Product product)
+        public int ExecuteCreateOrderItems(string query, Product product)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
@@ -128,7 +128,7 @@ namespace inventory_system.common.Utility
                     command.Parameters.AddWithValue("@item_price", product.ItemPrice);  
                     command.Parameters.AddWithValue("@created_at", DateTime.Now);  
 
-                    rowsAffected = await command.ExecuteNonQueryAsync();
+                    rowsAffected = command.ExecuteNonQuery();
                 }
                 catch (MySqlException e)
                 {
@@ -166,7 +166,29 @@ namespace inventory_system.common.Utility
 
             return ret;
         }
-        public async Task<object> ExecuteScalarScalar(string query)
+        
+        public void Dispose()
+        {
+            if (connection != null)
+            {
+                try
+                {
+                    connection.CloseAsync();
+                    connection.DisposeAsync();
+                    connection = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Connection close error: {ex.Message}");
+                }
+            }
+        }
+    }
+}
+
+/* Async
+ * 
+ * public async Task<object> ExecuteScalarScalar(string query)
         {
             var databaseConnection = DatabaseConnection.Instance();
             object ret = null;
@@ -189,21 +211,6 @@ namespace inventory_system.common.Utility
 
             return ret;
         }
-        public void Dispose()
-        {
-            if (connection != null)
-            {
-                try
-                {
-                    connection.CloseAsync();
-                    connection.DisposeAsync();
-                    connection = null;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Connection close error: {ex.Message}");
-                }
-            }
-        }
-    }
-}
+ * 
+ * 
+ */

@@ -21,7 +21,7 @@ namespace inventory_system.common.Utility
         public const string SelectAllCustomers = "SELECT customers_id, CONCAT(first_name, ' ', last_name) AS customer_name, company_name, email FROM customers;";
         #endregion
         #region Products
-        public const string SelectProducts = "SELECT product_id, item_code, item_name, item_description, item_color, item_category, supplier, unit, stock, item_price" + "FROM products";
+        public const string SelectProducts = "SELECT product_id, item_code, item_name, item_description, item_color, item_category, supplier, unit, stock, item_price FROM products";
         #endregion
     }
 }

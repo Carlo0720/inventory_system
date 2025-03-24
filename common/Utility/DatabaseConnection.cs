@@ -36,7 +36,7 @@ namespace inventory_system.common.Utility
                 try
                 {
                     connection = new MySqlConnection(connectionString);
-                    connection.OpenAsync();
+                    connection.Open();
                 }
                 catch (Exception ex)
                 {

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace inventory_system.Repository
 {
-    public class CustomerRepository : Repository, ICustomerRepository
+    public class ProductsRepository : Repository, ICustomerRepository
     {
         private DatabaseManager databaseManager;
 
