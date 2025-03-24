@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using BC = BCrypt.Net.BCrypt;
-using inventory_system.UserControls.Order;
 using System.Transactions;
 using System.Collections;
 using Org.BouncyCastle.Asn1.X509;
 using System.Data;
+using inventory_system.Model;
 
 namespace inventory_system.Globals
 {

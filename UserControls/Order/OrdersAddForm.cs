@@ -1,5 +1,6 @@
 ﻿using inventory_system.Globals;
 using inventory_system.Model;
+using inventory_system.Repository;
 using inventory_system.style;
 using inventory_system.UserControls.Order;
 using ReaLTaiizor.Controls;
@@ -247,6 +248,19 @@ namespace inventory_system.Window_Forms
             int po_number = Convert.ToInt32(purchaseOrderTbox.Text);
             int dr_number = Convert.ToInt32(deliveryReceiptTbox.Text);
             double total_price = Convert.ToDouble(totalAmountTbox.Text);
+
+            Order order = new()
+            {
+                CustomerId = customer_id,
+                PurchaseOrderId = po_number,
+                DeliveryReceipt = dr_number,
+                TotalPrice = total_price
+            };
+
+            OrderRepository orderRepository = new OrderRepository();
+
+            
+
             Function.CreateOrder(order_id, customer.Id, po_number, dr_number, total_price, orderItemsList);
 
             Form parentForm = this.FindForm();

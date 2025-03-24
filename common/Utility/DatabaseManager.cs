@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using inventory_system.Model;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -51,6 +53,60 @@ namespace inventory_system.common.Utility
         }
         //Used to run an sql query like create, update, or delete
         public int ExecuteNonQuery(string query)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            int rowsAffected = 0;
+
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            {
+                try
+                {
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+            return rowsAffected;
+        }
+        //Used to run an sql query like create, update, or delete
+        public int ExecuteCreateOrders(string query, Order order)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            int rowsAffected = 0;
+
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            {
+                try
+                {
+                    // Add parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@customer_id", order.CustomerId);
+                    command.Parameters.AddWithValue("@po_number", order.PurchaseOrderId);
+                    command.Parameters.AddWithValue("@dr_number", order.DeliveryReceipt);
+                    command.Parameters.AddWithValue("@order_date", DateTime.Now); 
+                    command.Parameters.AddWithValue("@total_price", order.TotalPrice);
+                    command.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+            return rowsAffected;
+        }
+        //Used to run an sql query like create, update, or delete
+        public int ExecuteCreateOrderItems(string query, List<Product> products)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;

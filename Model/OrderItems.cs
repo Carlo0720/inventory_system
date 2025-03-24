@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace inventory_system.UserControls.Order
+namespace inventory_system.Model
 {
     public class OrderItems
     {
