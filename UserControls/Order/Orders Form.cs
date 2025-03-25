@@ -1,10 +1,13 @@
 ﻿using inventory_system.common.Utility;
 using inventory_system.Globals;
+using inventory_system.Model;
 using inventory_system.Repository;
 using inventory_system.style;
+using inventory_system.UserControls.Order;
 using inventory_system.Window_Forms;
 using MySql.Data.MySqlClient;
 using ReaLTaiizor.Controls;
+using ReaLTaiizor.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,10 +46,11 @@ namespace inventory_system
             dataGridView_Orders.Columns["Dr"].DataPropertyName = "dr_number";
             dataGridView_Orders.Columns["Total"].DataPropertyName = "total_price";
 
-            dataGridView_Orders.DataSource = orderRepository.Get(SD.SelectAllOrders);
-
             // Hide the "ID" column from the DataGridView
             dataGridView_Orders.Columns["orders_id"].Visible = false;
+
+            LoadData();
+
 
             //string query = "SELECT o.order_id, o.created_at, CONCAT(c.first_name, ' ', c.last_name) AS customer_name, c.company_name, o.po_number, o.dr_number, o.total_price\r\nFROM orders o\r\nJOIN customers c ON o.customers_id = c.customers_id;";
 
@@ -103,10 +107,23 @@ namespace inventory_system
             popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
             popupForm.Size = new Size(732, 502);  // Set the size of the popup window
 
+            //popupForm.ShowInTaskbar = false;  // This hides the modal from the taskbar
+            //popupForm.FormBorderStyle = FormBorderStyle.FixedDialog;  // Optional: Make the form look like a dialog
+
             // Add your OrdersAddForm to the popup window
             OrdersAddForm ordersAF = new OrdersAddForm();
             ordersAF.Dock = DockStyle.Fill;
             popupForm.Controls.Add(ordersAF);
+
+
+
+
+            // Optionally, subscribe to the modal's event or just handle after closing
+            popupForm.FormClosed += (s, args) =>
+            {
+                // Reload the data when the modal is closed
+                LoadData();
+            };
 
             // Optionally, make the popup modal (blocking interaction with the main form)
             popupForm.ShowDialog();
@@ -115,7 +132,43 @@ namespace inventory_system
             //ordersAF.Dock = DockStyle.Fill;
             //ordersAddPanel.Controls.Add(ordersAF);
             //ordersAddPanel.Visible = true;
-            
+
+        }
+
+        private void Orders_refresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            dataGridView_Orders.DataSource = orderRepository.Get(SD.SelectAllOrders);
+        }
+
+        private void dataGridView_Orders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if a valid row is double-clicked (not the header row)
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView_Orders.Rows[e.RowIndex];
+                Order order = new Order()
+                {
+                    Id = Convert.ToInt32(selectedRow.Cells["orders_id"].Value)
+                };
+
+                // Create a custom EventArgs to store the selected values
+                //var eventArgs = new CustomerSelectedEventArgs
+                //{
+                //    customer = customer
+                //};
+
+                // Trigger the event
+                //CustomerSelected?.Invoke(this, eventArgs);
+
+                // Optionally, enable the parent form again if you disabled it for modal-like behavior
+
+                MessageBox.Show(order.Id.ToString());
+            }
         }
     }
 }

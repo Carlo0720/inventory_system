@@ -32,11 +32,11 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             Edit_order = new Button();
-            Order_search = new Button();
             Orders_refresh = new Button();
             Orders_add = new Button();
             panel3 = new Panel();
             textBox1 = new TextBox();
+            Order_search = new Button();
             dataGridView_Orders = new DataGridView();
             orders_id = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
@@ -81,20 +81,6 @@
             Edit_order.TextImageRelation = TextImageRelation.ImageBeforeText;
             Edit_order.UseVisualStyleBackColor = false;
             // 
-            // Order_search
-            // 
-            Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Order_search.Image = (Image)resources.GetObject("Order_search.Image");
-            Order_search.ImageAlign = ContentAlignment.MiddleLeft;
-            Order_search.Location = new Point(316, -4);
-            Order_search.Name = "Order_search";
-            Order_search.Size = new Size(79, 40);
-            Order_search.TabIndex = 3;
-            Order_search.Text = "Search";
-            Order_search.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Order_search.UseVisualStyleBackColor = true;
-            Order_search.Click += Order_search_Click;
-            // 
             // Orders_refresh
             // 
             Orders_refresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -108,6 +94,7 @@
             Orders_refresh.Text = "Refresh";
             Orders_refresh.TextImageRelation = TextImageRelation.ImageBeforeText;
             Orders_refresh.UseVisualStyleBackColor = true;
+            Orders_refresh.Click += Orders_refresh_Click;
             // 
             // Orders_add
             // 
@@ -144,6 +131,20 @@
             textBox1.Size = new Size(307, 16);
             textBox1.TabIndex = 2;
             // 
+            // Order_search
+            // 
+            Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Order_search.Image = (Image)resources.GetObject("Order_search.Image");
+            Order_search.ImageAlign = ContentAlignment.MiddleLeft;
+            Order_search.Location = new Point(316, -4);
+            Order_search.Name = "Order_search";
+            Order_search.Size = new Size(79, 40);
+            Order_search.TabIndex = 3;
+            Order_search.Text = "Search";
+            Order_search.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Order_search.UseVisualStyleBackColor = true;
+            Order_search.Click += Order_search_Click;
+            // 
             // dataGridView_Orders
             // 
             dataGridView_Orders.AllowUserToAddRows = false;
@@ -175,6 +176,7 @@
             dataGridView_Orders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Orders.Size = new Size(949, 554);
             dataGridView_Orders.TabIndex = 1;
+            dataGridView_Orders.CellDoubleClick += dataGridView_Orders_CellDoubleClick;
             // 
             // orders_id
             // 
@@ -254,6 +256,9 @@
         private Button Orders_refresh;
         private Button Order_search;
         private TextBox textBox1;
+        private Panel ordersAddPanel;
+        private Panel panel3;
+        private Button Edit_order;
         private DataGridViewTextBoxColumn orders_id;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Customername;
@@ -261,8 +266,5 @@
         private DataGridViewTextBoxColumn Po;
         private DataGridViewTextBoxColumn Dr;
         private DataGridViewTextBoxColumn Total;
-        private Panel ordersAddPanel;
-        private Panel panel3;
-        private Button Edit_order;
     }
 }
