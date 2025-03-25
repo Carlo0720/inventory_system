@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customers_Form));
             customers_datagd = new DataGridView();
             first_name = new DataGridViewTextBoxColumn();
@@ -38,6 +42,7 @@
             address = new DataGridViewTextBoxColumn();
             customers_add_btn = new Button();
             customers_add_pnl = new Panel();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)customers_datagd).BeginInit();
             SuspendLayout();
             // 
@@ -48,13 +53,58 @@
             customers_datagd.AllowUserToResizeColumns = false;
             customers_datagd.AllowUserToResizeRows = false;
             customers_datagd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            customers_datagd.BackgroundColor = Color.FromArgb(224, 224, 224);
+            customers_datagd.BackgroundColor = Color.WhiteSmoke;
             customers_datagd.BorderStyle = BorderStyle.None;
-            customers_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            customers_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customers_datagd.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customers_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            customers_datagd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            customers_datagd.ColumnHeadersHeight = 30;
             customers_datagd.Columns.AddRange(new DataGridViewColumn[] { first_name, last_name, company_name, email, phone_number, address });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.InfoText;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            customers_datagd.DefaultCellStyle = dataGridViewCellStyle2;
+            customers_datagd.GridColor = Color.Black;
             customers_datagd.Location = new Point(0, 54);
             customers_datagd.Name = "customers_datagd";
+            customers_datagd.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            customers_datagd.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            customers_datagd.RowHeadersVisible = false;
+            customers_datagd.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.Black;
+            dataGridViewCellStyle4.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = Color.SteelBlue;
+            customers_datagd.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            customers_datagd.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            customers_datagd.RowTemplate.DefaultCellStyle.BackColor = Color.White;
+            customers_datagd.RowTemplate.DefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customers_datagd.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
+            customers_datagd.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            customers_datagd.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.SteelBlue;
+            customers_datagd.RowTemplate.DividerHeight = 1;
+            customers_datagd.RowTemplate.Height = 35;
+            customers_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             customers_datagd.Size = new Size(955, 563);
             customers_datagd.TabIndex = 0;
             // 
@@ -97,7 +147,9 @@
             // 
             // customers_add_btn
             // 
-            customers_add_btn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customers_add_btn.BackColor = Color.Transparent;
+            customers_add_btn.FlatStyle = FlatStyle.Flat;
+            customers_add_btn.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             customers_add_btn.Image = (Image)resources.GetObject("customers_add_btn.Image");
             customers_add_btn.ImageAlign = ContentAlignment.MiddleLeft;
             customers_add_btn.Location = new Point(14, 8);
@@ -106,7 +158,7 @@
             customers_add_btn.TabIndex = 1;
             customers_add_btn.Text = "Add";
             customers_add_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            customers_add_btn.UseVisualStyleBackColor = true;
+            customers_add_btn.UseVisualStyleBackColor = false;
             customers_add_btn.Click += customers_add_btn_Click;
             // 
             // customers_add_pnl
@@ -117,6 +169,15 @@
             customers_add_pnl.Size = new Size(261, 439);
             customers_add_pnl.TabIndex = 8;
             // 
+            // panel1
+            // 
+            panel1.AutoSize = true;
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(955, 54);
+            panel1.TabIndex = 9;
+            // 
             // Customers_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -124,11 +185,13 @@
             Controls.Add(customers_add_pnl);
             Controls.Add(customers_add_btn);
             Controls.Add(customers_datagd);
+            Controls.Add(panel1);
             Name = "Customers_Form";
             Size = new Size(955, 617);
             Load += Customers_Form_Load;
             ((System.ComponentModel.ISupportInitialize)customers_datagd).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -142,5 +205,6 @@
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn phone_number;
         private DataGridViewTextBoxColumn address;
+        private Panel panel1;
     }
 }

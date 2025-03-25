@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             user_datagd = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
@@ -50,22 +52,43 @@
             user_datagd.AllowUserToOrderColumns = true;
             user_datagd.AllowUserToResizeColumns = false;
             user_datagd.AllowUserToResizeRows = false;
-            user_datagd.BackgroundColor = Color.FromArgb(224, 224, 224);
+            user_datagd.BackgroundColor = Color.WhiteSmoke;
             user_datagd.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Gray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            user_datagd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            user_datagd.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            user_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            user_datagd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             user_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             user_datagd.Columns.AddRange(new DataGridViewColumn[] { ID, User_Type, First_Name, Last_Name, Username, temp_password });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.SteelBlue;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            user_datagd.DefaultCellStyle = dataGridViewCellStyle2;
             user_datagd.GridColor = Color.LightGray;
             user_datagd.Location = new Point(0, 57);
             user_datagd.Name = "user_datagd";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            user_datagd.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             user_datagd.RowHeadersVisible = false;
+            user_datagd.RowTemplate.DividerHeight = 1;
+            user_datagd.RowTemplate.Height = 35;
+            user_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             user_datagd.Size = new Size(955, 556);
             user_datagd.TabIndex = 0;
             // 
@@ -105,7 +128,7 @@
             temp_password.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             temp_password.HeaderText = "Password";
             temp_password.Name = "temp_password";
-            temp_password.Width = 82;
+            temp_password.Width = 93;
             // 
             // Create_Btn
             // 

@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders_Form));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
             Edit_order = new Button();
             Orders_refresh = new Button();
@@ -53,7 +56,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.Control;
+            panel1.BackColor = Color.WhiteSmoke;
             panel1.Controls.Add(Edit_order);
             panel1.Controls.Add(Orders_refresh);
             panel1.Controls.Add(Orders_add);
@@ -153,28 +156,55 @@
             dataGridView_Orders.AllowUserToResizeColumns = false;
             dataGridView_Orders.AllowUserToResizeRows = false;
             dataGridView_Orders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView_Orders.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridView_Orders.BorderStyle = BorderStyle.None;
-            dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Gray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlDark;
+            dataGridView_Orders.BackgroundColor = Color.WhiteSmoke;
+            dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DimGray;
+            dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Orders.ColumnHeadersHeight = 30;
             dataGridView_Orders.Columns.AddRange(new DataGridViewColumn[] { orders_id, Date, Customername, Customerdetail, Po, Dr, Total });
-            dataGridView_Orders.EnableHeadersVisualStyles = false;
-            dataGridView_Orders.GridColor = Color.LightGray;
-            dataGridView_Orders.Location = new Point(3, 59);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.SteelBlue;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView_Orders.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView_Orders.GridColor = Color.Black;
+            dataGridView_Orders.Location = new Point(0, 59);
             dataGridView_Orders.Name = "dataGridView_Orders";
-            dataGridView_Orders.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridView_Orders.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_Orders.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_Orders.RowHeadersVisible = false;
             dataGridView_Orders.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = Color.SteelBlue;
+            dataGridView_Orders.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView_Orders.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView_Orders.RowTemplate.DefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridView_Orders.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView_Orders.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            dataGridView_Orders.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.SteelBlue;
+            dataGridView_Orders.RowTemplate.DividerHeight = 1;
+            dataGridView_Orders.RowTemplate.Height = 35;
             dataGridView_Orders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_Orders.Size = new Size(949, 554);
+            dataGridView_Orders.Size = new Size(955, 558);
             dataGridView_Orders.TabIndex = 1;
             dataGridView_Orders.CellDoubleClick += dataGridView_Orders_CellDoubleClick;
             // 
@@ -188,7 +218,7 @@
             Date.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Date.HeaderText = "Date";
             Date.Name = "Date";
-            Date.Width = 55;
+            Date.Width = 61;
             // 
             // Customername
             // 
@@ -207,25 +237,26 @@
             Po.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Po.HeaderText = "PO.#";
             Po.Name = "Po";
-            Po.Width = 57;
+            Po.Width = 62;
             // 
             // Dr
             // 
             Dr.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Dr.HeaderText = "DR.#";
             Dr.Name = "Dr";
-            Dr.Width = 56;
+            Dr.Width = 61;
             // 
             // Total
             // 
             Total.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Total.HeaderText = "Total Amount(Php)";
             Total.Name = "Total";
-            Total.Width = 132;
+            Total.Width = 149;
             // 
             // ordersAddPanel
             // 
             ordersAddPanel.Anchor = AnchorStyles.None;
+            ordersAddPanel.BackColor = Color.WhiteSmoke;
             ordersAddPanel.Location = new Point(81, 88);
             ordersAddPanel.Name = "ordersAddPanel";
             ordersAddPanel.Size = new Size(800, 411);
@@ -239,7 +270,7 @@
             Controls.Add(dataGridView_Orders);
             Controls.Add(panel1);
             Name = "Orders_Form";
-            Size = new Size(955, 616);
+            Size = new Size(955, 617);
             Load += Orders_Form_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
