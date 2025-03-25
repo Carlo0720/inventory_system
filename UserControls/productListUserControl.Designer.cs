@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(productListUserControl));
             productlist_datagd = new DataGridView();
             product_id = new DataGridViewTextBoxColumn();
@@ -58,14 +62,58 @@
             productlist_datagd.AllowUserToResizeColumns = false;
             productlist_datagd.AllowUserToResizeRows = false;
             productlist_datagd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            productlist_datagd.BackgroundColor = Color.FromArgb(224, 224, 224);
+            productlist_datagd.BackgroundColor = Color.WhiteSmoke;
             productlist_datagd.BorderStyle = BorderStyle.None;
+            productlist_datagd.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            productlist_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DimGray;
+            dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            productlist_datagd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             productlist_datagd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             productlist_datagd.Columns.AddRange(new DataGridViewColumn[] { product_id, item_name, item_code, item_description, item_color, item_category, supplier, stock, unit, item_price, created_at });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.InfoText;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            productlist_datagd.DefaultCellStyle = dataGridViewCellStyle2;
+            productlist_datagd.GridColor = Color.Black;
             productlist_datagd.Location = new Point(0, 54);
             productlist_datagd.Name = "productlist_datagd";
             productlist_datagd.ReadOnly = true;
-            productlist_datagd.Size = new Size(1073, 564);
+            productlist_datagd.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            productlist_datagd.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            productlist_datagd.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.Black;
+            dataGridViewCellStyle4.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = Color.SteelBlue;
+            productlist_datagd.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            productlist_datagd.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            productlist_datagd.RowTemplate.DefaultCellStyle.BackColor = Color.White;
+            productlist_datagd.RowTemplate.DefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            productlist_datagd.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
+            productlist_datagd.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            productlist_datagd.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.SteelBlue;
+            productlist_datagd.RowTemplate.DividerHeight = 1;
+            productlist_datagd.RowTemplate.Height = 35;
+            productlist_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            productlist_datagd.Size = new Size(1074, 567);
             productlist_datagd.TabIndex = 0;
             // 
             // product_id
@@ -74,7 +122,7 @@
             product_id.HeaderText = "Product ID";
             product_id.Name = "product_id";
             product_id.ReadOnly = true;
-            product_id.Width = 81;
+            product_id.Width = 90;
             // 
             // item_name
             // 
@@ -144,7 +192,7 @@
             created_at.HeaderText = "Creation Date";
             created_at.Name = "created_at";
             created_at.ReadOnly = true;
-            created_at.Width = 96;
+            created_at.Width = 109;
             // 
             // products_add
             // 
