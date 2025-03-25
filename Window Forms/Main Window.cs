@@ -36,16 +36,19 @@ namespace inventory_system
 
             HighlightSideButton((Button)sender);
 
-            // Load the UserForm into the panel
+            Orders_pnl.Visible = false;
+            productlist_pnl.Visible = false;
+            customers_pnl.Visible = false;
+
+            
             contentPanel.Controls.Clear();
             UserForm userForm = new UserForm();
             userForm.Dock = DockStyle.Fill;
             contentPanel.Controls.Add(userForm);
             contentPanel.Visible = true;
 
-            Orders_pnl.Visible = false;
-            productlist_pnl.Visible = false;
-
+            
+           
         }
 
         private void Dashbrd_Btn_Click(object sender, EventArgs e)
@@ -91,21 +94,23 @@ namespace inventory_system
         {
             HighlightSideButton((Button)sender);
 
+            
             contentPanel.Visible = false;
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
 
+            
+            customers_pnl.Controls.Clear();
 
             Customers_Form customersForm = new Customers_Form();
             customersForm.Dock = DockStyle.Fill;
             customers_pnl.Controls.Add(customersForm);
 
             customers_pnl.Parent = this;
-            customers_pnl.Visible = true;   
+            customers_pnl.Visible = true;
             customers_pnl.BringToFront();
-
         }
 
-      
+
     }
 }
