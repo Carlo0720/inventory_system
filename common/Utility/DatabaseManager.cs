@@ -52,6 +52,35 @@ namespace inventory_system.common.Utility
             }
             return dataTable;
         }
+        //Used to get data from database and returns the data in a datatable format
+        public DataTable ExecuteQueryGetProducts(int order_id)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            DataTable dataTable = new DataTable();
+
+            using (MySqlCommand command = new MySqlCommand(SD.SelectSpecificOrderProducts, databaseConnection.connection))
+            {
+                try
+                {
+                    // Add parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@oi.order_id", order_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+            return dataTable;
+        }
         //Used to run an sql query like create, update, or delete
         public int ExecuteNonQuery(string query)
         {
@@ -76,12 +105,12 @@ namespace inventory_system.common.Utility
             return rowsAffected;
         }
         //Used to run an sql query like create, update, or delete
-        public int ExecuteCreateOrders(string query, Model.Order order)
+        public int ExecuteCreateOrders(Model.Order order)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
 
-            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            using (MySqlCommand command = new MySqlCommand(SD.InsertToOrders, databaseConnection.connection))
             {
                 try
                 {
@@ -107,25 +136,20 @@ namespace inventory_system.common.Utility
             return rowsAffected;
         }
         //Used to run an sql query like create, update, or delete
-        public int ExecuteCreateOrderItems(string query, Product product)
+        public int ExecuteCreateOrderItems(int order_id, OrderItems orderItem)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
 
-            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            using (MySqlCommand command = new MySqlCommand(SD.InsertToOrderItems, databaseConnection.connection))
             {
                 try
                 {
                     // Add parameters to avoid SQL injection
-                    command.Parameters.AddWithValue("@item_name", product.ItemName);
-                    command.Parameters.AddWithValue("@item_code", product.ItemCode);
-                    command.Parameters.AddWithValue("@item_description", product.ItemDescription);
-                    command.Parameters.AddWithValue("@item_color", product.ItemColor);
-                    command.Parameters.AddWithValue("@item_category", product.ItemCategory);
-                    command.Parameters.AddWithValue("@supplier", product.Supplier);  
-                    command.Parameters.AddWithValue("@unit", product.Unit);  
-                    command.Parameters.AddWithValue("@stock", product.Stock); 
-                    command.Parameters.AddWithValue("@item_price", product.ItemPrice);  
+                    command.Parameters.AddWithValue("@order_id", order_id);
+                    command.Parameters.AddWithValue("@product_id", orderItem.ProductId);
+                    command.Parameters.AddWithValue("@quantity", orderItem.Quantity);
+                    command.Parameters.AddWithValue("@price", orderItem.Price);
                     command.Parameters.AddWithValue("@created_at", DateTime.Now);  
 
                     rowsAffected = command.ExecuteNonQuery();
