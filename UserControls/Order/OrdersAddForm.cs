@@ -19,6 +19,7 @@ namespace inventory_system.Window_Forms
 {
     public partial class OrdersAddForm : UserControl
     {
+        private OrderRepository orderRepository;
         public BindingList<Product> products = new BindingList<Product>();
         private Customer customer;
 
@@ -27,6 +28,7 @@ namespace inventory_system.Window_Forms
         public OrdersAddForm()
         {
             InitializeComponent();
+            orderRepository = new OrderRepository();
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
         }
@@ -259,9 +261,9 @@ namespace inventory_system.Window_Forms
 
             OrderRepository orderRepository = new OrderRepository();
 
-            
+            orderRepository.InsertOrderToDb(order, orderItemsList);
 
-            Function.CreateOrder(order_id, customer.Id, po_number, dr_number, total_price, orderItemsList);
+            //Function.CreateOrder(order_id, customer.Id, po_number, dr_number, total_price, orderItemsList);
 
             Form parentForm = this.FindForm();
             if (parentForm != null)

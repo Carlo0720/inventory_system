@@ -145,29 +145,17 @@ namespace inventory_system
             dataGridView_Orders.DataSource = orderRepository.Get(SD.SelectAllOrders);
         }
 
-        private void dataGridView_Orders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridView_Orders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if a valid row is double-clicked (not the header row)
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView_Orders.Rows[e.RowIndex];
-                Order order = new Order()
-                {
-                    Id = Convert.ToInt32(selectedRow.Cells["orders_id"].Value)
-                };
+                int Id = Convert.ToInt32(selectedRow.Cells["orders_id"].Value);
+                DataTable orderDataTable = new DataTable();
 
-                // Create a custom EventArgs to store the selected values
-                //var eventArgs = new CustomerSelectedEventArgs
-                //{
-                //    customer = customer
-                //};
+                orderDataTable = await orderRepository.GetSpecificOrderItems(Id);
 
-                // Trigger the event
-                //CustomerSelected?.Invoke(this, eventArgs);
-
-                // Optionally, enable the parent form again if you disabled it for modal-like behavior
-
-                MessageBox.Show(order.Id.ToString());
             }
         }
     }
