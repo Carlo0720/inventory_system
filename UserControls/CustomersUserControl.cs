@@ -91,7 +91,7 @@ namespace inventory_system
 
         private void customers_add_btn_Click(object sender, EventArgs e)
         {
-            Function.HighlightButtonTemporary((Button)sender, 1500);
+            
             CustomersAddUserControl customersAddUC = new CustomersAddUserControl();
             customersAddUC.Dock = DockStyle.Fill;
 

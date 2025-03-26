@@ -34,7 +34,8 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            Edit_order = new Button();
+            Print_Rcpt = new Button();
+            label_Orders_Title = new Label();
             Orders_refresh = new Button();
             Orders_add = new Button();
             panel3 = new Panel();
@@ -56,8 +57,9 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.WhiteSmoke;
-            panel1.Controls.Add(Edit_order);
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(Print_Rcpt);
+            panel1.Controls.Add(label_Orders_Title);
             panel1.Controls.Add(Orders_refresh);
             panel1.Controls.Add(Orders_add);
             panel1.Controls.Add(panel3);
@@ -67,85 +69,104 @@
             panel1.Size = new Size(955, 59);
             panel1.TabIndex = 0;
             // 
-            // Edit_order
+            // Print_Rcpt
             // 
-            Edit_order.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Edit_order.BackColor = Color.Gainsboro;
-            Edit_order.FlatAppearance.BorderColor = Color.Black;
-            Edit_order.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Edit_order.ForeColor = SystemColors.ActiveCaptionText;
-            Edit_order.Image = (Image)resources.GetObject("Edit_order.Image");
-            Edit_order.ImageAlign = ContentAlignment.MiddleLeft;
-            Edit_order.Location = new Point(630, 9);
-            Edit_order.Name = "Edit_order";
-            Edit_order.Size = new Size(81, 39);
-            Edit_order.TabIndex = 15;
-            Edit_order.Text = "Edit";
-            Edit_order.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Edit_order.UseVisualStyleBackColor = false;
+            Print_Rcpt.BackColor = Color.MediumSeaGreen;
+            Print_Rcpt.FlatAppearance.BorderSize = 0;
+            Print_Rcpt.FlatStyle = FlatStyle.Flat;
+            Print_Rcpt.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Print_Rcpt.ForeColor = Color.White;
+            Print_Rcpt.Image = (Image)resources.GetObject("Print_Rcpt.Image");
+            Print_Rcpt.Location = new Point(117, 10);
+            Print_Rcpt.Name = "Print_Rcpt";
+            Print_Rcpt.Size = new Size(106, 38);
+            Print_Rcpt.TabIndex = 17;
+            Print_Rcpt.Text = "Print";
+            Print_Rcpt.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Print_Rcpt.UseVisualStyleBackColor = false;
+            // 
+            // label_Orders_Title
+            // 
+            label_Orders_Title.AutoSize = true;
+            label_Orders_Title.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Orders_Title.Location = new Point(3, 16);
+            label_Orders_Title.Name = "label_Orders_Title";
+            label_Orders_Title.Size = new Size(108, 25);
+            label_Orders_Title.TabIndex = 16;
+            label_Orders_Title.Text = "ORDERS";
             // 
             // Orders_refresh
             // 
             Orders_refresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Orders_refresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Orders_refresh.BackColor = Color.OrangeRed;
+            Orders_refresh.FlatAppearance.BorderSize = 0;
+            Orders_refresh.FlatStyle = FlatStyle.Flat;
+            Orders_refresh.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Orders_refresh.ForeColor = Color.White;
             Orders_refresh.Image = (Image)resources.GetObject("Orders_refresh.Image");
             Orders_refresh.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_refresh.Location = new Point(717, 9);
+            Orders_refresh.Location = new Point(677, 10);
             Orders_refresh.Name = "Orders_refresh";
-            Orders_refresh.Size = new Size(79, 40);
+            Orders_refresh.Size = new Size(135, 39);
             Orders_refresh.TabIndex = 1;
             Orders_refresh.Text = "Refresh";
             Orders_refresh.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Orders_refresh.UseVisualStyleBackColor = true;
+            Orders_refresh.UseVisualStyleBackColor = false;
             Orders_refresh.Click += Orders_refresh_Click;
             // 
             // Orders_add
             // 
             Orders_add.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Orders_add.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Orders_add.BackColor = Color.MediumSeaGreen;
+            Orders_add.FlatStyle = FlatStyle.Flat;
+            Orders_add.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Orders_add.ForeColor = Color.White;
             Orders_add.Image = (Image)resources.GetObject("Orders_add.Image");
             Orders_add.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_add.Location = new Point(802, 9);
+            Orders_add.Location = new Point(818, 9);
             Orders_add.Name = "Orders_add";
-            Orders_add.Size = new Size(79, 40);
+            Orders_add.Size = new Size(125, 40);
             Orders_add.TabIndex = 0;
             Orders_add.Text = "Create";
             Orders_add.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Orders_add.UseVisualStyleBackColor = true;
+            Orders_add.UseVisualStyleBackColor = false;
             Orders_add.Click += Orders_add_Click;
             // 
             // panel3
             // 
-            panel3.BackColor = Color.White;
+            panel3.BackColor = Color.WhiteSmoke;
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(Order_search);
-            panel3.Location = new Point(13, 13);
+            panel3.Location = new Point(277, 9);
             panel3.Name = "panel3";
-            panel3.Size = new Size(395, 36);
+            panel3.Size = new Size(394, 39);
             panel3.TabIndex = 4;
             // 
             // textBox1
             // 
             textBox1.BackColor = Color.White;
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 9F);
-            textBox1.Location = new Point(3, 10);
+            textBox1.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(10, 8);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(307, 16);
+            textBox1.Size = new Size(254, 24);
             textBox1.TabIndex = 2;
             // 
             // Order_search
             // 
-            Order_search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Order_search.BackColor = Color.DodgerBlue;
+            Order_search.FlatStyle = FlatStyle.Flat;
+            Order_search.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Order_search.ForeColor = Color.White;
             Order_search.Image = (Image)resources.GetObject("Order_search.Image");
             Order_search.ImageAlign = ContentAlignment.MiddleLeft;
-            Order_search.Location = new Point(316, -4);
+            Order_search.Location = new Point(272, 0);
             Order_search.Name = "Order_search";
-            Order_search.Size = new Size(79, 40);
+            Order_search.Size = new Size(121, 39);
             Order_search.TabIndex = 3;
             Order_search.Text = "Search";
             Order_search.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Order_search.UseVisualStyleBackColor = true;
+            Order_search.UseVisualStyleBackColor = false;
             Order_search.Click += Order_search_Click;
             // 
             // dataGridView_Orders
@@ -157,6 +178,8 @@
             dataGridView_Orders.AllowUserToResizeRows = false;
             dataGridView_Orders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView_Orders.BackgroundColor = Color.WhiteSmoke;
+            dataGridView_Orders.BorderStyle = BorderStyle.None;
+            dataGridView_Orders.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.DimGray;
@@ -176,7 +199,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.SteelBlue;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView_Orders.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView_Orders.GridColor = Color.Black;
+            dataGridView_Orders.GridColor = Color.Silver;
             dataGridView_Orders.Location = new Point(0, 59);
             dataGridView_Orders.Name = "dataGridView_Orders";
             dataGridView_Orders.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -273,6 +296,7 @@
             Size = new Size(955, 617);
             Load += Orders_Form_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Orders).EndInit();
@@ -289,7 +313,6 @@
         private TextBox textBox1;
         private Panel ordersAddPanel;
         private Panel panel3;
-        private Button Edit_order;
         private DataGridViewTextBoxColumn orders_id;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Customername;
@@ -297,5 +320,7 @@
         private DataGridViewTextBoxColumn Po;
         private DataGridViewTextBoxColumn Dr;
         private DataGridViewTextBoxColumn Total;
+        private Label label_Orders_Title;
+        private Button Print_Rcpt;
     }
 }

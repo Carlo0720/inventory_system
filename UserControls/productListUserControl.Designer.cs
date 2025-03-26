@@ -50,6 +50,7 @@
             panel3 = new Panel();
             products_searchTxtbox = new TextBox();
             products_add_pnl = new Panel();
+            label_Acc_Title = new Label();
             ((System.ComponentModel.ISupportInitialize)productlist_datagd).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -196,63 +197,84 @@
             // 
             // products_add
             // 
-            products_add.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_add.BackColor = Color.MediumSeaGreen;
+            products_add.FlatAppearance.BorderSize = 0;
+            products_add.FlatStyle = FlatStyle.Flat;
+            products_add.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_add.ForeColor = Color.White;
             products_add.Image = (Image)resources.GetObject("products_add.Image");
             products_add.ImageAlign = ContentAlignment.MiddleLeft;
-            products_add.Location = new Point(13, 8);
+            products_add.Location = new Point(156, 12);
             products_add.Name = "products_add";
-            products_add.Size = new Size(79, 40);
+            products_add.Size = new Size(95, 36);
             products_add.TabIndex = 1;
             products_add.Text = "Add";
             products_add.TextImageRelation = TextImageRelation.ImageBeforeText;
-            products_add.UseVisualStyleBackColor = true;
+            products_add.UseVisualStyleBackColor = false;
             products_add.Click += products_add_Click;
             // 
             // products_searchbtn
             // 
-            products_searchbtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_searchbtn.BackColor = Color.DodgerBlue;
+            products_searchbtn.FlatAppearance.BorderSize = 0;
+            products_searchbtn.FlatStyle = FlatStyle.Flat;
+            products_searchbtn.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_searchbtn.ForeColor = Color.White;
             products_searchbtn.Image = (Image)resources.GetObject("products_searchbtn.Image");
             products_searchbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            products_searchbtn.Location = new Point(534, 8);
+            products_searchbtn.Location = new Point(509, 13);
             products_searchbtn.Name = "products_searchbtn";
-            products_searchbtn.Size = new Size(79, 40);
+            products_searchbtn.Size = new Size(127, 34);
             products_searchbtn.TabIndex = 5;
             products_searchbtn.Text = "Search";
             products_searchbtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            products_searchbtn.UseVisualStyleBackColor = true;
+            products_searchbtn.UseVisualStyleBackColor = false;
             products_searchbtn.Click += products_searchbtn_Click;
             // 
             // panel3
             // 
-            panel3.BackColor = Color.White;
+            panel3.BackColor = Color.WhiteSmoke;
             panel3.Controls.Add(products_searchTxtbox);
-            panel3.Location = new Point(287, 10);
+            panel3.Location = new Point(257, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(326, 36);
+            panel3.Size = new Size(379, 36);
             panel3.TabIndex = 6;
             // 
             // products_searchTxtbox
             // 
             products_searchTxtbox.BackColor = Color.White;
             products_searchTxtbox.BorderStyle = BorderStyle.None;
-            products_searchTxtbox.Font = new Font("Segoe UI", 9F);
-            products_searchTxtbox.Location = new Point(3, 9);
+            products_searchTxtbox.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_searchTxtbox.Location = new Point(7, 7);
             products_searchTxtbox.Name = "products_searchTxtbox";
-            products_searchTxtbox.Size = new Size(241, 16);
+            products_searchTxtbox.Size = new Size(241, 24);
             products_searchTxtbox.TabIndex = 2;
             // 
             // products_add_pnl
             // 
             products_add_pnl.Anchor = AnchorStyles.None;
-            products_add_pnl.Location = new Point(415, 8);
+            products_add_pnl.Location = new Point(405, 8);
             products_add_pnl.Name = "products_add_pnl";
             products_add_pnl.Size = new Size(261, 590);
             products_add_pnl.TabIndex = 7;
+            // 
+            // label_Acc_Title
+            // 
+            label_Acc_Title.AutoSize = true;
+            label_Acc_Title.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Acc_Title.ForeColor = Color.Black;
+            label_Acc_Title.Location = new Point(3, 13);
+            label_Acc_Title.Name = "label_Acc_Title";
+            label_Acc_Title.Size = new Size(147, 25);
+            label_Acc_Title.TabIndex = 8;
+            label_Acc_Title.Text = "Accessories";
             // 
             // productListUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label_Acc_Title);
             Controls.Add(products_add_pnl);
             Controls.Add(products_searchbtn);
             Controls.Add(panel3);
@@ -265,6 +287,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -286,5 +309,6 @@
         private DataGridViewTextBoxColumn unit;
         private DataGridViewTextBoxColumn item_price;
         private DataGridViewTextBoxColumn created_at;
+        private Label label_Acc_Title;
     }
 }
