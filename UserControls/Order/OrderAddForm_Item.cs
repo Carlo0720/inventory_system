@@ -51,7 +51,7 @@ namespace inventory_system.UserControls.Order
             productlist_datagd.Columns["stock"].DataPropertyName = "stock";
             productlist_datagd.Columns["unit"].DataPropertyName = "unit";
             productlist_datagd.Columns["item_price"].DataPropertyName = "item_price";
-            productlist_datagd.DataSource = productsRepository.Get(SD.SelectProducts);
+            productlist_datagd.DataSource = productsRepository.Get(SD.SelectProductsForOrder);
 
 
             // Hide the "ID" column from the DataGridView

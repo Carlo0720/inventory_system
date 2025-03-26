@@ -17,13 +17,14 @@ namespace inventory_system.common.Utility
         #region Order Items
         public const string InsertToOrderItems = "INSERT INTO order_items (order_id, product_id, quantity, price, created_at) " +
                         "VALUES (@order_id, @product_id, @quantity, @price, @created_at)";
-        public const string SelectOrderItems = "SELECT product_id, quantity FROM order_items WHERE o.order_id = @order_id";
+        public const string SelectOrderItems = "SELECT product_id, quantity FROM order_items oi JOIN products p ON p.product_id = oi.product_id WHERE o.order_id = @order_id";
         #endregion
         #region Customers
-        public const string SelectAllCustomers = "SELECT customers_id, CONCAT(first_name, ' ', last_name) AS customer_name, company_name, email FROM customers;";
+        public const string SelectAllCustomersForOrder = "SELECT customers_id, CONCAT(first_name, ' ', last_name) AS customer_name, company_name, email FROM customers;";
         #endregion
         #region Products
-        public const string SelectProducts = "SELECT product_id, item_code, item_name, item_description, item_color, item_category, supplier, unit, stock, item_price FROM products";
+        public const string SelectProductsForOrder = "SELECT product_id, item_code, item_name, item_description, item_color, item_category, supplier, unit, stock, item_price FROM products";
+        public const string SelectSpecificOrderProducts = "SELECT p.item_name, p.item_code, p.item_description, p.item_color, p.item_price, oi.quantity FROM order_items oi JOIN products p ON p.product_id = oi.product_id where oi.order_id = @order_id";
         #endregion
     }
 }

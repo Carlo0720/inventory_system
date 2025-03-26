@@ -33,7 +33,7 @@ namespace inventory_system.UserControls.Order
             customers_datagd.Columns["name"].DataPropertyName = "customer_name";
             customers_datagd.Columns["company_name"].DataPropertyName = "company_name";
             customers_datagd.Columns["email"].DataPropertyName = "email";
-            customers_datagd.DataSource = customerRepository.Get(SD.SelectAllCustomers);
+            customers_datagd.DataSource = customerRepository.Get(SD.SelectAllCustomersForOrder);
 
 
             // Hide the "ID" column from the DataGridView
