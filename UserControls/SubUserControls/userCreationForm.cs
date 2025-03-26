@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace inventory_system
 {
-    
+
 
     public partial class userCreationForm : UserControl
     {
@@ -31,7 +31,7 @@ namespace inventory_system
 
             public override string ToString()
             {
-                return Text; 
+                return Text;
             }
         }
 
@@ -62,11 +62,11 @@ namespace inventory_system
 
         private void crownComboBoxUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
             if (crownComboBoxUserType.SelectedItem is ComboBoxItem selectedItem)
             {
-                selectedUserTypeId = selectedItem.Value;                
+                selectedUserTypeId = selectedItem.Value;
             }
         }
 
@@ -74,7 +74,7 @@ namespace inventory_system
 
         private void Create_btnUser_Click(object sender, EventArgs e)
         {
-            if(crownTextBoxFrstNme.Text == "" || crownTextBoxFrstNme.Text == null) 
+            if (crownTextBoxFrstNme.Text == "" || crownTextBoxFrstNme.Text == null)
             {
                 MessageBox.Show("Please enter the first name of the user.");
             }
@@ -83,15 +83,17 @@ namespace inventory_system
                 MessageBox.Show("Please enter the last name name of the user.");
             }
 
-            
 
-           if (selectedUserTypeId == -1)
-           {
-            MessageBox.Show("Please select a user type first.");
-            return;
-           }
 
-           Function.CreateUser(crownTextBoxFrstNme.Text, crownTextBoxLstNme.Text, selectedUserTypeId);
+            if (selectedUserTypeId == -1)
+            {
+                MessageBox.Show("Please select a user type first.");
+                return;
+            }
+
+            Function.CreateUser(crownTextBoxFrstNme.Text, crownTextBoxLstNme.Text, selectedUserTypeId);
         }
+
+     
     }
 }

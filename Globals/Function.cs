@@ -67,6 +67,68 @@ namespace inventory_system.Globals
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
         }
 
+        public static string EditUser(string userId, string first_name, string last_name, string password)
+        {
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Generate new username format (same logic as in CreateUser)
+                    string[] fname_arr = first_name.Split(' ');
+                    string user_name_temp = string.Concat(fname_arr.Select(name => name[0]));
+
+                    string[] lname_arr = last_name.Split(' ');
+                    string user_name_temp2 = string.Concat(lname_arr);
+
+                    string new_username = user_name_temp + "_" + user_name_temp2 + userId; // Ensure uniqueness
+
+                    // Check if password is empty
+                    string hashedPassword = string.IsNullOrWhiteSpace(password) ? null : BC.HashPassword(password);
+
+                    // Update query including temp_password
+                    string query = @"
+                                        UPDATE users 
+                                        SET first_name = @first_name, 
+                                            last_name = @last_name, 
+                                            password = @password,
+                                            temp_password = @temp_password, 
+                                            user_name = @user_name
+                                        WHERE id = @id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@user_name", new_username);
+                        cmd.Parameters.AddWithValue("@id", userId);
+
+                        // Update password fields only if the user provided a new password
+                        if (hashedPassword != null)
+                        {
+                            cmd.Parameters.AddWithValue("@password", hashedPassword);
+                            cmd.Parameters.AddWithValue("@temp_password", password); // Store plain password
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@password", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@temp_password", DBNull.Value);
+                        }
+
+                        cmd.ExecuteNonQuery();
+                        return "User has been updated successfully.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "Error: " + ex.Message;
+                }
+            }
+        }
+
+
         public static string CreateCustomer(string first_name, string last_name, string company_name, string email, string phone_number, string addreses, DateTime created_at) 
         {
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
