@@ -31,6 +31,8 @@ namespace inventory_system.Window_Forms
             orderRepository = new OrderRepository();
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
+            purchaseOrderTbox.Text = orderRepository.NextPurchaseOrderNumber().ToString();
+            deliveryReceiptTbox.Text = orderRepository.NextDeliveryReceiptNumber().ToString();
         }
 
         private void Exit_ordrs_Click(object sender, EventArgs e)

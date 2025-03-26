@@ -190,7 +190,42 @@ namespace inventory_system.common.Utility
             int nextPurchaseOrderId = 0;
 
             // Query to get the latest purchase_order_id
-            string query = "SELECT MAX(order_id) FROM orders";
+            string query = "SELECT MAX(po_number) FROM orders";
+
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            {
+                try
+                {
+                    // Execute the query and get the result
+                    var result = command.ExecuteScalar();
+
+                    // If the result is not null (meaning there are rows in the table), increment the value
+                    if (result != DBNull.Value)
+                    {
+                        nextPurchaseOrderId = Convert.ToInt32(result) + 1;
+                    }
+                    else
+                    {
+                        // If there is no record in the table yet, start with 1
+                        nextPurchaseOrderId = 1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    // Handle exception (e.g., logging)
+                }
+            }
+
+            return nextPurchaseOrderId;
+        }
+        public int GetNextDeliverReceiptId()
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            int nextPurchaseOrderId = 0;
+
+            // Query to get the latest purchase_order_id
+            string query = "SELECT MAX(dr_number) FROM orders";
 
             using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
             {
