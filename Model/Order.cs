@@ -8,7 +8,7 @@ namespace inventory_system.Model
 {
     public class Order
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public int CustomerId { get; set; }
         public int PurchaseOrderId { get; set; }
         public int DeliveryReceipt { get; set; }
