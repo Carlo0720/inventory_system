@@ -127,6 +127,14 @@ namespace inventory_system.Repository
                 return databaseManager.GetNextPurchaseOrderId();
             }
         }
+        public int NextDeliveryReceiptNumber()
+        {
+            databaseManager = new DatabaseManager();
+            using (databaseManager)
+            {
+                return databaseManager.GetNextDeliverReceiptId();
+            }
+        }
 
 
 
