@@ -109,11 +109,16 @@ namespace inventory_system.common.Utility
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
+            int order_id = 0;
+
+            MySqlTransaction myTrans;
+            myTrans = databaseConnection.connection.BeginTransaction();
 
             using (MySqlCommand command = new MySqlCommand(SD.InsertToOrders, databaseConnection.connection))
             {
                 try
                 {
+                    command.Transaction = myTrans;
                     // Add parameters to avoid SQL injection
                     command.Parameters.AddWithValue("@customer_id", order.CustomerId);
                     command.Parameters.AddWithValue("@po_number", order.PurchaseOrderId);
@@ -123,6 +128,18 @@ namespace inventory_system.common.Utility
                     command.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
 
                     rowsAffected = command.ExecuteNonQuery();
+
+                    // Now get the last inserted order ID
+                    using (MySqlCommand getLastIdCommand = new MySqlCommand("SELECT LAST_INSERT_ID();", databaseConnection.connection))
+                    {
+                        // Execute the query to get the last inserted ID
+                        order_id = Convert.ToInt32(getLastIdCommand.ExecuteScalar());
+                }
+                    foreach (OrderItems item in order.Items)
+                    {
+                        ExecuteCreateOrderItems(order_id, item, myTrans);
+                    }
+
                 }
                 catch (MySqlException e)
                 {
@@ -133,10 +150,10 @@ namespace inventory_system.common.Utility
                     MessageBox.Show($"An error has occured {e.Message}");
                 }
             }
-            return rowsAffected;
+            return order_id;
         }
         //Used to run an sql query like create, update, or delete
-        public int ExecuteCreateOrderItems(int order_id, OrderItems orderItem)
+        public int ExecuteCreateOrderItems(int order_id, OrderItems orderItem, MySqlTransaction myTrans)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
@@ -153,6 +170,8 @@ namespace inventory_system.common.Utility
                     command.Parameters.AddWithValue("@created_at", DateTime.Now);  
 
                     rowsAffected = command.ExecuteNonQuery();
+
+                    myTrans.Commit();
                 }
                 catch (MySqlException e)
                 {

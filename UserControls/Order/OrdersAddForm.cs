@@ -256,7 +256,7 @@ namespace inventory_system.Window_Forms
                 CustomerId = customer_id,
                 PurchaseOrderId = po_number,
                 DeliveryReceipt = dr_number,
-                TotalPrice = total_price
+                TotalPrice = total_price,
             };
 
             OrderRepository orderRepository = new OrderRepository();
