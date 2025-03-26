@@ -257,6 +257,7 @@ namespace inventory_system.Window_Forms
                 PurchaseOrderId = po_number,
                 DeliveryReceipt = dr_number,
                 TotalPrice = total_price,
+                Items = orderItemsList,
             };
 
             OrderRepository orderRepository = new OrderRepository();
