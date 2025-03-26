@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using inventory_system.Globals;
 using MySql.Data.MySqlClient;
 using inventory_system.Globals;
+using inventory_system.UserControls.SubUserControls;
 
 namespace inventory_system
 {
@@ -43,7 +44,8 @@ namespace inventory_system
 
         private void UserForm_Load_1(object sender, EventArgs e)
         {
-            
+            user_datagd.CellContentClick += user_datagd_CellContentClick;
+
 
             userCreationPanel.Visible = false;
 
@@ -60,7 +62,7 @@ namespace inventory_system
             try
             {
                 string connectionString = Variables.connString;
-                string query = "SELECT id, user_type_id, first_name, last_name, user_name, temp_password FROM users";
+                string query = "SELECT id, user_type_id, first_name, last_name, user_name, temp_password FROM users WHERE deleted_at IS NULL";
 
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -74,8 +76,6 @@ namespace inventory_system
 
                             user_datagd.AutoGenerateColumns = false;
 
-
-
                             // Ensure columns exist and set DataPropertyName correctly
                             user_datagd.Columns["ID"].DataPropertyName = "id";
                             user_datagd.Columns["User_Type"].DataPropertyName = "user_type_id";
@@ -83,6 +83,27 @@ namespace inventory_system
                             user_datagd.Columns["Last_Name"].DataPropertyName = "last_name";
                             user_datagd.Columns["Username"].DataPropertyName = "user_name";
                             user_datagd.Columns["temp_password"].DataPropertyName = "temp_password";
+
+                            // Add Edit and Delete buttons if not already added
+                            if (user_datagd.Columns["Edit"] == null)
+                            {
+                                DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+                                editButton.Name = "Edit";
+                                editButton.HeaderText = "Edit";
+                                editButton.Text = "Edit";
+                                editButton.UseColumnTextForButtonValue = true;
+                                user_datagd.Columns.Add(editButton);
+                            }
+
+                            if (user_datagd.Columns["Delete"] == null)
+                            {
+                                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+                                deleteButton.Name = "Delete";
+                                deleteButton.HeaderText = "Delete";
+                                deleteButton.Text = "Delete";
+                                deleteButton.UseColumnTextForButtonValue = true;
+                                user_datagd.Columns.Add(deleteButton);
+                            }
 
                             // Bind data only if rows exist
                             if (db_users_table.Rows.Count > 0)
@@ -97,13 +118,82 @@ namespace inventory_system
                     }
                 }
             }
-
             catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
+
+        private void user_datagd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+            if (e.RowIndex >= 0)
+            {
+                string selectedUserId = user_datagd.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+
+                if (user_datagd.Columns[e.ColumnIndex].Name == "Edit")
+                {
+                   
+                    
+                    EditUser(selectedUserId);
+                }
+                else if (user_datagd.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    DialogResult confirm = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo);
+                    if (confirm == DialogResult.Yes)
+                    {
+                        DeleteUser(selectedUserId);
+                    }
+                }
+            }
+        }
+
+        private void EditUser(string userId)
+        {
+            
+
+            userCreationPanel.Controls.Clear(); // Clear previous controls
+            editUserUserControl editUserUC = new editUserUserControl(userId);
+            editUserUC.Dock = DockStyle.Fill;
+            userCreationPanel.Controls.Add(editUserUC);
+
+            userCreationPanel.Parent = this;
+            userCreationPanel.Visible = true;
+            userCreationPanel.BringToFront();
+        }
+
+        private void DeleteUser(string userId)
+        {
+            try
+            {
+                string query = "UPDATE users SET deleted_at = NOW() WHERE id = @id";
+                using (MySqlConnection conn = new MySqlConnection(Variables.connString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", userId);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User archived successfully.");
+                            UserForm_Load_1(null, null); // Refresh DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to archive user.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
 
         private void UserForm_Resize(object sender, EventArgs e)
         {
@@ -119,7 +209,7 @@ namespace inventory_system
         private void Create_Btn_Click(object sender, EventArgs e)
         {
             Function.HighlightButtonTemporary((Button)sender, 1500);
-
+            userCreationPanel.Controls.Clear(); // Clear previous controls
             userCreationForm userCF = new userCreationForm();
             userCF.Dock = DockStyle.Fill;
             userCreationPanel.Controls.Add(userCF);

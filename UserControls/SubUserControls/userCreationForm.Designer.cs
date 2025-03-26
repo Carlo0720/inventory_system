@@ -84,7 +84,7 @@
             // 
             // crownTextBoxFrstNme
             // 
-            crownTextBoxFrstNme.BackColor = Color.Silver;
+            crownTextBoxFrstNme.BackColor = Color.White;
             crownTextBoxFrstNme.BorderStyle = BorderStyle.FixedSingle;
             crownTextBoxFrstNme.ForeColor = Color.Black;
             crownTextBoxFrstNme.Location = new Point(105, 82);
@@ -95,7 +95,7 @@
             // 
             // crownTextBoxLstNme
             // 
-            crownTextBoxLstNme.BackColor = Color.Silver;
+            crownTextBoxLstNme.BackColor = Color.White;
             crownTextBoxLstNme.BorderStyle = BorderStyle.FixedSingle;
             crownTextBoxLstNme.ForeColor = Color.Black;
             crownTextBoxLstNme.Location = new Point(105, 128);
@@ -159,6 +159,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(crownComboBoxUserType);
             Controls.Add(label1);
