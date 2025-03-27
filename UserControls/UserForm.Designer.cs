@@ -172,7 +172,7 @@
             userCreationPanel.Anchor = AnchorStyles.None;
             userCreationPanel.Location = new Point(268, 164);
             userCreationPanel.Name = "userCreationPanel";
-            userCreationPanel.Size = new Size(385, 265);
+            userCreationPanel.Size = new Size(385, 310);
             userCreationPanel.TabIndex = 3;
             // 
             // User_Title

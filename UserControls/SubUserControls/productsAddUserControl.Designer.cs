@@ -43,6 +43,7 @@
             Label_add = new ReaLTaiizor.Controls.BigLabel();
             add_product_close_btn = new Button();
             panel2 = new Panel();
+            itemcategory_combobox = new ComboBox();
             label3 = new Label();
             item_price_txtbox = new TextBox();
             label2 = new Label();
@@ -51,7 +52,8 @@
             unit_txtbox = new TextBox();
             itemcolor_txtbox = new Label();
             item_color_txtbox = new TextBox();
-            itemcategory_combobox = new ComboBox();
+            label5 = new Label();
+            textBox1 = new TextBox();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             // 
             supplier_txtbox.AutoSize = true;
             supplier_txtbox.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            supplier_txtbox.Location = new Point(3, 229);
+            supplier_txtbox.Location = new Point(3, 223);
             supplier_txtbox.Name = "supplier_txtbox";
             supplier_txtbox.Size = new Size(51, 15);
             supplier_txtbox.TabIndex = 11;
@@ -67,7 +69,7 @@
             // 
             // supplier_txtbox1
             // 
-            supplier_txtbox1.Location = new Point(2, 247);
+            supplier_txtbox1.Location = new Point(2, 241);
             supplier_txtbox1.Name = "supplier_txtbox1";
             supplier_txtbox1.Size = new Size(202, 23);
             supplier_txtbox1.TabIndex = 10;
@@ -85,7 +87,8 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 9);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(3, 3);
             label4.Name = "label4";
             label4.Size = new Size(67, 15);
             label4.TabIndex = 2;
@@ -95,7 +98,7 @@
             // 
             itemcategory_txtbox.AutoSize = true;
             itemcategory_txtbox.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemcategory_txtbox.Location = new Point(3, 185);
+            itemcategory_txtbox.Location = new Point(3, 179);
             itemcategory_txtbox.Name = "itemcategory_txtbox";
             itemcategory_txtbox.Size = new Size(82, 15);
             itemcategory_txtbox.TabIndex = 8;
@@ -103,14 +106,16 @@
             // 
             // itemname_txtbox
             // 
-            itemname_txtbox.Location = new Point(3, 27);
+            itemname_txtbox.BackColor = Color.White;
+            itemname_txtbox.Location = new Point(3, 21);
             itemname_txtbox.Name = "itemname_txtbox";
             itemname_txtbox.Size = new Size(201, 23);
             itemname_txtbox.TabIndex = 1;
             // 
             // itemcode_txtbox
             // 
-            itemcode_txtbox.Location = new Point(3, 71);
+            itemcode_txtbox.BackColor = Color.White;
+            itemcode_txtbox.Location = new Point(3, 65);
             itemcode_txtbox.Name = "itemcode_txtbox";
             itemcode_txtbox.Size = new Size(201, 23);
             itemcode_txtbox.TabIndex = 3;
@@ -119,7 +124,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(3, 97);
+            label6.Location = new Point(3, 91);
             label6.Name = "label6";
             label6.Size = new Size(96, 15);
             label6.TabIndex = 6;
@@ -129,7 +134,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(3, 53);
+            label7.Location = new Point(3, 47);
             label7.Name = "label7";
             label7.Size = new Size(62, 15);
             label7.TabIndex = 4;
@@ -137,22 +142,23 @@
             // 
             // itemdesc_txtbox
             // 
-            itemdesc_txtbox.Location = new Point(3, 115);
+            itemdesc_txtbox.Location = new Point(3, 109);
             itemdesc_txtbox.Name = "itemdesc_txtbox";
             itemdesc_txtbox.Size = new Size(201, 23);
             itemdesc_txtbox.TabIndex = 5;
             // 
             // add_product_btn
             // 
-            add_product_btn.BackColor = Color.Silver;
-            add_product_btn.FlatStyle = FlatStyle.Popup;
-            add_product_btn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            add_product_btn.ForeColor = SystemColors.ActiveCaptionText;
+            add_product_btn.BackColor = Color.MediumSeaGreen;
+            add_product_btn.FlatAppearance.BorderSize = 0;
+            add_product_btn.FlatStyle = FlatStyle.Flat;
+            add_product_btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            add_product_btn.ForeColor = Color.White;
             add_product_btn.Image = (Image)resources.GetObject("add_product_btn.Image");
             add_product_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            add_product_btn.Location = new Point(67, 532);
+            add_product_btn.Location = new Point(48, 532);
             add_product_btn.Name = "add_product_btn";
-            add_product_btn.Size = new Size(120, 36);
+            add_product_btn.Size = new Size(163, 36);
             add_product_btn.TabIndex = 20;
             add_product_btn.Text = "Add Product";
             add_product_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -163,33 +169,35 @@
             // 
             Label_add.AutoSize = true;
             Label_add.BackColor = Color.Transparent;
-            Label_add.Font = new Font("Segoe UI", 25F);
-            Label_add.ForeColor = Color.FromArgb(80, 80, 80);
-            Label_add.Location = new Point(26, 3);
+            Label_add.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Label_add.ForeColor = Color.White;
+            Label_add.Location = new Point(41, 20);
             Label_add.Name = "Label_add";
-            Label_add.Size = new Size(209, 46);
+            Label_add.Size = new Size(179, 37);
             Label_add.TabIndex = 16;
             Label_add.Text = "Add Product";
             // 
             // add_product_close_btn
             // 
-            add_product_close_btn.BackColor = SystemColors.ButtonFace;
-            add_product_close_btn.BackgroundImage = (Image)resources.GetObject("add_product_close_btn.BackgroundImage");
+            add_product_close_btn.BackColor = Color.Red;
             add_product_close_btn.BackgroundImageLayout = ImageLayout.Center;
             add_product_close_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
-            add_product_close_btn.FlatAppearance.BorderSize = 2;
-            add_product_close_btn.FlatStyle = FlatStyle.Popup;
-            add_product_close_btn.Location = new Point(238, 3);
+            add_product_close_btn.FlatAppearance.BorderSize = 0;
+            add_product_close_btn.FlatStyle = FlatStyle.Flat;
+            add_product_close_btn.Image = (Image)resources.GetObject("add_product_close_btn.Image");
+            add_product_close_btn.Location = new Point(231, 4);
             add_product_close_btn.Name = "add_product_close_btn";
-            add_product_close_btn.Size = new Size(20, 19);
+            add_product_close_btn.Size = new Size(25, 27);
             add_product_close_btn.TabIndex = 21;
             add_product_close_btn.UseVisualStyleBackColor = false;
             add_product_close_btn.Click += add_product_close_btn_Click;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(224, 224, 224);
+            panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(textBox1);
             panel2.Controls.Add(itemcategory_combobox);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(item_price_txtbox);
@@ -211,15 +219,24 @@
             panel2.Controls.Add(itemdesc_txtbox);
             panel2.Location = new Point(26, 61);
             panel2.Name = "panel2";
-            panel2.Size = new Size(209, 451);
+            panel2.Size = new Size(209, 465);
             panel2.TabIndex = 18;
             panel2.Paint += panel2_Paint;
+            // 
+            // itemcategory_combobox
+            // 
+            itemcategory_combobox.FormattingEnabled = true;
+            itemcategory_combobox.Items.AddRange(new object[] { "Brooch", "Crown", "Muslim Trimmings", "Neck Tie", "Ordinary Lace", "Patching", "Petticoat", "Scallop Lace", "Trimmings", "WedAcc", "Zipper" });
+            itemcategory_combobox.Location = new Point(3, 197);
+            itemcategory_combobox.Name = "itemcategory_combobox";
+            itemcategory_combobox.Size = new Size(201, 23);
+            itemcategory_combobox.TabIndex = 21;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 369);
+            label3.Location = new Point(3, 363);
             label3.Name = "label3";
             label3.Size = new Size(61, 15);
             label3.TabIndex = 20;
@@ -227,7 +244,7 @@
             // 
             // item_price_txtbox
             // 
-            item_price_txtbox.Location = new Point(2, 389);
+            item_price_txtbox.Location = new Point(2, 383);
             item_price_txtbox.Name = "item_price_txtbox";
             item_price_txtbox.Size = new Size(202, 23);
             item_price_txtbox.TabIndex = 19;
@@ -236,7 +253,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, 323);
+            label2.Location = new Point(3, 317);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
             label2.TabIndex = 18;
@@ -244,7 +261,7 @@
             // 
             // stock_txtbox
             // 
-            stock_txtbox.Location = new Point(2, 343);
+            stock_txtbox.Location = new Point(2, 337);
             stock_txtbox.Name = "stock_txtbox";
             stock_txtbox.Size = new Size(202, 23);
             stock_txtbox.TabIndex = 17;
@@ -253,7 +270,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 273);
+            label1.Location = new Point(2, 267);
             label1.Name = "label1";
             label1.Size = new Size(29, 15);
             label1.TabIndex = 16;
@@ -261,7 +278,7 @@
             // 
             // unit_txtbox
             // 
-            unit_txtbox.Location = new Point(2, 293);
+            unit_txtbox.Location = new Point(2, 287);
             unit_txtbox.Name = "unit_txtbox";
             unit_txtbox.Size = new Size(202, 23);
             unit_txtbox.TabIndex = 15;
@@ -270,7 +287,7 @@
             // 
             itemcolor_txtbox.AutoSize = true;
             itemcolor_txtbox.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemcolor_txtbox.Location = new Point(3, 141);
+            itemcolor_txtbox.Location = new Point(3, 135);
             itemcolor_txtbox.Name = "itemcolor_txtbox";
             itemcolor_txtbox.Size = new Size(63, 15);
             itemcolor_txtbox.TabIndex = 14;
@@ -278,24 +295,33 @@
             // 
             // item_color_txtbox
             // 
-            item_color_txtbox.Location = new Point(3, 159);
+            item_color_txtbox.Location = new Point(3, 153);
             item_color_txtbox.Name = "item_color_txtbox";
             item_color_txtbox.Size = new Size(201, 23);
             item_color_txtbox.TabIndex = 13;
             // 
-            // itemcategory_combobox
+            // label5
             // 
-            itemcategory_combobox.FormattingEnabled = true;
-            itemcategory_combobox.Items.AddRange(new object[] { "Brooch", "Crown", "Muslim Trimmings", "Neck Tie", "Ordinary Lace", "Patching", "Petticoat", "Scallop Lace", "Trimmings", "WedAcc", "Zipper" });
-            itemcategory_combobox.Location = new Point(3, 203);
-            itemcategory_combobox.Name = "itemcategory_combobox";
-            itemcategory_combobox.Size = new Size(201, 23);
-            itemcategory_combobox.TabIndex = 21;
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(2, 409);
+            label5.Name = "label5";
+            label5.Size = new Size(59, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Cost Price";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(1, 429);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(202, 23);
+            textBox1.TabIndex = 22;
             // 
             // productsAddUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(2, 24, 37);
             Controls.Add(add_product_btn);
             Controls.Add(Label_add);
             Controls.Add(add_product_close_btn);
@@ -333,5 +359,7 @@
         private Label label3;
         private TextBox item_price_txtbox;
         private ComboBox itemcategory_combobox;
+        private Label label5;
+        private TextBox textBox1;
     }
 }

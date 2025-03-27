@@ -256,11 +256,11 @@
             gradient_SidebarPanel1.Controls.Add(Productlst_Btn);
             gradient_SidebarPanel1.Dock = DockStyle.Left;
             gradient_SidebarPanel1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gradient_SidebarPanel1.gradientBottom = Color.FromArgb(0, 192, 192);
-            gradient_SidebarPanel1.gradientTop = Color.FromArgb(128, 255, 128);
+            gradient_SidebarPanel1.gradientBottom = Color.FromArgb(2, 24, 37);
+            gradient_SidebarPanel1.gradientTop = Color.FromArgb(2, 24, 37);
             gradient_SidebarPanel1.Location = new Point(0, 31);
             gradient_SidebarPanel1.Name = "gradient_SidebarPanel1";
-            gradient_SidebarPanel1.Size = new Size(158, 619);
+            gradient_SidebarPanel1.Size = new Size(157, 619);
             gradient_SidebarPanel1.TabIndex = 3;
             // 
             // mainpage

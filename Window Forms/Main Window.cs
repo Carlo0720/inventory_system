@@ -81,7 +81,7 @@ namespace inventory_system
 
         private void Orders_btn_Click(object sender, EventArgs e)
         {
-            
+
             Orders_pnl.Controls.Clear();
 
             Orders_Form ordersForm = new Orders_Form();
