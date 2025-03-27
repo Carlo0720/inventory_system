@@ -84,31 +84,12 @@ namespace inventory_system
                             user_datagd.Columns["Username"].DataPropertyName = "user_name";
                             user_datagd.Columns["temp_password"].DataPropertyName = "temp_password";
 
-                            // Add Edit and Delete buttons if not already added
-                            if (user_datagd.Columns["Edit"] == null)
-                            {
-                                DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-                                editButton.Name = "Edit";
-                                editButton.HeaderText = "Edit";
-                                editButton.Text = "Edit";
-                                editButton.UseColumnTextForButtonValue = true;
-                                user_datagd.Columns.Add(editButton);
-                            }
-
-                            if (user_datagd.Columns["Delete"] == null)
-                            {
-                                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
-                                deleteButton.Name = "Delete";
-                                deleteButton.HeaderText = "Delete";
-                                deleteButton.Text = "Delete";
-                                deleteButton.UseColumnTextForButtonValue = true;
-                                user_datagd.Columns.Add(deleteButton);
-                            }
-
+                           
                             // Bind data only if rows exist
                             if (db_users_table.Rows.Count > 0)
                             {
                                 user_datagd.DataSource = db_users_table;
+                                Function.AddEditDeleteButtons(user_datagd);
                             }
                             else
                             {
