@@ -10,20 +10,17 @@ namespace inventory_system.UserControls.Order
     {
 
 
-        
-   
+
+
         public Landing_Page()
         {
             InitializeComponent();
-
-         
-
-
             // Remove default border
             this.FormBorderStyle = FormBorderStyle.None;
-
             // Apply rounded corners
             this.Region = GetRoundedRegion(120); // Adjust 30 for more/less rounding
+
+              this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private Region GetRoundedRegion(int radius)
@@ -46,6 +43,13 @@ namespace inventory_system.UserControls.Order
         private void Lnd_Logn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Landing_Page_Load(object sender, EventArgs e)
+        {          
+            Form1 loginWindow = new Form1();
+            loginWindow.Dock = DockStyle.Fill;
+            loginPanel.Controls.Add(loginWindow);
         }
     }
 }

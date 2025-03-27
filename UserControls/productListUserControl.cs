@@ -25,7 +25,7 @@ namespace inventory_system
             products_add_pnl.Visible = false;
 
         }
-        
+
 
         private void LoadAccessories()
         {
@@ -51,7 +51,7 @@ namespace inventory_system
             {
 
 
-                string query = "SELECT product_id, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, created_at " +
+                string query = "SELECT product_id, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, cost_price, created_at " +
                     "FROM products WHERE deleted_at IS NULL";
 
 
@@ -63,7 +63,7 @@ namespace inventory_system
                         using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
                         {
                             DataTable db_products_table = new DataTable();
-                            sda.Fill(db_products_table);                       
+                            sda.Fill(db_products_table);
 
                             productlist_datagd.Columns["product_id"].DataPropertyName = "product_id";
                             productlist_datagd.Columns["item_name"].DataPropertyName = "item_name";
@@ -75,6 +75,7 @@ namespace inventory_system
                             productlist_datagd.Columns["stock"].DataPropertyName = "stock";
                             productlist_datagd.Columns["unit"].DataPropertyName = "unit";
                             productlist_datagd.Columns["item_price"].DataPropertyName = "item_price";
+                            productlist_datagd.Columns["cost_price"].DataPropertyName = "cost_price";
                             productlist_datagd.Columns["created_at"].DataPropertyName = "created_at";
 
                             if (db_products_table.Rows.Count > 0)
@@ -93,12 +94,13 @@ namespace inventory_system
                                 productlist_datagd.Columns["stock"].HeaderText = "Stock";
                                 productlist_datagd.Columns["unit"].HeaderText = "Unit";
                                 productlist_datagd.Columns["item_price"].HeaderText = "Price";
+                                productlist_datagd.Columns["cost_price"].HeaderText = "Cost Price";
                                 productlist_datagd.Columns["created_at"].HeaderText = "Created At";
 
                                 // Ensure buttons are at the correct positions
 
                                 Function.AddEditDeleteButtons(productlist_datagd);
-                             
+
                             }
 
                             else
@@ -116,7 +118,7 @@ namespace inventory_system
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-            
+
 
         }
 
@@ -127,7 +129,7 @@ namespace inventory_system
 
         private void products_add_Click(object sender, EventArgs e)
         {
-            
+            products_add_pnl.Controls.Clear();
             productsAddUserControl productsAddUC = new productsAddUserControl();
             productsAddUC.Dock = DockStyle.Fill;
             products_add_pnl.Controls.Add(productsAddUC);
@@ -155,7 +157,7 @@ namespace inventory_system
                 }
                 else if (productlist_datagd.Columns[e.ColumnIndex].Name == "Delete")
                 {
-                    DialogResult confirm = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo);
+                    DialogResult confirm = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Delete,", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (confirm == DialogResult.Yes)
                     {
                         DeleteProduct(selectedProductId);
@@ -166,7 +168,7 @@ namespace inventory_system
 
         private void EditProduct(string productId)
         {
-            products_add_pnl.Controls.Clear(); 
+            products_add_pnl.Controls.Clear();
             editProductUserControl editProductUC = new editProductUserControl(productId);
             editProductUC.Dock = DockStyle.Fill;
             MessageBox.Show("Editing product: " + productId);
@@ -214,6 +216,11 @@ namespace inventory_system
         private void RefreshCustomerGrid()
         {
             LoadAccessories();
+        }
+
+        private void productlist_datagd_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

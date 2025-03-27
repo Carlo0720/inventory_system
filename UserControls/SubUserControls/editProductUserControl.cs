@@ -67,7 +67,13 @@ namespace inventory_system.UserControls.SubUserControls
                 return;
             }
 
-            Function.EditProduct(productId, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, price, updated_at);
+            if (!decimal.TryParse(edit_item_price_txtbox.Text, out decimal cost_price))
+            {
+                MessageBox.Show("Error: Invalid price value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Function.EditProduct(productId, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, price, cost_price, updated_at);
             MessageBox.Show("Product updated successfully.", "Information" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }

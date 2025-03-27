@@ -166,7 +166,7 @@ namespace inventory_system.Globals
 
 
         public static string EditProduct(string product_id, string item_name, string item_code, string item_description, string item_color, string item_category,
-                       string supplier, string unit, int stock, decimal price, DateTime updated_at)
+                       string supplier, string unit, int stock, decimal price, decimal cost_price, DateTime updated_at)
         {
             using MySqlConnection conn = new MySqlConnection(Variables.connString);
             {
@@ -184,6 +184,7 @@ namespace inventory_system.Globals
                                     unit = @unit, 
                                     stock = @stock, 
                                     item_price = @item_price,
+                                    cost_price = @cost_price,
                                     updated_at = @updated_at  
                                 WHERE product_id = @product_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -196,6 +197,7 @@ namespace inventory_system.Globals
                         cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@unit", unit);
                         cmd.Parameters.AddWithValue("@stock", stock);
+                        cmd.Parameters.AddWithValue("@cost_price", cost_price);
                         cmd.Parameters.AddWithValue("@item_price", price);
                         cmd.Parameters.AddWithValue("@product_id", product_id);
                         cmd.Parameters.AddWithValue("@updated_at", updated_at);  // Corrected from @created_at
@@ -313,7 +315,7 @@ namespace inventory_system.Globals
 
 
         public static string CreateProduct(string item_name, string item_code, string item_description, string item_color, string item_category,
-                               string supplier, string unit, int stock, decimal price, DateTime created_at)
+                               string supplier, string unit, int stock, decimal price, decimal cost_price, DateTime created_at)
         {
            
               
@@ -322,8 +324,8 @@ namespace inventory_system.Globals
             try
             {
                 conn.Open();
-                string query = "INSERT INTO products (item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, created_at) " +
-                               "VALUES (@item_name, @item_code, @item_description, @item_color, @item_category, @supplier, @unit, @stock, @item_price, @created_at)";
+                string query = "INSERT INTO products (item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, cost_price, created_at) " +
+                               "VALUES (@item_name, @item_code, @item_description, @item_color, @item_category, @supplier, @unit, @stock, @item_price, @cost_price, @created_at)";
 
                 using MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@item_name", item_name);
@@ -335,6 +337,7 @@ namespace inventory_system.Globals
                 cmd.Parameters.AddWithValue("@unit", unit);
                 cmd.Parameters.AddWithValue("@stock", stock);
                 cmd.Parameters.AddWithValue("@item_price", price);
+                cmd.Parameters.AddWithValue("@cost_price", cost_price);
                 cmd.Parameters.AddWithValue("@created_at", created_at);
 
                 cmd.ExecuteNonQuery();

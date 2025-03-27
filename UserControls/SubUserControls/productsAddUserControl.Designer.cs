@@ -43,6 +43,8 @@
             Label_add = new ReaLTaiizor.Controls.BigLabel();
             add_product_close_btn = new Button();
             panel2 = new Panel();
+            label5 = new Label();
+            costpriceTxtbox = new TextBox();
             itemcategory_combobox = new ComboBox();
             label3 = new Label();
             item_price_txtbox = new TextBox();
@@ -52,8 +54,6 @@
             unit_txtbox = new TextBox();
             itemcolor_txtbox = new Label();
             item_color_txtbox = new TextBox();
-            label5 = new Label();
-            textBox1 = new TextBox();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -197,7 +197,7 @@
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(costpriceTxtbox);
             panel2.Controls.Add(itemcategory_combobox);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(item_price_txtbox);
@@ -222,6 +222,23 @@
             panel2.Size = new Size(209, 465);
             panel2.TabIndex = 18;
             panel2.Paint += panel2_Paint;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(2, 409);
+            label5.Name = "label5";
+            label5.Size = new Size(59, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Cost Price";
+            // 
+            // costpriceTxtbox
+            // 
+            costpriceTxtbox.Location = new Point(1, 429);
+            costpriceTxtbox.Name = "costpriceTxtbox";
+            costpriceTxtbox.Size = new Size(202, 23);
+            costpriceTxtbox.TabIndex = 22;
             // 
             // itemcategory_combobox
             // 
@@ -300,23 +317,6 @@
             item_color_txtbox.Size = new Size(201, 23);
             item_color_txtbox.TabIndex = 13;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(2, 409);
-            label5.Name = "label5";
-            label5.Size = new Size(59, 15);
-            label5.TabIndex = 23;
-            label5.Text = "Cost Price";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(1, 429);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(202, 23);
-            textBox1.TabIndex = 22;
-            // 
             // productsAddUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -360,6 +360,6 @@
         private TextBox item_price_txtbox;
         private ComboBox itemcategory_combobox;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox costpriceTxtbox;
     }
 }

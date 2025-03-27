@@ -66,6 +66,7 @@ namespace inventory_system
             string item_category = itemcategory_combobox.Text;
             string supplier = supplier_txtbox1.Text;
             string unit = unit_txtbox.Text;
+   
             DateTime createdAt = DateTime.Now;
 
             if (!int.TryParse(stock_txtbox.Text, out int stock))
@@ -80,7 +81,13 @@ namespace inventory_system
                 return;
             }
 
-            Function.CreateProduct(item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, price, createdAt);
+            if (!decimal.TryParse(costpriceTxtbox.Text, out decimal cost_price))
+            {
+                MessageBox.Show("Error: Invalid price value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Function.CreateProduct(item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, price, cost_price, createdAt);
             MessageBox.Show("Product created successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }

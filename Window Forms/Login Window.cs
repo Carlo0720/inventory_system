@@ -7,14 +7,14 @@ using inventory_system.Globals;
 
 namespace inventory_system
 {
-    public partial class Form1 : Form
+    public partial class Form1 : UserControl
     {
         public Form1()
         {
             InitializeComponent();
 
             // Remove form border
-            this.FormBorderStyle = FormBorderStyle.None;
+          
 
             // Apply rounded corners
             this.Region = GetRoundedRegion(120); // Adjust 30 for more/less rounding
@@ -81,7 +81,8 @@ namespace inventory_system
             this.Hide();
             mainpage frm = new mainpage();
             frm.ShowDialog();
-            this.Close();
+            
+            Function.HideParentPanel(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)

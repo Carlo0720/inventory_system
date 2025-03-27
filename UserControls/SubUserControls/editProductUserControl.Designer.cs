@@ -52,6 +52,8 @@
             edit_itemdesc_txtbox = new TextBox();
             edit_product_btn = new Button();
             add_product_close_btn = new Button();
+            label5 = new Label();
+            edit_cost_price_txtbox = new TextBox();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,8 +62,8 @@
             Label_add.AutoSize = true;
             Label_add.BackColor = Color.Transparent;
             Label_add.Font = new Font("Segoe UI", 25F);
-            Label_add.ForeColor = Color.FromArgb(80, 80, 80);
-            Label_add.Location = new Point(30, 11);
+            Label_add.ForeColor = Color.White;
+            Label_add.Location = new Point(30, 7);
             Label_add.Name = "Label_add";
             Label_add.Size = new Size(204, 46);
             Label_add.TabIndex = 17;
@@ -69,8 +71,10 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(224, 224, 224);
+            panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(edit_cost_price_txtbox);
             panel2.Controls.Add(edit_itemcategory_combobox);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(edit_item_price_txtbox);
@@ -90,9 +94,9 @@
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(edit_itemdesc_txtbox);
-            panel2.Location = new Point(26, 70);
+            panel2.Location = new Point(26, 60);
             panel2.Name = "panel2";
-            panel2.Size = new Size(209, 451);
+            panel2.Size = new Size(209, 474);
             panel2.TabIndex = 19;
             // 
             // edit_itemcategory_combobox
@@ -267,7 +271,7 @@
             edit_product_btn.ForeColor = SystemColors.ActiveCaptionText;
             edit_product_btn.Image = (Image)resources.GetObject("edit_product_btn.Image");
             edit_product_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            edit_product_btn.Location = new Point(65, 540);
+            edit_product_btn.Location = new Point(64, 540);
             edit_product_btn.Name = "edit_product_btn";
             edit_product_btn.Size = new Size(120, 36);
             edit_product_btn.TabIndex = 22;
@@ -292,10 +296,28 @@
             add_product_close_btn.UseVisualStyleBackColor = false;
             add_product_close_btn.Click += add_product_close_btn_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(2, 415);
+            label5.Name = "label5";
+            label5.Size = new Size(59, 15);
+            label5.TabIndex = 25;
+            label5.Text = "Cost Price";
+            // 
+            // edit_cost_price_txtbox
+            // 
+            edit_cost_price_txtbox.Location = new Point(1, 435);
+            edit_cost_price_txtbox.Name = "edit_cost_price_txtbox";
+            edit_cost_price_txtbox.Size = new Size(202, 23);
+            edit_cost_price_txtbox.TabIndex = 24;
+            // 
             // editProductUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(2, 24, 37);
             Controls.Add(add_product_close_btn);
             Controls.Add(edit_product_btn);
             Controls.Add(panel2);
@@ -333,5 +355,7 @@
         private TextBox edit_itemdesc_txtbox;
         private Button edit_product_btn;
         private Button add_product_close_btn;
+        private Label label5;
+        private TextBox edit_cost_price_txtbox;
     }
 }

@@ -66,6 +66,7 @@ namespace inventory_system
 
                             if (db_customers_table.Rows.Count > 0)
                             {
+                                Function.AddEditDeleteButtons(customers_datagd);
                                 customers_datagd.DataSource = db_customers_table;
                             }
 

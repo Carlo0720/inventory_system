@@ -176,7 +176,6 @@
             dataGridView_Orders.AllowUserToOrderColumns = true;
             dataGridView_Orders.AllowUserToResizeColumns = false;
             dataGridView_Orders.AllowUserToResizeRows = false;
-            dataGridView_Orders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView_Orders.BackgroundColor = Color.WhiteSmoke;
             dataGridView_Orders.BorderStyle = BorderStyle.None;
             dataGridView_Orders.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;

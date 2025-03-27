@@ -104,7 +104,7 @@
             customers_datagd.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.SteelBlue;
             customers_datagd.RowTemplate.DividerHeight = 1;
             customers_datagd.RowTemplate.Height = 35;
-            customers_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            customers_datagd.SelectionMode = DataGridViewSelectionMode.CellSelect;
             customers_datagd.Size = new Size(955, 563);
             customers_datagd.TabIndex = 0;
             // 

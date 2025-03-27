@@ -34,7 +34,6 @@
             label1 = new Label();
             label2 = new Label();
             Passwordtxtbox = new TextBox();
-            foreverClose1 = new ReaLTaiizor.Controls.ForeverClose();
             gradient_SidebarPanel1 = new TestDesigns.Gradient_SidebarPanel();
             moonLabel1 = new ReaLTaiizor.Controls.MoonLabel();
             pictureBox5 = new PictureBox();
@@ -117,22 +116,6 @@
             Passwordtxtbox.TabIndex = 4;
             Passwordtxtbox.KeyDown += Passwordtxtbox_KeyDown;
             // 
-            // foreverClose1
-            // 
-            foreverClose1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            foreverClose1.BackColor = Color.FromArgb(2, 24, 37);
-            foreverClose1.BaseColor = Color.Transparent;
-            foreverClose1.DefaultLocation = true;
-            foreverClose1.DownColor = Color.FromArgb(30, 0, 0, 0);
-            foreverClose1.Font = new Font("Marlett", 10F);
-            foreverClose1.Location = new Point(331, 16);
-            foreverClose1.Name = "foreverClose1";
-            foreverClose1.OverColor = Color.FromArgb(30, 255, 255, 255);
-            foreverClose1.Size = new Size(18, 18);
-            foreverClose1.TabIndex = 5;
-            foreverClose1.Text = "foreverClose1";
-            foreverClose1.TextColor = Color.FromArgb(243, 243, 243);
-            // 
             // gradient_SidebarPanel1
             // 
             gradient_SidebarPanel1.BackColor = Color.Transparent;
@@ -143,7 +126,6 @@
             gradient_SidebarPanel1.Controls.Add(bigLabel1);
             gradient_SidebarPanel1.Controls.Add(pictureBox2);
             gradient_SidebarPanel1.Controls.Add(pictureBox1);
-            gradient_SidebarPanel1.Controls.Add(foreverClose1);
             gradient_SidebarPanel1.Controls.Add(Passwordtxtbox);
             gradient_SidebarPanel1.Controls.Add(label2);
             gradient_SidebarPanel1.Controls.Add(label1);
@@ -235,12 +217,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
-            ClientSize = new Size(361, 430);
             Controls.Add(gradient_SidebarPanel1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Size = new Size(361, 430);
             Load += Form1_Load;
             gradient_SidebarPanel1.ResumeLayout(false);
             gradient_SidebarPanel1.PerformLayout();
@@ -259,7 +238,6 @@
         private Label label1;
         private Label label2;
         private TextBox Passwordtxtbox;
-        private ReaLTaiizor.Controls.ForeverClose foreverClose1;
         private TestDesigns.Gradient_SidebarPanel gradient_SidebarPanel1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;

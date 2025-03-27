@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Landing_Page));
             pictureBox1 = new PictureBox();
-            gradient_SidebarPanel1 = new TestDesigns.Gradient_SidebarPanel();
+            loginPanel = new TestDesigns.Gradient_SidebarPanel();
             panel1 = new Panel();
+            foreverClose1 = new ReaLTaiizor.Controls.ForeverClose();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -45,22 +47,39 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
-            // gradient_SidebarPanel1
+            // loginPanel
             // 
-            gradient_SidebarPanel1.gradientBottom = Color.Empty;
-            gradient_SidebarPanel1.gradientTop = Color.Empty;
-            gradient_SidebarPanel1.Location = new Point(566, 57);
-            gradient_SidebarPanel1.Name = "gradient_SidebarPanel1";
-            gradient_SidebarPanel1.Size = new Size(360, 430);
-            gradient_SidebarPanel1.TabIndex = 12;
+            loginPanel.gradientBottom = Color.Empty;
+            loginPanel.gradientTop = Color.Empty;
+            loginPanel.Location = new Point(566, 57);
+            loginPanel.Name = "loginPanel";
+            loginPanel.Size = new Size(360, 430);
+            loginPanel.TabIndex = 12;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
+            panel1.Controls.Add(foreverClose1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(975, 28);
             panel1.TabIndex = 13;
+            // 
+            // foreverClose1
+            // 
+            foreverClose1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            foreverClose1.BackColor = Color.White;
+            foreverClose1.BaseColor = Color.FromArgb(45, 47, 49);
+            foreverClose1.DefaultLocation = true;
+            foreverClose1.DownColor = Color.FromArgb(30, 0, 0, 0);
+            foreverClose1.Font = new Font("Marlett", 10F);
+            foreverClose1.Location = new Point(945, 4);
+            foreverClose1.Name = "foreverClose1";
+            foreverClose1.OverColor = Color.FromArgb(30, 255, 255, 255);
+            foreverClose1.Size = new Size(18, 18);
+            foreverClose1.TabIndex = 0;
+            foreverClose1.Text = "foreverClose1";
+            foreverClose1.TextColor = Color.FromArgb(243, 243, 243);
             // 
             // Landing_Page
             // 
@@ -70,19 +89,22 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(974, 513);
             Controls.Add(panel1);
-            Controls.Add(gradient_SidebarPanel1);
+            Controls.Add(loginPanel);
             Controls.Add(pictureBox1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "Landing_Page";
             Text = "Landing_Page";
+            Load += Landing_Page_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private PictureBox pictureBox1;
-        private TestDesigns.Gradient_SidebarPanel gradient_SidebarPanel1;
+        private TestDesigns.Gradient_SidebarPanel loginPanel;
         private Panel panel1;
+        private ReaLTaiizor.Controls.ForeverClose foreverClose1;
     }
 }
