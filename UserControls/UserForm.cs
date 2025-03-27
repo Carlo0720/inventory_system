@@ -106,8 +106,7 @@ namespace inventory_system
         }
 
         private void user_datagd_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
+        {          
 
             if (e.RowIndex >= 0)
             {
