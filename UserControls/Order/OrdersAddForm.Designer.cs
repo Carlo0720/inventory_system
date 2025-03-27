@@ -62,7 +62,6 @@
             Column6 = new DataGridViewTextBoxColumn();
             Order_dtle = new Label();
             deleteBtn = new Button();
-            Exit_ordrs = new Button();
             addOrderBtn = new Button();
             panel3 = new ReaLTaiizor.Controls.Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Order).BeginInit();
@@ -74,7 +73,7 @@
             Label_add.AutoSize = true;
             Label_add.BackColor = Color.Transparent;
             Label_add.Font = new Font("Segoe UI", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Label_add.ForeColor = Color.Black;
+            Label_add.ForeColor = Color.White;
             Label_add.Location = new Point(3, 9);
             Label_add.Name = "Label_add";
             Label_add.Size = new Size(181, 45);
@@ -83,7 +82,7 @@
             // 
             // customerNameTbox
             // 
-            customerNameTbox.Location = new Point(8, 45);
+            customerNameTbox.Location = new Point(8, 54);
             customerNameTbox.Name = "customerNameTbox";
             customerNameTbox.ReadOnly = true;
             customerNameTbox.Size = new Size(179, 23);
@@ -93,7 +92,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(8, 27);
+            label1.Location = new Point(8, 36);
             label1.Name = "label1";
             label1.Size = new Size(93, 15);
             label1.TabIndex = 2;
@@ -103,7 +102,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(8, 71);
+            label2.Location = new Point(8, 80);
             label2.Name = "label2";
             label2.Size = new Size(97, 15);
             label2.TabIndex = 4;
@@ -111,7 +110,7 @@
             // 
             // customerDetailsTbox
             // 
-            customerDetailsTbox.Location = new Point(8, 89);
+            customerDetailsTbox.Location = new Point(8, 98);
             customerDetailsTbox.Name = "customerDetailsTbox";
             customerDetailsTbox.ReadOnly = true;
             customerDetailsTbox.Size = new Size(179, 23);
@@ -121,7 +120,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(8, 164);
+            label3.Location = new Point(8, 173);
             label3.Name = "label3";
             label3.Size = new Size(124, 15);
             label3.TabIndex = 6;
@@ -129,7 +128,7 @@
             // 
             // purchaseOrderTbox
             // 
-            purchaseOrderTbox.Location = new Point(8, 182);
+            purchaseOrderTbox.Location = new Point(8, 191);
             purchaseOrderTbox.Name = "purchaseOrderTbox";
             purchaseOrderTbox.Size = new Size(179, 23);
             purchaseOrderTbox.TabIndex = 5;
@@ -138,7 +137,7 @@
             // 
             DR_No.AutoSize = true;
             DR_No.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DR_No.Location = new Point(8, 208);
+            DR_No.Location = new Point(8, 217);
             DR_No.Name = "DR_No";
             DR_No.Size = new Size(129, 15);
             DR_No.TabIndex = 8;
@@ -146,7 +145,7 @@
             // 
             // deliveryReceiptTbox
             // 
-            deliveryReceiptTbox.Location = new Point(8, 226);
+            deliveryReceiptTbox.Location = new Point(8, 235);
             deliveryReceiptTbox.Name = "deliveryReceiptTbox";
             deliveryReceiptTbox.Size = new Size(179, 23);
             deliveryReceiptTbox.TabIndex = 7;
@@ -159,7 +158,7 @@
             selectCustomerBtn.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             selectCustomerBtn.ForeColor = Color.White;
             selectCustomerBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            selectCustomerBtn.Location = new Point(8, 118);
+            selectCustomerBtn.Location = new Point(8, 127);
             selectCustomerBtn.Name = "selectCustomerBtn";
             selectCustomerBtn.Size = new Size(179, 36);
             selectCustomerBtn.TabIndex = 15;
@@ -172,7 +171,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(8, 252);
+            label10.Location = new Point(8, 261);
             label10.Name = "label10";
             label10.Size = new Size(90, 15);
             label10.TabIndex = 12;
@@ -180,7 +179,7 @@
             // 
             // totalAmountTbox
             // 
-            totalAmountTbox.Location = new Point(8, 270);
+            totalAmountTbox.Location = new Point(8, 279);
             totalAmountTbox.Name = "totalAmountTbox";
             totalAmountTbox.ReadOnly = true;
             totalAmountTbox.Size = new Size(179, 23);
@@ -196,7 +195,7 @@
             addItemBtn.ForeColor = Color.White;
             addItemBtn.Image = (Image)resources.GetObject("addItemBtn.Image");
             addItemBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            addItemBtn.Location = new Point(619, 328);
+            addItemBtn.Location = new Point(619, 337);
             addItemBtn.Name = "addItemBtn";
             addItemBtn.Size = new Size(88, 36);
             addItemBtn.TabIndex = 13;
@@ -238,7 +237,7 @@
             dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
             dataGridView_Order.DefaultCellStyle = dataGridViewCellStyle9;
             dataGridView_Order.GridColor = Color.Silver;
-            dataGridView_Order.Location = new Point(200, 27);
+            dataGridView_Order.Location = new Point(200, 36);
             dataGridView_Order.MultiSelect = false;
             dataGridView_Order.Name = "dataGridView_Order";
             dataGridView_Order.ReadOnly = true;
@@ -338,11 +337,13 @@
             // Order_dtle
             // 
             Order_dtle.AutoSize = true;
-            Order_dtle.Location = new Point(8, 5);
+            Order_dtle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Order_dtle.Location = new Point(8, 0);
             Order_dtle.Name = "Order_dtle";
-            Order_dtle.Size = new Size(70, 15);
+            Order_dtle.Size = new Size(99, 21);
             Order_dtle.TabIndex = 9;
             Order_dtle.Text = "Order Detail";
+            Order_dtle.Click += Order_dtle_Click;
             // 
             // deleteBtn
             // 
@@ -354,7 +355,7 @@
             deleteBtn.ForeColor = Color.White;
             deleteBtn.Image = (Image)resources.GetObject("deleteBtn.Image");
             deleteBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            deleteBtn.Location = new Point(503, 328);
+            deleteBtn.Location = new Point(503, 337);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(110, 36);
             deleteBtn.TabIndex = 14;
@@ -362,22 +363,6 @@
             deleteBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
             deleteBtn.UseVisualStyleBackColor = false;
             deleteBtn.Click += deleteBtn_Click;
-            // 
-            // Exit_ordrs
-            // 
-            Exit_ordrs.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Exit_ordrs.BackColor = Color.Red;
-            Exit_ordrs.BackgroundImage = (Image)resources.GetObject("Exit_ordrs.BackgroundImage");
-            Exit_ordrs.BackgroundImageLayout = ImageLayout.Center;
-            Exit_ordrs.FlatAppearance.BorderColor = Color.Black;
-            Exit_ordrs.FlatAppearance.BorderSize = 0;
-            Exit_ordrs.FlatStyle = FlatStyle.Flat;
-            Exit_ordrs.Location = new Point(691, 9);
-            Exit_ordrs.Name = "Exit_ordrs";
-            Exit_ordrs.Size = new Size(27, 26);
-            Exit_ordrs.TabIndex = 15;
-            Exit_ordrs.UseVisualStyleBackColor = false;
-            Exit_ordrs.Click += Exit_ordrs_Click;
             // 
             // addOrderBtn
             // 
@@ -389,7 +374,7 @@
             addOrderBtn.ForeColor = Color.White;
             addOrderBtn.Image = (Image)resources.GetObject("addOrderBtn.Image");
             addOrderBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            addOrderBtn.Location = new Point(578, 447);
+            addOrderBtn.Location = new Point(545, 447);
             addOrderBtn.Name = "addOrderBtn";
             addOrderBtn.Size = new Size(140, 31);
             addOrderBtn.TabIndex = 15;
@@ -418,7 +403,7 @@
             panel3.Controls.Add(purchaseOrderTbox);
             panel3.Controls.Add(label1);
             panel3.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel3.Location = new Point(3, 60);
+            panel3.Location = new Point(8, 60);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(5);
             panel3.Size = new Size(715, 381);
@@ -430,10 +415,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(2, 24, 37);
             Controls.Add(panel3);
             Controls.Add(addOrderBtn);
-            Controls.Add(Exit_ordrs);
             Controls.Add(Label_add);
             Name = "OrdersAddForm";
             Size = new Size(732, 502);
@@ -461,7 +445,6 @@
         private TextBox totalAmountTbox;
         private Button addItemBtn;
         private Button deleteBtn;
-        private Button Exit_ordrs;
         private Button addOrderBtn;
         private Button selectCustomerBtn;
         private ReaLTaiizor.Controls.Panel panel3;

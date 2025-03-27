@@ -120,19 +120,19 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="add_product_btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACDSURBVEhL7Y5bDkBAEAT3eMT9L4BrsFqU/RnLxDNEJf2h
-        1cxs+A4xxl5JUJ+HdnbT6gnqBPUm6Hnw/gN58LbFvbD/vgN8umBkHdz/QB5cn7wH9l9/4AisWgbnEKx6
-        GD2kUlqlUUpqg9czMDBTUxv0z+UZJF9+oFTG4VopqA1e762EMACUlMXaXyS0iAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAAINJREFUSEvtjlsOQEAQBPd4xP0vgGuwWpT9GcvEM0Ql/aHVzGz4DjHGXklQn4d2
+        dtPqCeoE9SboefD+A3nwtsW9sP++A3y6YGQd3P9AHlyfvAf2X3/gCKxaBucQrHoYPaRSWqVRSmqD1zMw
+        MFNTG/TP5RkkX36gVMbhWimoDV7vrYQwAJSUxdpfJLSIAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="add_product_close_btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAC6SURBVEhL7ZVRDsIgEAU5Qm+iR6sfNp6nekA9Ad2VMRG2
-        kJQNf51kE8rAo6ENhJNDxBgnqZfUR+ooOucpNRFnEanhXlbiLCJ73rzkTZyFAW6Is+DdEGfBl1ykltTM
-        0D51BuIs+JIFN6fHLzN9ewt3bdEv8KZF+3/BDPW74Gs8GNYMVxhmwdcYusDQLbrjhn3k1m96Tc0c4ix4
-        N8RZ8G6Is4gbftjpee6leVzrhbNK9V44Ord+4ZxYQtgAMIfD6UlaN8oAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAALpJREFUSEvtlVEOwiAQBTlCb6JHqx82nqd6QD0B3ZUxEbaQlA1/nWQTysCjoQ2E
+        k0PEGCepl9RH6ig65yk1EWcRqeFeVuIsInvevORNnIUBboiz4N0QZ8GXXKSW1MzQPnUG4iz4kgU3p8cv
+        M317C3dt0S/wpkX7f8EM9bvgazwY1gxXGGbB1xi6wNAtuuOGfeTWb3pNzRziLHg3xFnwboiziBt+2Ol5
+        7qV5XOuFs0r1Xjg6t37hnFhC2AAwh8PpSVo3ygAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

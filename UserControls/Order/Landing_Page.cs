@@ -23,7 +23,7 @@ namespace inventory_system.UserControls.Order
             this.FormBorderStyle = FormBorderStyle.None;
 
             // Apply rounded corners
-            this.Region = GetRoundedRegion(90); // Adjust 30 for more/less rounding
+            this.Region = GetRoundedRegion(120); // Adjust 30 for more/less rounding
         }
 
         private Region GetRoundedRegion(int radius)

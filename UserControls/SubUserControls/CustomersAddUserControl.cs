@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using inventory_system.Globals;
+using System.Drawing.Drawing2D;
 
 namespace inventory_system
 {
@@ -16,7 +17,18 @@ namespace inventory_system
         public CustomersAddUserControl()
         {
             InitializeComponent();
+
+
+           
+            
+
+            
+
         }
+
+      
+
+
 
         public event Action CustomerAdded;
 

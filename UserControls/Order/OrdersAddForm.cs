@@ -29,12 +29,13 @@ namespace inventory_system.Window_Forms
         {
             InitializeComponent();
 
-
+           
 
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
         }
 
+       
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
         {
@@ -105,7 +106,7 @@ namespace inventory_system.Window_Forms
 
             var existingProduct = products.FirstOrDefault(u => u.ProductId == e.product.ProductId);
 
-            if(e.product.Quantity > e.product.Stock)
+            if (e.product.Quantity > e.product.Stock)
             {
                 MessageBox.Show($"{e.product.ItemName} quantity exceed stock, set quantity to total stock: {e.product.Stock}");
                 e.product.Quantity = e.product.Stock;
@@ -264,7 +265,7 @@ namespace inventory_system.Window_Forms
 
             OrderRepository orderRepository = new OrderRepository();
 
-            
+
 
             Function.CreateOrder(order_id, customer.Id, po_number, dr_number, total_price, orderItemsList);
 
@@ -321,6 +322,11 @@ namespace inventory_system.Window_Forms
                 DataGridViewRow selectedRow = dataGridView_Order.Rows[e.RowIndex];
 
             }
+        }
+
+        private void Order_dtle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -235,7 +235,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSlateGray;
+            BackColor = Color.FromArgb(2, 24, 37);
             Controls.Add(add_costumer_btn);
             Controls.Add(Label_add);
             Controls.Add(add_customers_close_btn);
