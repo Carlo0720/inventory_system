@@ -24,48 +24,35 @@ namespace inventory_system
 
         }
 
-   
 
-            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn, Orders_btn, customers_btn };
-            Function.HighlightButton(clickedButton, sideButtons);
-        }
 
-            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn, Orders_btn, customers_btn };
-           
 
-            Orders_pnl.Visible = false;
-            productlist_pnl.Visible = false;
-            customers_pnl.Visible = false;
+        private void userModule_Btn_Click(object sender, EventArgs e)
+        {
 
-            
 
-           
 
-            Orders_pnl.Visible = false;
-            productlist_pnl.Visible = false;
-            customers_pnl.Visible = false;
-            Orders_pnl.Visible = false;
-            productlist_pnl.Visible = false;
-
+            // Load the UserForm into the panel
             contentPanel.Controls.Clear();
             UserForm userForm = new UserForm();
             userForm.Dock = DockStyle.Fill;
             contentPanel.Controls.Add(userForm);
-          
+            contentPanel.Visible = true;
 
-            
-           
+            Orders_pnl.Visible = false;
+            productlist_pnl.Visible = false;
+
         }
 
-           
+        private void Dashbrd_Btn_Click(object sender, EventArgs e)
         {
-          
+
             contentPanel.Controls.Clear();
         }
 
         private void Productlst_Btn_Click(object sender, EventArgs e)
         {
-           
+
             contentPanel.Controls.Clear();
             Orders_pnl.Controls.Clear();
 
@@ -73,7 +60,7 @@ namespace inventory_system
             productListUserControl productlistUC = new productListUserControl();
             productlistUC.Dock = DockStyle.Fill;
             productlist_pnl.Controls.Add(productlistUC);
-            
+
             productlist_pnl.Parent = this;
             productlist_pnl.Visible = true;
             productlist_pnl.BringToFront();
@@ -90,32 +77,29 @@ namespace inventory_system
 
             Orders_pnl.Parent = this; // Order Forms child
             Orders_pnl.Visible = true;
-            
+            Orders_pnl.BringToFront();
 
-            
             contentPanel.Visible = false;
 
         }
 
-            
-            customers_pnl.Controls.Clear();
-            HighlightSideButton((Button)sender);
+        private void customers_btn_Click(object sender, EventArgs e)
+        {
+
 
             contentPanel.Visible = false;
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
 
-            customers_pnl.Visible = true;
-            customers_pnl.Controls.Clear();
-
 
             Customers_Form customersForm = new Customers_Form();
-
+            customersForm.Dock = DockStyle.Fill;
             customers_pnl.Controls.Add(customersForm);
 
             customers_pnl.Parent = this;
             customers_pnl.Visible = true;
             customers_pnl.BringToFront();
+
         }
 
 
