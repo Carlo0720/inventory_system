@@ -90,7 +90,7 @@ namespace inventory_system
             contentPanel.Visible = false;
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
-
+            customers_pnl.Controls.Clear();
 
             Customers_Form customersForm = new Customers_Form();
             customersForm.Dock = DockStyle.Fill;

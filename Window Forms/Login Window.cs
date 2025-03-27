@@ -61,7 +61,7 @@ namespace inventory_system
             using MySqlConnection con = new MySqlConnection(connString);
             string user_name = Usertxtbox.Text;
             string password = Passwordtxtbox.Text;
-
+            /*
             if (Function.ValidateLogin(user_name, password))
             {
                 MessageBox.Show("Login Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -74,6 +74,7 @@ namespace inventory_system
             {
                 MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
         }
 
         private void mainpage()

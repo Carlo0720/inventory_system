@@ -164,6 +164,48 @@ namespace inventory_system.Globals
             };
         }
 
+        public static string EditCustomer(string customers_id, string first_name, string last_name, string company_name, string email,
+            string phone_number, string address, DateTime updated_att)
+        {
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            {
+                try 
+                { 
+                    conn.Open();
+                    string query = @"
+                                    UPDATE customers 
+                                    SET first_name = @first_name, 
+                                        last_name = @last_name, 
+                                        company_name = @company_name, 
+                                        email = @email, 
+                                        phone_number = @phone_number, 
+                                        address = @address, 
+                                        updated_at = @updated_at  
+                                    WHERE customers_id = @customers_id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@company_name", company_name);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@phone_number", phone_number);
+                        cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@updated_at", updated_att);
+                        cmd.Parameters.AddWithValue("@customers_id", customers_id);
+                        cmd.ExecuteNonQuery();
+                        return "Customer has been updated successfully.";
+                    }   
+                }
+
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "Error: " + ex.Message;
+                }
+            }
+
+        }
 
         public static string EditProduct(string product_id, string item_name, string item_code, string item_description, string item_color, string item_category,
                        string supplier, string unit, int stock, decimal price, decimal cost_price, DateTime updated_at)

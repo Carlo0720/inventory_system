@@ -1,4 +1,5 @@
 ﻿using inventory_system.Globals;
+using inventory_system.UserControls.SubUserControls;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace inventory_system
 
         private void LoadCustomers()
         {
-            string query = "SELECT first_name, last_name, company_name, email, phone_number, address FROM customers";
+            string query = "SELECT customers_id, first_name, last_name, company_name, email, phone_number, address FROM customers WHERE deleted_at IS NULL";
             DataTable dt = Function.DatabaseHelper.ExecuteQuery(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -39,9 +40,10 @@ namespace inventory_system
         private void Customers_Form_Load(object sender, EventArgs e)
         {
             Function.StyleDataGridView(customers_datagd);
+            customers_datagd.CellContentClick += customers_datagd_CellContentClick;
             customers_add_pnl.Visible = false;
 
-            string query = "SELECT first_name, last_name, company_name, email, phone_number, address FROM customers";
+            string query = "SELECT customers_id, first_name, last_name, company_name, email, phone_number, address FROM customers WHERE deleted_at IS NULL";
 
 
             using (MySqlConnection conn = new MySqlConnection(Variables.connString))
@@ -56,6 +58,7 @@ namespace inventory_system
                             DataTable db_customers_table = new DataTable();
                             sda.Fill(db_customers_table);
 
+                            customers_datagd.Columns["customers_id"].DataPropertyName = "customers_id";
                             customers_datagd.Columns["first_name"].DataPropertyName = "first_name";
                             customers_datagd.Columns["last_name"].DataPropertyName = "last_name";
                             customers_datagd.Columns["company_name"].DataPropertyName = "company_name";
@@ -87,6 +90,74 @@ namespace inventory_system
 
             }
         }
+
+        private void customers_datagd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string selectedCustomerId = customers_datagd.Rows[e.RowIndex].Cells["customers_id"].Value.ToString(); // Ensure correct column name
+                MessageBox.Show("Selected customer: " + selectedCustomerId);
+
+                if (customers_datagd.Columns[e.ColumnIndex].Name == "Edit")
+                {
+                    EditCustomers(selectedCustomerId);
+                }
+                else if (customers_datagd.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    DialogResult confirm = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (confirm == DialogResult.Yes)
+                    {
+                        DeleteCustomers(selectedCustomerId);
+                    }
+                }
+            }
+        }
+
+
+        private void EditCustomers(string customerId)
+        {
+            customers_add_pnl.Controls.Clear();
+            editCustomerUserControl editCustomerUC = new editCustomerUserControl(customerId);
+            editCustomerUC.Dock = DockStyle.Fill;          
+            customers_add_pnl.Controls.Add(editCustomerUC);
+
+
+            customers_add_pnl.Parent = this;
+            customers_add_pnl.Visible = true;
+            customers_add_pnl.BringToFront();
+        }
+
+        private void DeleteCustomers(string customerId) // Corrected parameter name
+        {
+            try
+            {
+                string query = "UPDATE customers SET deleted_at = NOW() WHERE customers_id = @customers_id";
+                using (MySqlConnection conn = new MySqlConnection(Variables.connString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@customers_id", customerId); // Corrected parameter name
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Customer archived successfully.");
+                            Customers_Form_Load(null, null); // Refresh DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to archive customer.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
 
 
 

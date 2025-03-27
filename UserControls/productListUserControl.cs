@@ -151,8 +151,6 @@ namespace inventory_system
 
                 if (productlist_datagd.Columns[e.ColumnIndex].Name == "Edit")
                 {
-
-
                     EditProduct(selectedProductId);
                 }
                 else if (productlist_datagd.Columns[e.ColumnIndex].Name == "Delete")

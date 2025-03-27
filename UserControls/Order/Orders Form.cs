@@ -34,6 +34,8 @@ namespace inventory_system
 
         private void Orders_Form_Load(object sender, EventArgs e)
         {
+
+            dataGridView_Orders.CellContentClick += dataGridView_Orders_CellContentClick;
             dataGridView_Orders.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
 
             Function.StyleDataGridView(dataGridView_Orders);
@@ -50,6 +52,7 @@ namespace inventory_system
             dataGridView_Orders.Columns["orders_id"].Visible = false;
 
             LoadData();
+            Function.AddEditDeleteButtons(dataGridView_Orders);
 
 
             //string query = "SELECT o.order_id, o.created_at, CONCAT(c.first_name, ' ', c.last_name) AS customer_name, c.company_name, o.po_number, o.dr_number, o.total_price\r\nFROM orders o\r\nJOIN customers c ON o.customers_id = c.customers_id;";
@@ -92,6 +95,57 @@ namespace inventory_system
             //        MessageBox.Show(ex.Message);
             //    }
             //}
+        }
+        private void dataGridView_Orders_CellContentClick(object sender, DataGridViewCellEventArgs e) 
+        {
+            if (e.RowIndex >= 0)
+            {
+                string selectedOrderId = dataGridView_Orders.Rows[e.RowIndex].Cells["orders_id"].Value.ToString();
+
+                if (dataGridView_Orders.Columns[e.ColumnIndex].Name == "Edit")
+                {
+                    //EditOrder(selectedOrderId);
+                }
+                else if (dataGridView_Orders.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    DialogResult confirm = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Delete,", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (confirm == DialogResult.Yes)
+                    {
+                        DeleteOrder(selectedOrderId);
+                    }
+                }
+            }
+        }
+
+        private void DeleteOrder(string orderId)
+        {
+            try
+            {
+                string query = "UPDATE orders SET deleted_at = NOW() WHERE order_id = @order_id";
+                using (MySqlConnection conn = new MySqlConnection(Variables.connString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@order_id", orderId);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Order archived successfully.");
+                            Orders_Form_Load(null, null); // Refresh DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to archive Order.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void Order_search_Click(object sender, EventArgs e)
