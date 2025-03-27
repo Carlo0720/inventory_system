@@ -67,6 +67,90 @@ namespace inventory_system.Globals
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
         }
 
+        public static void AddEditDeleteButtons(DataGridView dgv)
+        {
+            if (dgv.Columns["Edit"] == null)
+            {
+                DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+                editButton.Name = "Edit";
+                editButton.HeaderText = "Edit";
+                editButton.Text = "Edit";
+                editButton.UseColumnTextForButtonValue = true;
+                editButton.Width = 50; // Shrinking the width
+                dgv.Columns.Add(editButton);
+            }
+
+            if (dgv.Columns["Delete"] == null)
+            {
+                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+                deleteButton.Name = "Delete";
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                deleteButton.Width = 50; // Shrinking the width
+                dgv.Columns.Add(deleteButton);
+            }
+
+            // Center the headers for Edit and Delete columns
+            dgv.Columns["Edit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.Columns["Delete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Set the header cell background color to gray
+            dgv.Columns["Edit"].HeaderCell.Style.BackColor = Color.Gray;
+            dgv.Columns["Delete"].HeaderCell.Style.BackColor = Color.Gray;
+            dgv.EnableHeadersVisualStyles = false; // This line is needed for the header color to take effect
+
+            // Set the cell colors and keep them when highlighted
+            dgv.CellFormatting += (sender, e) =>
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (dgv.Columns[e.ColumnIndex].Name == "Edit")
+                    {
+                        e.CellStyle.BackColor = Color.FromArgb(30, 144, 255); // Dodger Blue
+                        e.CellStyle.ForeColor = Color.White;
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(30, 144, 255);
+                        e.CellStyle.SelectionForeColor = Color.White;
+                    }
+                    else if (dgv.Columns[e.ColumnIndex].Name == "Delete")
+                    {
+                        e.CellStyle.BackColor = Color.FromArgb(220, 20, 60); // Crimson Red
+                        e.CellStyle.ForeColor = Color.White;
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(220, 20, 60);
+                        e.CellStyle.SelectionForeColor = Color.White;
+                    }
+                }
+            };
+
+            // Custom button rendering
+            dgv.CellPainting += (sender, e) =>
+            {
+                if (e.RowIndex >= 0 && (dgv.Columns[e.ColumnIndex].Name == "Edit" || dgv.Columns[e.ColumnIndex].Name == "Delete"))
+                {
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                    Color buttonColor = dgv.Columns[e.ColumnIndex].Name == "Edit" ?
+                        Color.FromArgb(30, 144, 255) : // Dodger Blue for Edit
+                        Color.FromArgb(220, 20, 60);   // Crimson Red for Delete
+
+                    using (SolidBrush brush = new SolidBrush(buttonColor))
+                    {
+                        e.Graphics.FillRectangle(brush, e.CellBounds);
+                    }
+
+                    // Draw button text
+                    string buttonText = dgv.Columns[e.ColumnIndex].Name;
+                    TextRenderer.DrawText(e.Graphics, buttonText, dgv.Font, e.CellBounds,
+                        Color.White, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+
+                    e.Handled = true; // Prevent default rendering
+                }
+            };
+        }
+
+
+
+
         public static string EditUser(string userId, string first_name, string last_name, string password)
         {
             using MySqlConnection conn = new MySqlConnection(Variables.connString);

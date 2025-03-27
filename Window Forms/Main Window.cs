@@ -24,17 +24,13 @@ namespace inventory_system
 
         }
 
-        private void HighlightSideButton(Button clickedButton)
-        {
-            List<Button> sideButtons = new List<Button> { userModule_Btn, Dashbrd_Btn, Productlst_Btn, Orders_btn, customers_btn };
-            Function.HighlightButton(clickedButton, sideButtons);
-        }
+   
 
 
         private void userModule_Btn_Click(object sender, EventArgs e)
         {
 
-            HighlightSideButton((Button)sender);
+           
 
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
@@ -53,13 +49,13 @@ namespace inventory_system
 
         private void Dashbrd_Btn_Click(object sender, EventArgs e)
         {
-            HighlightSideButton((Button)sender);
+          
             contentPanel.Controls.Clear();
         }
 
         private void Productlst_Btn_Click(object sender, EventArgs e)
         {
-            HighlightSideButton((Button)sender);
+           
             contentPanel.Controls.Clear();
             Orders_pnl.Controls.Clear();
 
@@ -75,7 +71,7 @@ namespace inventory_system
 
         private void Orders_btn_Click(object sender, EventArgs e)
         {
-            HighlightSideButton((Button)sender);
+            
             Orders_pnl.Controls.Clear();
 
             Orders_Form ordersForm = new Orders_Form();
@@ -92,7 +88,7 @@ namespace inventory_system
 
         private void customers_btn_Click(object sender, EventArgs e)
         {
-            HighlightSideButton((Button)sender);
+            
 
             
             contentPanel.Visible = false;
