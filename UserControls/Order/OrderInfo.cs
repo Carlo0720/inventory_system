@@ -29,8 +29,8 @@ namespace inventory_system.UserControls.Order
             int totalQuantity = dt.AsEnumerable().Sum(row => row.Field<int>("quantity"));
             totalQuantityLbl.Text = totalQuantity.ToString();
             totalPriceLbl.Text = order.TotalPrice.ToString();
-            puchaseOrderLbl.Text = order.PurchaseOrderId.ToString();
-            deliveryReceiptLbl.Text = order.DeliveryReceipt.ToString();
+            puchaseOrderLbl.Text = $"Purchase Order No. {order.PurchaseOrderId.ToString()}";
+            deliveryReceiptLbl.Text = $"Delivery Receipt No. {order.DeliveryReceipt.ToString()}";
         }
     }
 }
