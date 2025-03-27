@@ -98,11 +98,13 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(-2, -1);
             label1.Name = "label1";
             label1.Size = new Size(329, 30);
             label1.TabIndex = 2;
             label1.Text = "Inventory Management System";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Order_pnl
             // 
@@ -242,7 +244,7 @@
             Dashbrd_Btn.TabIndex = 2;
             Dashbrd_Btn.Text = "Dashboard";
             Dashbrd_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Dashbrd_Btn.UseVisualStyleBackColor = false;
+            Dashbrd_Btn.UseVisualStyleBackColor = true;
             Dashbrd_Btn.Click += Dashbrd_Btn_Click;
             // 
             // gradient_SidebarPanel1
