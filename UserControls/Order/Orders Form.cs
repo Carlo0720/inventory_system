@@ -145,7 +145,7 @@ namespace inventory_system
             dataGridView_Orders.DataSource = orderRepository.Get(SD.SelectAllOrders);
         }
 
-        private async void dataGridView_Orders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_Orders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if a valid row is double-clicked (not the header row)
             if (e.RowIndex >= 0)
@@ -154,7 +154,35 @@ namespace inventory_system
                 int Id = Convert.ToInt32(selectedRow.Cells["orders_id"].Value);
                 DataTable orderDataTable = new DataTable();
 
-                orderDataTable = await orderRepository.GetSpecificOrderItems(Id);
+                orderDataTable = orderRepository.GetSpecificOrderItems(Id);
+
+
+                // Create a new form for the popup window
+                Form popupForm = new Form();
+                popupForm.Text = "Add Order";  // Title of the popup window
+                popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
+                popupForm.Size = new Size(450, 555);  // Set the size of the popup window
+
+                //popupForm.ShowInTaskbar = false;  // This hides the modal from the taskbar
+                //popupForm.FormBorderStyle = FormBorderStyle.FixedDialog;  // Optional: Make the form look like a dialog
+
+                // Add your OrdersAddForm to the popup window
+                OrderInfo orderInfo = new OrderInfo(Id);
+                orderInfo.Dock = DockStyle.Fill;
+                popupForm.Controls.Add(orderInfo);
+
+
+
+
+                // Optionally, subscribe to the modal's event or just handle after closing
+                popupForm.FormClosed += (s, args) =>
+                {
+                    // Reload the data when the modal is closed
+                    LoadData();
+                };
+
+                // Optionally, make the popup modal (blocking interaction with the main form)
+                popupForm.ShowDialog();
 
             }
         }

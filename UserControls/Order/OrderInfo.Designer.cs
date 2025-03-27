@@ -38,9 +38,9 @@
             totalQuantityLbl = new ReaLTaiizor.Controls.SmallLabel();
             totalPriceLbl = new ReaLTaiizor.Controls.SmallLabel();
             panel1 = new ReaLTaiizor.Controls.Panel();
-            button1 = new ReaLTaiizor.Controls.Button();
-            button2 = new ReaLTaiizor.Controls.Button();
-            button3 = new ReaLTaiizor.Controls.Button();
+            excelBtn = new ReaLTaiizor.Controls.Button();
+            pdfBtn = new ReaLTaiizor.Controls.Button();
+            wordBtn = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)orderItemsDatagridview).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -115,49 +115,48 @@
             // 
             // smallLabel1
             // 
-            smallLabel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             smallLabel1.AutoSize = true;
             smallLabel1.BackColor = Color.Transparent;
-            smallLabel1.Font = new Font("Segoe UI", 8F);
-            smallLabel1.ForeColor = Color.FromArgb(142, 142, 142);
-            smallLabel1.Location = new Point(0, 139);
+            smallLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            smallLabel1.ForeColor = Color.White;
+            smallLabel1.Location = new Point(18, 5);
             smallLabel1.Name = "smallLabel1";
-            smallLabel1.Size = new Size(32, 13);
+            smallLabel1.Size = new Size(42, 21);
             smallLabel1.TabIndex = 3;
             smallLabel1.Text = "Total";
             // 
             // totalQuantityLbl
             // 
-            totalQuantityLbl.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             totalQuantityLbl.AutoSize = true;
             totalQuantityLbl.BackColor = Color.Transparent;
-            totalQuantityLbl.Font = new Font("Segoe UI", 8F);
-            totalQuantityLbl.ForeColor = Color.FromArgb(142, 142, 142);
-            totalQuantityLbl.Location = new Point(59, 139);
+            totalQuantityLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            totalQuantityLbl.ForeColor = Color.White;
+            totalQuantityLbl.Location = new Point(165, 5);
             totalQuantityLbl.Name = "totalQuantityLbl";
-            totalQuantityLbl.Size = new Size(79, 13);
+            totalQuantityLbl.Size = new Size(106, 21);
             totalQuantityLbl.TabIndex = 4;
             totalQuantityLbl.Text = "Quantity Total";
             // 
             // totalPriceLbl
             // 
-            totalPriceLbl.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            totalPriceLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             totalPriceLbl.AutoSize = true;
             totalPriceLbl.BackColor = Color.Transparent;
-            totalPriceLbl.Font = new Font("Segoe UI", 8F);
-            totalPriceLbl.ForeColor = Color.FromArgb(142, 142, 142);
-            totalPriceLbl.Location = new Point(165, 139);
+            totalPriceLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            totalPriceLbl.ForeColor = Color.White;
+            totalPriceLbl.Location = new Point(313, 5);
             totalPriceLbl.Name = "totalPriceLbl";
-            totalPriceLbl.Size = new Size(59, 13);
+            totalPriceLbl.Size = new Size(80, 21);
             totalPriceLbl.TabIndex = 5;
             totalPriceLbl.Text = "Total Price";
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(39, 51, 63);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(excelBtn);
+            panel1.Controls.Add(pdfBtn);
+            panel1.Controls.Add(wordBtn);
             panel1.Controls.Add(totalPriceLbl);
             panel1.Controls.Add(smallLabel1);
             panel1.Controls.Add(totalQuantityLbl);
@@ -170,62 +169,65 @@
             panel1.TabIndex = 6;
             panel1.Text = "panel1";
             // 
-            // button1
+            // excelBtn
             // 
-            button1.BackColor = Color.Transparent;
-            button1.BorderColor = Color.FromArgb(32, 34, 37);
-            button1.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button1.EnteredColor = Color.FromArgb(32, 34, 37);
-            button1.Font = new Font("Microsoft Sans Serif", 12F);
-            button1.Image = null;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.InactiveColor = Color.FromArgb(32, 34, 37);
-            button1.Location = new Point(18, 21);
-            button1.Name = "button1";
-            button1.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button1.PressedColor = Color.FromArgb(165, 37, 37);
-            button1.Size = new Size(120, 40);
-            button1.TabIndex = 6;
-            button1.Text = "button1";
-            button1.TextAlignment = StringAlignment.Center;
+            excelBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            excelBtn.BackColor = Color.Transparent;
+            excelBtn.BorderColor = Color.FromArgb(32, 34, 37);
+            excelBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            excelBtn.EnteredColor = Color.FromArgb(32, 34, 37);
+            excelBtn.Font = new Font("Microsoft Sans Serif", 12F);
+            excelBtn.Image = null;
+            excelBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            excelBtn.InactiveColor = Color.FromArgb(32, 34, 37);
+            excelBtn.Location = new Point(313, 86);
+            excelBtn.Name = "excelBtn";
+            excelBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            excelBtn.PressedColor = Color.FromArgb(165, 37, 37);
+            excelBtn.Size = new Size(120, 40);
+            excelBtn.TabIndex = 8;
+            excelBtn.Text = "button3";
+            excelBtn.TextAlignment = StringAlignment.Center;
             // 
-            // button2
+            // pdfBtn
             // 
-            button2.BackColor = Color.Transparent;
-            button2.BorderColor = Color.FromArgb(32, 34, 37);
-            button2.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button2.EnteredColor = Color.FromArgb(32, 34, 37);
-            button2.Font = new Font("Microsoft Sans Serif", 12F);
-            button2.Image = null;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.InactiveColor = Color.FromArgb(32, 34, 37);
-            button2.Location = new Point(165, 21);
-            button2.Name = "button2";
-            button2.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button2.PressedColor = Color.FromArgb(165, 37, 37);
-            button2.Size = new Size(120, 40);
-            button2.TabIndex = 7;
-            button2.Text = "button2";
-            button2.TextAlignment = StringAlignment.Center;
+            pdfBtn.Anchor = AnchorStyles.Bottom;
+            pdfBtn.BackColor = Color.Transparent;
+            pdfBtn.BorderColor = Color.FromArgb(32, 34, 37);
+            pdfBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            pdfBtn.EnteredColor = Color.FromArgb(32, 34, 37);
+            pdfBtn.Font = new Font("Microsoft Sans Serif", 12F);
+            pdfBtn.Image = null;
+            pdfBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            pdfBtn.InactiveColor = Color.FromArgb(32, 34, 37);
+            pdfBtn.Location = new Point(165, 86);
+            pdfBtn.Name = "pdfBtn";
+            pdfBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            pdfBtn.PressedColor = Color.FromArgb(165, 37, 37);
+            pdfBtn.Size = new Size(120, 40);
+            pdfBtn.TabIndex = 7;
+            pdfBtn.Text = "button2";
+            pdfBtn.TextAlignment = StringAlignment.Center;
             // 
-            // button3
+            // wordBtn
             // 
-            button3.BackColor = Color.Transparent;
-            button3.BorderColor = Color.FromArgb(32, 34, 37);
-            button3.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button3.EnteredColor = Color.FromArgb(32, 34, 37);
-            button3.Font = new Font("Microsoft Sans Serif", 12F);
-            button3.Image = null;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.InactiveColor = Color.FromArgb(32, 34, 37);
-            button3.Location = new Point(313, 21);
-            button3.Name = "button3";
-            button3.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button3.PressedColor = Color.FromArgb(165, 37, 37);
-            button3.Size = new Size(120, 40);
-            button3.TabIndex = 8;
-            button3.Text = "button3";
-            button3.TextAlignment = StringAlignment.Center;
+            wordBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            wordBtn.BackColor = Color.Transparent;
+            wordBtn.BorderColor = Color.FromArgb(32, 34, 37);
+            wordBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            wordBtn.EnteredColor = Color.FromArgb(32, 34, 37);
+            wordBtn.Font = new Font("Microsoft Sans Serif", 12F);
+            wordBtn.Image = null;
+            wordBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            wordBtn.InactiveColor = Color.FromArgb(32, 34, 37);
+            wordBtn.Location = new Point(18, 86);
+            wordBtn.Name = "wordBtn";
+            wordBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            wordBtn.PressedColor = Color.FromArgb(165, 37, 37);
+            wordBtn.Size = new Size(120, 40);
+            wordBtn.TabIndex = 6;
+            wordBtn.Text = "button1";
+            wordBtn.TextAlignment = StringAlignment.Center;
             // 
             // OrderInfo
             // 
@@ -253,8 +255,8 @@
         private ReaLTaiizor.Controls.SmallLabel totalQuantityLbl;
         private ReaLTaiizor.Controls.SmallLabel totalPriceLbl;
         private ReaLTaiizor.Controls.Panel panel1;
-        private ReaLTaiizor.Controls.Button button3;
-        private ReaLTaiizor.Controls.Button button2;
-        private ReaLTaiizor.Controls.Button button1;
+        private ReaLTaiizor.Controls.Button excelBtn;
+        private ReaLTaiizor.Controls.Button pdfBtn;
+        private ReaLTaiizor.Controls.Button wordBtn;
     }
 }

@@ -96,12 +96,22 @@ namespace inventory_system.Repository
             }
         }
 
-        public async Task<DataTable> GetSpecificOrderItems(int order_id)
+        public DataTable GetSpecificOrderItems(int order_id)
         {
             databaseManager = new DatabaseManager();
             using (databaseManager)
             {
+                GetOrderInfo(order_id);
                 return databaseManager.ExecuteQueryGetProducts(order_id);
+            }
+        }
+
+        public Order GetOrderInfo(int order_id)
+        {
+            databaseManager = new DatabaseManager();
+            using (databaseManager)
+            {
+                return databaseManager.ExecuteQueryGetOrder(order_id);
             }
         }
 

@@ -26,6 +26,7 @@ namespace inventory_system.common.Utility
                 DatabaseConnection.Instance().IsConnect();
             }
         }
+        #region Common
         //Used to get data from database and returns the data in a datatable format
         public DataTable ExecuteQueryToDataTable(string query)
         {
@@ -36,35 +37,6 @@ namespace inventory_system.common.Utility
             {
                 try
                 {
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        dataTable.Load(reader);
-                    }
-                }
-                catch (MySqlException e)
-                {
-                    MessageBox.Show($"MySql error {e.Message}");
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show($"An error has occured {e.Message}");
-                }
-            }
-            return dataTable;
-        }
-        //Used to get data from database and returns the data in a datatable format
-        public DataTable ExecuteQueryGetProducts(int order_id)
-        {
-            var databaseConnection = DatabaseConnection.Instance();
-            DataTable dataTable = new DataTable();
-
-            using (MySqlCommand command = new MySqlCommand(SD.SelectSpecificOrderProducts, databaseConnection.connection))
-            {
-                try
-                {
-                    // Add parameters to avoid SQL injection
-                    command.Parameters.AddWithValue("@oi.order_id", order_id);
-
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         dataTable.Load(reader);
@@ -104,7 +76,34 @@ namespace inventory_system.common.Utility
             }
             return rowsAffected;
         }
+        //Used to run an sql query that needs to return something, like count or a record
+
+        public object ExecuteScalar(string query)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            object ret = null;
+
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            {
+                try
+                {
+                    ret = command.ExecuteScalar();
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+
+            return ret;
+        }
+        #endregion
         //Used to run an sql query like create, update, or delete
+        #region Orders
         public int ExecuteCreateOrders(Model.Order order)
         {
             var databaseConnection = DatabaseConnection.Instance();
@@ -254,19 +253,23 @@ namespace inventory_system.common.Utility
 
             return nextPurchaseOrderId;
         }
-
-        //Used to run an sql query that needs to return something, like count or a record
-
-        public object ExecuteScalar(string query)
+        //Used to get data from database and returns the data in a datatable format
+        public DataTable ExecuteQueryGetProducts(int order_id)
         {
             var databaseConnection = DatabaseConnection.Instance();
-            object ret = null;
+            DataTable dataTable = new DataTable();
 
-            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            using (MySqlCommand command = new MySqlCommand(SD.SelectSpecificOrderProducts, databaseConnection.connection))
             {
                 try
                 {
-                    ret = command.ExecuteScalar();
+                    // Add parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@order_id", order_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
                 }
                 catch (MySqlException e)
                 {
@@ -277,10 +280,55 @@ namespace inventory_system.common.Utility
                     MessageBox.Show($"An error has occured {e.Message}");
                 }
             }
+            return dataTable;
+        }
 
+        public Model.Order ExecuteQueryGetOrder(int order_id)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            Model.Order ret = null;
+
+            using (MySqlCommand command = new MySqlCommand(SD.SelectOrder, databaseConnection.connection))
+            {
+                try
+                {
+                    // Add parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@order_id", order_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            ret = new Model.Order()
+                            {
+                                Id = order_id,
+                                CreatedDate = reader.GetDateTime(1), // Second column: created_at
+                                CustomerName = reader.GetString(2), // Third column: customer_name
+                                Company = reader.GetString(3), // Fourth column: company_name
+                                PurchaseOrderId = reader.GetInt32(4), // Fifth column: po_number
+                                DeliveryReceipt = reader.GetInt32(5), // Sixth column: dr_number
+                                TotalPrice = reader.GetDouble(6), // Seventh column: total_price
+                            };
+                        }
+                        else
+                        {
+                            MessageBox.Show($"No record found for the order id {order_id}.");
+                        }
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
             return ret;
         }
-        
+
+        #endregion
         public void Dispose()
         {
             if (connection != null)

@@ -7,14 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using inventory_system.Repository;
+using inventory_system.style;
+using inventory_system.Model;
 
 namespace inventory_system.UserControls.Order
 {
     public partial class OrderInfo: UserControl
     {
-        public OrderInfo()
+        OrderRepository orderRepository;
+        public OrderInfo(int id)
         {
             InitializeComponent();
+            orderRepository = new OrderRepository();
+            DataTable dt = orderRepository.GetSpecificOrderItems(id);
+            DataGridViewStyler.ApplyStyles(orderItemsDatagridview);
+            orderItemsDatagridview.DataSource = orderRepository.GetSpecificOrderItems(id);
+            Model.Order order = orderRepository.GetOrderInfo(id);
+
+            // Use LINQ to calculate the sum of the 'quantity' column
+            int totalQuantity = dt.AsEnumerable().Sum(row => row.Field<int>("quantity"));
+            totalQuantityLbl.Text = totalQuantity.ToString();
+            totalPriceLbl.Text = order.TotalPrice.ToString();
+            puchaseOrderLbl.Text = order.PurchaseOrderId.ToString();
+            deliveryReceiptLbl.Text = order.DeliveryReceipt.ToString();
         }
     }
 }
