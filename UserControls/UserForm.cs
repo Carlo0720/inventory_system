@@ -113,12 +113,12 @@ namespace inventory_system
 
         private void Refresh_button_Click(object sender, EventArgs e)
         {
-            Function.HighlightButtonTemporary((Button)sender, 1500);
+            
         }
 
         private void Create_Btn_Click(object sender, EventArgs e)
         {
-            Function.HighlightButtonTemporary((Button)sender, 1500);
+            
 
             userCreationForm userCF = new userCreationForm();
             userCF.Dock = DockStyle.Fill;

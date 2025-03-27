@@ -43,6 +43,7 @@
             Label_add = new ReaLTaiizor.Controls.BigLabel();
             add_product_close_btn = new Button();
             panel2 = new Panel();
+            itemcategory_combobox = new ComboBox();
             label3 = new Label();
             item_price_txtbox = new TextBox();
             label2 = new Label();
@@ -51,7 +52,6 @@
             unit_txtbox = new TextBox();
             itemcolor_txtbox = new Label();
             item_color_txtbox = new TextBox();
-            itemcategory_combobox = new ComboBox();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -85,6 +85,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(3, 9);
             label4.Name = "label4";
             label4.Size = new Size(67, 15);
@@ -103,6 +104,7 @@
             // 
             // itemname_txtbox
             // 
+            itemname_txtbox.BackColor = Color.White;
             itemname_txtbox.Location = new Point(3, 27);
             itemname_txtbox.Name = "itemname_txtbox";
             itemname_txtbox.Size = new Size(201, 23);
@@ -110,6 +112,7 @@
             // 
             // itemcode_txtbox
             // 
+            itemcode_txtbox.BackColor = Color.White;
             itemcode_txtbox.Location = new Point(3, 71);
             itemcode_txtbox.Name = "itemcode_txtbox";
             itemcode_txtbox.Size = new Size(201, 23);
@@ -144,15 +147,16 @@
             // 
             // add_product_btn
             // 
-            add_product_btn.BackColor = Color.Silver;
-            add_product_btn.FlatStyle = FlatStyle.Popup;
-            add_product_btn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            add_product_btn.ForeColor = SystemColors.ActiveCaptionText;
+            add_product_btn.BackColor = Color.MediumSeaGreen;
+            add_product_btn.FlatAppearance.BorderSize = 0;
+            add_product_btn.FlatStyle = FlatStyle.Flat;
+            add_product_btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            add_product_btn.ForeColor = Color.White;
             add_product_btn.Image = (Image)resources.GetObject("add_product_btn.Image");
             add_product_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            add_product_btn.Location = new Point(67, 532);
+            add_product_btn.Location = new Point(48, 523);
             add_product_btn.Name = "add_product_btn";
-            add_product_btn.Size = new Size(120, 36);
+            add_product_btn.Size = new Size(163, 36);
             add_product_btn.TabIndex = 20;
             add_product_btn.Text = "Add Product";
             add_product_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -163,32 +167,32 @@
             // 
             Label_add.AutoSize = true;
             Label_add.BackColor = Color.Transparent;
-            Label_add.Font = new Font("Segoe UI", 25F);
-            Label_add.ForeColor = Color.FromArgb(80, 80, 80);
-            Label_add.Location = new Point(26, 3);
+            Label_add.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Label_add.ForeColor = Color.White;
+            Label_add.Location = new Point(41, 20);
             Label_add.Name = "Label_add";
-            Label_add.Size = new Size(209, 46);
+            Label_add.Size = new Size(179, 37);
             Label_add.TabIndex = 16;
             Label_add.Text = "Add Product";
             // 
             // add_product_close_btn
             // 
-            add_product_close_btn.BackColor = SystemColors.ButtonFace;
-            add_product_close_btn.BackgroundImage = (Image)resources.GetObject("add_product_close_btn.BackgroundImage");
+            add_product_close_btn.BackColor = Color.Red;
             add_product_close_btn.BackgroundImageLayout = ImageLayout.Center;
             add_product_close_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
-            add_product_close_btn.FlatAppearance.BorderSize = 2;
-            add_product_close_btn.FlatStyle = FlatStyle.Popup;
-            add_product_close_btn.Location = new Point(238, 3);
+            add_product_close_btn.FlatAppearance.BorderSize = 0;
+            add_product_close_btn.FlatStyle = FlatStyle.Flat;
+            add_product_close_btn.Image = (Image)resources.GetObject("add_product_close_btn.Image");
+            add_product_close_btn.Location = new Point(236, 3);
             add_product_close_btn.Name = "add_product_close_btn";
-            add_product_close_btn.Size = new Size(20, 19);
+            add_product_close_btn.Size = new Size(25, 27);
             add_product_close_btn.TabIndex = 21;
             add_product_close_btn.UseVisualStyleBackColor = false;
             add_product_close_btn.Click += add_product_close_btn_Click;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(224, 224, 224);
+            panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(itemcategory_combobox);
             panel2.Controls.Add(label3);
@@ -214,6 +218,15 @@
             panel2.Size = new Size(209, 451);
             panel2.TabIndex = 18;
             panel2.Paint += panel2_Paint;
+            // 
+            // itemcategory_combobox
+            // 
+            itemcategory_combobox.FormattingEnabled = true;
+            itemcategory_combobox.Items.AddRange(new object[] { "Brooch", "Crown", "Muslim Trimmings", "Neck Tie", "Ordinary Lace", "Patching", "Petticoat", "Scallop Lace", "Trimmings", "WedAcc", "Zipper" });
+            itemcategory_combobox.Location = new Point(3, 203);
+            itemcategory_combobox.Name = "itemcategory_combobox";
+            itemcategory_combobox.Size = new Size(201, 23);
+            itemcategory_combobox.TabIndex = 21;
             // 
             // label3
             // 
@@ -283,19 +296,11 @@
             item_color_txtbox.Size = new Size(201, 23);
             item_color_txtbox.TabIndex = 13;
             // 
-            // itemcategory_combobox
-            // 
-            itemcategory_combobox.FormattingEnabled = true;
-            itemcategory_combobox.Items.AddRange(new object[] { "Brooch", "Crown", "Muslim Trimmings", "Neck Tie", "Ordinary Lace", "Patching", "Petticoat", "Scallop Lace", "Trimmings", "WedAcc", "Zipper" });
-            itemcategory_combobox.Location = new Point(3, 203);
-            itemcategory_combobox.Name = "itemcategory_combobox";
-            itemcategory_combobox.Size = new Size(201, 23);
-            itemcategory_combobox.TabIndex = 21;
-            // 
             // productsAddUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSlateGray;
             Controls.Add(add_product_btn);
             Controls.Add(Label_add);
             Controls.Add(add_product_close_btn);

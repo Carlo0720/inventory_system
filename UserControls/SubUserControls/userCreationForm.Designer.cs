@@ -45,17 +45,17 @@
             // 
             Create_btnUser.Anchor = AnchorStyles.None;
             Create_btnUser.BackColor = Color.Transparent;
-            Create_btnUser.BorderColor = Color.FromArgb(32, 34, 37);
-            Create_btnUser.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            Create_btnUser.EnteredColor = Color.FromArgb(32, 34, 37);
-            Create_btnUser.Font = new Font("Microsoft Sans Serif", 12F);
+            Create_btnUser.BorderColor = Color.Transparent;
+            Create_btnUser.EnteredBorderColor = Color.White;
+            Create_btnUser.EnteredColor = Color.DarkGreen;
+            Create_btnUser.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Create_btnUser.Image = null;
             Create_btnUser.ImageAlign = ContentAlignment.MiddleLeft;
-            Create_btnUser.InactiveColor = Color.FromArgb(32, 34, 37);
-            Create_btnUser.Location = new Point(141, 230);
+            Create_btnUser.InactiveColor = Color.MediumSeaGreen;
+            Create_btnUser.Location = new Point(141, 247);
             Create_btnUser.Name = "Create_btnUser";
-            Create_btnUser.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            Create_btnUser.PressedColor = Color.FromArgb(165, 37, 37);
+            Create_btnUser.PressedBorderColor = Color.SeaGreen;
+            Create_btnUser.PressedColor = Color.Green;
             Create_btnUser.Size = new Size(101, 52);
             Create_btnUser.TabIndex = 2;
             Create_btnUser.Text = "Create";
@@ -64,18 +64,18 @@
             // 
             // Close_btn
             // 
-            Close_btn.BackColor = Color.Transparent;
-            Close_btn.BorderColor = Color.FromArgb(32, 34, 37);
-            Close_btn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            Close_btn.EnteredColor = Color.FromArgb(32, 34, 37);
+            Close_btn.BackColor = Color.Red;
+            Close_btn.BorderColor = Color.Transparent;
+            Close_btn.EnteredBorderColor = Color.White;
+            Close_btn.EnteredColor = Color.Red;
             Close_btn.Font = new Font("Microsoft Sans Serif", 12F);
             Close_btn.Image = null;
             Close_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Close_btn.InactiveColor = Color.FromArgb(32, 34, 37);
+            Close_btn.InactiveColor = Color.Red;
             Close_btn.Location = new Point(361, 3);
             Close_btn.Name = "Close_btn";
-            Close_btn.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            Close_btn.PressedColor = Color.FromArgb(165, 37, 37);
+            Close_btn.PressedBorderColor = Color.Firebrick;
+            Close_btn.PressedColor = Color.Maroon;
             Close_btn.Size = new Size(21, 22);
             Close_btn.TabIndex = 3;
             Close_btn.Text = "X";
@@ -84,10 +84,10 @@
             // 
             // crownTextBoxFrstNme
             // 
-            crownTextBoxFrstNme.BackColor = Color.Silver;
+            crownTextBoxFrstNme.BackColor = Color.White;
             crownTextBoxFrstNme.BorderStyle = BorderStyle.FixedSingle;
             crownTextBoxFrstNme.ForeColor = Color.Black;
-            crownTextBoxFrstNme.Location = new Point(105, 82);
+            crownTextBoxFrstNme.Location = new Point(105, 96);
             crownTextBoxFrstNme.Multiline = true;
             crownTextBoxFrstNme.Name = "crownTextBoxFrstNme";
             crownTextBoxFrstNme.Size = new Size(169, 23);
@@ -95,10 +95,10 @@
             // 
             // crownTextBoxLstNme
             // 
-            crownTextBoxLstNme.BackColor = Color.Silver;
+            crownTextBoxLstNme.BackColor = Color.White;
             crownTextBoxLstNme.BorderStyle = BorderStyle.FixedSingle;
             crownTextBoxLstNme.ForeColor = Color.Black;
-            crownTextBoxLstNme.Location = new Point(105, 128);
+            crownTextBoxLstNme.Location = new Point(105, 142);
             crownTextBoxLstNme.Multiline = true;
             crownTextBoxLstNme.Name = "crownTextBoxLstNme";
             crownTextBoxLstNme.Size = new Size(169, 23);
@@ -108,10 +108,10 @@
             // 
             pictureBoxCreate.BackColor = Color.Transparent;
             pictureBoxCreate.Image = (Image)resources.GetObject("pictureBoxCreate.Image");
-            pictureBoxCreate.Location = new Point(172, 6);
+            pictureBoxCreate.Location = new Point(156, 9);
             pictureBoxCreate.Name = "pictureBoxCreate";
-            pictureBoxCreate.Size = new Size(52, 52);
-            pictureBoxCreate.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxCreate.Size = new Size(73, 66);
+            pictureBoxCreate.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxCreate.TabIndex = 6;
             pictureBoxCreate.TabStop = false;
             // 
@@ -119,7 +119,8 @@
             // 
             Lable_FrstNme.AutoSize = true;
             Lable_FrstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Lable_FrstNme.Location = new Point(105, 64);
+            Lable_FrstNme.ForeColor = Color.White;
+            Lable_FrstNme.Location = new Point(105, 78);
             Lable_FrstNme.Name = "Lable_FrstNme";
             Lable_FrstNme.Size = new Size(74, 17);
             Lable_FrstNme.TabIndex = 7;
@@ -129,7 +130,8 @@
             // 
             Lable_LstNme.AutoSize = true;
             Lable_LstNme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Lable_LstNme.Location = new Point(105, 110);
+            Lable_LstNme.ForeColor = Color.White;
+            Lable_LstNme.Location = new Point(105, 124);
             Lable_LstNme.Name = "Lable_LstNme";
             Lable_LstNme.Size = new Size(72, 17);
             Lable_LstNme.TabIndex = 8;
@@ -139,7 +141,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(105, 164);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(105, 178);
             label1.Name = "label1";
             label1.Size = new Size(67, 17);
             label1.TabIndex = 9;
@@ -149,7 +152,7 @@
             // 
             crownComboBoxUserType.DrawMode = DrawMode.OwnerDrawVariable;
             crownComboBoxUserType.FormattingEnabled = true;
-            crownComboBoxUserType.Location = new Point(105, 184);
+            crownComboBoxUserType.Location = new Point(105, 198);
             crownComboBoxUserType.Name = "crownComboBoxUserType";
             crownComboBoxUserType.Size = new Size(169, 24);
             crownComboBoxUserType.TabIndex = 10;
@@ -159,6 +162,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSlateGray;
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(crownComboBoxUserType);
             Controls.Add(label1);
@@ -170,7 +174,7 @@
             Controls.Add(Close_btn);
             Controls.Add(Create_btnUser);
             Name = "userCreationForm";
-            Size = new Size(385, 305);
+            Size = new Size(385, 310);
             ((System.ComponentModel.ISupportInitialize)pictureBoxCreate).EndInit();
             ResumeLayout(false);
             PerformLayout();
