@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -27,9 +28,13 @@ namespace inventory_system.Window_Forms
         public OrdersAddForm()
         {
             InitializeComponent();
+
+
+
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
         }
+
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
         {

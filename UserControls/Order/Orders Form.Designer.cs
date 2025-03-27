@@ -179,10 +179,10 @@
             dataGridView_Orders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView_Orders.BackgroundColor = Color.WhiteSmoke;
             dataGridView_Orders.BorderStyle = BorderStyle.None;
-            dataGridView_Orders.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView_Orders.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.DimGray;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.LightSteelBlue;
             dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;

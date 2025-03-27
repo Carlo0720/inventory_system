@@ -107,7 +107,7 @@ namespace inventory_system
 
         private void products_add_Click(object sender, EventArgs e)
         {
-            Function.HighlightButtonTemporary((Button)sender, 1500);
+            
             productsAddUserControl productsAddUC = new productsAddUserControl();
             productsAddUC.Dock = DockStyle.Fill;
             products_add_pnl.Controls.Add(productsAddUC);
