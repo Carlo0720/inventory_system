@@ -27,8 +27,8 @@ namespace inventory_system.UserControls.Order
 
             // Use LINQ to calculate the sum of the 'quantity' column
             int totalQuantity = dt.AsEnumerable().Sum(row => row.Field<int>("quantity"));
-            totalQuantityLbl.Text = totalQuantity.ToString();
-            totalPriceLbl.Text = order.TotalPrice.ToString();
+            totalQuantityLbl.Text = $"Quantity: {totalQuantity.ToString()}";
+            totalPriceLbl.Text = $"Price: {order.TotalPrice.ToString()}";
             puchaseOrderLbl.Text = $"Purchase Order No. {order.PurchaseOrderId.ToString()}";
             deliveryReceiptLbl.Text = $"Delivery Receipt No. {order.DeliveryReceipt.ToString()}";
         }
