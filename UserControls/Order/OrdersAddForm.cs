@@ -26,14 +26,37 @@ namespace inventory_system.Window_Forms
 
         // Create a DataTable to hold the products
         DataTable productTable = new DataTable();
-        public OrdersAddForm()
+        public OrdersAddForm(int? Id = null)
         {
             InitializeComponent();
             orderRepository = new OrderRepository();
             dataGridView_Order.Columns.Clear();
             productTable = CreateProductTable();
-            purchaseOrderTbox.Text = orderRepository.NextPurchaseOrderNumber().ToString();
-            deliveryReceiptTbox.Text = orderRepository.NextDeliveryReceiptNumber().ToString();
+            if (Id is not null)
+            {
+                int id = (int)Id;
+                DataTable dt = orderRepository.GetSpecificOrderItems(id);
+                DataGridViewStyler.ApplyStyles(dataGridView_Order);
+                dataGridView_Order.DataSource = orderRepository.GetSpecificOrderItems(id);
+                Order order = orderRepository.GetOrderInfo(id);
+
+                // Use LINQ to calculate the sum of the 'quantity' column
+                int totalQuantity = dt.AsEnumerable().Sum(row => row.Field<int>("quantity"));
+                //totalQuantityLbl.Text = $"Quantity: {totalQuantity.ToString()}";
+                totalAmountTbox.Text = $"Price: {order.TotalPrice.ToString()}";
+                purchaseOrderTbox.Text = $"Purchase Order No. {order.PurchaseOrderId.ToString()}";
+                deliveryReceiptTbox.Text = $"Delivery Receipt No. {order.DeliveryReceipt.ToString()}";
+                
+                customerNameTbox.Text = order.CustomerName;
+                customerDetailsTbox.Text = order.Company;
+
+                addOrderBtn.Text = "Update Order";
+            }
+            else
+            {
+                purchaseOrderTbox.Text = orderRepository.NextPurchaseOrderNumber().ToString();
+                deliveryReceiptTbox.Text = orderRepository.NextDeliveryReceiptNumber().ToString();
+            }
         }
 
        
