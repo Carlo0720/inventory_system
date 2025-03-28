@@ -42,6 +42,7 @@
             Create_Btn = new Button();
             Refresh_Btn = new Button();
             userCreationPanel = new Panel();
+            User_Title = new Label();
             ((System.ComponentModel.ISupportInitialize)user_datagd).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             user_datagd.BorderStyle = BorderStyle.None;
             user_datagd.CellBorderStyle = DataGridViewCellBorderStyle.None;
             user_datagd.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.GradientActiveCaption;
@@ -91,6 +92,7 @@
             user_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             user_datagd.Size = new Size(955, 556);
             user_datagd.TabIndex = 0;
+            user_datagd.CellContentClick += user_datagd_CellContentClick_1;
             // 
             // ID
             // 
@@ -132,30 +134,38 @@
             // 
             // Create_Btn
             // 
-            Create_Btn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Create_Btn.BackColor = Color.MediumSeaGreen;
+            Create_Btn.FlatAppearance.BorderSize = 0;
+            Create_Btn.FlatStyle = FlatStyle.Flat;
+            Create_Btn.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Create_Btn.ForeColor = Color.White;
             Create_Btn.Image = (Image)resources.GetObject("Create_Btn.Image");
             Create_Btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Create_Btn.Location = new Point(3, 11);
+            Create_Btn.Location = new Point(98, 12);
             Create_Btn.Name = "Create_Btn";
-            Create_Btn.Size = new Size(79, 40);
+            Create_Btn.Size = new Size(124, 38);
             Create_Btn.TabIndex = 1;
             Create_Btn.Text = "Create";
             Create_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Create_Btn.UseVisualStyleBackColor = true;
+            Create_Btn.UseVisualStyleBackColor = false;
             Create_Btn.Click += Create_Btn_Click;
             // 
             // Refresh_Btn
             // 
-            Refresh_Btn.BackColor = Color.Silver;
+            Refresh_Btn.BackColor = Color.OrangeRed;
+            Refresh_Btn.FlatAppearance.BorderSize = 0;
+            Refresh_Btn.FlatStyle = FlatStyle.Flat;
+            Refresh_Btn.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Refresh_Btn.ForeColor = Color.White;
             Refresh_Btn.Image = (Image)resources.GetObject("Refresh_Btn.Image");
             Refresh_Btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Refresh_Btn.Location = new Point(88, 11);
+            Refresh_Btn.Location = new Point(228, 12);
             Refresh_Btn.Name = "Refresh_Btn";
-            Refresh_Btn.Size = new Size(79, 40);
+            Refresh_Btn.Size = new Size(135, 38);
             Refresh_Btn.TabIndex = 2;
             Refresh_Btn.Text = "Refresh";
             Refresh_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Refresh_Btn.UseVisualStyleBackColor = true;
+            Refresh_Btn.UseVisualStyleBackColor = false;
             Refresh_Btn.Click += Refresh_button_Click;
             // 
             // userCreationPanel
@@ -163,13 +173,24 @@
             userCreationPanel.Anchor = AnchorStyles.None;
             userCreationPanel.Location = new Point(268, 164);
             userCreationPanel.Name = "userCreationPanel";
-            userCreationPanel.Size = new Size(385, 265);
+            userCreationPanel.Size = new Size(385, 310);
             userCreationPanel.TabIndex = 3;
+            // 
+            // User_Title
+            // 
+            User_Title.AutoSize = true;
+            User_Title.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            User_Title.Location = new Point(3, 19);
+            User_Title.Name = "User_Title";
+            User_Title.Size = new Size(89, 25);
+            User_Title.TabIndex = 4;
+            User_Title.Text = "USERS";
             // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(User_Title);
             Controls.Add(userCreationPanel);
             Controls.Add(Refresh_Btn);
             Controls.Add(Create_Btn);
@@ -181,6 +202,7 @@
             Resize += UserForm_Resize;
             ((System.ComponentModel.ISupportInitialize)user_datagd).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -195,5 +217,6 @@
         private Button Create_Btn;
         private Button Refresh_Btn;
         private Panel userCreationPanel;
+        private Label User_Title;
     }
 }

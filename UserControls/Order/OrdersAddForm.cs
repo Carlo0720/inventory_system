@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -34,6 +35,8 @@ namespace inventory_system.Window_Forms
             purchaseOrderTbox.Text = orderRepository.NextPurchaseOrderNumber().ToString();
             deliveryReceiptTbox.Text = orderRepository.NextDeliveryReceiptNumber().ToString();
         }
+
+       
 
         private void Exit_ordrs_Click(object sender, EventArgs e)
         {
@@ -104,7 +107,7 @@ namespace inventory_system.Window_Forms
 
             var existingProduct = products.FirstOrDefault(u => u.ProductId == e.product.ProductId);
 
-            if(e.product.Quantity > e.product.Stock)
+            if (e.product.Quantity > e.product.Stock)
             {
                 MessageBox.Show($"{e.product.ItemName} quantity exceed stock, set quantity to total stock: {e.product.Stock}");
                 e.product.Quantity = e.product.Stock;
@@ -321,6 +324,11 @@ namespace inventory_system.Window_Forms
                 DataGridViewRow selectedRow = dataGridView_Order.Rows[e.RowIndex];
 
             }
+        }
+
+        private void Order_dtle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

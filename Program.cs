@@ -1,17 +1,20 @@
-namespace inventory_system
+using inventory_system.UserControls.Order;
+using inventory_system;
+
+static class Program
 {
-    internal static class Program
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+
+        using (Landing_Page landingPage = new Landing_Page())
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            if (landingPage.ShowDialog() == DialogResult.OK) // Wait for login
+            {
+                Application.Run(new mainpage()); // Open MainPage after login
+            }
         }
     }
 }

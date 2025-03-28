@@ -34,15 +34,16 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customers_Form));
             customers_datagd = new DataGridView();
+            customers_add_btn = new Button();
+            customers_add_pnl = new Panel();
+            label1 = new Label();
+            customers_id = new DataGridViewTextBoxColumn();
             first_name = new DataGridViewTextBoxColumn();
             last_name = new DataGridViewTextBoxColumn();
             company_name = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
             phone_number = new DataGridViewTextBoxColumn();
             address = new DataGridViewTextBoxColumn();
-            customers_add_btn = new Button();
-            customers_add_pnl = new Panel();
-            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)customers_datagd).BeginInit();
             SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             customers_datagd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             customers_datagd.ColumnHeadersHeight = 30;
-            customers_datagd.Columns.AddRange(new DataGridViewColumn[] { first_name, last_name, company_name, email, phone_number, address });
+            customers_datagd.Columns.AddRange(new DataGridViewColumn[] { customers_id, first_name, last_name, company_name, email, phone_number, address });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.InfoText;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -104,13 +105,62 @@
             customers_datagd.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.SteelBlue;
             customers_datagd.RowTemplate.DividerHeight = 1;
             customers_datagd.RowTemplate.Height = 35;
-            customers_datagd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            customers_datagd.SelectionMode = DataGridViewSelectionMode.CellSelect;
             customers_datagd.Size = new Size(955, 563);
             customers_datagd.TabIndex = 0;
             // 
+            // customers_add_btn
+            // 
+            customers_add_btn.BackColor = Color.MediumSeaGreen;
+            customers_add_btn.FlatAppearance.BorderColor = Color.White;
+            customers_add_btn.FlatAppearance.MouseDownBackColor = Color.ForestGreen;
+            customers_add_btn.FlatAppearance.MouseOverBackColor = Color.LimeGreen;
+            customers_add_btn.FlatStyle = FlatStyle.Flat;
+            customers_add_btn.Font = new Font("Myanmar Text", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customers_add_btn.ForeColor = Color.White;
+            customers_add_btn.Image = (Image)resources.GetObject("customers_add_btn.Image");
+            customers_add_btn.ImageAlign = ContentAlignment.TopLeft;
+            customers_add_btn.Location = new Point(183, 8);
+            customers_add_btn.Name = "customers_add_btn";
+            customers_add_btn.Size = new Size(93, 34);
+            customers_add_btn.TabIndex = 1;
+            customers_add_btn.Text = "Add";
+            customers_add_btn.TextAlign = ContentAlignment.TopCenter;
+            customers_add_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            customers_add_btn.UseVisualStyleBackColor = false;
+            customers_add_btn.Click += customers_add_btn_Click;
+            // 
+            // customers_add_pnl
+            // 
+            customers_add_pnl.Anchor = AnchorStyles.None;
+            customers_add_pnl.Location = new Point(347, 54);
+            customers_add_pnl.Name = "customers_add_pnl";
+            customers_add_pnl.Size = new Size(261, 439);
+            customers_add_pnl.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Verdana", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(177, 29);
+            label1.TabIndex = 9;
+            label1.Text = "CUSTOMERS";
+            // 
+            // customers_id
+            // 
+            customers_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            customers_id.HeaderText = "Customer ID";
+            customers_id.Name = "customers_id";
+            customers_id.ReadOnly = true;
+            customers_id.Resizable = DataGridViewTriState.False;
+            customers_id.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
             // first_name
             // 
-            first_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            first_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             first_name.HeaderText = "First Name";
             first_name.Name = "first_name";
             first_name.Resizable = DataGridViewTriState.False;
@@ -145,47 +195,15 @@
             address.HeaderText = "Address ";
             address.Name = "address";
             // 
-            // customers_add_btn
-            // 
-            customers_add_btn.BackColor = Color.Transparent;
-            customers_add_btn.FlatStyle = FlatStyle.Flat;
-            customers_add_btn.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customers_add_btn.Image = (Image)resources.GetObject("customers_add_btn.Image");
-            customers_add_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            customers_add_btn.Location = new Point(14, 8);
-            customers_add_btn.Name = "customers_add_btn";
-            customers_add_btn.Size = new Size(79, 40);
-            customers_add_btn.TabIndex = 1;
-            customers_add_btn.Text = "Add";
-            customers_add_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            customers_add_btn.UseVisualStyleBackColor = false;
-            customers_add_btn.Click += customers_add_btn_Click;
-            // 
-            // customers_add_pnl
-            // 
-            customers_add_pnl.Anchor = AnchorStyles.None;
-            customers_add_pnl.Location = new Point(347, 13);
-            customers_add_pnl.Name = "customers_add_pnl";
-            customers_add_pnl.Size = new Size(261, 439);
-            customers_add_pnl.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            panel1.AutoSize = true;
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(955, 54);
-            panel1.TabIndex = 9;
-            // 
             // Customers_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label1);
             Controls.Add(customers_add_pnl);
             Controls.Add(customers_add_btn);
             Controls.Add(customers_datagd);
-            Controls.Add(panel1);
             Name = "Customers_Form";
             Size = new Size(955, 617);
             Load += Customers_Form_Load;
@@ -199,12 +217,13 @@
         private DataGridView customers_datagd;
         private Button customers_add_btn;
         private Panel customers_add_pnl;
+        private Label label1;
+        private DataGridViewTextBoxColumn customers_id;
         private DataGridViewTextBoxColumn first_name;
         private DataGridViewTextBoxColumn last_name;
         private DataGridViewTextBoxColumn company_name;
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn phone_number;
         private DataGridViewTextBoxColumn address;
-        private Panel panel1;
     }
 }

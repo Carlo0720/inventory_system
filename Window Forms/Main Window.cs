@@ -24,38 +24,35 @@ namespace inventory_system
 
         }
 
-   
+
 
 
         private void userModule_Btn_Click(object sender, EventArgs e)
         {
 
-           
 
-            Orders_pnl.Visible = false;
-            productlist_pnl.Visible = false;
-            customers_pnl.Visible = false;
 
-            
+            // Load the UserForm into the panel
             contentPanel.Controls.Clear();
             UserForm userForm = new UserForm();
             userForm.Dock = DockStyle.Fill;
             contentPanel.Controls.Add(userForm);
             contentPanel.Visible = true;
 
-            
-           
+            Orders_pnl.Visible = false;
+            productlist_pnl.Visible = false;
+
         }
 
         private void Dashbrd_Btn_Click(object sender, EventArgs e)
         {
-          
+
             contentPanel.Controls.Clear();
         }
 
         private void Productlst_Btn_Click(object sender, EventArgs e)
         {
-           
+
             contentPanel.Controls.Clear();
             Orders_pnl.Controls.Clear();
 
@@ -71,7 +68,7 @@ namespace inventory_system
 
         private void Orders_btn_Click(object sender, EventArgs e)
         {
-            
+
             Orders_pnl.Controls.Clear();
 
             Orders_Form ordersForm = new Orders_Form();
@@ -88,14 +85,11 @@ namespace inventory_system
 
         private void customers_btn_Click(object sender, EventArgs e)
         {
-            
 
-            
+
             contentPanel.Visible = false;
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
-
-            
             customers_pnl.Controls.Clear();
 
             Customers_Form customersForm = new Customers_Form();
@@ -105,6 +99,7 @@ namespace inventory_system
             customers_pnl.Parent = this;
             customers_pnl.Visible = true;
             customers_pnl.BringToFront();
+
         }
 
 

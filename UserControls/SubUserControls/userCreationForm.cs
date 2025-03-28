@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,10 @@ namespace inventory_system
         public userCreationForm()
         {
             InitializeComponent();
+
+           
+
+
             crownComboBoxUserType.Items.Clear();
 
             ComboBoxItem item1 = new ComboBoxItem("Super Admin", 1);
@@ -50,6 +55,10 @@ namespace inventory_system
 
             crownComboBoxUserType.SelectedIndex = 0;
         }
+
+      
+
+
 
         public event Action UserAdded;
 

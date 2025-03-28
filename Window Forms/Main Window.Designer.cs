@@ -98,11 +98,13 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Symbol", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(-2, -1);
             label1.Name = "label1";
             label1.Size = new Size(329, 30);
             label1.TabIndex = 2;
             label1.Text = "Inventory Management System";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Order_pnl
             // 
@@ -242,7 +244,7 @@
             Dashbrd_Btn.TabIndex = 2;
             Dashbrd_Btn.Text = "Dashboard";
             Dashbrd_Btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Dashbrd_Btn.UseVisualStyleBackColor = false;
+            Dashbrd_Btn.UseVisualStyleBackColor = true;
             Dashbrd_Btn.Click += Dashbrd_Btn_Click;
             // 
             // gradient_SidebarPanel1
@@ -254,11 +256,11 @@
             gradient_SidebarPanel1.Controls.Add(Productlst_Btn);
             gradient_SidebarPanel1.Dock = DockStyle.Left;
             gradient_SidebarPanel1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gradient_SidebarPanel1.gradientBottom = Color.FromArgb(0, 192, 192);
-            gradient_SidebarPanel1.gradientTop = Color.FromArgb(128, 255, 128);
+            gradient_SidebarPanel1.gradientBottom = Color.FromArgb(2, 24, 37);
+            gradient_SidebarPanel1.gradientTop = Color.FromArgb(2, 24, 37);
             gradient_SidebarPanel1.Location = new Point(0, 31);
             gradient_SidebarPanel1.Name = "gradient_SidebarPanel1";
-            gradient_SidebarPanel1.Size = new Size(158, 619);
+            gradient_SidebarPanel1.Size = new Size(157, 619);
             gradient_SidebarPanel1.TabIndex = 3;
             // 
             // mainpage

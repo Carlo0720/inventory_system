@@ -58,16 +58,20 @@
             // 
             // products_searchbtn
             // 
-            products_searchbtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_searchbtn.BackColor = Color.DodgerBlue;
+            products_searchbtn.FlatAppearance.BorderSize = 0;
+            products_searchbtn.FlatStyle = FlatStyle.Flat;
+            products_searchbtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_searchbtn.ForeColor = Color.White;
             products_searchbtn.Image = (Image)resources.GetObject("products_searchbtn.Image");
             products_searchbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            products_searchbtn.Location = new Point(247, -2);
+            products_searchbtn.Location = new Point(250, 0);
             products_searchbtn.Name = "products_searchbtn";
-            products_searchbtn.Size = new Size(79, 40);
+            products_searchbtn.Size = new Size(111, 36);
             products_searchbtn.TabIndex = 10;
             products_searchbtn.Text = "Search";
             products_searchbtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            products_searchbtn.UseVisualStyleBackColor = true;
+            products_searchbtn.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -76,7 +80,7 @@
             panel3.Controls.Add(products_searchbtn);
             panel3.Location = new Point(3, 8);
             panel3.Name = "panel3";
-            panel3.Size = new Size(326, 36);
+            panel3.Size = new Size(362, 36);
             panel3.TabIndex = 11;
             // 
             // products_searchTxtbox
@@ -92,16 +96,20 @@
             // products_add
             // 
             products_add.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            products_add.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_add.BackColor = Color.SeaGreen;
+            products_add.FlatAppearance.BorderSize = 0;
+            products_add.FlatStyle = FlatStyle.Flat;
+            products_add.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            products_add.ForeColor = Color.White;
             products_add.Image = (Image)resources.GetObject("products_add.Image");
             products_add.ImageAlign = ContentAlignment.MiddleLeft;
-            products_add.Location = new Point(1289, 4);
+            products_add.Location = new Point(1292, 8);
             products_add.Name = "products_add";
-            products_add.Size = new Size(79, 40);
+            products_add.Size = new Size(76, 36);
             products_add.TabIndex = 9;
             products_add.Text = "Add";
             products_add.TextImageRelation = TextImageRelation.ImageBeforeText;
-            products_add.UseVisualStyleBackColor = true;
+            products_add.UseVisualStyleBackColor = false;
             products_add.Click += products_add_Click;
             // 
             // productlist_datagd
@@ -199,7 +207,7 @@
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(quantityTbox);
-            panel1.Location = new Point(394, 6);
+            panel1.Location = new Point(476, 8);
             panel1.Name = "panel1";
             panel1.Size = new Size(158, 36);
             panel1.TabIndex = 12;
@@ -221,7 +229,7 @@
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(lengthTbox);
-            panel2.Location = new Point(640, 6);
+            panel2.Location = new Point(722, 8);
             panel2.Name = "panel2";
             panel2.Size = new Size(158, 36);
             panel2.TabIndex = 13;
@@ -239,25 +247,30 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(335, 19);
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(398, 16);
             label1.Name = "label1";
-            label1.Size = new Size(53, 15);
+            label1.Size = new Size(72, 21);
             label1.TabIndex = 14;
             label1.Text = "Quantity";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(590, 19);
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(676, 16);
             label2.Name = "label2";
-            label2.Size = new Size(44, 15);
+            label2.Size = new Size(40, 21);
             label2.TabIndex = 15;
-            label2.Text = "Length";
+            label2.Text = "Unit";
             // 
             // OrderAddForm_Item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(2, 24, 37);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel2);

@@ -65,6 +65,7 @@ namespace inventory_system.Globals
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            dgv.Anchor = (AnchorStyles.Top |AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
         }
 
         public static void AddEditDeleteButtons(DataGridView dgv)
@@ -76,7 +77,9 @@ namespace inventory_system.Globals
                 editButton.HeaderText = "Edit";
                 editButton.Text = "Edit";
                 editButton.UseColumnTextForButtonValue = true;
-                editButton.Width = 50; // Shrinking the width
+                editButton.Width = 50; // Fixed width
+                editButton.FillWeight = 1; // Keep it minimal in auto-sizing
+                editButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.None; // Prevent resizing
                 dgv.Columns.Add(editButton);
             }
 
@@ -87,34 +90,50 @@ namespace inventory_system.Globals
                 deleteButton.HeaderText = "Delete";
                 deleteButton.Text = "Delete";
                 deleteButton.UseColumnTextForButtonValue = true;
-                deleteButton.Width = 50; // Shrinking the width
+                deleteButton.Width = 50; // Fixed width
+                deleteButton.FillWeight = 1; // Keep it minimal in auto-sizing
+                deleteButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.None; // Prevent resizing
                 dgv.Columns.Add(deleteButton);
             }
 
-            // Center the headers for Edit and Delete columns
+            // Make sure Edit and Delete columns are always the last ones
+            dgv.Columns["Edit"].DisplayIndex = dgv.Columns.Count - 2;
+            dgv.Columns["Delete"].DisplayIndex = dgv.Columns.Count - 1;
+
+            // Set AutoSizeColumnsMode to Fill for the entire DataGridView
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Adjust FillWeight for all other columns so they take up remaining space
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                if (col.Name != "Edit" && col.Name != "Delete")
+                {
+                    col.FillWeight = 100; // Make these columns take the remaining space
+                }
+            }
+
+            // Apply styles
             dgv.Columns["Edit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv.Columns["Delete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            // Set the header cell background color to gray
             dgv.Columns["Edit"].HeaderCell.Style.BackColor = Color.Gray;
             dgv.Columns["Delete"].HeaderCell.Style.BackColor = Color.Gray;
-            dgv.EnableHeadersVisualStyles = false; // This line is needed for the header color to take effect
+            dgv.EnableHeadersVisualStyles = false;
 
-            // Set the cell colors and keep them when highlighted
             dgv.CellFormatting += (sender, e) =>
             {
                 if (e.RowIndex >= 0)
                 {
                     if (dgv.Columns[e.ColumnIndex].Name == "Edit")
                     {
-                        e.CellStyle.BackColor = Color.FromArgb(30, 144, 255); // Dodger Blue
+                        e.CellStyle.BackColor = Color.FromArgb(30, 144, 255);
                         e.CellStyle.ForeColor = Color.White;
                         e.CellStyle.SelectionBackColor = Color.FromArgb(30, 144, 255);
                         e.CellStyle.SelectionForeColor = Color.White;
                     }
                     else if (dgv.Columns[e.ColumnIndex].Name == "Delete")
                     {
-                        e.CellStyle.BackColor = Color.FromArgb(220, 20, 60); // Crimson Red
+                        e.CellStyle.BackColor = Color.FromArgb(220, 20, 60);
                         e.CellStyle.ForeColor = Color.White;
                         e.CellStyle.SelectionBackColor = Color.FromArgb(220, 20, 60);
                         e.CellStyle.SelectionForeColor = Color.White;
@@ -122,7 +141,6 @@ namespace inventory_system.Globals
                 }
             };
 
-            // Custom button rendering
             dgv.CellPainting += (sender, e) =>
             {
                 if (e.RowIndex >= 0 && (dgv.Columns[e.ColumnIndex].Name == "Edit" || dgv.Columns[e.ColumnIndex].Name == "Delete"))
@@ -130,24 +148,113 @@ namespace inventory_system.Globals
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                     Color buttonColor = dgv.Columns[e.ColumnIndex].Name == "Edit" ?
-                        Color.FromArgb(30, 144, 255) : // Dodger Blue for Edit
-                        Color.FromArgb(220, 20, 60);   // Crimson Red for Delete
+                        Color.FromArgb(30, 144, 255) : Color.FromArgb(220, 20, 60);
 
                     using (SolidBrush brush = new SolidBrush(buttonColor))
                     {
                         e.Graphics.FillRectangle(brush, e.CellBounds);
                     }
 
-                    // Draw button text
                     string buttonText = dgv.Columns[e.ColumnIndex].Name;
                     TextRenderer.DrawText(e.Graphics, buttonText, dgv.Font, e.CellBounds,
                         Color.White, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
 
-                    e.Handled = true; // Prevent default rendering
+                    e.Handled = true;
                 }
             };
         }
 
+        public static string EditCustomer(string customers_id, string first_name, string last_name, string company_name, string email,
+            string phone_number, string address, DateTime updated_att)
+        {
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            {
+                try 
+                { 
+                    conn.Open();
+                    string query = @"
+                                    UPDATE customers 
+                                    SET first_name = @first_name, 
+                                        last_name = @last_name, 
+                                        company_name = @company_name, 
+                                        email = @email, 
+                                        phone_number = @phone_number, 
+                                        address = @address, 
+                                        updated_at = @updated_at  
+                                    WHERE customers_id = @customers_id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@company_name", company_name);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@phone_number", phone_number);
+                        cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@updated_at", updated_att);
+                        cmd.Parameters.AddWithValue("@customers_id", customers_id);
+                        cmd.ExecuteNonQuery();
+                        return "Customer has been updated successfully.";
+                    }   
+                }
+
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "Error: " + ex.Message;
+                }
+            }
+
+        }
+
+        public static string EditProduct(string product_id, string item_name, string item_code, string item_description, string item_color, string item_category,
+                       string supplier, string unit, int stock, decimal price, decimal cost_price, DateTime updated_at)
+        {
+            using MySqlConnection conn = new MySqlConnection(Variables.connString);
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                                UPDATE products 
+                                SET item_name = @item_name, 
+                                    item_code = @item_code, 
+                                    item_description = @item_description, 
+                                    item_color = @item_color, 
+                                    item_category = @item_category, 
+                                    supplier = @supplier, 
+                                    unit = @unit, 
+                                    stock = @stock, 
+                                    item_price = @item_price,
+                                    cost_price = @cost_price,
+                                    updated_at = @updated_at  
+                                WHERE product_id = @product_id";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@item_name", item_name);
+                        cmd.Parameters.AddWithValue("@item_code", item_code);
+                        cmd.Parameters.AddWithValue("@item_description", item_description);
+                        cmd.Parameters.AddWithValue("@item_color", item_color);
+                        cmd.Parameters.AddWithValue("@item_category", item_category);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
+                        cmd.Parameters.AddWithValue("@unit", unit);
+                        cmd.Parameters.AddWithValue("@stock", stock);
+                        cmd.Parameters.AddWithValue("@cost_price", cost_price);
+                        cmd.Parameters.AddWithValue("@item_price", price);
+                        cmd.Parameters.AddWithValue("@product_id", product_id);
+                        cmd.Parameters.AddWithValue("@updated_at", updated_at);  // Corrected from @created_at
+                        cmd.ExecuteNonQuery();
+
+                        return "Product has been updated successfully.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "Error: " + ex.Message;
+                }
+            }
+        }
 
 
 
@@ -250,7 +357,7 @@ namespace inventory_system.Globals
 
 
         public static string CreateProduct(string item_name, string item_code, string item_description, string item_color, string item_category,
-                               string supplier, string unit, int stock, decimal price, DateTime created_at)
+                               string supplier, string unit, int stock, decimal price, decimal cost_price, DateTime created_at)
         {
            
               
@@ -259,8 +366,8 @@ namespace inventory_system.Globals
             try
             {
                 conn.Open();
-                string query = "INSERT INTO products (item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, created_at) " +
-                               "VALUES (@item_name, @item_code, @item_description, @item_color, @item_category, @supplier, @unit, @stock, @item_price, @created_at)";
+                string query = "INSERT INTO products (item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, cost_price, created_at) " +
+                               "VALUES (@item_name, @item_code, @item_description, @item_color, @item_category, @supplier, @unit, @stock, @item_price, @cost_price, @created_at)";
 
                 using MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@item_name", item_name);
@@ -272,6 +379,7 @@ namespace inventory_system.Globals
                 cmd.Parameters.AddWithValue("@unit", unit);
                 cmd.Parameters.AddWithValue("@stock", stock);
                 cmd.Parameters.AddWithValue("@item_price", price);
+                cmd.Parameters.AddWithValue("@cost_price", cost_price);
                 cmd.Parameters.AddWithValue("@created_at", created_at);
 
                 cmd.ExecuteNonQuery();

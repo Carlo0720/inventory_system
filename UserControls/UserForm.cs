@@ -20,7 +20,7 @@ namespace inventory_system
         {
             InitializeComponent();
             this.Resize += UserForm_Resize;
-            
+
         }
 
         private void LoadUsers()
@@ -84,7 +84,7 @@ namespace inventory_system
                             user_datagd.Columns["Username"].DataPropertyName = "user_name";
                             user_datagd.Columns["temp_password"].DataPropertyName = "temp_password";
 
-                           
+
                             // Bind data only if rows exist
                             if (db_users_table.Rows.Count > 0)
                             {
@@ -107,7 +107,6 @@ namespace inventory_system
 
         private void user_datagd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
 
             if (e.RowIndex >= 0)
             {
@@ -115,8 +114,8 @@ namespace inventory_system
 
                 if (user_datagd.Columns[e.ColumnIndex].Name == "Edit")
                 {
-                   
-                    
+
+
                     EditUser(selectedUserId);
                 }
                 else if (user_datagd.Columns[e.ColumnIndex].Name == "Delete")
@@ -132,7 +131,7 @@ namespace inventory_system
 
         private void EditUser(string userId)
         {
-            
+
 
             userCreationPanel.Controls.Clear(); // Clear previous controls
             editUserUserControl editUserUC = new editUserUserControl(userId);
@@ -184,7 +183,7 @@ namespace inventory_system
 
         private void Refresh_button_Click(object sender, EventArgs e)
         {
-            Function.HighlightButtonTemporary((Button)sender, 1500);
+
         }
 
         private void Create_Btn_Click(object sender, EventArgs e)
@@ -207,6 +206,9 @@ namespace inventory_system
             LoadUsers();
         }
 
+        private void user_datagd_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
