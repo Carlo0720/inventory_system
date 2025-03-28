@@ -104,7 +104,7 @@ namespace inventory_system
 
                 if (dataGridView_Orders.Columns[e.ColumnIndex].Name == "Edit")
                 {
-                    //EditOrder(selectedOrderId);
+                    EditOrder(Convert.ToInt32(selectedOrderId));
                 }
                 else if (dataGridView_Orders.Columns[e.ColumnIndex].Name == "Delete")
                 {
@@ -146,6 +146,35 @@ namespace inventory_system
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+        private void EditOrder(int orderId)
+        {
+            // Create a new form for the popup window
+            Form popupForm = new Form();
+            popupForm.Text = "Edit Order";  // Title of the popup window
+            popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
+            popupForm.Size = new Size(732, 502);  // Set the size of the popup window
+
+            //popupForm.ShowInTaskbar = false;  // This hides the modal from the taskbar
+            //popupForm.FormBorderStyle = FormBorderStyle.FixedDialog;  // Optional: Make the form look like a dialog
+
+            // Add your OrdersAddForm to the popup window
+            OrdersAddForm ordersAF = new OrdersAddForm(orderId);
+            ordersAF.Dock = DockStyle.Fill;
+            popupForm.Controls.Add(ordersAF);
+
+
+
+
+            // Optionally, subscribe to the modal's event or just handle after closing
+            popupForm.FormClosed += (s, args) =>
+            {
+                // Reload the data when the modal is closed
+                LoadData();
+            };
+
+            // Optionally, make the popup modal (blocking interaction with the main form)
+            popupForm.ShowDialog();
         }
 
         private void Order_search_Click(object sender, EventArgs e)
@@ -213,7 +242,7 @@ namespace inventory_system
 
                 // Create a new form for the popup window
                 Form popupForm = new Form();
-                popupForm.Text = "Add Order";  // Title of the popup window
+                popupForm.Text = "Order Info";  // Title of the popup window
                 popupForm.StartPosition = FormStartPosition.CenterScreen;  // Center it on the screen
                 popupForm.Size = new Size(450, 555);  // Set the size of the popup window
 
