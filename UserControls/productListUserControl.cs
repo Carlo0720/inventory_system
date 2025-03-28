@@ -29,7 +29,7 @@ namespace inventory_system
 
         private void LoadAccessories()
         {
-            string query = "SELECT product_id, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price FROM products " +
+            string query = "SELECT product_id, item_name, item_code, item_description, item_color, item_category, supplier, unit, stock, item_price, cost_price, created_at FROM products " +
                 "WHERE deleted_at IS NULL";
             DataTable dt = Function.DatabaseHelper.ExecuteQuery(query);
             if (dt != null && dt.Rows.Count > 0)
