@@ -110,7 +110,7 @@
             // 
             Order_pnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Order_pnl.Controls.Add(productlist_pnl);
-            Order_pnl.Location = new Point(0, -1);
+            Order_pnl.Location = new Point(0, 0);
             Order_pnl.Name = "Order_pnl";
             Order_pnl.Size = new Size(955, 617);
             Order_pnl.TabIndex = 0;

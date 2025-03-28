@@ -158,9 +158,6 @@ namespace inventory_system
             }
         }
 
-
-
-
         private void customers_add_btn_Click(object sender, EventArgs e)
         {
             

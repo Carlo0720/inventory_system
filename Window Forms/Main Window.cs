@@ -41,6 +41,7 @@ namespace inventory_system
 
             Orders_pnl.Visible = false;
             productlist_pnl.Visible = false;
+            customers_pnl.Visible = false;
 
         }
 
