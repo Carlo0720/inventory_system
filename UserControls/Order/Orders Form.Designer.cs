@@ -71,7 +71,7 @@
             // 
             // Print_Rcpt
             // 
-            Print_Rcpt.BackColor = Color.MediumSeaGreen;
+            Print_Rcpt.BackColor = Color.Gray;
             Print_Rcpt.FlatAppearance.BorderSize = 0;
             Print_Rcpt.FlatStyle = FlatStyle.Flat;
             Print_Rcpt.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -98,18 +98,17 @@
             // Orders_refresh
             // 
             Orders_refresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Orders_refresh.BackColor = Color.OrangeRed;
+            Orders_refresh.BackColor = Color.DarkTurquoise;
             Orders_refresh.FlatAppearance.BorderSize = 0;
             Orders_refresh.FlatStyle = FlatStyle.Flat;
             Orders_refresh.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Orders_refresh.ForeColor = Color.White;
             Orders_refresh.Image = (Image)resources.GetObject("Orders_refresh.Image");
             Orders_refresh.ImageAlign = ContentAlignment.MiddleLeft;
-            Orders_refresh.Location = new Point(677, 10);
+            Orders_refresh.Location = new Point(778, 10);
             Orders_refresh.Name = "Orders_refresh";
-            Orders_refresh.Size = new Size(135, 39);
+            Orders_refresh.Size = new Size(34, 39);
             Orders_refresh.TabIndex = 1;
-            Orders_refresh.Text = "Refresh";
             Orders_refresh.TextImageRelation = TextImageRelation.ImageBeforeText;
             Orders_refresh.UseVisualStyleBackColor = false;
             Orders_refresh.Click += Orders_refresh_Click;
@@ -117,7 +116,7 @@
             // Orders_add
             // 
             Orders_add.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Orders_add.BackColor = Color.MediumSeaGreen;
+            Orders_add.BackColor = Color.DarkBlue;
             Orders_add.FlatStyle = FlatStyle.Flat;
             Orders_add.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Orders_add.ForeColor = Color.White;
