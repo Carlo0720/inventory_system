@@ -31,8 +31,8 @@ namespace inventory_system.style
             dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle()
             {
-                BackColor = Color.Gray,
-                Font = new Font("Segoe UI", 9),
+                BackColor = Color.White,
+                Font = new Font("Segoe UI", 11),
                 ForeColor = SystemColors.Window,
                 SelectionBackColor = SystemColors.Highlight,
                 SelectionForeColor = SystemColors.ControlDark,
@@ -106,7 +106,7 @@ namespace inventory_system.style
             //dataGridView.Anchor = AnchorStyles.None;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dataGridView.BackgroundColor = Color.Gray;
+            dataGridView.BackgroundColor = Color.White;
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.CausesValidation = true;
             dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.Single;
@@ -114,9 +114,9 @@ namespace inventory_system.style
             dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle()
             {
-                BackColor = Color.Gray,
-                Font = new Font("Segoe UI", 9),
-                ForeColor = SystemColors.Window,
+                BackColor = Color.White,
+                Font = new Font("Segoe UI", 11),
+                ForeColor = Color.Black,
                 SelectionBackColor = SystemColors.Highlight,
                 SelectionForeColor = SystemColors.ControlDark,
                 Alignment = DataGridViewContentAlignment.MiddleLeft,

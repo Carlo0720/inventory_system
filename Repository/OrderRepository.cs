@@ -96,13 +96,13 @@ namespace inventory_system.Repository
             }
         }
 
-        public DataTable GetSpecificOrderItems(int order_id)
+        public DataTable GetSpecificOrderItems(int order_id, bool info = false)
         {
             databaseManager = new DatabaseManager();
             using (databaseManager)
             {
                 GetOrderInfo(order_id);
-                return databaseManager.ExecuteQueryGetProducts(order_id);
+                return databaseManager.ExecuteQueryGetProducts(order_id, info);
             }
         }
 

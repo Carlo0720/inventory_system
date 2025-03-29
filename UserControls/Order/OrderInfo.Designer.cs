@@ -28,32 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             puchaseOrderLbl = new ReaLTaiizor.Controls.BigLabel();
             deliveryReceiptLbl = new ReaLTaiizor.Controls.BigLabel();
-            orderItemsDatagridview = new ReaLTaiizor.Controls.PoisonDataGridView();
-            smallLabel1 = new ReaLTaiizor.Controls.SmallLabel();
-            totalQuantityLbl = new ReaLTaiizor.Controls.SmallLabel();
-            totalPriceLbl = new ReaLTaiizor.Controls.SmallLabel();
             panel1 = new ReaLTaiizor.Controls.Panel();
-            excelBtn = new ReaLTaiizor.Controls.Button();
-            pdfBtn = new ReaLTaiizor.Controls.Button();
-            wordBtn = new ReaLTaiizor.Controls.Button();
-            ((System.ComponentModel.ISupportInitialize)orderItemsDatagridview).BeginInit();
+            printReceiptBtn = new ReaLTaiizor.Controls.Button();
+            orderItemsDatagridview = new DataGridView();
+            item_code = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            product_id = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            price = new DataGridViewTextBoxColumn();
+            nameLbl = new ReaLTaiizor.Controls.BigLabel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)orderItemsDatagridview).BeginInit();
             SuspendLayout();
             // 
             // puchaseOrderLbl
             // 
             puchaseOrderLbl.AutoSize = true;
             puchaseOrderLbl.BackColor = Color.Transparent;
-            puchaseOrderLbl.Font = new Font("Segoe UI", 25F);
+            puchaseOrderLbl.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             puchaseOrderLbl.ForeColor = Color.FromArgb(80, 80, 80);
-            puchaseOrderLbl.Location = new Point(3, 46);
+            puchaseOrderLbl.Location = new Point(3, 32);
             puchaseOrderLbl.Name = "puchaseOrderLbl";
-            puchaseOrderLbl.Size = new Size(251, 46);
+            puchaseOrderLbl.Size = new Size(177, 32);
             puchaseOrderLbl.TabIndex = 0;
             puchaseOrderLbl.Text = "Purchase Order";
             // 
@@ -61,187 +68,189 @@
             // 
             deliveryReceiptLbl.AutoSize = true;
             deliveryReceiptLbl.BackColor = Color.Transparent;
-            deliveryReceiptLbl.Font = new Font("Segoe UI", 25F);
+            deliveryReceiptLbl.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deliveryReceiptLbl.ForeColor = Color.FromArgb(80, 80, 80);
             deliveryReceiptLbl.Location = new Point(3, 0);
             deliveryReceiptLbl.Name = "deliveryReceiptLbl";
-            deliveryReceiptLbl.Size = new Size(260, 46);
+            deliveryReceiptLbl.Size = new Size(186, 32);
             deliveryReceiptLbl.TabIndex = 1;
             deliveryReceiptLbl.Text = "Delivery Receipt";
             // 
-            // orderItemsDatagridview
-            // 
-            orderItemsDatagridview.AllowUserToResizeRows = false;
-            orderItemsDatagridview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            orderItemsDatagridview.BackgroundColor = Color.FromArgb(255, 255, 255);
-            orderItemsDatagridview.BorderStyle = BorderStyle.None;
-            orderItemsDatagridview.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            orderItemsDatagridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            orderItemsDatagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            orderItemsDatagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            orderItemsDatagridview.DefaultCellStyle = dataGridViewCellStyle5;
-            orderItemsDatagridview.EnableHeadersVisualStyles = false;
-            orderItemsDatagridview.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            orderItemsDatagridview.GridColor = Color.FromArgb(255, 255, 255);
-            orderItemsDatagridview.Location = new Point(3, 95);
-            orderItemsDatagridview.Name = "orderItemsDatagridview";
-            orderItemsDatagridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            orderItemsDatagridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            orderItemsDatagridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            orderItemsDatagridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            orderItemsDatagridview.Size = new Size(441, 279);
-            orderItemsDatagridview.TabIndex = 2;
-            // 
-            // smallLabel1
-            // 
-            smallLabel1.AutoSize = true;
-            smallLabel1.BackColor = Color.Transparent;
-            smallLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            smallLabel1.ForeColor = Color.White;
-            smallLabel1.Location = new Point(18, 5);
-            smallLabel1.Name = "smallLabel1";
-            smallLabel1.Size = new Size(42, 21);
-            smallLabel1.TabIndex = 3;
-            smallLabel1.Text = "Total";
-            // 
-            // totalQuantityLbl
-            // 
-            totalQuantityLbl.AutoSize = true;
-            totalQuantityLbl.BackColor = Color.Transparent;
-            totalQuantityLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            totalQuantityLbl.ForeColor = Color.White;
-            totalQuantityLbl.Location = new Point(165, 5);
-            totalQuantityLbl.Name = "totalQuantityLbl";
-            totalQuantityLbl.Size = new Size(106, 21);
-            totalQuantityLbl.TabIndex = 4;
-            totalQuantityLbl.Text = "Quantity Total";
-            // 
-            // totalPriceLbl
-            // 
-            totalPriceLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            totalPriceLbl.AutoSize = true;
-            totalPriceLbl.BackColor = Color.Transparent;
-            totalPriceLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            totalPriceLbl.ForeColor = Color.White;
-            totalPriceLbl.Location = new Point(313, 5);
-            totalPriceLbl.Name = "totalPriceLbl";
-            totalPriceLbl.Size = new Size(80, 21);
-            totalPriceLbl.TabIndex = 5;
-            totalPriceLbl.Text = "Total Price";
-            // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(39, 51, 63);
-            panel1.Controls.Add(excelBtn);
-            panel1.Controls.Add(pdfBtn);
-            panel1.Controls.Add(wordBtn);
-            panel1.Controls.Add(totalPriceLbl);
-            panel1.Controls.Add(smallLabel1);
-            panel1.Controls.Add(totalQuantityLbl);
+            panel1.Controls.Add(printReceiptBtn);
             panel1.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel1.Location = new Point(3, 380);
+            panel1.Location = new Point(3, 487);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(441, 172);
+            panel1.Size = new Size(441, 65);
             panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             panel1.TabIndex = 6;
             panel1.Text = "panel1";
             // 
-            // excelBtn
+            // printReceiptBtn
             // 
-            excelBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            excelBtn.BackColor = Color.Transparent;
-            excelBtn.BorderColor = Color.FromArgb(32, 34, 37);
-            excelBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            excelBtn.EnteredColor = Color.FromArgb(32, 34, 37);
-            excelBtn.Font = new Font("Microsoft Sans Serif", 12F);
-            excelBtn.Image = null;
-            excelBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            excelBtn.InactiveColor = Color.FromArgb(32, 34, 37);
-            excelBtn.Location = new Point(313, 86);
-            excelBtn.Name = "excelBtn";
-            excelBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            excelBtn.PressedColor = Color.FromArgb(165, 37, 37);
-            excelBtn.Size = new Size(120, 40);
-            excelBtn.TabIndex = 8;
-            excelBtn.Text = "button3";
-            excelBtn.TextAlignment = StringAlignment.Center;
+            printReceiptBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            printReceiptBtn.BackColor = Color.Transparent;
+            printReceiptBtn.BorderColor = Color.FromArgb(32, 34, 37);
+            printReceiptBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            printReceiptBtn.EnteredColor = Color.FromArgb(32, 34, 37);
+            printReceiptBtn.Font = new Font("Microsoft Sans Serif", 12F);
+            printReceiptBtn.Image = null;
+            printReceiptBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            printReceiptBtn.InactiveColor = Color.FromArgb(32, 34, 37);
+            printReceiptBtn.Location = new Point(171, 17);
+            printReceiptBtn.Name = "printReceiptBtn";
+            printReceiptBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            printReceiptBtn.PressedColor = Color.FromArgb(165, 37, 37);
+            printReceiptBtn.Size = new Size(120, 40);
+            printReceiptBtn.TabIndex = 6;
+            printReceiptBtn.Text = "PRINT";
+            printReceiptBtn.TextAlignment = StringAlignment.Center;
             // 
-            // pdfBtn
+            // orderItemsDatagridview
             // 
-            pdfBtn.Anchor = AnchorStyles.Bottom;
-            pdfBtn.BackColor = Color.Transparent;
-            pdfBtn.BorderColor = Color.FromArgb(32, 34, 37);
-            pdfBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            pdfBtn.EnteredColor = Color.FromArgb(32, 34, 37);
-            pdfBtn.Font = new Font("Microsoft Sans Serif", 12F);
-            pdfBtn.Image = null;
-            pdfBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            pdfBtn.InactiveColor = Color.FromArgb(32, 34, 37);
-            pdfBtn.Location = new Point(165, 86);
-            pdfBtn.Name = "pdfBtn";
-            pdfBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            pdfBtn.PressedColor = Color.FromArgb(165, 37, 37);
-            pdfBtn.Size = new Size(120, 40);
-            pdfBtn.TabIndex = 7;
-            pdfBtn.Text = "button2";
-            pdfBtn.TextAlignment = StringAlignment.Center;
+            orderItemsDatagridview.AccessibleRole = AccessibleRole.None;
+            orderItemsDatagridview.AllowUserToAddRows = false;
+            orderItemsDatagridview.AllowUserToResizeColumns = false;
+            orderItemsDatagridview.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            orderItemsDatagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            orderItemsDatagridview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            orderItemsDatagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            orderItemsDatagridview.BackgroundColor = Color.White;
+            orderItemsDatagridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.DimGray;
+            dataGridViewCellStyle11.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            orderItemsDatagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            orderItemsDatagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            orderItemsDatagridview.Columns.AddRange(new DataGridViewColumn[] { item_code, description, product_id, quantity, price });
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = Color.Silver;
+            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle16.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
+            orderItemsDatagridview.DefaultCellStyle = dataGridViewCellStyle16;
+            orderItemsDatagridview.GridColor = Color.Silver;
+            orderItemsDatagridview.Location = new Point(3, 95);
+            orderItemsDatagridview.MultiSelect = false;
+            orderItemsDatagridview.Name = "orderItemsDatagridview";
+            orderItemsDatagridview.ReadOnly = true;
+            orderItemsDatagridview.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = Color.LightSlateGray;
+            dataGridViewCellStyle17.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle17.ForeColor = Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            orderItemsDatagridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            orderItemsDatagridview.RowHeadersVisible = false;
+            orderItemsDatagridview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle18.BackColor = Color.LightGray;
+            dataGridViewCellStyle18.ForeColor = Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle18.SelectionForeColor = Color.White;
+            orderItemsDatagridview.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            orderItemsDatagridview.RowTemplate.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            orderItemsDatagridview.RowTemplate.DefaultCellStyle.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            orderItemsDatagridview.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
+            orderItemsDatagridview.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
+            orderItemsDatagridview.RowTemplate.DividerHeight = 1;
+            orderItemsDatagridview.RowTemplate.Height = 35;
+            orderItemsDatagridview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            orderItemsDatagridview.ShowEditingIcon = false;
+            orderItemsDatagridview.ShowRowErrors = false;
+            orderItemsDatagridview.Size = new Size(441, 386);
+            orderItemsDatagridview.TabIndex = 13;
             // 
-            // wordBtn
+            // item_code
             // 
-            wordBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            wordBtn.BackColor = Color.Transparent;
-            wordBtn.BorderColor = Color.FromArgb(32, 34, 37);
-            wordBtn.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            wordBtn.EnteredColor = Color.FromArgb(32, 34, 37);
-            wordBtn.Font = new Font("Microsoft Sans Serif", 12F);
-            wordBtn.Image = null;
-            wordBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            wordBtn.InactiveColor = Color.FromArgb(32, 34, 37);
-            wordBtn.Location = new Point(18, 86);
-            wordBtn.Name = "wordBtn";
-            wordBtn.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            wordBtn.PressedColor = Color.FromArgb(165, 37, 37);
-            wordBtn.Size = new Size(120, 40);
-            wordBtn.TabIndex = 6;
-            wordBtn.Text = "button1";
-            wordBtn.TextAlignment = StringAlignment.Center;
+            item_code.HeaderText = "Item Code";
+            item_code.Name = "item_code";
+            item_code.ReadOnly = true;
+            item_code.Width = 92;
+            // 
+            // description
+            // 
+            description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle12.BackColor = Color.Silver;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            description.DefaultCellStyle = dataGridViewCellStyle12;
+            description.HeaderText = "Item Description";
+            description.Name = "description";
+            description.ReadOnly = true;
+            // 
+            // product_id
+            // 
+            product_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle13.SelectionForeColor = Color.Black;
+            product_id.DefaultCellStyle = dataGridViewCellStyle13;
+            product_id.HeaderText = "product_id";
+            product_id.Name = "product_id";
+            product_id.ReadOnly = true;
+            product_id.Width = 102;
+            // 
+            // quantity
+            // 
+            quantity.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle14.SelectionForeColor = Color.Black;
+            quantity.DefaultCellStyle = dataGridViewCellStyle14;
+            quantity.HeaderText = "Quantity";
+            quantity.Name = "quantity";
+            quantity.ReadOnly = true;
+            quantity.Width = 89;
+            // 
+            // price
+            // 
+            price.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle15.SelectionForeColor = Color.Black;
+            price.DefaultCellStyle = dataGridViewCellStyle15;
+            price.HeaderText = "Selling Price";
+            price.Name = "price";
+            price.ReadOnly = true;
+            price.Width = 102;
+            // 
+            // nameLbl
+            // 
+            nameLbl.AutoSize = true;
+            nameLbl.BackColor = Color.Transparent;
+            nameLbl.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameLbl.ForeColor = Color.FromArgb(80, 80, 80);
+            nameLbl.Location = new Point(3, 64);
+            nameLbl.Name = "nameLbl";
+            nameLbl.Size = new Size(188, 32);
+            nameLbl.TabIndex = 14;
+            nameLbl.Text = "Customer Name";
             // 
             // OrderInfo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel1);
+            Controls.Add(nameLbl);
             Controls.Add(orderItemsDatagridview);
+            Controls.Add(panel1);
             Controls.Add(deliveryReceiptLbl);
             Controls.Add(puchaseOrderLbl);
             Name = "OrderInfo";
             Size = new Size(447, 555);
-            ((System.ComponentModel.ISupportInitialize)orderItemsDatagridview).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)orderItemsDatagridview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -250,13 +259,19 @@
 
         private ReaLTaiizor.Controls.BigLabel puchaseOrderLbl;
         private ReaLTaiizor.Controls.BigLabel deliveryReceiptLbl;
-        private ReaLTaiizor.Controls.PoisonDataGridView orderItemsDatagridview;
         private ReaLTaiizor.Controls.SmallLabel smallLabel1;
         private ReaLTaiizor.Controls.SmallLabel totalQuantityLbl;
         private ReaLTaiizor.Controls.SmallLabel totalPriceLbl;
         private ReaLTaiizor.Controls.Panel panel1;
         private ReaLTaiizor.Controls.Button excelBtn;
         private ReaLTaiizor.Controls.Button pdfBtn;
-        private ReaLTaiizor.Controls.Button wordBtn;
+        private ReaLTaiizor.Controls.Button printReceiptBtn;
+        private DataGridView orderItemsDatagridview;
+        private DataGridViewTextBoxColumn item_code;
+        private DataGridViewTextBoxColumn description;
+        private DataGridViewTextBoxColumn product_id;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn price;
+        private ReaLTaiizor.Controls.BigLabel nameLbl;
     }
 }

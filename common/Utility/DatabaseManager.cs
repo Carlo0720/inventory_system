@@ -406,10 +406,20 @@ namespace inventory_system.common.Utility
             return nextPurchaseOrderId;
         }
         //Used to get data from database and returns the data in a datatable format
-        public DataTable ExecuteQueryGetProducts(int order_id)
+        public DataTable ExecuteQueryGetProducts(int order_id, bool info = false)
         {
             var databaseConnection = DatabaseConnection.Instance();
             DataTable dataTable = new DataTable();
+
+            if (info)
+            {
+                // Add the specific columns you want to include in your DataTable
+                dataTable.Columns.Add("item_code", typeof(string));
+                dataTable.Columns.Add("item_description", typeof(string));
+                dataTable.Columns.Add("product_id", typeof(int));
+                dataTable.Columns.Add("quantity", typeof(int));
+                dataTable.Columns.Add("price", typeof(decimal));
+            }
 
             using (MySqlCommand command = new MySqlCommand(SD.SelectSpecificOrderProducts, databaseConnection.connection))
             {
@@ -420,7 +430,27 @@ namespace inventory_system.common.Utility
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        dataTable.Load(reader);
+                        if (info)
+                        {
+                            //Loop through the reader and manually add rows to the DataTable
+                            while (reader.Read())
+                            {
+                                DataRow row = dataTable.NewRow();
+
+                                // Manually map the data to the correct columns
+                                row["product_id"] = Convert.ToInt32(reader["product_id"]);
+                                row["item_code"] = reader["item_code"];
+                                row["item_description"] = $"{reader["item_name"].ToString()} {reader["item_description"].ToString()} {reader["item_color"].ToString()}";
+                                row["quantity"] = Convert.ToInt32(reader["quantity"]);
+                                row["price"] = Convert.ToDecimal(reader["item_price"]);
+
+                                dataTable.Rows.Add(row);
+                            }
+                        }
+                        else
+                        {
+                            dataTable.Load(reader);
+                        }
                     }
                 }
                 catch (MySqlException e)
