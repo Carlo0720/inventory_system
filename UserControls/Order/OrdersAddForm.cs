@@ -21,7 +21,7 @@ namespace inventory_system.Window_Forms
     public partial class OrdersAddForm : UserControl
     {
         private OrderRepository orderRepository;
-        public BindingList<Product> products = new BindingList<Product>();
+        public BindingList<ProductDTO> products = new BindingList<ProductDTO>();
         private Customer customer;
 
         // Create a DataTable to hold the products
@@ -30,8 +30,8 @@ namespace inventory_system.Window_Forms
         {
             InitializeComponent();
             orderRepository = new OrderRepository();
-            dataGridView_Order.Columns.Clear();
-            productTable = CreateProductTable();
+            //dataGridView_Order.Columns.Clear();
+            productTable = CreateProductTable(dataGridView_Order);
             if (Id is not null)
             {
                 int id = (int)Id;
@@ -128,7 +128,7 @@ namespace inventory_system.Window_Forms
             // Handle the product selection here
             MessageBox.Show($"Selected Product: {e.product.ItemName} ({e.product.ItemCode})");
 
-            var existingProduct = products.FirstOrDefault(u => u.ProductId == e.product.ProductId);
+            var existingProduct = products.FirstOrDefault(u => u.product_id == e.product.ProductId);
 
             if (e.product.Quantity > e.product.Stock)
             {
@@ -140,91 +140,67 @@ namespace inventory_system.Window_Forms
             if (existingProduct != null)
             {
                 // If product exists, update the quantity
-                existingProduct.Quantity += e.product.Quantity;
+                existingProduct.quantity += e.product.Quantity;
 
-                if (existingProduct.Quantity > existingProduct.Stock)
+                if (existingProduct.quantity > e.product.Stock)
                 {
-                    MessageBox.Show($"{existingProduct.ItemName} quantity exceed stock, set quantity to total stock: {existingProduct.Stock}");
-                    existingProduct.Quantity = existingProduct.Stock;
+                    MessageBox.Show($"{existingProduct.description} quantity exceed stock, set quantity to total stock: {e.product.Stock}");
+                    existingProduct.quantity = e.product.Stock;
                 }
             }
             else
             {
                 // If product doesn't exist, add the new product
-                products.Add(e.product);
+                ProductDTO productDto = new ProductDTO 
+                {
+                    product_id = e.product.ProductId,
+                    description = $"{e.product.ItemName} {e.product.ItemDescription}",
+                    price = e.product.ItemPrice,
+                    quantity = e.product.Quantity,
+                    color = e.product.ItemColor,
+                    item_code = e.product.ItemCode
+                };
+                products.Add(productDto);
             }
 
-            // You can also assign the selected values to parent controls like textboxes
-
-            //if (dataGridView_Order.Rows.Count > 0)
-            //    // Assuming your DataGridView is bound to a DataTable
-            //    (dataGridView_Order.DataSource as DataTable).Clear();
-            //if(products.Any(u => u.))
-            //products.Add(e.product);
-            // Add or update the products in the DataTable
-            //AddOrUpdateProducts(productTable, products);
-
-            //int productId = e.ProductId;
-            //string itemName = e.ItemName;
-            //string itemCode = e.ItemCode;
-            //string itemDescription = e.ItemDescription;
-            //string itemColor = e.ItemColor;
-            //string itemCategory = e.ItemCategory;
-            //string supplier = e.Supplier;
-            //int quantity = e.Quantity;
-            //string unit = e.Unit;
-            //decimal itemPrice = e.ItemPrice;
-
-            //if (dataGridView_Order.Rows.Count > 0)
-            //    dataGridView_Order.Rows.Clear();
             dataGridView_Order.DataSource = products;
             totalAmountTbox.Text = CalculateTotalAmount(products).ToString();
-
-            //newly added data goes to datagridview
-            //dataGridView_Order.Rows.Add(itemCode, itemDescription, 1, 1, itemColor, itemPrice);
-
         }
 
         // Method to create a DataTable with the required columns for Product
-        public static DataTable CreateProductTable()
+        public static DataTable CreateProductTable(DataGridView dataGridView_Order)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("Item Code", typeof(string));
-            dt.Columns.Add("Description", typeof(string));
-            dt.Columns.Add("Length", typeof(string));
-            dt.Columns.Add("Quantity", typeof(int));
-            dt.Columns.Add("Color", typeof(string));
-            dt.Columns.Add("Selling Price", typeof(string));
+            //dt.Columns.Add("Item Code", typeof(string));
+            //dt.Columns.Add("Description", typeof(string));
+            //dt.Columns.Add("Length", typeof(string));
+            //dt.Columns.Add("Quantity", typeof(int));
+            //dt.Columns.Add("Color", typeof(string));
+            //dt.Columns.Add("Selling Price", typeof(string));
 
+            dataGridView_Order.Columns["product_id"].DataPropertyName = "product_id";
+            dataGridView_Order.Columns["item_code"].DataPropertyName = "item_code";
+            dataGridView_Order.Columns["description"].DataPropertyName = "description";
+            dataGridView_Order.Columns["quantity"].DataPropertyName = "quantity";
+            dataGridView_Order.Columns["color"].DataPropertyName = "color";
+            dataGridView_Order.Columns["price"].DataPropertyName = "price";
+
+            // Hide the "ID" column from the DataGridView
+            dataGridView_Order.Columns["product_id"].Visible = false;
             //// Set the primary key
             //dt.PrimaryKey = new DataColumn[] { dt.Columns["ProductID"] };
 
             return dt;
         }
         // Method to add or update products from a List<Product> in the DataTable
-        public static void AddOrUpdateProducts(DataTable dt, List<Product> products)
-        {
-            foreach (var product in products)
-            {
-                DataRow newRow = dt.NewRow();
-                newRow["Item Code"] = product.ItemCode;
-                newRow["Description"] = product.ItemDescription;
-                newRow["Length"] = product.Length;
-                newRow["Quantity"] = product.Quantity;
-                newRow["Color"] = product.ItemColor;
-                newRow["Selling Price"] = product.ItemPrice;
-                dt.Rows.Add(newRow);
-            }
-        }
-        // Method to add or update products from a List<Product> in the DataTable
-        public static double CalculateTotalAmount(BindingList<Product> products)
+        public static double CalculateTotalAmount(BindingList<ProductDTO> products)
         {
             double totalPrice = 0;
 
             // Process each unique product in the grouped list
             foreach (var product in products)
             {
-                totalPrice += Convert.ToDouble(product.Quantity * product.ItemPrice);
+                totalPrice += Convert.ToDouble(product.quantity * product.price);
             }
             return totalPrice;
         }
@@ -258,15 +234,15 @@ namespace inventory_system.Window_Forms
             List<OrderItems> orderItemsList = new List<OrderItems>();
 
             // Loop through each row in the DataGridView (assuming you have a DataGridView named 'dataGridView')
-            foreach (Product product in products)
+            foreach (ProductDTO product in products)
             {
                 // Create a new OrderItems object for each row
                 OrderItems item = new OrderItems()
                 {
                     // Assuming columns are in order: ProductId, Quantity, Price (adjust column indices as needed)
-                    ProductId = product.ProductId,  // Replace with actual column name or index
-                    Quantity = product.Quantity,    // Replace with actual column name or index
-                    Price = (float)product.ItemPrice         // Replace with actual column name or index
+                    ProductId = product.product_id,  // Replace with actual column name or index
+                    Quantity = product.quantity,    // Replace with actual column name or index
+                    Price = (float)product.price         // Replace with actual column name or index
                 };
 
                 // Add the new item to the list
@@ -292,8 +268,6 @@ namespace inventory_system.Window_Forms
 
             orderRepository.InsertOrderToDb(order, orderItemsList);
 
-            //Function.CreateOrder(order_id, customer.Id, po_number, dr_number, total_price, orderItemsList);
-
             Form parentForm = this.FindForm();
             if (parentForm != null)
             {
@@ -313,7 +287,7 @@ namespace inventory_system.Window_Forms
                 int productIdToDelete = Convert.ToInt32(dataGridView_Order.SelectedRows[0].Cells[0].Value);
 
                 // Find the product in the BindingList that matches the selected ProductId
-                Product productToDelete = products.FirstOrDefault(p => p.ProductId == productIdToDelete);
+                ProductDTO productToDelete = products.FirstOrDefault(p => p.product_id == productIdToDelete);
 
                 // If the product is found in the list
                 if (productToDelete != null)
@@ -332,24 +306,6 @@ namespace inventory_system.Window_Forms
                 MessageBox.Show("Please select a row to delete.");
             }
         }
-
-        private void itemShockTbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView_Order_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Check if the clicked row is valid
-            if (e.RowIndex >= 0)
-            {
-                // Get the selected row (using e.RowIndex)
-                DataGridViewRow selectedRow = dataGridView_Order.Rows[e.RowIndex];
-
-            }
-        }
     }
-
-
 }
 

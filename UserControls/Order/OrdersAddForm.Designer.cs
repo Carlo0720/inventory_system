@@ -53,12 +53,12 @@
             totalAmountTbox = new TextBox();
             addItemBtn = new Button();
             dataGridView_Order = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
+            item_code = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            product_id = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            color = new DataGridViewTextBoxColumn();
+            price = new DataGridViewTextBoxColumn();
             Order_dtle = new Label();
             deleteBtn = new Button();
             addOrderBtn = new Button();
@@ -215,7 +215,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView_Order.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_Order.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_Order.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
+            dataGridView_Order.Columns.AddRange(new DataGridViewColumn[] { item_code, description, product_id, quantity, color, price });
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = Color.Silver;
             dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
@@ -257,70 +257,70 @@
             dataGridView_Order.Size = new Size(507, 295);
             dataGridView_Order.TabIndex = 12;
             // 
-            // Column1
+            // item_code
             // 
             dataGridViewCellStyle3.BackColor = Color.Silver;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            Column1.HeaderText = "Item Code";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
+            item_code.DefaultCellStyle = dataGridViewCellStyle3;
+            item_code.HeaderText = "Item Code";
+            item_code.Name = "item_code";
+            item_code.ReadOnly = true;
             // 
-            // Column2
+            // description
             // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle4.BackColor = Color.Silver;
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            Column2.HeaderText = "Discription";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
+            description.DefaultCellStyle = dataGridViewCellStyle4;
+            description.HeaderText = "Description";
+            description.Name = "description";
+            description.ReadOnly = true;
             // 
-            // Column3
+            // product_id
             // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            product_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            Column3.DefaultCellStyle = dataGridViewCellStyle5;
-            Column3.HeaderText = "Length";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 77;
+            product_id.DefaultCellStyle = dataGridViewCellStyle5;
+            product_id.HeaderText = "product_id";
+            product_id.Name = "product_id";
+            product_id.ReadOnly = true;
+            product_id.Width = 102;
             // 
-            // Column4
+            // quantity
             // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            quantity.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            Column4.DefaultCellStyle = dataGridViewCellStyle6;
-            Column4.HeaderText = "Quantity";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 89;
+            quantity.DefaultCellStyle = dataGridViewCellStyle6;
+            quantity.HeaderText = "Quantity";
+            quantity.Name = "quantity";
+            quantity.ReadOnly = true;
+            quantity.Width = 89;
             // 
-            // Column5
+            // color
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            color.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle7.SelectionForeColor = Color.Black;
-            Column5.DefaultCellStyle = dataGridViewCellStyle7;
-            Column5.HeaderText = "Color";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 65;
+            color.DefaultCellStyle = dataGridViewCellStyle7;
+            color.HeaderText = "Color";
+            color.Name = "color";
+            color.ReadOnly = true;
+            color.Width = 65;
             // 
-            // Column6
+            // price
             // 
-            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            price.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            Column6.DefaultCellStyle = dataGridViewCellStyle8;
-            Column6.HeaderText = "Selling Price";
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 102;
+            price.DefaultCellStyle = dataGridViewCellStyle8;
+            price.HeaderText = "Selling Price";
+            price.Name = "price";
+            price.ReadOnly = true;
+            price.Width = 102;
             // 
             // Order_dtle
             // 
@@ -342,7 +342,7 @@
             deleteBtn.ForeColor = Color.White;
             deleteBtn.Image = (Image)resources.GetObject("deleteBtn.Image");
             deleteBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            deleteBtn.Location = new Point(503, 337);
+            deleteBtn.Location = new Point(487, 337);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(110, 36);
             deleteBtn.TabIndex = 14;
@@ -361,9 +361,9 @@
             addOrderBtn.ForeColor = Color.White;
             addOrderBtn.Image = (Image)resources.GetObject("addOrderBtn.Image");
             addOrderBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            addOrderBtn.Location = new Point(545, 447);
+            addOrderBtn.Location = new Point(537, 447);
             addOrderBtn.Name = "addOrderBtn";
-            addOrderBtn.Size = new Size(140, 31);
+            addOrderBtn.Size = new Size(186, 40);
             addOrderBtn.TabIndex = 15;
             addOrderBtn.Text = "Add Order";
             addOrderBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -374,10 +374,10 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.WhiteSmoke;
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(selectCustomerBtn);
             panel3.Controls.Add(addItemBtn);
             panel3.Controls.Add(deleteBtn);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(selectCustomerBtn);
             panel3.Controls.Add(totalAmountTbox);
             panel3.Controls.Add(dataGridView_Order);
             panel3.Controls.Add(Order_dtle);
@@ -445,12 +445,12 @@
         private Button addOrderBtn;
         private Button selectCustomerBtn;
         private ReaLTaiizor.Controls.Panel panel3;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
         private ReaLTaiizor.Controls.BigLabel Label_add;
+        private DataGridViewTextBoxColumn item_code;
+        private DataGridViewTextBoxColumn description;
+        private DataGridViewTextBoxColumn product_id;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn color;
+        private DataGridViewTextBoxColumn price;
     }
 }
