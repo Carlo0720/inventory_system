@@ -52,6 +52,7 @@ namespace inventory_system.Window_Forms
                 customerDetailsTbox.Text = order.Company;
 
                 addOrderBtn.Text = "Update Order";
+                Label_add.Text = "Update Order";
             }
             else
             {
@@ -92,7 +93,7 @@ namespace inventory_system.Window_Forms
             string email = e.customer.Email;
 
             // Use these values as needed
-            MessageBox.Show($"Selected Customer: {name}");
+            //MessageBox.Show($"Selected Customer: {name}");
 
             customerNameTbox.Text = name;
             customerDetailsTbox.Text = companyName;
@@ -118,7 +119,7 @@ namespace inventory_system.Window_Forms
         private void ProductModal_ProductSelected(object sender, ProductSelectedEventArgs e)
         {
             // Handle the product selection here
-            MessageBox.Show($"Selected Product: {e.product.ItemName} ({e.product.ItemCode})");
+            //MessageBox.Show($"Selected Product: {e.product.ItemName} ({e.product.ItemCode})");
 
             var existingProduct = products.FirstOrDefault(u => u.product_id == e.product.ProductId);
 
