@@ -104,11 +104,10 @@ namespace inventory_system.common.Utility
         #endregion
         //Used to run an sql query like create, update, or delete
         #region Orders
-        public int ExecuteCreateOrders(Model.Order order)
+        public int ExecuteCreateOrders(Model.Order order, int order_id = 0)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
-            int order_id = 0;
 
             MySqlTransaction myTrans;
             myTrans = databaseConnection.connection.BeginTransaction();
@@ -171,6 +170,8 @@ namespace inventory_system.common.Utility
 
                     rowsAffected = command.ExecuteNonQuery();
 
+                    ExecuteRemoveFromStock(orderItem, myTrans);
+
                 }
                 catch (MySqlException e)
                 {
@@ -182,6 +183,32 @@ namespace inventory_system.common.Utility
                 }
             }
             return rowsAffected;
+        }
+        public void ExecuteRemoveFromStock(OrderItems orderItem, MySqlTransaction myTrans)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            int rowsAffected = 0;
+
+            using (MySqlCommand command = new MySqlCommand(SD.UpdateProductStock, databaseConnection.connection))
+            {
+                try
+                {
+                    // Add parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@product_id", orderItem.ProductId);
+                    command.Parameters.AddWithValue("@quantity", orderItem.Quantity);
+
+                    rowsAffected = command.ExecuteNonQuery();
+
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
         }
         public int GetNextPurchaseOrderId()
         {

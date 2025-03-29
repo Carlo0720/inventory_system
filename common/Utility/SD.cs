@@ -31,7 +31,7 @@ namespace inventory_system.common.Utility
         #region Products
         public const string SelectProductsForOrder = "SELECT product_id, item_code, item_name, item_description, item_color, item_category, supplier, unit, stock, item_price FROM products";
         public const string SelectSpecificOrderProducts = "SELECT p.item_name, p.item_code, p.item_description, p.item_color, p.item_price, oi.quantity FROM order_items oi JOIN products p ON p.product_id = oi.product_id where oi.order_id = @order_id";
-        public const string UpdateProductStock = "UPDATE products SET stock = @stock WHERE product_id = @product_id";
+        public const string UpdateProductStock = "UPDATE products SET stock = stock - @quantity WHERE product_id = @product_id AND stock >= @quantity";
         #endregion
     }
 }

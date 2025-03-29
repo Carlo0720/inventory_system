@@ -164,18 +164,40 @@ namespace inventory_system.UserControls.Order
 
         private void quantityTbox_Leave(object sender, EventArgs e)
         {
+            ChangeQuantityAccordingToStock();
+        }
+
+        private void quantityTbox_TextChanged(object sender, EventArgs e)
+        {
+            ChangeQuantityAccordingToStock();
+        }
+
+        private void ChangeQuantityAccordingToStock()
+        {
+            // Store the current value in the TextBox in case the input is invalid
+            string currentText = quantityTbox.Text;
+
             // Get the value from the textbox
             if (int.TryParse(quantityTbox.Text, out int value))
             {
-                // If the value is less than 0, set it to 0
+                // Get the selected row from the DataGridView
+                int maxQuantity = 1;  // Default limit
+
+                if (productlist_datagd.SelectedRows.Count > 0)
+                {
+                    // Get the maximum quantity from the selected row (assuming the column is called "MaxQuantity")
+                    maxQuantity = Convert.ToInt32(productlist_datagd.SelectedRows[0].Cells["stock"].Value);
+                }
+
+                // If the value is less than 0, set it to 1
                 if (value <= 0)
                 {
                     quantityTbox.Text = "1";
                 }
-                // If the value is greater than 50, set it to 50
-                else if (value > 50)
+                // If the value is greater than the max quantity, set it to maxQuantity
+                else if (value > maxQuantity)
                 {
-                    quantityTbox.Text = "50";
+                    quantityTbox.Text = maxQuantity.ToString();
                 }
             }
             else
@@ -185,21 +207,9 @@ namespace inventory_system.UserControls.Order
             }
         }
 
-        private void quantityTbox_TextChanged(object sender, EventArgs e)
+        private void productlist_datagd_SelectionChanged(object sender, EventArgs e)
         {
-            // Ensure the value is a valid integer and not less than 0
-            if (int.TryParse(quantityTbox.Text, out int value))
-            {
-                if (value <= 0)
-                {
-                    quantityTbox.Text = "1";
-                }
-                // If the value is greater than 50, set it to 50
-                else if (value > 50)
-                {
-                    quantityTbox.Text = "50";
-                }
-            }
+            ChangeQuantityAccordingToStock();
         }
     }
 }

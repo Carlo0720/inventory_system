@@ -132,6 +132,7 @@
             productlist_datagd.Size = new Size(1365, 564);
             productlist_datagd.TabIndex = 8;
             productlist_datagd.CellDoubleClick += productlist_datagd_CellDoubleClick_1;
+            productlist_datagd.SelectionChanged += productlist_datagd_SelectionChanged;
             // 
             // product_id
             // 
