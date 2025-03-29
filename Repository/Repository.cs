@@ -31,6 +31,15 @@ namespace inventory_system.Repository
             }
         }
 
+        public DataTable Select(string query, string search)
+        {
+            databaseManager = new DatabaseManager();
+            using (databaseManager)
+            {
+                return databaseManager.SelectToDataTable(query, search);
+            }
+        }
+
         public void Update(string query)
         {
             throw new NotImplementedException();

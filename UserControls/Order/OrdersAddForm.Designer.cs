@@ -40,7 +40,6 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            Label_add = new ReaLTaiizor.Controls.BigLabel();
             customerNameTbox = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -64,21 +63,10 @@
             deleteBtn = new Button();
             addOrderBtn = new Button();
             panel3 = new ReaLTaiizor.Controls.Panel();
+            Label_add = new ReaLTaiizor.Controls.BigLabel();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Order).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // Label_add
-            // 
-            Label_add.AutoSize = true;
-            Label_add.BackColor = Color.Transparent;
-            Label_add.Font = new Font("Segoe UI", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Label_add.ForeColor = Color.White;
-            Label_add.Location = new Point(3, 9);
-            Label_add.Name = "Label_add";
-            Label_add.Size = new Size(181, 45);
-            Label_add.TabIndex = 0;
-            Label_add.Text = "Add Order";
             // 
             // customerNameTbox
             // 
@@ -91,7 +79,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label1.Location = new Point(8, 36);
             label1.Name = "label1";
             label1.Size = new Size(93, 15);
@@ -343,7 +331,6 @@
             Order_dtle.Size = new Size(99, 21);
             Order_dtle.TabIndex = 9;
             Order_dtle.Text = "Order Detail";
-            Order_dtle.Click += Order_dtle_Click;
             // 
             // deleteBtn
             // 
@@ -411,6 +398,18 @@
             panel3.TabIndex = 16;
             panel3.Text = "panel3";
             // 
+            // Label_add
+            // 
+            Label_add.AutoSize = true;
+            Label_add.BackColor = Color.Transparent;
+            Label_add.Font = new Font("Segoe UI", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Label_add.ForeColor = Color.White;
+            Label_add.Location = new Point(3, 9);
+            Label_add.Name = "Label_add";
+            Label_add.Size = new Size(181, 45);
+            Label_add.TabIndex = 0;
+            Label_add.Text = "Add Order";
+            // 
             // OrdersAddForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -429,8 +428,6 @@
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.BigLabel Label_add;
         private TextBox customerNameTbox;
         private Label label1;
         private Label label2;
@@ -454,5 +451,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private ReaLTaiizor.Controls.BigLabel Label_add;
     }
 }

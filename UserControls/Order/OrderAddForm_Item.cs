@@ -11,6 +11,7 @@ using inventory_system.Globals;
 using MySql.Data.MySqlClient;
 using inventory_system.Repository;
 using inventory_system.common.Utility;
+using inventory_system.common.Interfaces;
 
 namespace inventory_system.UserControls.Order
 {
@@ -210,6 +211,20 @@ namespace inventory_system.UserControls.Order
         private void productlist_datagd_SelectionChanged(object sender, EventArgs e)
         {
             ChangeQuantityAccordingToStock();
+        }
+
+        private void products_searchbtn_Click(object sender, EventArgs e)
+        {
+            string searchTxt = $"%{products_searchTxtbox.Text}%";
+            productlist_datagd.DataSource =
+            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt);
+        }
+
+        private void products_searchTxtbox_TextChanged(object sender, EventArgs e)
+        {
+            string searchTxt = $"%{products_searchTxtbox.Text}%";
+            productlist_datagd.DataSource =
+            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt);
         }
     }
 }

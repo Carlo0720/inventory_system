@@ -53,6 +53,35 @@ namespace inventory_system.common.Utility
             }
             return dataTable;
         }
+        //Used to get data from database and returns the data according to search string in a datatable format
+        public DataTable SelectToDataTable(string query, string search)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            DataTable dataTable = new DataTable();
+
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            {
+                try
+                {
+
+                    command.Parameters.AddWithValue("@search", search);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+            return dataTable;
+        }
         //Used to run an sql query like create, update, or delete
         public int ExecuteNonQuery(string query)
         {

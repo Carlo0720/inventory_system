@@ -348,11 +348,6 @@ namespace inventory_system.Window_Forms
 
             }
         }
-
-        private void Order_dtle_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 

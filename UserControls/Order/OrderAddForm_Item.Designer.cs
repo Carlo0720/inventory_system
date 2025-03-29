@@ -72,6 +72,7 @@
             products_searchbtn.Text = "Search";
             products_searchbtn.TextImageRelation = TextImageRelation.ImageBeforeText;
             products_searchbtn.UseVisualStyleBackColor = false;
+            products_searchbtn.Click += products_searchbtn_Click;
             // 
             // panel3
             // 
@@ -92,6 +93,7 @@
             products_searchTxtbox.Name = "products_searchTxtbox";
             products_searchTxtbox.Size = new Size(241, 16);
             products_searchTxtbox.TabIndex = 2;
+            products_searchTxtbox.TextChanged += products_searchTxtbox_TextChanged;
             // 
             // products_add
             // 
