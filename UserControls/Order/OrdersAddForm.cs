@@ -23,29 +23,30 @@ namespace inventory_system.Window_Forms
         private OrderRepository orderRepository;
         public BindingList<ProductDTO> products = new BindingList<ProductDTO>();
         private Customer customer;
+        private int orderId = 0;
 
-        public OrdersAddForm(int? Id = null)
+        public OrdersAddForm(int Id = 0)
         {
             InitializeComponent();
             orderRepository = new OrderRepository();
             //productTable = CreateProductTable(dataGridView_Order);
-            if (Id is not null)
+            if (Id > 0)
             {
                 //dataGridView_Order.Columns.Clear();
                 CreateProductTable(dataGridView_Order);
-                int id = (int)Id;
-                DataTable dt = orderRepository.GetSpecificOrderItems(id);
+                orderId = Id;
+                DataTable dt = orderRepository.GetSpecificOrderItems(orderId);
                 //DataGridViewStyler.ApplyStyles(dataGridView_Order);
                 products = ConvertDataTableToBindingList(dt);
                 dataGridView_Order.DataSource = products;
-                Order order = orderRepository.GetOrderInfo(id);
+                Order order = orderRepository.GetOrderInfo(orderId);
 
                 // Use LINQ to calculate the sum of the 'quantity' column
                 int totalQuantity = dt.AsEnumerable().Sum(row => row.Field<int>("quantity"));
                 //totalQuantityLbl.Text = $"Quantity: {totalQuantity.ToString()}";
-                totalAmountTbox.Text = $"Price: {order.TotalPrice.ToString()}";
-                purchaseOrderTbox.Text = $"Purchase Order No. {order.PurchaseOrderId.ToString()}";
-                deliveryReceiptTbox.Text = $"Delivery Receipt No. {order.DeliveryReceipt.ToString()}";
+                totalAmountTbox.Text = $"{order.TotalPrice.ToString()}";
+                purchaseOrderTbox.Text = $"{order.PurchaseOrderId.ToString()}";
+                deliveryReceiptTbox.Text = $"{order.DeliveryReceipt.ToString()}";
                 
                 customerNameTbox.Text = order.CustomerName;
                 customerDetailsTbox.Text = order.Company;
@@ -259,7 +260,7 @@ namespace inventory_system.Window_Forms
                 orderItemsList.Add(item);
             }
 
-            int order_id = Convert.ToInt32(purchaseOrderTbox.Text);
+            //int order_id = Convert.ToInt32(purchaseOrderTbox.Text);
             int customer_id = Function.GetCustomerId(customerDetailsTbox.Text);
             int po_number = Convert.ToInt32(purchaseOrderTbox.Text);
             int dr_number = Convert.ToInt32(deliveryReceiptTbox.Text);
@@ -267,6 +268,7 @@ namespace inventory_system.Window_Forms
 
             Order order = new()
             {
+                Id = orderId,
                 CustomerId = customer_id,
                 PurchaseOrderId = po_number,
                 DeliveryReceipt = dr_number,

@@ -137,31 +137,62 @@ namespace inventory_system.common.Utility
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
+            string query = SD.InsertToOrders;
+
+            if(order_id > 0)
+            {
+                query = SD.UpdateOrders;
+            }
 
             MySqlTransaction myTrans;
             myTrans = databaseConnection.connection.BeginTransaction();
 
-            using (MySqlCommand command = new MySqlCommand(SD.InsertToOrders, databaseConnection.connection))
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
             {
                 try
                 {
                     command.Transaction = myTrans;
                     // Add parameters to avoid SQL injection
-                    command.Parameters.AddWithValue("@customer_id", order.CustomerId);
-                    command.Parameters.AddWithValue("@po_number", order.PurchaseOrderId);
-                    command.Parameters.AddWithValue("@dr_number", order.DeliveryReceipt);
-                    command.Parameters.AddWithValue("@order_date", DateTime.Now); 
-                    command.Parameters.AddWithValue("@total_price", order.TotalPrice);
-                    command.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
+                    if (order_id > 0)
+                    {
+                        command.Parameters.AddWithValue("@order_id", order_id);
+                        command.Parameters.AddWithValue("@customer_id", order.CustomerId);
+                        command.Parameters.AddWithValue("@po_number", order.PurchaseOrderId);
+                        command.Parameters.AddWithValue("@dr_number", order.DeliveryReceipt);
+                        command.Parameters.AddWithValue("@total_price", order.TotalPrice);
+                        command.Parameters.AddWithValue("@updated_at", DateTime.Now);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@customer_id", order.CustomerId);
+                        command.Parameters.AddWithValue("@po_number", order.PurchaseOrderId);
+                        command.Parameters.AddWithValue("@dr_number", order.DeliveryReceipt);
+                        command.Parameters.AddWithValue("@order_date", DateTime.Now);
+                        command.Parameters.AddWithValue("@total_price", order.TotalPrice);
+                        command.Parameters.AddWithValue("@created_at", DateTime.Now);  // Same for created_at
+                    }
 
                     rowsAffected = command.ExecuteNonQuery();
 
-                    // Now get the last inserted order ID
-                    using (MySqlCommand getLastIdCommand = new MySqlCommand("SELECT LAST_INSERT_ID();", databaseConnection.connection))
+                    if (order_id > 0)
                     {
-                        // Execute the query to get the last inserted ID
-                        order_id = Convert.ToInt32(getLastIdCommand.ExecuteScalar());
+                        List<OrderItems> orderItems = GetOrderItems(order_id, myTrans);
+                        foreach (OrderItems item in orderItems)
+                        {
+                            ExecuteUpdateStock(SD.UpdateAddProductStock, item, myTrans);
+                        }
+                        RemoveItems(SD.DeleteOrderItems, order_id);
                     }
+                    else
+                    {
+                        // Now get the last inserted order ID
+                        using (MySqlCommand getLastIdCommand = new MySqlCommand("SELECT LAST_INSERT_ID();", databaseConnection.connection))
+                        {
+                            // Execute the query to get the last inserted ID
+                            order_id = Convert.ToInt32(getLastIdCommand.ExecuteScalar());
+                        }
+                    }
+                        
                     foreach (OrderItems item in order.Items)
                     {
                         ExecuteCreateOrderItems(order_id, item, myTrans);
@@ -199,7 +230,7 @@ namespace inventory_system.common.Utility
 
                     rowsAffected = command.ExecuteNonQuery();
 
-                    ExecuteRemoveFromStock(orderItem, myTrans);
+                    ExecuteUpdateStock(SD.UpdateRemoveProductStock, orderItem, myTrans);
 
                 }
                 catch (MySqlException e)
@@ -213,12 +244,77 @@ namespace inventory_system.common.Utility
             }
             return rowsAffected;
         }
-        public void ExecuteRemoveFromStock(OrderItems orderItem, MySqlTransaction myTrans)
+
+        //Used to run an sql query like create, update, or delete
+        public int RemoveItems(string query, int id)
         {
             var databaseConnection = DatabaseConnection.Instance();
             int rowsAffected = 0;
 
-            using (MySqlCommand command = new MySqlCommand(SD.UpdateProductStock, databaseConnection.connection))
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
+            {
+                try
+                {
+                    command.Parameters.AddWithValue("order_id", id);
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+            return rowsAffected;
+        }
+        public List<OrderItems> GetOrderItems(int order_id, MySqlTransaction myTrans)
+        {
+            List<OrderItems> orderItems = new List<OrderItems>();
+            var databaseConnection = DatabaseConnection.Instance();
+
+            using (MySqlCommand command = new MySqlCommand(SD.SelectProductAndQuantityFromOrderItems, databaseConnection.connection))
+            {
+                try
+                {
+                    // Add parameters to avoid SQL injection
+                    command.Parameters.AddWithValue("@order_id", order_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Create a new Order object for each row
+                            OrderItems orderItem = new OrderItems
+                            {
+                                ProductId = reader.GetInt32("product_id"),
+                                Quantity = reader.GetInt32("quantity")
+                            };
+
+                            // Add the order to the list
+                            orderItems.Add(orderItem);
+                        }
+                    }
+
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"MySql error {e.Message}");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"An error has occured {e.Message}");
+                }
+            }
+            return orderItems;
+        }
+        public void ExecuteUpdateStock(string query, OrderItems orderItem, MySqlTransaction myTrans)
+        {
+            var databaseConnection = DatabaseConnection.Instance();
+            int rowsAffected = 0;
+
+            using (MySqlCommand command = new MySqlCommand(query, databaseConnection.connection))
             {
                 try
                 {

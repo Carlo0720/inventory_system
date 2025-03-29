@@ -118,14 +118,10 @@ namespace inventory_system.Repository
         public void InsertOrderToDb(Order order, List<OrderItems> orderItems)
         {
             databaseManager = new DatabaseManager();
-            int order_id = order.PurchaseOrderId;
+            int order_id = order.Id;
             using (databaseManager)
             {
-                databaseManager.ExecuteCreateOrders(order);
-                //foreach (var orderItem in orderItems)
-                //{
-                //    databaseManager.ExecuteCreateOrderItems(order_id, orderItem);
-                //}
+                databaseManager.ExecuteCreateOrders(order, order_id);
             }
         }
 
