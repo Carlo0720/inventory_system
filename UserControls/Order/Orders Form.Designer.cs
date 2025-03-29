@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders_Form));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel1 = new Panel();
             Print_Rcpt = new Button();
             label_Orders_Title = new Label();
             Orders_refresh = new Button();
             Orders_add = new Button();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            searchTbox = new TextBox();
             Order_search = new Button();
             dataGridView_Orders = new DataGridView();
             orders_id = new DataGridViewTextBoxColumn();
@@ -134,22 +134,23 @@
             // panel3
             // 
             panel3.BackColor = Color.WhiteSmoke;
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(searchTbox);
             panel3.Controls.Add(Order_search);
             panel3.Location = new Point(277, 9);
             panel3.Name = "panel3";
             panel3.Size = new Size(394, 39);
             panel3.TabIndex = 4;
             // 
-            // textBox1
+            // searchTbox
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(10, 8);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(254, 24);
-            textBox1.TabIndex = 2;
+            searchTbox.BackColor = Color.White;
+            searchTbox.BorderStyle = BorderStyle.None;
+            searchTbox.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchTbox.Location = new Point(10, 8);
+            searchTbox.Name = "searchTbox";
+            searchTbox.Size = new Size(254, 24);
+            searchTbox.TabIndex = 2;
+            searchTbox.TextChanged += searchTbox_TextChanged;
             // 
             // Order_search
             // 
@@ -179,44 +180,44 @@
             dataGridView_Orders.BorderStyle = BorderStyle.None;
             dataGridView_Orders.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
             dataGridView_Orders.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.LightSteelBlue;
-            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.LightSteelBlue;
+            dataGridViewCellStyle5.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView_Orders.ColumnHeadersHeight = 30;
             dataGridView_Orders.Columns.AddRange(new DataGridViewColumn[] { orders_id, Date, Customername, Customerdetail, Po, Dr, Total });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionBackColor = Color.AliceBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.SteelBlue;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView_Orders.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.SteelBlue;
+            dataGridViewCellStyle6.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle6.SelectionForeColor = Color.SteelBlue;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridView_Orders.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView_Orders.GridColor = Color.Silver;
             dataGridView_Orders.Location = new Point(0, 59);
             dataGridView_Orders.Name = "dataGridView_Orders";
             dataGridView_Orders.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Black;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightSteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView_Orders.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Black;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView_Orders.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView_Orders.RowHeadersVisible = false;
             dataGridView_Orders.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.SteelBlue;
-            dataGridViewCellStyle4.SelectionBackColor = Color.AliceBlue;
-            dataGridViewCellStyle4.SelectionForeColor = Color.SteelBlue;
-            dataGridView_Orders.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionBackColor = Color.AliceBlue;
+            dataGridViewCellStyle8.SelectionForeColor = Color.SteelBlue;
+            dataGridView_Orders.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView_Orders.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView_Orders.RowTemplate.DefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridView_Orders.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
@@ -308,7 +309,7 @@
         private Button Orders_add;
         private Button Orders_refresh;
         private Button Order_search;
-        private TextBox textBox1;
+        private TextBox searchTbox;
         private Panel ordersAddPanel;
         private Panel panel3;
         private DataGridViewTextBoxColumn orders_id;

@@ -1,4 +1,5 @@
-﻿using inventory_system.common.Utility;
+﻿using inventory_system.common.Interfaces;
+using inventory_system.common.Utility;
 using inventory_system.Globals;
 using inventory_system.Model;
 using inventory_system.Repository;
@@ -96,7 +97,7 @@ namespace inventory_system
             //    }
             //}
         }
-        private void dataGridView_Orders_CellContentClick(object sender, DataGridViewCellEventArgs e) 
+        private void dataGridView_Orders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -268,6 +269,13 @@ namespace inventory_system
                 popupForm.ShowDialog();
 
             }
+        }
+
+        private void searchTbox_TextChanged(object sender, EventArgs e)
+        {
+            string search = $"%{searchTbox.Text}%";
+
+            dataGridView_Orders.DataSource = orderRepository.Select(SD.SelectSpecificOrder, search);
         }
     }
 }

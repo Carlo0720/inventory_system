@@ -17,6 +17,7 @@ namespace inventory_system.common.Utility
         public const string InsertToOrders = "INSERT INTO orders (customers_id, po_number, dr_number, order_date, total_price, created_at) " +
                     "VALUES (@customer_id, @po_number, @dr_number, @order_date, @total_price, @created_at)";
         public const string SelectOrder = "SELECT o.order_id, o.created_at, CONCAT(c.first_name, ' ', c.last_name) AS customer_name, c.company_name, o.po_number, o.dr_number, o.total_price\r\nFROM orders o\r\nJOIN customers c ON o.customers_id = c.customers_id WHERE o.order_id = @order_id AND o.deleted_at IS NULL;";
+        public const string SelectSpecificOrder = "SELECT o.order_id, o.created_at, CONCAT(c.first_name, ' ', c.last_name) AS customer_name, c.company_name, o.po_number, o.dr_number, o.total_price\r\nFROM orders o\r\nJOIN customers c ON o.customers_id = c.customers_id WHERE o.created_at LIKE @search OR CONCAT(c.first_name, ' ', c.last_name) LIKE @search OR c.company_name LIKE @search OR o.po_number LIKE @search OR o.dr_number LIKE @search AND o.deleted_at IS NULL;";
         public const string UpdateOrders = "UPDATE orders SET customers_id = @customer_id, po_number = @po_number, dr_number = @dr_number, total_price = @total_price, updated_at = @updated_at WHERE order_id = @order_id";
         #endregion
         #region Order Items
