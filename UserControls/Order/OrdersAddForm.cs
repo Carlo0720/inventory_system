@@ -24,20 +24,20 @@ namespace inventory_system.Window_Forms
         public BindingList<ProductDTO> products = new BindingList<ProductDTO>();
         private Customer customer;
 
-        // Create a DataTable to hold the products
-        DataTable productTable = new DataTable();
         public OrdersAddForm(int? Id = null)
         {
             InitializeComponent();
             orderRepository = new OrderRepository();
-            //dataGridView_Order.Columns.Clear();
-            productTable = CreateProductTable(dataGridView_Order);
+            //productTable = CreateProductTable(dataGridView_Order);
             if (Id is not null)
             {
+                //dataGridView_Order.Columns.Clear();
+                CreateProductTable(dataGridView_Order);
                 int id = (int)Id;
                 DataTable dt = orderRepository.GetSpecificOrderItems(id);
-                DataGridViewStyler.ApplyStyles(dataGridView_Order);
-                dataGridView_Order.DataSource = orderRepository.GetSpecificOrderItems(id);
+                //DataGridViewStyler.ApplyStyles(dataGridView_Order);
+                products = ConvertDataTableToBindingList(dt);
+                dataGridView_Order.DataSource = products;
                 Order order = orderRepository.GetOrderInfo(id);
 
                 // Use LINQ to calculate the sum of the 'quantity' column
@@ -54,18 +54,9 @@ namespace inventory_system.Window_Forms
             }
             else
             {
+                CreateProductTable(dataGridView_Order);
                 purchaseOrderTbox.Text = orderRepository.NextPurchaseOrderNumber().ToString();
                 deliveryReceiptTbox.Text = orderRepository.NextDeliveryReceiptNumber().ToString();
-            }
-        }
-
-       
-
-        private void Exit_ordrs_Click(object sender, EventArgs e)
-        {
-            if (this.Parent is System.Windows.Forms.Panel parentPanel)
-            {
-                parentPanel.Visible = false;
             }
         }
 
@@ -187,8 +178,27 @@ namespace inventory_system.Window_Forms
 
             // Hide the "ID" column from the DataGridView
             dataGridView_Order.Columns["product_id"].Visible = false;
-            //// Set the primary key
-            //dt.PrimaryKey = new DataColumn[] { dt.Columns["ProductID"] };
+
+            return dt;
+        }
+        // Method to create a DataTable with the required columns for Product
+        public static DataTable CreateUpdateProductTable(DataGridView dataGridView_Order)
+        {
+            DataTable dt = new DataTable();
+
+
+            dataGridView_Order.Columns.Add("item_name", "item_name");
+            dataGridView_Order.Columns["product_id"].DataPropertyName = "product_id";
+            dataGridView_Order.Columns["item_name"].DataPropertyName = "item_name";
+            dataGridView_Order.Columns["item_code"].DataPropertyName = "item_code";
+            dataGridView_Order.Columns["description"].DataPropertyName = "item_description";
+            dataGridView_Order.Columns["quantity"].DataPropertyName = "quantity";
+            dataGridView_Order.Columns["color"].DataPropertyName = "item_color";
+            dataGridView_Order.Columns["price"].DataPropertyName = "item_price";
+
+            // Hide the "ID" column from the DataGridView
+            dataGridView_Order.Columns["product_id"].Visible = false;
+            dataGridView_Order.Columns["item_name"].Visible = false;
 
             return dt;
         }
@@ -305,6 +315,31 @@ namespace inventory_system.Window_Forms
             {
                 MessageBox.Show("Please select a row to delete.");
             }
+        }
+
+        private BindingList<ProductDTO> ConvertDataTableToBindingList(DataTable dataTable)
+        {
+            BindingList<ProductDTO> productList = new BindingList<ProductDTO>();
+
+            // Iterate through each row in the DataTable
+            foreach (DataRow row in dataTable.Rows)
+            {
+                // Create a new ProductDTO object for each row
+                ProductDTO product = new ProductDTO
+                {
+                    product_id = Convert.ToInt32(row["product_id"]),
+                    item_code = row["item_code"].ToString(),
+                    description = $"{row["item_name"].ToString()} {row["item_description"].ToString()}",
+                    price = Convert.ToDecimal(row["item_price"]),
+                    color = row["item_color"].ToString(),
+                    quantity = Convert.ToInt32(row["quantity"])
+                };
+
+                // Add the ProductDTO to the BindingList
+                productList.Add(product);
+            }
+
+            return productList;
         }
     }
 }
