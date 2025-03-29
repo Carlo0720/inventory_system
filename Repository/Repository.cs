@@ -31,12 +31,12 @@ namespace inventory_system.Repository
             }
         }
 
-        public DataTable Select(string query, string search)
+        public DataTable Select(string query, string search, string search2 = null)
         {
             databaseManager = new DatabaseManager();
             using (databaseManager)
             {
-                return databaseManager.SelectToDataTable(query, search);
+                return databaseManager.SelectToDataTable(query, search, search2);
             }
         }
 

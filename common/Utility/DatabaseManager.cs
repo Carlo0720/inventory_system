@@ -54,7 +54,7 @@ namespace inventory_system.common.Utility
             return dataTable;
         }
         //Used to get data from database and returns the data according to search string in a datatable format
-        public DataTable SelectToDataTable(string query, string search)
+        public DataTable SelectToDataTable(string query, string search, string search2 = null)
         {
             var databaseConnection = DatabaseConnection.Instance();
             DataTable dataTable = new DataTable();
@@ -65,6 +65,8 @@ namespace inventory_system.common.Utility
                 {
 
                     command.Parameters.AddWithValue("@search", search);
+                    if(search2 is not null)
+                        command.Parameters.AddWithValue("@search2", search2);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {

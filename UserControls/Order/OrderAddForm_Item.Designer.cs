@@ -47,7 +47,7 @@
             panel1 = new Panel();
             quantityTbox = new TextBox();
             panel2 = new Panel();
-            lengthTbox = new TextBox();
+            unitTbox = new TextBox();
             label1 = new Label();
             label2 = new Label();
             panel3.SuspendLayout();
@@ -231,21 +231,22 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(lengthTbox);
+            panel2.Controls.Add(unitTbox);
             panel2.Location = new Point(722, 8);
             panel2.Name = "panel2";
             panel2.Size = new Size(158, 36);
             panel2.TabIndex = 13;
             // 
-            // lengthTbox
+            // unitTbox
             // 
-            lengthTbox.BackColor = Color.White;
-            lengthTbox.BorderStyle = BorderStyle.None;
-            lengthTbox.Font = new Font("Segoe UI", 9F);
-            lengthTbox.Location = new Point(3, 9);
-            lengthTbox.Name = "lengthTbox";
-            lengthTbox.Size = new Size(152, 16);
-            lengthTbox.TabIndex = 2;
+            unitTbox.BackColor = Color.White;
+            unitTbox.BorderStyle = BorderStyle.None;
+            unitTbox.Font = new Font("Segoe UI", 9F);
+            unitTbox.Location = new Point(3, 9);
+            unitTbox.Name = "unitTbox";
+            unitTbox.Size = new Size(152, 16);
+            unitTbox.TabIndex = 2;
+            unitTbox.TextChanged += unitTbox_TextChanged;
             // 
             // label1
             // 
@@ -305,7 +306,7 @@
         private Panel panel1;
         private TextBox quantityTbox;
         private Panel panel2;
-        private TextBox lengthTbox;
+        private TextBox unitTbox;
         private Label label1;
         private Label label2;
         private DataGridViewTextBoxColumn product_id;

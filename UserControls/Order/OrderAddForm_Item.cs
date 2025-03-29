@@ -271,15 +271,25 @@ namespace inventory_system.UserControls.Order
         private void products_searchbtn_Click(object sender, EventArgs e)
         {
             string searchTxt = $"%{products_searchTxtbox.Text}%";
+            string searchTxt2 = $"%{unitTbox.Text}%";
             productlist_datagd.DataSource =
-            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt);
+            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt, searchTxt2);
         }
 
         private void products_searchTxtbox_TextChanged(object sender, EventArgs e)
         {
             string searchTxt = $"%{products_searchTxtbox.Text}%";
+            string searchTxt2 = $"%{unitTbox.Text}%";
             productlist_datagd.DataSource =
-            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt);
+            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt, searchTxt2);
+        }
+
+        private void unitTbox_TextChanged(object sender, EventArgs e)
+        {
+            string searchTxt = $"%{products_searchTxtbox.Text}%";
+            string searchTxt2 = $"%{unitTbox.Text}%";
+            productlist_datagd.DataSource =
+            productsRepository.Select(SD.SelectSpecificProductsForOrder, searchTxt, searchTxt2);
         }
     }
 }
