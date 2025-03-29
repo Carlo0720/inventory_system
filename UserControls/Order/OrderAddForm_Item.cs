@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using inventory_system.Repository;
 using inventory_system.common.Utility;
 using inventory_system.common.Interfaces;
+using Google.Protobuf.WellKnownTypes;
 
 namespace inventory_system.UserControls.Order
 {
@@ -28,7 +29,54 @@ namespace inventory_system.UserControls.Order
 
         private void products_add_Click(object sender, EventArgs e)
         {
+            if (productlist_datagd.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = productlist_datagd.SelectedRows[0];
 
+                // Get values from the selected row
+                int productId = Convert.ToInt32(selectedRow.Cells["product_id"].Value);
+                string itemName = selectedRow.Cells["item_name"].Value.ToString();
+                string itemCode = selectedRow.Cells["item_code"].Value.ToString();
+                string itemDescription = selectedRow.Cells["item_description"].Value.ToString();
+                string itemColor = selectedRow.Cells["item_color"].Value.ToString();
+                string itemCategory = selectedRow.Cells["item_category"].Value.ToString();
+                string supplier = selectedRow.Cells["supplier"].Value.ToString();
+                int stock = Convert.ToInt32(selectedRow.Cells["stock"].Value);
+                int quantity = Convert.ToInt32(quantityTbox.Text);
+                string unit = selectedRow.Cells["unit"].Value.ToString();
+                //string length = string.IsNullOrEmpty(lengthTbox.Text) ? "1" : lengthTbox.Text;
+                decimal itemPrice = Convert.ToDecimal(selectedRow.Cells["item_price"].Value);
+
+                // Create the EventArgs object with the product details
+                var eventArgs = new ProductSelectedEventArgs
+                {
+                    product = new()
+                    {
+                        ProductId = productId,
+                        ItemName = itemName,
+                        ItemCode = itemCode,
+                        ItemDescription = itemDescription,
+                        ItemColor = itemColor,
+                        ItemCategory = itemCategory,
+                        Supplier = supplier,
+                        Stock = stock,
+                        Quantity = quantity,
+                        Unit = unit,
+                        //Length = length,
+                        ItemPrice = itemPrice
+                    }
+                };
+
+                // Trigger the ProductSelected event
+                ProductSelected?.Invoke(this, eventArgs);
+
+                // Optionally, enable the parent form again if you disabled it for modal-like behavior
+                Form parentForm = this.FindForm();
+                if (parentForm != null)
+                {
+                    parentForm.Close();
+                }
+            }
         }
 
         private void productlist_datagd_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
