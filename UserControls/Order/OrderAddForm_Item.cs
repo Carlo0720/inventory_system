@@ -226,6 +226,9 @@ namespace inventory_system.UserControls.Order
             // Store the current value in the TextBox in case the input is invalid
             string currentText = quantityTbox.Text;
 
+            // Temporarily unsubscribe from the TextChanged event
+            quantityTbox.TextChanged -= quantityTbox_TextChanged;
+
             // Get the value from the textbox
             if (int.TryParse(quantityTbox.Text, out int value))
             {
@@ -254,6 +257,10 @@ namespace inventory_system.UserControls.Order
                 // If the input is not a valid integer, set the value to 0
                 quantityTbox.Text = "1";
             }
+
+            // Resubscribe to the TextChanged event
+            quantityTbox.TextChanged += quantityTbox_TextChanged;
+
         }
 
         private void productlist_datagd_SelectionChanged(object sender, EventArgs e)
